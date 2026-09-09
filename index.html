@@ -26,6 +26,22 @@ a { color: var(--accent); text-decoration:none; }
 /* Layout */
 #sidebar { position:fixed; left:0; top:0; width:280px; height:100vh; background:var(--surface); border-right:1px solid var(--border); overflow-y:auto; z-index:100; padding:20px 0; }
 #sidebar h2 { padding:0 20px 12px; font-size:15px; color:var(--accent2); border-bottom:1px solid var(--border); margin-bottom:8px; }
+#search-wrap { position:relative; padding:6px 20px 10px; }
+#search-input { width:100%; padding:8px 12px; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--text); font-size:12.5px; outline:none; transition:border-color .2s; }
+#search-input:focus { border-color:var(--accent); }
+#search-input::placeholder { color:#6b7185; }
+#search-results { display:none; position:absolute; left:20px; right:20px; top:52px; background:var(--surface); border:1px solid var(--border); border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.55); z-index:400; max-height:380px; overflow-y:auto; }
+#search-results.show { display:block; }
+.sr-item { padding:8px 12px; cursor:pointer; border-bottom:1px solid var(--border); }
+.sr-item:last-child { border-bottom:none; }
+.sr-item:hover { background:var(--surface2); }
+.sr-title { font-size:12.5px; color:var(--accent2); font-weight:600; }
+.sr-en { font-size:11px; color:var(--text2); font-style:italic; font-weight:400; }
+.sr-hint { font-size:11px; color:var(--text2); margin-top:2px; line-height:1.5; }
+.sr-empty { padding:10px 12px; font-size:12px; color:var(--text2); }
+h3[id^="s"] { scroll-margin-top:28px; }
+h3.flash { animation: flashBox 2.4s ease; border-radius:8px; }
+@keyframes flashBox { 0%,55% { background:rgba(108,140,255,.28); box-shadow:0 0 0 3px rgba(108,140,255,.35); } 100% { background:transparent; box-shadow:none; } }
 .nav-chapter { padding:8px 20px; font-weight:700; font-size:13px; color:var(--warn); cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
 .nav-chapter:hover { background:var(--surface2); }
 .nav-section { padding:5px 20px 5px 36px; font-size:12.5px; color:var(--text2); cursor:pointer; display:block; }
@@ -205,6 +221,10 @@ code { background:var(--code-bg); padding:2px 6px; border-radius:4px; font-size:
 
 <nav id="sidebar">
   <h2>📚 多元微积分指南</h2>
+  <div id="search-wrap">
+    <input id="search-input" type="text" placeholder="🔍 搜索知识点（中/英文）如 ellipsoid、梯度、曲率…" autocomplete="off" spellcheck="false">
+    <div id="search-results"></div>
+  </div>
   <div id="nav-content"></div>
 </nav>
 
@@ -2800,6 +2820,122 @@ function injectViz(secId, title, hint, html) {
     }
   }
 })();
+
+// ==== 搜索知识点（支持中英文）====
+(function(){
+  // 章节 → 关键词表（覆盖英文术语与中文译名，确保常见概念命中）
+  const KEYWORDS = {
+    's12-1': ['3d','three dimensional','three-dimensional','coordinate','octant','sphere','distance formula','三维','坐标系','球面','距离公式','右手'],
+    's12-2': ['vector','magnitude','scalar','unit vector','addition','triangle law','parallelogram law','标准基','向量','模','单位向量','加法','三角形法则','平行四边形法则'],
+    's12-3': ['dot product','scalar product','projection','orthogonal','perpendicular','cosine','direction cosine','点积','投影','正交','垂直','方向余弦','夹角'],
+    's12-4': ['cross product','vector product','determinant','triple product','parallelogram','torque','right-hand rule','叉积','行列式','三重积','平行四边形','力矩','右手定则'],
+    's12-5': ['line','plane','parametric','symmetric equation','normal vector','skew','intersection','直线','平面','参数方程','对称方程','法向量','异面','交点'],
+    's12-6': ['quadric surface','cylinder','ellipsoid','hyperboloid','one sheet','two sheets','cone','paraboloid','elliptic','hyperbolic','generatrix','directrix','saddle','trace','二次曲面','柱面','椭球面','双曲面','单叶','双叶','锥面','抛物面','椭圆','双曲','母线','准线','马鞍','截痕'],
+    's13-1': ['vector-valued function','space curve','parametric curve','limit','vector function','向量函数','空间曲线','参数曲线','极限'],
+    's13-2': ['derivative','tangent','integral','differentiation','differentiate','导数','切向量','积分','微分','求导'],
+    's13-3': ['arc length','curvature','unit tangent','principal normal','binormal','osculating','normal vector','弧长','曲率','单位切向量','主法向量','副法向量','密切'],
+    's13-4': ['motion','velocity','acceleration','speed','projectile','kepler','newton','gravitation','运动','速度','加速度','速率','抛射','开普勒','牛顿','引力'],
+    's14-1': ['function of several variables','domain','range','level curve','level surface','graph','多元函数','定义域','值域','等高线','等值面','图像'],
+    's14-2': ['limit','continuity','continuous','path','two variables','极限','连续','路径','二元'],
+    's14-3': ['partial derivative','clairaut','second derivative','higher-order','mixed','偏导数','克莱罗','二阶','高阶','混合'],
+    's14-4': ['tangent plane','linear approximation','linearization','differential','differentiable','increment','切平面','线性近似','线性化','全微分','可微','增量'],
+    's14-5': ['chain rule','implicit','tree diagram','dependent variable','链式法则','隐函数','树形图','中间变量'],
+    's14-6': ['directional derivative','gradient','level curve','steepest','ascent','descent','方向导数','梯度','等高线','最速','上升','下降'],
+    's14-7': ['maximum','minimum','extreme value','saddle point','critical point','second derivative test','closed','absolute','最大值','最小值','极值','鞍点','临界点','二阶导数判别','闭区域','绝对'],
+    's14-8': ['lagrange','multiplier','constrained','constraint','optimization','拉格朗日','乘数','约束','最优化']
+  };
+
+  // 构建正文索引：每节标题 + 英文标题 + 知识框文本
+  const secs = [];
+  document.querySelectorAll('h3[id^="s"]').forEach(function(h){
+    const secId = h.id;
+    const clone = h.cloneNode(true);
+    clone.querySelectorAll('.en, .fav-btn, button, span[class*=fav]').forEach(function(e){ e.remove(); });
+    const title = (clone.textContent || '').trim() || h.textContent.trim();
+    const enEl = h.querySelector('.en');
+    const en = enEl ? enEl.textContent.trim() : '';
+    const blocks = [];
+    let el = h.nextElementSibling;
+    while (el && !(el.tagName === 'H3' && el.id && el.id.indexOf('s') === 0)) {
+      if (el.classList && el.classList.length && /box|formula|example|prereq|tip|proof|warn/.test(el.className)) {
+        const t = (el.textContent || '').trim();
+        if (t && t.length > 3) blocks.push(t);
+      }
+      el = el.nextElementSibling;
+    }
+    secs.push({id: secId, title: title, en: en, blocks: blocks});
+  });
+
+  const input = document.getElementById('search-input');
+  const box = document.getElementById('search-results');
+  if (!input || !box) return;
+  let results = [];
+
+  function jump(secId) {
+    box.classList.remove('show');
+    input.blur();
+    const h = document.getElementById(secId);
+    if (!h) return;
+    h.scrollIntoView({behavior:'auto', block:'start'});
+    h.classList.remove('flash'); void h.offsetWidth; h.classList.add('flash');
+    setTimeout(function(){ h.classList.remove('flash'); }, 2400);
+  }
+
+  function render(list) {
+    results = list;
+    if (!list.length) {
+      box.innerHTML = '<div class="sr-empty">未找到相关知识点，换个关键词试试（支持中/英文）</div>';
+      box.classList.add('show');
+      return;
+    }
+    box.innerHTML = '';
+    list.forEach(function(r){
+      const d = document.createElement('div');
+      d.className = 'sr-item';
+      const enHtml = r.en ? ' <span class="sr-en">' + r.en + '</span>' : '';
+      d.innerHTML = '<div class="sr-title">' + r.title + enHtml + '</div>' + (r.hint ? '<div class="sr-hint">' + r.hint + '</div>' : '');
+      d.addEventListener('click', function(){ jump(r.id); });
+      box.appendChild(d);
+    });
+    box.classList.add('show');
+  }
+
+  function doSearch(q) {
+    q = q.trim().toLowerCase();
+    if (!q) { box.classList.remove('show'); return; }
+    const out = [];
+    secs.forEach(function(s){
+      let score = 0, hint = '';
+      const titleTxt = (s.title + ' ' + s.en).toLowerCase();
+      if (titleTxt.indexOf(q) >= 0) { score = 3; hint = '标题命中'; }
+      const kws = KEYWORDS[s.id] || [];
+      for (let i = 0; i < kws.length && !hint; i++) {
+        const k = kws[i].toLowerCase();
+        if (k.indexOf(q) >= 0 || (q.length >= 2 && q.indexOf(k) >= 0)) { score = Math.max(score, 2); hint = '关键词：' + kws[i]; }
+      }
+      if (!hint && s.blocks.length) {
+        for (let i = 0; i < s.blocks.length; i++) {
+          const b = s.blocks[i]; const bq = b.toLowerCase();
+          const idx = bq.indexOf(q);
+          if (idx >= 0) { score = Math.max(score, 1); hint = '…' + b.slice(Math.max(0, idx - 18), idx + 42).replace(/\s+/g, ' ') + '…'; break; }
+        }
+      }
+      if (score > 0) out.push({id: s.id, title: s.title, en: s.en, score: score, hint: hint});
+    });
+    out.sort(function(a,b){ return b.score - a.score; });
+    render(out.slice(0, 10));
+  }
+
+  input.addEventListener('input', function(){ doSearch(input.value); });
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && results.length) jump(results[0].id);
+    if (e.key === 'Escape') box.classList.remove('show');
+  });
+  document.addEventListener('click', function(e){
+    if (!box.contains(e.target) && e.target !== input) box.classList.remove('show');
+  });
+})();
+
 </script>
 </body>
 </html>
