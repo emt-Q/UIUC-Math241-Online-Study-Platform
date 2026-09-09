@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="static_images/favicon.ico" type="image/x-icon" >
+    <link rel="shortcut icon" href="static_images/favicon.ico" type="image/x-icon" >
+    <title>
+	IGQS: Ellipsoid
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" async
+	    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+    <script src="js/lib/three.min.js"></script>
+    <script src="js/lib/TrackballControls.js"></script>
+    <script src="js/lib/nouislider.min.js"></script>
+    <script src="js/axes.js"></script>
+    <script src="js/core.js"></script>
+    <link rel="stylesheet" href="css/lib/nouislider.min.css" type="text/css" >
+    <link rel="stylesheet" href="css/quadrics.css" type="text/css" >
+</head>
+
+<body>
+
+<h1>Ellipsoid</h1>
+
+<nav>
+  <ul>
+    <li> <a href="index.html">Intro<br>&zwnj;</a>
+    <li> <a href="ellparab.html">Elliptic<br>Paraboloid</a>
+    <li> <a href="hypparab.html">Hyperbolic<br>Paraboloid</a>
+    <li> <a href="ellipsoid.html" class="active">Ellipsoid<br>&zwnj;</a>
+    <li> <a href="cone.html">Double<br>Cone</a>
+    <li> <a href="hyper1.html">Hyperboloid<br>of One Sheet</a>
+    <li> <a href="hyper2.html">Hyperboloid<br>of Two Sheets </a>
+  </ul>
+</nav>
+
+<section>
+    <p>The basic <b>ellipsoid</b> is given by the equation:
+      
+	$$\frac{x^2}{A^2}+\frac{y^2}{B^2} + \frac{z^2}{C^2} = 1$$
+	
+	Just as an ellipse is a generalization of a circle, an ellipsoid is
+	a generalization of a sphere.  In fact, our planet Earth is not a true
+	sphere; it&rsquo;s an ellipsoid, because it&rsquo;s a little wider than it is
+	tall.</p>
+  
+  <p>As you can verify below, all of the cross sections of an
+      ellipsoid are ellipses.  The picture shows an ellipsoid where \(A=1\),
+      \(B=2\), and \(C=3\).  Looking at the graph, this gives you a hint
+      about how the constants affect the surface.  An ellipsoid centered at
+      the origin stretches out \(A\) units in the positive and negative
+      \(x\) direction; \(B\) units in the positive and negative \(y\)
+      direction; and \(C\) units in the positive and negative \(z\)
+      direction.</p>
+
+  <div class="threecontainer" id="slicedellipsoid">
+      <canvas class="threejs"></canvas>
+      <div class="threecontrols">
+	  <div class="slidergroup">
+	      <div class="sliderlabel">
+		  x = 1.0
+	      </div>
+	      <div class="threeslider">
+	      </div>
+	  </div>
+	  
+	  <div class="slidergroup">
+	      <div class="sliderlabel">
+		  y = 1.0
+	      </div>
+	      <div class="threeslider">
+	      </div>
+	  </div>
+	  
+	  <div class="slidergroup">
+	      <div class="sliderlabel">
+		  z = 1.0
+	      </div>
+	      <div class="threeslider">
+	      </div>
+	  </div>
+
+	  <div class="slidergroup">
+	      <div class="sliderlabel">
+		  Gridlines: <input type="checkbox">
+	      </div>
+	      <div class="sliderlabel">
+		  Surface:
+		  <select>
+		      <option value="invisible">Invisible</option>
+		      <option value="transparent" selected="selected">Transparent</option>
+		      <option value="solid">Solid</option>
+		  </select>
+	      </div>
+	      <div class="sliderlabel">
+		  <button>Reset view</button>
+	      </div>
+	  </div>
+      </div>
+  </div>
+  
+  
+  
+  <p>What this means is that an ellipsoid is probably the easiest
+  quadric surface to draw accurately.  (Or, if your drawing skills are
+  like mine, you at least know what it <i>should</i> look like, even if
+  the actual drawing is somewhat lacking!)</p>
+
+  <p>You can interactively adjust the values of \(A\), \(B\), and \(C\)
+  in the second picture.  Notice that you can get everything from a
+      sphere to a nearly flat pancake. </p>
+
+
+  <div class="threecontainer" id="ellipsoid">
+    <canvas class="threejs" ></canvas>
+    <div class="threecontrols">
+	<div class="slidergroup">
+	    <div class="sliderlabel">
+		A = 1.0
+	    </div>
+	    <div class="threeslider">
+	    </div>
+	</div>
+	
+	<div class="slidergroup">
+	    <div class="sliderlabel">
+		B = 1.0
+	    </div>
+	    <div class="threeslider">
+	    </div>
+	</div>
+	
+	<div class="slidergroup">
+	    <div class="sliderlabel">
+		B = 1.0
+	    </div>
+	    <div class="threeslider">
+	    </div>
+	</div>
+    </div>
+
+     <div class="slidergroup">
+         <div class="sliderlabel">
+             Gridlines: <input type="checkbox">
+         </div>
+         <div class="sliderlabel">
+             Surface:
+             <select>
+                 <option value="invisible">Invisible</option>
+                 <option value="transparent">Transparent</option>
+                 <option value="solid" selected="selected">Solid</option>
+             </select>
+         </div>
+         <div class="sliderlabel">
+             <button>Reset view</button>
+         </div>
+     </div>
+</div>
+
+  
+
+  <p>Here are some things which deserve a little thought on your part:</p>
+  
+  <ol> <li>What needs to happen for an ellipsoid to be a sphere?</li>
+
+  <li>The sliders don&rsquo;t actually go all the way to 0.  Make the values
+  as small as you can and zoom in to verify this; you&rsquo;ll find you have a
+  very small sphere.  (It&rsquo;s radius is 0.1, as it happens.)  Why didn&rsquo;t I
+  make the sliders go all the way to 0?</li>
+
+  <li>If you want to see an interesting effect, maximize all of the
+      sliders and zoom in until you&rsquo;re inside the ellipsoid.  You can rotate
+      around and look at the interior of the surface.  (This works best with
+      the gridlines on.)</li>
+  </ol>
+
+</section>
+
+<script src="js/slicedellipsoid.js"></script>
+<script src="js/ellipsoid.js"></script>
+</body>
+</html>

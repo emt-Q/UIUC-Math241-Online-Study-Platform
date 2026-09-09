@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="static_images/favicon.ico" type="image/x-icon" >
+    <link rel="shortcut icon" href="static_images/favicon.ico" type="image/x-icon" >
+    <title>
+	IGQS: Double Cone
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" async
+	    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+    <script src="js/lib/three.min.js"></script>
+    <script src="js/lib/TrackballControls.js"></script>
+    <script src="js/lib/nouislider.min.js"></script>
+    <script src="js/axes.js"></script>
+    <script src="js/core.js"></script>
+    <link rel="stylesheet" href="css/lib/nouislider.min.css" type="text/css" >
+    <link rel="stylesheet" href="css/quadrics.css" type="text/css" >
+</head>
+
+<body>
+
+<h1> Double Cone</h1>
+
+<nav>
+  <ul>
+    <li> <a href="index.html">Intro<br>&zwnj;</a>
+    <li> <a href="ellparab.html" >Elliptic<br>Paraboloid</a>
+    <li> <a href="hypparab.html">Hyperbolic<br>Paraboloid</a>
+    <li> <a href="ellipsoid.html">Ellipsoid<br>&zwnj;</a>
+    <li> <a href="cone.html"  class="active">Double<br>Cone</a>
+    <li> <a href="hyper1.html">Hyperboloid<br>of One Sheet</a>
+    <li> <a href="hyper2.html">Hyperboloid<br>of Two Sheets </a>
+  </ul>
+</nav>
+
+<section>
+    <p>The basic <b>double cone</b> is given by the equation
+
+	$$z^2=Ax^2+By^2$$
+  
+	The double cone is a very important quadric surface, if for no other
+	reason than the fact that it&rsquo;s used to define the so-called conics &mdash;
+	ellipses, hyperbolas, and parabolas &mdash; all of which can be created as
+	the intersection of a plane and a double cone.  See Calculus textbook
+	for pictures of this.</p>
+
+    <p>The vertical cross sections of a double cone are hyperbolas, while
+	the horizontal cross sections are ellipses.  The picture below
+	shows the cone where \(A=B=1\).</p>
+
+    <div class="threecontainer" id="slicedcone">
+	<canvas class="threejs"></canvas>
+	<div class="threecontrols">
+	    <div class="slidergroup">
+		<div class="sliderlabel">
+		    x = 1.0
+		</div>
+		<div class="threeslider">
+		</div>
+	    </div>
+	    
+	  <div class="slidergroup">
+	      <div class="sliderlabel">
+		  y = 1.0
+	      </div>
+	      <div class="threeslider">
+	      </div>
+	  </div>
+	  
+	  <div class="slidergroup">
+	      <div class="sliderlabel">
+		  z = 1.0
+	      </div>
+	      <div class="threeslider">
+	      </div>
+	  </div>
+
+	  <div class="slidergroup">
+	      <div class="sliderlabel">
+		  Gridlines: <input type="checkbox">
+	      </div>
+	      <div class="sliderlabel">
+		  Surface:
+		  <select>
+		      <option value="invisible">Invisible</option>
+		      <option value="transparent">Transparent</option>
+		      <option value="solid" selected="selected">Solid</option>
+		  </select>
+	      </div>
+	      <div class="sliderlabel">
+		  <button>Reset view</button>
+	      </div>
+	  </div>
+	</div>
+    </div>
+
+    <p>Look back at the equation for the double cone:
+
+	$$z^2=Ax^2+By^2$$
+
+	Sometimes we manipulate it to get a <i>single</i> cone. If we
+	solve for \(z\), we end up with a plus/minus sign in front of
+	a square root. The positive square root represents the top of
+	the cone; the negative square root gives you an equation for
+	the bottom. Be careful if somebody says &ldquo;cone&rdquo;
+	without elaborating; they might mean &ldquo;double cone&rdquo;
+	or &ldquo;single cone&rdquo;, depending on the context.</p>
+    
+</section>
+
+<section>
+    <div class="threecontainer" id="cone">
+	<canvas class="threejs"></canvas>
+	<div class="threecontrols">
+	    <!-- A slider -->
+	    <div class="slidergroup">
+		<div class="sliderlabel">
+		    A = 1.0
+		</div>
+		<div class="threeslider">
+		</div>
+	    </div>
+
+
+	    <!-- B slider -->
+	    <div class="slidergroup">
+		<div class="sliderlabel">
+		    B = 1.0
+		</div>
+		<div class="threeslider">
+		</div>
+	    </div>
+
+	    <!-- Other plot controls -->
+
+	    <div class="slidergroup">
+		<div class="sliderlabel">
+		    Gridlines: <input type="checkbox">
+		</div>
+		<div class="sliderlabel">
+		    Domain:
+		    <select>
+			<option value="square">Square</option>
+			<option value="disk">Disk</option>
+		    </select>
+		</div>
+		<div class="sliderlabel">
+		    <button>Reset view</button>
+		</div>
+	    </div>
+	</div>
+    </div>
+    
+    <p>Roughly speaking, the constants \(A\) and \(B\) determine how
+	&ldquo;steep&rdquo; the cone is in the \(x\) and \(y\)
+	direction, respectively. You can get
+	a feel from this in the second picture, which shows the portion of a
+	cone for which \(x\) and \(y\) are between \(-1\) and \(1\). You
+	can also change the domain to a disk, which will show you the
+	portion of the cone for which \(-2 \leq z \leq 2\).</p>
+
+    <p>After you&rsquo;ve played around with the examples for awhile,
+	see if you can answer the following questions:</p>
+
+  <ol>
+    <li>Why aren&rsquo;t any of the vertical or horizontal cross
+	sections parabolas?</li>
+
+    <li>Explain what happens when either \(A=0\) or \(B=0\).
+	Why don&rsquo;t you get a cone?</li>
+
+    <li>Similarly, what are the cross sections given by \(x=0\) or
+	\(y=0\)?  Are these hyperbolas?</li>
+  </ol>
+
+
+	<script src="js/slicedcone.js"></script>
+	<script src="js/cone.js"></script>
+     
+</section>
+</body>
+</html>

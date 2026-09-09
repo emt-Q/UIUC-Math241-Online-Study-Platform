@@ -1,0 +1,2805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多元微积分完全指南 · 第12-14章 | Stewart Calculus</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface2: #242836;
+  --border: #2e3345; --text: #e4e6ef; --text2: #9ba1b5;
+  --accent: #6c8cff; --accent2: #4fd1c5; --warn: #f6ad55;
+  --danger: #fc8181; --success: #68d391; --purple: #b794f4;
+  --code-bg: #161821;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.75; }
+a { color: var(--accent); text-decoration:none; }
+
+/* Layout */
+#sidebar { position:fixed; left:0; top:0; width:280px; height:100vh; background:var(--surface); border-right:1px solid var(--border); overflow-y:auto; z-index:100; padding:20px 0; }
+#sidebar h2 { padding:0 20px 12px; font-size:15px; color:var(--accent2); border-bottom:1px solid var(--border); margin-bottom:8px; }
+.nav-chapter { padding:8px 20px; font-weight:700; font-size:13px; color:var(--warn); cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+.nav-chapter:hover { background:var(--surface2); }
+.nav-section { padding:5px 20px 5px 36px; font-size:12.5px; color:var(--text2); cursor:pointer; display:block; }
+.nav-section:hover { background:var(--surface2); color:var(--text); }
+.nav-section.active { background:var(--surface2); color:var(--accent); border-left:3px solid var(--accent); }
+.nav-sub { padding:3px 20px 3px 52px; font-size:11.5px; color:var(--text2); cursor:pointer; display:block; opacity:.8; }
+.nav-sub:hover { color:var(--accent2); }
+
+#main { margin-left:280px; padding:40px 50px 100px; max-width:960px; }
+
+/* Headers */
+h1 { font-size:2em; margin-bottom:8px; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+h2 { font-size:1.6em; margin:48px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent); color:var(--accent); }
+h3 { font-size:1.25em; margin:32px 0 12px; color:var(--accent2); }
+h4 { font-size:1.05em; margin:20px 0 8px; color:var(--purple); }
+p { margin:10px 0; }
+
+/* Boxes */
+.box { border-radius:10px; padding:16px 20px; margin:16px 0; border-left:4px solid; }
+.en { color:var(--text2); font-weight:400; font-size:.72em; font-style:italic; letter-spacing:.02em; margin-left:5px; }
+.def-en { color:var(--accent2); font-weight:400; font-size:.85em; font-style:italic; }
+.box.prereq { background:rgba(108,140,255,.08); border-color:var(--accent); }
+.box.prereq::before { content:'🔍 前置知识'; font-weight:700; color:var(--accent); display:block; margin-bottom:6px; font-size:.9em; }
+.box.tip { background:rgba(79,209,197,.08); border-color:var(--accent2); }
+.box.tip::before { content:'💡 理解技巧'; font-weight:700; color:var(--accent2); display:block; margin-bottom:6px; font-size:.9em; }
+.box.warn { background:rgba(246,173,85,.08); border-color:var(--warn); }
+.box.warn::before { content:'⚠️ 常见误区'; font-weight:700; color:var(--warn); display:block; margin-bottom:6px; font-size:.9em; }
+.box.proof { background:rgba(183,148,244,.08); border-color:var(--purple); }
+.box.proof::before { content:'📐 推导证明'; font-weight:700; color:var(--purple); display:block; margin-bottom:6px; font-size:.9em; }
+.box.example { background:rgba(104,211,145,.08); border-color:var(--success); }
+.box.example::before { content:'✏️ 例题'; font-weight:700; color:var(--success); display:block; margin-bottom:6px; font-size:.9em; }
+.box.formula { background:rgba(252,129,129,.06); border-color:var(--danger); }
+.box.formula::before { content:'📌 核心公式'; font-weight:700; color:var(--danger); display:block; margin-bottom:6px; font-size:.9em; }
+
+/* Definition block */
+.definition { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px 18px; margin:14px 0; }
+.definition-title { font-weight:700; color:var(--warn); margin-bottom:6px; }
+
+/* Theorem block */
+.theorem { background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:14px 18px; margin:14px 0; }
+.theorem-title { font-weight:700; color:var(--accent); margin-bottom:6px; }
+
+/* Step-by-step */
+.steps { counter-reset:step; margin:12px 0; }
+.step { position:relative; padding:8px 0 8px 36px; border-left:2px solid var(--border); margin-left:12px; }
+.step::before { counter-increment:step; content:counter(step); position:absolute; left:-14px; top:8px; width:26px; height:26px; background:var(--accent); color:#fff; border-radius:50%; text-align:center; line-height:26px; font-size:12px; font-weight:700; }
+
+/* Table */
+table { width:100%; border-collapse:collapse; margin:16px 0; font-size:.92em; }
+th, td { padding:10px 14px; text-align:left; border-bottom:1px solid var(--border); }
+th { background:var(--surface2); color:var(--accent2); font-weight:600; }
+tr:hover { background:var(--surface); }
+
+/* Code / math display */
+.math-display { overflow-x:auto; padding:12px 0; }
+code { background:var(--code-bg); padding:2px 6px; border-radius:4px; font-size:.9em; }
+
+/* SVG diagrams */
+.diagram { background:var(--surface); border-radius:10px; padding:16px; margin:16px 0; text-align:center; }
+.diagram svg { max-width:100%; height:auto; }
+.diagram-caption { font-size:.85em; color:var(--text2); margin-top:8px; font-style:italic; }
+
+/* Collapsible */
+.collapsible { cursor:pointer; user-select:none; display:flex; align-items:center; gap:8px; }
+.collapsible::after { content:'▼'; font-size:.7em; transition:transform .2s; }
+.collapsible.open::after { transform:rotate(180deg); }
+.collapse-content { display:none; }
+.collapse-content.show { display:block; }
+
+/* Progress bar */
+#progress { position:fixed; top:0; left:280px; right:0; height:3px; background:var(--surface2); z-index:99; }
+#progress-bar { height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); width:0%; transition:width .1s; }
+
+/* Hero */
+.hero { text-align:center; padding:60px 20px 40px; }
+.hero h1 { font-size:2.5em; margin-bottom:12px; }
+.hero p { color:var(--text2); font-size:1.1em; max-width:600px; margin:0 auto; }
+.hero-stats { display:flex; justify-content:center; gap:40px; margin-top:30px; flex-wrap:wrap; }
+.hero-stat { text-align:center; }
+.hero-stat .num { font-size:2em; font-weight:800; color:var(--accent2); }
+.hero-stat .label { font-size:.85em; color:var(--text2); }
+
+/* Chapter intro card */
+.chapter-card { background:linear-gradient(135deg,var(--surface),var(--surface2)); border-radius:14px; padding:28px; margin:24px 0; border:1px solid var(--border); }
+.chapter-card h2 { margin-top:0; border:none; }
+
+/* Quadric surface table */
+.quadric-table td:first-child { font-weight:600; color:var(--accent2); white-space:nowrap; }
+
+/* Responsive */
+@media(max-width:900px){ #sidebar{ transform:translateX(-100%); transition:transform .3s; } #sidebar.open{ transform:translateX(0); } #main{ margin-left:0; padding:20px; } #progress{ left:0; } #menu-btn{ display:block; } }
+#menu-btn { display:none; position:fixed; top:12px; left:12px; z-index:200; background:var(--accent); color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:18px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width:8px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
+::-webkit-scrollbar-thumb:hover { background:var(--text2); }
+
+/* ===== 收藏 & 笔记 ===== */
+.fav-btn { cursor:pointer; font-size:1.1em; color:var(--text2); user-select:none; display:inline-block; margin-right:8px; transition:transform .15s, color .15s; vertical-align:middle; }
+.fav-btn:hover { transform:scale(1.2); color:var(--warn); }
+.fav-btn.faved { color:var(--warn); }
+.note-box { background:rgba(108,140,255,.05); border:1px dashed var(--border); border-radius:10px; padding:14px 16px; margin:20px 0; }
+.note-box-title { font-size:.85em; font-weight:700; color:var(--text2); margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+.note-box textarea { width:100%; min-height:70px; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:10px; font-family:inherit; font-size:.9em; resize:vertical; }
+.note-box textarea:focus { outline:none; border-color:var(--accent); }
+.note-save-btn { margin-top:8px; background:var(--accent); color:#fff; border:none; padding:6px 16px; border-radius:6px; cursor:pointer; font-size:.85em; font-weight:600; }
+.note-save-btn:hover { filter:brightness(1.15); }
+.note-saved-tip { margin-left:10px; font-size:.8em; color:var(--success); opacity:0; transition:opacity .4s; }
+.note-saved-tip.show { opacity:1; }
+.note-meta { font-size:.75em; color:var(--text2); margin-top:4px; }
+
+/* ===== 视频卡片 ===== */
+.video-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px; margin:18px 0; }
+.video-card-title { font-weight:700; color:var(--accent2); margin-bottom:10px; font-size:.95em; display:flex; align-items:center; gap:6px; }
+.video-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
+.video-item { background:var(--surface2); border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+.video-item iframe { width:100%; aspect-ratio:16/9; border:none; display:block; background:#000; }
+.v-thumb { position:relative; display:block; aspect-ratio:16/9; overflow:hidden; background:#000; }
+.v-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .25s; }
+.v-thumb:hover img { transform:scale(1.05); }
+.v-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:56px; height:40px; background:rgba(20,20,20,.72); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; border:1px solid rgba(255,255,255,.35); transition:background .2s; }
+.v-thumb:hover .v-play { background:#ff0033; }
+.v-note { position:absolute; top:8px; left:8px; font-size:.66em; color:#ffe9a8; background:rgba(0,0,0,.68); padding:3px 7px; border-radius:6px; }
+.viz-frame-wrap { border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#002058; box-shadow:0 4px 24px rgba(0,0,0,.35); }
+.viz-frame-wrap iframe { width:100%; height:960px; border:none; display:block; background:#002058; }
+.viz-note { margin-top:8px; font-size:.8em; color:var(--text2); }
+.video-item-info { padding:10px 12px; }
+.video-item-info .v-title { font-size:.85em; font-weight:600; color:var(--text); margin-bottom:4px; }
+.video-item-info .v-meta { font-size:.75em; color:var(--text2); }
+.video-item-info .v-meta b { color:var(--warn); }
+
+/* ===== 交互可视化 ===== */
+.viz-wrap { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px; margin:18px 0; }
+.viz-wrap .viz-title { font-weight:700; color:var(--purple); font-size:.95em; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+.viz-wrap canvas { width:100%; border-radius:8px; background:#0b0d13; display:block; touch-action:none; }
+.viz-controls { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+.viz-controls button, .viz-controls select { background:var(--surface2); color:var(--text); border:1px solid var(--border); padding:5px 12px; border-radius:6px; cursor:pointer; font-size:.8em; }
+.viz-controls button:hover, .viz-controls select:hover { border-color:var(--accent); }
+.viz-controls input[type=range] { width:140px; accent-color:var(--accent); }
+.viz-controls label { font-size:.8em; color:var(--text2); }
+.viz-hint { font-size:.75em; color:var(--text2); margin-top:8px; font-style:italic; }
+
+/* ===== 收藏/笔记面板 ===== */
+#panel-overlay { position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:300; display:none; }
+#panel-overlay.show { display:block; }
+#mypanel { position:fixed; top:0; right:-480px; width:460px; max-width:92vw; height:100vh; background:var(--surface); z-index:301; transition:right .3s; box-shadow:-8px 0 30px rgba(0,0,0,.4); overflow-y:auto; }
+#mypanel.open { right:0; }
+#mypanel .panel-head { padding:18px 20px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; background:var(--surface); z-index:2; }
+#mypanel .panel-head h3 { margin:0; color:var(--accent2); }
+#panel-close { background:none; border:none; color:var(--text2); font-size:1.4em; cursor:pointer; }
+#panel-tabs { display:flex; border-bottom:1px solid var(--border); position:sticky; top:57px; background:var(--surface); z-index:1; }
+#panel-tabs button { flex:1; padding:10px; background:none; border:none; color:var(--text2); cursor:pointer; font-size:.9em; font-weight:600; border-bottom:2px solid transparent; }
+#panel-tabs button.active { color:var(--accent); border-bottom-color:var(--accent); }
+#panel-body { padding:16px 20px; }
+.panel-item { background:var(--surface2); border-radius:8px; padding:12px 14px; margin-bottom:10px; border-left:3px solid var(--accent); }
+.panel-item .pi-title { font-size:.88em; font-weight:600; color:var(--text); cursor:pointer; }
+.panel-item .pi-title:hover { color:var(--accent); }
+.panel-item .pi-note { font-size:.82em; color:var(--text2); margin-top:6px; white-space:pre-wrap; }
+.panel-item .pi-actions { margin-top:8px; font-size:.75em; }
+.panel-item .pi-actions button { background:none; border:none; color:var(--danger); cursor:pointer; padding:0; font-size:.8em; }
+#fav-btn-nav { position:fixed; right:18px; top:14px; z-index:150; background:var(--surface); border:1px solid var(--border); color:var(--warn); padding:8px 14px; border-radius:8px; cursor:pointer; font-size:.85em; font-weight:600; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+#fav-btn-nav:hover { border-color:var(--warn); }
+#fav-btn-nav .count { background:var(--warn); color:#000; border-radius:10px; padding:0 7px; margin-left:6px; font-size:.8em; }
+
+/* Tag */
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:.75em; font-weight:600; margin-right:6px; }
+.tag-easy { background:rgba(104,211,145,.2); color:var(--success); }
+.tag-medium { background:rgba(246,173,85,.2); color:var(--warn); }
+.tag-hard { background:rgba(252,129,129,.2); color:var(--danger); }
+</style>
+</head>
+<body>
+<button id="menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+<div id="progress"><div id="progress-bar"></div></div>
+
+<nav id="sidebar">
+  <h2>📚 多元微积分指南</h2>
+  <div id="nav-content"></div>
+</nav>
+
+<div id="main">
+<!-- ==================== HERO ==================== -->
+<div class="hero" id="top">
+  <h1>多元微积分完全指南</h1>
+  <p>Stewart Calculus 第12–14章 · 从AP微积分BC 3分水平起步，从零理解所有内容</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">3</div><div class="label">章节</div></div>
+    <div class="hero-stat"><div class="num">20</div><div class="label">小节</div></div>
+    <div class="hero-stat"><div class="num">100+</div><div class="label">知识点</div></div>
+    <div class="hero-stat"><div class="num">50+</div><div class="label">推导与例题</div></div>
+  </div>
+</div>
+
+<div class="box tip">
+  <strong>如何使用本指南：</strong>每节包含「前置知识」（你需要先懂什么）、「核心概念」（定义与定理）、「推导证明」（课本跳步的地方全部补齐）、「例题」（手把手演算）和「常见误区」。遇到不懂的公式，点击折叠区可以看到完整推导。
+</div>
+
+<!-- ==================== CHAPTER 12 ==================== -->
+<div class="chapter-card" id="ch12">
+  <h2>第12章 · 向量与空间几何</h2>
+  <p><strong>Vectors and the Geometry of Space</strong></p>
+  <p style="color:var(--text2);margin-top:8px">本章是多元微积分的基础。我们从二维平面扩展到三维空间，引入向量这个核心工具。向量不仅是后续章节（向量函数（vector-valued function）、偏导数）的语言基础，也是物理、工程、计算机图形学的通用语言。</p>
+  <div style="margin-top:12px">
+    <span class="tag tag-easy">12.1 三维坐标系</span>
+    <span class="tag tag-easy">12.2 向量</span>
+    <span class="tag tag-medium">12.3 点积</span>
+    <span class="tag tag-medium">12.4 叉积</span>
+    <span class="tag tag-hard">12.5 直线与平面</span>
+    <span class="tag tag-medium">12.6 柱面与二次曲面</span>
+  </div>
+</div>
+
+<!-- ===== 12.1 ===== -->
+<h3 id="s12-1">12.1 三维坐标系 <span class="en">Three-Dimensional Coordinate Systems</span> <span class="tag tag-easy">入门</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>二维平面直角坐标系（x轴、y轴、原点、象限）、勾股定理 $a^2+b^2=c^2$、圆的方程 $(x-h)^2+(y-k)^2=r^2$。如果你对这些有疑问，先复习一下高中解析几何。
+</div>
+
+<h4>1. 三维坐标系的建立</h4>
+<p>在二维平面中，我们用两条互相垂直的轴（x轴、y轴）定位一个点。到了三维空间，我们需要<strong>第三条轴</strong>——z轴，它同时垂直于x轴和y轴。</p>
+
+<div class="diagram">
+  <svg width="320" height="260" viewBox="0 0 320 260">
+    <!-- axes -->
+    <line x1="160" y1="200" x2="300" y2="140" stroke="#6c8cff" stroke-width="2"/>
+    <text x="305" y="138" fill="#6c8cff" font-size="14">x</text>
+    <line x1="160" y1="200" x2="60" y2="240" stroke="#4fd1c5" stroke-width="2"/>
+    <text x="45" y="248" fill="#4fd1c5" font-size="14">y</text>
+    <line x1="160" y1="200" x2="160" y2="40" stroke="#f6ad55" stroke-width="2"/>
+    <text x="165" y="35" fill="#f6ad55" font-size="14">z</text>
+    <!-- origin -->
+    <circle cx="160" cy="200" r="4" fill="#fff"/>
+    <text x="140" y="218" fill="#9ba1b5" font-size="12">O</text>
+    <!-- point P -->
+    <circle cx="230" cy="130" r="5" fill="#fc8181"/>
+    <text x="238" y="128" fill="#fc8181" font-size="13">P(x,y,z)</text>
+    <!-- projection lines -->
+    <line x1="230" y1="130" x2="230" y2="175" stroke="#fc8181" stroke-width="1" stroke-dasharray="4"/>
+    <line x1="230" y1="175" x2="160" y2="200" stroke="#fc8181" stroke-width="1" stroke-dasharray="4"/>
+  </svg>
+  <div class="diagram-caption">图12.1 三维右手坐标系：x轴指向右前方，y轴指向左前方，z轴指向上方</div>
+</div>
+
+<div class="definition">
+  <div class="definition-title">右手定则（Right-Hand Rule）</div>
+  <p>将右手四指从x轴正向弯向y轴正向，大拇指所指的方向就是z轴正向。这就是<strong>右手坐标系</strong>。如果用左手做同样的动作得到z轴方向，那就是左手坐标系。数学和物理中统一使用右手坐标系。</p>
+</div>
+
+<p>三个坐标平面（xy平面、yz平面、xz平面）把空间分成八个<strong>卦限（octant）</strong>。第一卦限中 $x>0, y>0, z>0$，类似于二维的第一象限。</p>
+
+<h4>2. 空间中两点间的距离</h4>
+
+<div class="box formula">
+  <strong>三维距离公式：</strong>空间中点 $P_1(x_1,y_1,z_1)$ 和 $P_2(x_2,y_2,z_2)$ 之间的距离为
+  $$|P_1P_2| = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$$
+</div>
+
+<div class="box proof">
+  <strong>课本跳步补齐：距离公式怎么来的？</strong>
+  <div class="steps">
+    <div class="step">把 $P_1$ 和 $P_2$ 投影到xy平面，得到点 $Q_1(x_1,y_1,0)$ 和 $Q_2(x_2,y_2,0)$。在xy平面上，由二维距离公式：$|Q_1Q_2| = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$。</div>
+    <div class="step">考虑直角三角形 $P_1Q_1P_2$：底边 $|Q_1P_2| = |Q_1Q_2|$（因为 $Q_1$ 和 $P_2$ 在xy平面上的投影距离就是 $Q_1Q_2$），竖直边 $|P_1Q_1| = |z_2-z_1|$（两点的z坐标差）。</div>
+    <div class="step">更准确地说，构造直角三角形：水平边在xy平面内长度为 $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$，竖直边长度为 $|z_2-z_1|$，斜边就是 $|P_1P_2|$。</div>
+    <div class="step">由勾股定理：$|P_1P_2|^2 = (x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2$，两边开方即得距离公式。</div>
+  </div>
+  <p><strong>关键直觉：</strong>三维距离 = 先用二维距离公式算xy平面上的投影距离，再和z方向的差一起用一次勾股定理。本质上是勾股定理用了两次。</p>
+</div>
+
+<h4>3. 球面方程</h4>
+
+<div class="box formula">
+  <strong>球面方程：</strong>球心在 $C(h,k,l)$、半径为 $r$ 的球面方程为
+  $$(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$$
+  <p style="margin-top:8px">球心在原点时：$x^2+y^2+z^2=r^2$</p>
+</div>
+
+<div class="box proof">
+  <strong>推导：</strong>球面上任意一点 $P(x,y,z)$ 到球心 $C(h,k,l)$ 的距离都等于半径 $r$。由距离公式：
+  $$\sqrt{(x-h)^2+(y-k)^2+(z-l)^2} = r$$
+  两边平方即得球面方程。<strong>这和二维中圆的方程完全类比</strong>——圆是"到定点距离等于定长的点的集合"，球面是三维版本。
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求球心在 $(2,-1,3)$、半径为5的球面方程，并判断点 $(4,1,1)$ 是否在球面上。
+  <p><strong>解：</strong>方程为 $(x-2)^2+(y+1)^2+(z-3)^2=25$。</p>
+  <p>代入 $(4,1,1)$：$(4-2)^2+(1+1)^2+(1-3)^2 = 4+4+4 = 12 \neq 25$，所以该点在球<strong>内部</strong>（距离平方12 < 25）。</p>
+</div>
+
+<h4>4. 坐标面与平行平面</h4>
+<p>方程 $x=0$ 表示yz平面（所有x坐标为0的点）。$x=3$ 表示一个平行于yz平面的平面，它在x轴上截距为3。</p>
+<table>
+  <tr><th>方程</th><th>图形</th></tr>
+  <tr><td>$x=0$</td><td>yz坐标平面</td></tr>
+  <tr><td>$y=0$</td><td>xz坐标平面</td></tr>
+  <tr><td>$z=0$</td><td>xy坐标平面</td></tr>
+  <tr><td>$x=a$</td><td>平行于yz平面的平面</td></tr>
+  <tr><td>$z=c$</td><td>平行于xy平面的水平面</td></tr>
+</table>
+
+<div class="box warn">
+  <strong>注意维度差异：</strong>在二维中，$x=3$ 是一条<strong>竖直线</strong>；在三维中，$x=3$ 是一个<strong>平面</strong>（因为y和z可以自由取值）。这是从二维到三维最容易混淆的点之一。
+</div>
+
+<!-- ===== 12.2 ===== -->
+<h3 id="s12-2">12.2 向量 <span class="en">Vectors</span> <span class="tag tag-easy">入门</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>有向线段的概念、三角函数（sin/cos/tan）、基本代数运算。向量是"既有大小又有方向的量"，对比"只有大小的标量（scalar，如温度、质量）。
+</div>
+
+<h4>1. 什么是向量</h4>
+<div class="definition">
+  <div class="definition-title">向量（Vector）</div>
+  <p>向量是既有<strong>大小（magnitude）</strong>又有<strong>方向（direction）</strong>的量。几何上用箭头（有向线段）表示：箭头长度 = 大小，箭头指向 = 方向。记作 $\mathbf{v}$ 或 $\vec{v}$。</p>
+</div>
+
+<p><strong>关键概念——等价向量：</strong>两个向量只要大小相同、方向相同，就是<strong>相等的</strong>，不管它们起点在哪里。这意味着向量可以在空间中自由平移。$\vec{AB} = \vec{CD}$ 当且仅当它们长度相等且平行同向。</p>
+
+<div class="box tip">
+  <strong>为什么向量可以平移？</strong>因为向量描述的是"位移"——从A到B的移动和从C到D的移动，如果方向和距离一样，效果就是一样的。这就像"向东走3公里"不管从哪里出发都是同一个位移向量。
+</div>
+
+<p><strong>零向量（zero vector） $\mathbf{0}$：</strong>长度为0的向量，没有特定方向。</p>
+
+<h4>2. 向量加法</h4>
+
+<div class="definition">
+  <div class="definition-title">三角形法则（Triangle Law）</div>
+  <p>将向量 $\mathbf{v}$ 的起点移到 $\mathbf{u}$ 的终点，则 $\mathbf{u}+\mathbf{v}$ 是从 $\mathbf{u}$ 的起点指向 $\mathbf{v}$ 的终点的向量。</p>
+</div>
+
+<div class="definition">
+  <div class="definition-title">平行四边形法则（Parallelogram Law）</div>
+  <p>将 $\mathbf{u}$ 和 $\mathbf{v}$ 起点放在一起，以它们为邻边作平行四边形，则 $\mathbf{u}+\mathbf{v}$ 是从公共起点出发的对角线向量。</p>
+</div>
+
+<div class="diagram">
+  <svg width="340" height="200" viewBox="0 0 340 200">
+    <!-- triangle law -->
+    <text x="20" y="20" fill="#9ba1b5" font-size="12">三角形法则</text>
+    <line x1="40" y1="150" x2="140" y2="100" stroke="#6c8cff" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="80" y="118" fill="#6c8cff" font-size="13">u</text>
+    <line x1="140" y1="100" x2="200" y2="50" stroke="#4fd1c5" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="165" y="68" fill="#4fd1c5" font-size="13">v</text>
+    <line x1="40" y1="150" x2="200" y2="50" stroke="#f6ad55" stroke-width="2.5" stroke-dasharray="6" marker-end="url(#arrow)"/>
+    <text x="100" y="85" fill="#f6ad55" font-size="13">u+v</text>
+    <!-- parallelogram law -->
+    <text x="220" y="20" fill="#9ba1b5" font-size="12">平行四边形法则</text>
+    <line x1="240" y1="150" x2="320" y2="110" stroke="#6c8cff" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="275" y="125" fill="#6c8cff" font-size="13">u</text>
+    <line x1="240" y1="150" x2="270" y2="70" stroke="#4fd1c5" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="248" y="100" fill="#4fd1c5" font-size="13">v</text>
+    <line x1="320" y1="110" x2="350" y2="30" stroke="#4fd1c5" stroke-width="1.5" stroke-dasharray="3"/>
+    <line x1="270" y1="70" x2="350" y2="30" stroke="#6c8cff" stroke-width="1.5" stroke-dasharray="3"/>
+    <line x1="240" y1="150" x2="350" y2="30" stroke="#f6ad55" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="285" y="78" fill="#f6ad55" font-size="13">u+v</text>
+    <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#fff"/></marker></defs>
+  </svg>
+  <div class="diagram-caption">两种加法法则给出相同结果，说明向量加法满足交换律 u+v = v+u</div>
+</div>
+
+<h4>3. 标量乘法</h4>
+<div class="definition">
+  <div class="definition-title">标量乘法（Scalar Multiplication）</div>
+  <p>标量 $c$ 乘以向量 $\mathbf{v}$ 得到新向量 $c\mathbf{v}$：</p>
+  <ul style="margin-left:20px;margin-top:6px">
+    <li>大小：$|c\mathbf{v}| = |c| \cdot |\mathbf{v}|$</li>
+    <li>方向：$c>0$ 时与 $\mathbf{v}$ 同向；$c<0$ 时与 $\mathbf{v}$ 反向；$c=0$ 时为零向量</li>
+  </ul>
+</div>
+
+<p><strong>向量减法：</strong>$\mathbf{u}-\mathbf{v} = \mathbf{u} + (-\mathbf{v})$。几何上，如果 $\mathbf{u}$ 和 $\mathbf{v}$ 起点相同，$\mathbf{u}-\mathbf{v}$ 是从 $\mathbf{v}$ 的终点指向 $\mathbf{u}$ 的终点的向量。</p>
+
+<h4>4. 向量的分量表示</h4>
+<p>把向量的起点移到原点，终点坐标 $(a_1,a_2,a_3)$ 就是向量的<strong>分量（components）</strong>，记作：</p>
+$$\mathbf{a} = \langle a_1, a_2, a_3 \rangle = a_1\mathbf{i} + a_2\mathbf{j} + a_3\mathbf{k}$$
+
+<p>其中 $\mathbf{i}=\langle1,0,0\rangle$、$\mathbf{j}=\langle0,1,0\rangle$、$\mathbf{k}=\langle0,0,1\rangle$ 是<strong>标准基向量（standard basis vectors）</strong>，分别沿x、y、z轴正方向，长度均为1。</p>
+
+<div class="box formula">
+  <strong>向量的大小（模长）：</strong>
+  $$|\mathbf{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$$
+  这就是从原点到 $(a_1,a_2,a_3)$ 的距离，由距离公式直接得到。
+</div>
+
+<div class="box formula">
+  <strong>分量运算：</strong>设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
+  $$\mathbf{a}+\mathbf{b} = \langle a_1+b_1,\; a_2+b_2,\; a_3+b_3\rangle$$
+  $$\mathbf{a}-\mathbf{b} = \langle a_1-b_1,\; a_2-b_2,\; a_3-b_3\rangle$$
+  $$c\mathbf{a} = \langle ca_1,\; ca_2,\; ca_3\rangle$$
+  <p style="margin-top:8px"><strong>直觉：</strong>向量运算就是<strong>各分量分别运算</strong>。加法就是x加x、y加y、z加z。</p>
+</div>
+
+<h4>5. 单位向量</h4>
+<div class="definition">
+  <div class="definition-title">单位向量（Unit Vector）</div>
+  <p>长度为1的向量。与非零向量 $\mathbf{a}$ 同方向的单位向量为：
+  $$\mathbf{u} = \frac{\mathbf{a}}{|\mathbf{a}|}$$
+  这个操作叫"单位化"（normalizing）。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求与 $\mathbf{a}=\langle3,4,0\rangle$ 同方向的单位向量。
+  <p><strong>解：</strong>$|\mathbf{a}| = \sqrt{9+16+0} = 5$，所以 $\mathbf{u} = \frac{1}{5}\langle3,4,0\rangle = \langle\frac{3}{5},\frac{4}{5},0\rangle$。验证：$|\mathbf{u}| = \sqrt{9/25+16/25} = 1$。 ✓</p>
+</div>
+
+<h4>6. 两点确定的向量</h4>
+<p>给定点 $A(x_1,y_1,z_1)$ 和 $B(x_2,y_2,z_2)$，则向量 $\vec{AB}$（从A指向B）为：</p>
+$$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
+
+<div class="box tip">
+  <strong>记忆口诀：</strong>"终点减起点"。$\vec{AB}$ 的分量 = B的坐标 - A的坐标。这和位移的概念一致：从A到B，x方向移动了 $x_2-x_1$。
+</div>
+
+<h4>7. 向量的性质</h4>
+<table>
+  <tr><th>性质</th><th>公式</th></tr>
+  <tr><td>交换律</td><td>$\mathbf{a}+\mathbf{b}=\mathbf{b}+\mathbf{a}$</td></tr>
+  <tr><td>结合律</td><td>$(\mathbf{a}+\mathbf{b})+\mathbf{c}=\mathbf{a}+(\mathbf{b}+\mathbf{c})$</td></tr>
+  <tr><td>加法单位元</td><td>$\mathbf{a}+\mathbf{0}=\mathbf{a}$</td></tr>
+  <tr><td>加法逆元</td><td>$\mathbf{a}+(-\mathbf{a})=\mathbf{0}$</td></tr>
+  <tr><td>标量结合律</td><td>$c(d\mathbf{a})=(cd)\mathbf{a}$</td></tr>
+  <tr><td>分配律1</td><td>$c(\mathbf{a}+\mathbf{b})=c\mathbf{a}+c\mathbf{b}$</td></tr>
+  <tr><td>分配律2</td><td>$(c+d)\mathbf{a}=c\mathbf{a}+d\mathbf{a}$</td></tr>
+  <tr><td>标量单位元</td><td>$1\mathbf{a}=\mathbf{a}$</td></tr>
+</table>
+
+<!-- ===== 12.3 ===== -->
+<h3 id="s12-3">12.3 点积 <span class="en">The Dot Product</span> <span class="tag tag-medium">核心</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>向量的分量表示、向量的模长、余弦定理 $c^2=a^2+b^2-2ab\cos C$、三角函数基本值。点积是向量的第一种"乘法"，结果是一个<strong>标量</strong>（数），不是向量。
+</div>
+
+<h4>1. 点积的定义</h4>
+<div class="definition">
+  <div class="definition-title">点积（Dot Product / 内积）</div>
+  <p>设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
+  $$\mathbf{a}\cdot\mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3$$
+  即<strong>对应分量相乘再相加</strong>。结果是一个标量。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$\mathbf{a}=\langle2,1,-3\rangle$，$\mathbf{b}=\langle0,4,2\rangle$，则 $\mathbf{a}\cdot\mathbf{b} = 2(0)+1(4)+(-3)(2) = 0+4-6 = -2$。
+</div>
+
+<h4>2. 点积的几何意义（最重要！）</h4>
+
+<div class="theorem">
+  <div class="theorem-title">定理：点积的几何公式</div>
+  <p>设 $\theta$ 为 $\mathbf{a}$ 与 $\mathbf{b}$ 之间的夹角（$0\leq\theta\leq\pi$），则
+  $$\mathbf{a}\cdot\mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta$$</p>
+</div>
+
+<div class="box proof">
+  <strong>课本跳步补齐：这个公式怎么来的？</strong>
+  <div class="steps">
+    <div class="step">将 $\mathbf{a}$ 和 $\mathbf{b}$ 起点放在一起，考虑三角形：两边为 $|\mathbf{a}|$ 和 $|\mathbf{b}|$，夹角为 $\theta$，第三边为 $|\mathbf{a}-\mathbf{b}|$。</div>
+    <div class="step">由<strong>余弦定理</strong>：$|\mathbf{a}-\mathbf{b}|^2 = |\mathbf{a}|^2 + |\mathbf{b}|^2 - 2|\mathbf{a}||\mathbf{b}|\cos\theta$。</div>
+    <div class="step">另一方面，用分量展开左边：$|\mathbf{a}-\mathbf{b}|^2 = (a_1-b_1)^2+(a_2-b_2)^2+(a_3-b_3)^2$</div>
+    <div class="step">展开：$= (a_1^2+a_2^2+a_3^2) + (b_1^2+b_2^2+b_3^2) - 2(a_1b_1+a_2b_2+a_3b_3)$</div>
+    <div class="step">即 $= |\mathbf{a}|^2 + |\mathbf{b}|^2 - 2(\mathbf{a}\cdot\mathbf{b})$。</div>
+    <div class="step">将步骤2和步骤5的结果相等：$|\mathbf{a}|^2+|\mathbf{b}|^2-2(\mathbf{a}\cdot\mathbf{b}) = |\mathbf{a}|^2+|\mathbf{b}|^2-2|\mathbf{a}||\mathbf{b}|\cos\theta$</div>
+    <div class="step">消去相同项，两边除以-2：$\mathbf{a}\cdot\mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta$。证毕。</div>
+  </div>
+  <p><strong>这个证明的核心</strong>是余弦定理 + 分量展开，两者描述同一个三角形的第三边，从而建立代数定义和几何意义的联系。</p>
+</div>
+
+<div class="box tip">
+  <strong>如何理解 $\cos\theta$？</strong>
+  <ul style="margin-left:20px">
+    <li>$\theta=0$（同向）：$\cos0=1$，点积最大 $=|\mathbf{a}||\mathbf{b}|$</li>
+    <li>$\theta=\pi/2$（垂直）：$\cos(\pi/2)=0$，点积 $=0$</li>
+    <li>$\theta=\pi$（反向）：$\cos\pi=-1$，点积最小 $=-|\mathbf{a}||\mathbf{b}|$</li>
+  </ul>
+  <p style="margin-top:6px">点积的符号告诉你两个向量"指向同一个方向的程度"：正=锐角，零=垂直，负=钝角。</p>
+</div>
+
+<h4>3. 垂直的判定</h4>
+<div class="theorem">
+  <div class="theorem-title">推论：垂直判定</div>
+  <p>两个非零向量 $\mathbf{a}$ 和 $\mathbf{b}$ <strong>垂直（orthogonal）</strong>当且仅当 $\mathbf{a}\cdot\mathbf{b}=0$。</p>
+</div>
+<p>证明：$\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|\cos\theta=0$，而 $|\mathbf{a}|,|\mathbf{b}|\neq0$，所以 $\cos\theta=0$，即 $\theta=\pi/2$。</p>
+
+<h4>4. 点积的性质</h4>
+<table>
+  <tr><th>性质</th><th>公式</th></tr>
+  <tr><td>交换律</td><td>$\mathbf{a}\cdot\mathbf{b}=\mathbf{b}\cdot\mathbf{a}$</td></tr>
+  <tr><td>分配律</td><td>$\mathbf{a}\cdot(\mathbf{b}+\mathbf{c})=\mathbf{a}\cdot\mathbf{b}+\mathbf{a}\cdot\mathbf{c}$</td></tr>
+  <tr><td>标量结合</td><td>$(c\mathbf{a})\cdot\mathbf{b}=c(\mathbf{a}\cdot\mathbf{b})=\mathbf{a}\cdot(c\mathbf{b})$</td></tr>
+  <tr><td>自身点积</td><td>$\mathbf{a}\cdot\mathbf{a}=|\mathbf{a}|^2$</td></tr>
+  <tr><td>与零向量</td><td>$\mathbf{a}\cdot\mathbf{0}=0$</td></tr>
+</table>
+
+<div class="box proof">
+  <strong>分配律证明（课本常略过）：</strong>
+  $\mathbf{a}\cdot(\mathbf{b}+\mathbf{c}) = a_1(b_1+c_1)+a_2(b_2+c_2)+a_3(b_3+c_3)$
+  $= (a_1b_1+a_2b_2+a_3b_3)+(a_1c_1+a_2c_2+a_3c_3) = \mathbf{a}\cdot\mathbf{b}+\mathbf{a}\cdot\mathbf{c}$。
+  本质就是实数乘法分配律在每个分量上分别应用。
+</div>
+
+<h4>5. 方向角与方向余弦</h4>
+<p>向量 $\mathbf{a}$ 与x轴、y轴、z轴正方向的夹角 $\alpha,\beta,\gamma$ 称为<strong>方向角（direction angles）</strong>，它们的余弦 $\cos\alpha,\cos\beta,\cos\gamma$ 称为<strong>方向余弦（direction cosines）</strong>。</p>
+
+<div class="box formula">
+  $$\cos\alpha = \frac{a_1}{|\mathbf{a}|},\quad \cos\beta = \frac{a_2}{|\mathbf{a}|},\quad \cos\gamma = \frac{a_3}{|\mathbf{a}|}$$
+  <p style="margin-top:6px">并且恒有 $\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1$（因为 $\frac{a_1^2+a_2^2+a_3^2}{|\mathbf{a}|^2}=1$）。</p>
+  <p>方向余弦组成的向量 $\langle\cos\alpha,\cos\beta,\cos\gamma\rangle$ 就是 $\mathbf{a}$ 方向的单位向量。</p>
+</div>
+
+<h4>6. 投影（Projections）</h4>
+<p>这是点积最重要的应用之一。想象阳光从正上方照下来，向量 $\mathbf{a}$ 在向量 $\mathbf{b}$ 方向上的"影子"就是投影。</p>
+
+<div class="definition">
+  <div class="definition-title">标量投影（Scalar Projection）</div>
+  <p>$\mathbf{a}$ 在 $\mathbf{b}$ 方向上的标量投影（即影子的长度，带符号）：
+  $$\text{comp}_{\mathbf{b}}\mathbf{a} = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|} = |\mathbf{a}|\cos\theta$$</p>
+</div>
+
+<div class="definition">
+  <div class="definition-title">向量投影（Vector Projection）</div>
+  <p>$\mathbf{a}$ 在 $\mathbf{b}$ 方向上的向量投影（影子本身，是一个向量）：
+  $$\text{proj}_{\mathbf{b}}\mathbf{a} = \left(\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|^2}\right)\mathbf{b} = \left(\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|}\right)\frac{\mathbf{b}}{|\mathbf{b}|}$$</p>
+</div>
+
+<div class="box proof">
+  <strong>投影公式推导：</strong>
+  <div class="steps">
+    <div class="step">标量投影就是 $\mathbf{a}$ 在 $\mathbf{b}$ 方向上的"影子长度"。由几何公式 $\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|\cos\theta$，解出 $|\mathbf{a}|\cos\theta = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|}$。这就是影子的有符号长度。</div>
+    <div class="step">向量投影 = 标量投影 × $\mathbf{b}$ 方向的单位向量。即 $\text{proj}_{\mathbf{b}}\mathbf{a} = \left(\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|}\right)\cdot\frac{\mathbf{b}}{|\mathbf{b}|} = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|^2}\mathbf{b}$。</div>
+  </div>
+</div>
+
+<div class="box warn">
+  <strong>常见混淆：</strong>
+  <ul style="margin-left:20px">
+    <li>标量（scalar）投影 $\text{comp}_{\mathbf{b}}\mathbf{a}$ 是一个<strong>数</strong>（可正可负）</li>
+    <li>向量（vector）投影 $\text{proj}_{\mathbf{b}}\mathbf{a}$ 是一个<strong>向量</strong>（沿 $\mathbf{b}$ 方向）</li>
+    <li>$\text{comp}_{\mathbf{b}}\mathbf{a} \neq \text{comp}_{\mathbf{a}}\mathbf{b}$（除非 $|\mathbf{a}|=|\mathbf{b}|$）</li>
+    <li>注意分母：标量投影分母是 $|\mathbf{b}|$，向量投影分母是 $|\mathbf{b}|^2$</li>
+  </ul>
+</div>
+
+<h4>7. 功（Work）</h4>
+<div class="box formula">
+  <p>恒力 $\mathbf{F}$ 使物体位移 $\mathbf{D}$ 所做的功：
+  $$W = \mathbf{F}\cdot\mathbf{D} = |\mathbf{F}||\mathbf{D}|\cos\theta$$</p>
+  <p style="margin-top:6px">其中 $\theta$ 是力和位移的夹角。只有力在位移方向上的分量才做功。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>力 $\mathbf{F}=\langle3,4\rangle$ N，位移 $\mathbf{D}=\langle5,0\rangle$ m，求功。
+  <p><strong>解：</strong>$W = \mathbf{F}\cdot\mathbf{D} = 3(5)+4(0) = 15$ J。</p>
+  <p>物理直觉：力的水平分量3N推动物体移动5m，做功15J；竖直分量4N不做功（因为位移在水平方向）。</p>
+</div>
+
+<!-- ===== 12.4 ===== -->
+<h3 id="s12-4">12.4 叉积 <span class="en">The Cross Product</span> <span class="tag tag-medium">核心</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>行列式（determinant）的计算（2阶和3阶）、点积的几何意义、向量垂直的概念。叉积是向量的第二种"乘法"，结果是一个<strong>向量</strong>，且只在三维空间中有定义。
+</div>
+
+<h4>1. 叉积的定义</h4>
+<div class="definition">
+  <div class="definition-title">叉积（Cross Product）</div>
+  <p>设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
+  $$\mathbf{a}\times\mathbf{b} = \langle a_2b_3-a_3b_2,\; a_3b_1-a_1b_3,\; a_1b_2-a_2b_1\rangle$$</p>
+</div>
+
+<p>为了便于记忆，用<strong>行列式</strong>表示：</p>
+$$\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}$$
+
+<div class="box proof">
+  <strong>行列式展开（补齐步骤）：</strong>
+  <p>按第一行展开3阶行列式：</p>
+  $$\mathbf{a}\times\mathbf{b} = \mathbf{i}\begin{vmatrix}a_2&a_3\\b_2&b_3\end{vmatrix} - \mathbf{j}\begin{vmatrix}a_1&a_3\\b_1&b_3\end{vmatrix} + \mathbf{k}\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix}$$
+  $$= \mathbf{i}(a_2b_3-a_3b_2) - \mathbf{j}(a_1b_3-a_3b_1) + \mathbf{k}(a_1b_2-a_2b_1)$$
+  $$= \langle a_2b_3-a_3b_2,\; a_3b_1-a_1b_3,\; a_1b_2-a_2b_1\rangle$$
+  <p style="margin-top:6px"><strong>注意j分量的负号！</strong>这是最容易出错的地方。展开时中间项是减号。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$\mathbf{a}=\langle1,3,4\rangle$，$\mathbf{b}=\langle2,7,-5\rangle$，求 $\mathbf{a}\times\mathbf{b}$。
+  <p><strong>解：</strong></p>
+  $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&3&4\\2&7&-5\end{vmatrix} = \mathbf{i}(3(-5)-4\cdot7) - \mathbf{j}(1(-5)-4\cdot2) + \mathbf{k}(1\cdot7-3\cdot2)$$
+  $$= \mathbf{i}(-15-28) - \mathbf{j}(-5-8) + \mathbf{k}(7-6) = -43\mathbf{i}+13\mathbf{j}+\mathbf{k} = \langle-43,13,1\rangle$$
+</div>
+
+<h4>2. 叉积的几何意义</h4>
+
+<div class="theorem">
+  <div class="theorem-title">定理1：叉积垂直于两个因子</div>
+  <p>$\mathbf{a}\times\mathbf{b}$ 同时垂直于 $\mathbf{a}$ 和 $\mathbf{b}$。</p>
+</div>
+
+<div class="box proof">
+  <strong>证明：</strong>只需验证 $(\mathbf{a}\times\mathbf{b})\cdot\mathbf{a}=0$ 和 $(\mathbf{a}\times\mathbf{b})\cdot\mathbf{b}=0$。
+  <p>$(\mathbf{a}\times\mathbf{b})\cdot\mathbf{a} = (a_2b_3-a_3b_2)a_1 + (a_3b_1-a_1b_3)a_2 + (a_1b_2-a_2b_1)a_3$</p>
+  $= a_1a_2b_3 - a_1a_3b_2 + a_2a_3b_1 - a_1a_2b_3 + a_1a_3b_2 - a_2a_3b_1 = 0$。
+  <p>所有项两两抵消。同理可证与 $\mathbf{b}$ 的点积也为0。</p>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">定理2：叉积的模长</div>
+  <p>设 $\theta$ 为 $\mathbf{a}$ 与 $\mathbf{b}$ 的夹角，则
+  $$|\mathbf{a}\times\mathbf{b}| = |\mathbf{a}||\mathbf{b}|\sin\theta$$</p>
+</div>
+
+<div class="box proof">
+  <strong>课本跳步补齐：</strong>
+  <div class="steps">
+    <div class="step">$|\mathbf{a}\times\mathbf{b}|^2 = (a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+(a_1b_2-a_2b_1)^2$</div>
+    <div class="step">展开后整理（这一步课本通常直接给出结果）：$= (a_1^2+a_2^2+a_3^2)(b_1^2+b_2^2+b_3^2) - (a_1b_1+a_2b_2+a_3b_3)^2$</div>
+    <div class="step">即 $= |\mathbf{a}|^2|\mathbf{b}|^2 - (\mathbf{a}\cdot\mathbf{b})^2$</div>
+    <div class="step">代入点积几何公式 $\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|\cos\theta$：</div>
+    <div class="step">$= |\mathbf{a}|^2|\mathbf{b}|^2 - |\mathbf{a}|^2|\mathbf{b}|^2\cos^2\theta = |\mathbf{a}|^2|\mathbf{b}|^2(1-\cos^2\theta) = |\mathbf{a}|^2|\mathbf{b}|^2\sin^2\theta$</div>
+    <div class="step">因为 $0\leq\theta\leq\pi$，$\sin\theta\geq0$，开方得 $|\mathbf{a}\times\mathbf{b}|=|\mathbf{a}||\mathbf{b}|\sin\theta$。</div>
+  </div>
+</div>
+
+<div class="box tip">
+  <strong>叉积模长的几何意义：</strong>$|\mathbf{a}\times\mathbf{b}|$ 等于以 $\mathbf{a}$ 和 $\mathbf{b}$ 为邻边的<strong>平行四边形的面积</strong>。
+  <p>因为平行四边形面积 = 底 × 高 = $|\mathbf{a}| \times (|\mathbf{b}|\sin\theta) = |\mathbf{a}||\mathbf{b}|\sin\theta$。</p>
+  <p>三角形面积 = $\frac{1}{2}|\mathbf{a}\times\mathbf{b}|$。</p>
+</div>
+
+<h4>3. 右手定则确定方向</h4>
+<p>$\mathbf{a}\times\mathbf{b}$ 的方向由<strong>右手定则</strong>确定：右手四指从 $\mathbf{a}$ 弯向 $\mathbf{b}$（沿小于 $\pi$ 的角），大拇指指向就是 $\mathbf{a}\times\mathbf{b}$ 的方向。</p>
+
+<div class="box warn">
+  <strong>叉积不满足交换律！</strong>$\mathbf{a}\times\mathbf{b} = -\mathbf{b}\times\mathbf{a}$。交换顺序会得到相反方向的向量。这和点积（交换律成立）完全不同。
+</div>
+
+<h4>4. 叉积的性质</h4>
+<table>
+  <tr><th>性质</th><th>公式</th></tr>
+  <tr><td>反交换律</td><td>$\mathbf{a}\times\mathbf{b} = -\mathbf{b}\times\mathbf{a}$</td></tr>
+  <tr><td>分配律</td><td>$\mathbf{a}\times(\mathbf{b}+\mathbf{c})=\mathbf{a}\times\mathbf{b}+\mathbf{a}\times\mathbf{c}$</td></tr>
+  <tr><td>标量结合</td><td>$(c\mathbf{a})\times\mathbf{b}=c(\mathbf{a}\times\mathbf{b})=\mathbf{a}\times(c\mathbf{b})$</td></tr>
+  <tr><td>平行判定</td><td>$\mathbf{a}\times\mathbf{b}=\mathbf{0} \iff \mathbf{a}\parallel\mathbf{b}$</td></tr>
+  <tr><td>自身叉积</td><td>$\mathbf{a}\times\mathbf{a}=\mathbf{0}$</td></tr>
+  <tr><td>雅可比恒等式</td><td>$\mathbf{a}\times(\mathbf{b}\times\mathbf{c})+\mathbf{b}\times(\mathbf{c}\times\mathbf{a})+\mathbf{c}\times(\mathbf{a}\times\mathbf{b})=\mathbf{0}$</td></tr>
+</table>
+
+<p><strong>标准基向量的叉积：</strong></p>
+$$\mathbf{i}\times\mathbf{j}=\mathbf{k},\quad \mathbf{j}\times\mathbf{k}=\mathbf{i},\quad \mathbf{k}\times\mathbf{i}=\mathbf{j}$$
+$$\mathbf{j}\times\mathbf{i}=-\mathbf{k},\quad \mathbf{k}\times\mathbf{j}=-\mathbf{i},\quad \mathbf{i}\times\mathbf{k}=-\mathbf{j}$$
+
+<div class="box tip">
+  <strong>记忆方法：</strong>按 $\mathbf{i}\to\mathbf{j}\to\mathbf{k}\to\mathbf{i}$ 的循环顺序，相邻两个的叉积等于下一个。逆序则加负号。
+</div>
+
+<h4>5. 标量三重积（Scalar Triple Product）</h4>
+<div class="definition">
+  <div class="definition-title">标量三重积</div>
+  <p>$\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})$ 称为标量三重积，结果是一个标量。可用行列式计算：
+  $$\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c}) = \begin{vmatrix} a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3 \end{vmatrix}$$</p>
+</div>
+
+<div class="box formula">
+  <strong>几何意义：</strong>标量三重积的绝对值 $|\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|$ 等于以 $\mathbf{a},\mathbf{b},\mathbf{c}$ 为邻边的<strong>平行六面体的体积</strong>。
+  <p>体积 = 底面积 × 高 = $|\mathbf{b}\times\mathbf{c}| \times |\mathbf{a}|\cos\phi = |\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|$，其中 $\phi$ 是 $\mathbf{a}$ 与法向量（normal vector） $\mathbf{b}\times\mathbf{c}$ 的夹角。</p>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">共面判定</div>
+  <p>三个向量 $\mathbf{a},\mathbf{b},\mathbf{c}$ <strong>共面</strong>（位于同一平面内）当且仅当 $\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})=0$。</p>
+  <p>因为共面时平行六面体体积为0。</p>
+</div>
+
+<h4>6. 向量三重积</h4>
+<div class="box formula">
+  <strong>向量三重积公式（BAC-CAB规则）：</strong>
+  $$\mathbf{a}\times(\mathbf{b}\times\mathbf{c}) = \mathbf{b}(\mathbf{a}\cdot\mathbf{c}) - \mathbf{c}(\mathbf{a}\cdot\mathbf{b})$$
+  <p style="margin-top:6px">记忆口诀"BAC minus CAB"：= B(A·C) - C(A·B)。这个公式在第13章推导开普勒定律时会用到。</p>
+</div>
+
+<h4>7. 力矩（Torque）</h4>
+<p>力 $\mathbf{F}$ 作用在位置向量（position vector）为 $\mathbf{r}$ 的点上，对原点的力矩为：
+$$\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}$$
+力矩的大小 $|\boldsymbol{\tau}|=|\mathbf{r}||\mathbf{F}|\sin\theta$ 描述力使物体绕原点转动的能力，方向由右手定则确定（转动轴方向）。</p>
+
+<!-- ===== 12.5 ===== -->
+<h3 id="s12-5">12.5 空间直线与平面方程 <span class="en">Equations of Lines and Planes</span> <span class="tag tag-hard">重点难点</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>向量的参数表示、点积、叉积、法向量的概念。二维中直线方程 $y=mx+b$ 的思想在三维中需要扩展——三维中直线不能用一个方程表示，需要参数方程（parametric equations）或对称方程（symmetric equations）。
+</div>
+
+<h4>1. 空间直线的向量方程</h4>
+<p>一条直线由<strong>一个点</strong>和<strong>一个方向向量（direction vector）</strong>唯一确定。</p>
+
+<div class="box formula">
+  <strong>直线的向量方程：</strong>过点 $P_0(x_0,y_0,z_0)$、方向向量为 $\mathbf{v}=\langle a,b,c\rangle$ 的直线：
+  $$\mathbf{r} = \mathbf{r}_0 + t\mathbf{v}$$
+  其中 $\mathbf{r}=\langle x,y,z\rangle$ 是直线上动点的位置向量，$\mathbf{r}_0=\langle x_0,y_0,z_0\rangle$，$t\in\mathbb{R}$ 是参数。
+</div>
+
+<div class="box proof">
+  <strong>为什么是 $\mathbf{r}_0+t\mathbf{v}$？</strong>
+  <p>当 $t=0$ 时，$\mathbf{r}=\mathbf{r}_0$，即起点 $P_0$。当 $t$ 变化时，$t\mathbf{v}$ 是沿方向 $\mathbf{v}$ 的位移，所以 $\mathbf{r}_0+t\mathbf{v}$ 描出所有沿 $\mathbf{v}$ 方向经过 $P_0$ 的点。这和二维中"点+方向"确定直线是完全一样的思想，只是多了一个z分量。</p>
+</div>
+
+<h4>2. 参数方程与对称方程</h4>
+<div class="box formula">
+  <strong>参数方程：</strong>
+  $$x = x_0+at,\quad y = y_0+bt,\quad z = z_0+ct$$
+  <p style="margin-top:8px"><strong>对称方程：</strong>（当 $a,b,c$ 均不为0时）</p>
+  $$\frac{x-x_0}{a} = \frac{y-y_0}{b} = \frac{z-z_0}{c}$$
+</div>
+
+<div class="box tip">
+  <strong>对称方程的理解：</strong>从参数方程解出 $t=\frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}$。三个分式都等于同一个参数 $t$，所以彼此相等。<strong>如果某个方向分量为0</strong>（比如 $a=0$），则对应的坐标 $x=x_0$ 保持不变，对称方程写成 $x=x_0,\;\frac{y-y_0}{b}=\frac{z-z_0}{c}$。
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求过点 $A(2,4,-3)$ 和 $B(3,-1,1)$ 的直线的参数方程和对称方程。
+  <p><strong>解：</strong>方向向量 $\mathbf{v}=\vec{AB}=\langle3-2,-1-4,1-(-3)\rangle=\langle1,-5,4\rangle$。</p>
+  <p>参数方程：$x=2+t,\;y=4-5t,\;z=-3+4t$</p>
+  <p>对称方程：$\frac{x-2}{1}=\frac{y-4}{-5}=\frac{z+3}{4}$</p>
+</div>
+
+<h4>3. 平面方程</h4>
+<p>一个平面由<strong>一个点</strong>和一个<strong>法向量（normal vector）</strong>唯一确定。法向量是垂直于平面的向量。</p>
+
+<div class="box formula">
+  <strong>平面的向量方程：</strong>过点 $P_0(x_0,y_0,z_0)$、法向量为 $\mathbf{n}=\langle a,b,c\rangle$ 的平面：
+  $$\mathbf{n}\cdot(\mathbf{r}-\mathbf{r}_0)=0$$
+  <p style="margin-top:8px"><strong>标量方程（点法式）：</strong></p>
+  $$a(x-x_0)+b(y-y_0)+c(z-z_0)=0$$
+  <p style="margin-top:8px"><strong>一般式：</strong></p>
+  $$ax+by+cz+d=0,\quad \text{其中 } d=-(ax_0+by_0+cz_0)$$
+</div>
+
+<div class="box proof">
+  <strong>为什么法向量点乘 = 0？</strong>
+  <p>设 $P(x,y,z)$ 是平面上任意一点，则向量 $\vec{P_0P}=\mathbf{r}-\mathbf{r}_0$ 在平面内。法向量 $\mathbf{n}$ 垂直于平面，所以 $\mathbf{n}\perp(\mathbf{r}-\mathbf{r}_0)$。由垂直判定，$\mathbf{n}\cdot(\mathbf{r}-\mathbf{r}_0)=0$。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求过点 $P(1,3,2)$、$Q(3,-1,6)$、$R(5,2,0)$ 的平面方程。
+  <p><strong>解：</strong></p>
+  <div class="steps">
+    <div class="step">求平面内两个向量：$\vec{PQ}=\langle2,-4,4\rangle$，$\vec{PR}=\langle4,-1,-2\rangle$</div>
+    <div class="step">法向量 = 两个向量的叉积：$\mathbf{n}=\vec{PQ}\times\vec{PR} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\2&-4&4\\4&-1&-2\end{vmatrix} = \langle12,20,14\rangle$，可简化为 $\langle6,10,7\rangle$</div>
+    <div class="step">用点 $P(1,3,2)$ 和法向量写方程：$6(x-1)+10(y-3)+7(z-2)=0$</div>
+    <div class="step">化简：$6x+10y+7z-50=0$</div>
+  </div>
+</div>
+
+<h4>4. 两平面的夹角</h4>
+<p>两个平面的夹角等于它们法向量的夹角（或其补角，取锐角）：</p>
+$$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_2|}$$
+
+<p>两平面<strong>平行</strong>当且仅当法向量平行（$\mathbf{n}_1\times\mathbf{n}_2=\mathbf{0}$）。</p>
+<p>两平面<strong>垂直</strong>当且仅当法向量垂直（$\mathbf{n}_1\cdot\mathbf{n}_2=0$）。</p>
+
+<h4>5. 点到平面的距离</h4>
+
+<div class="box formula">
+  <strong>点到平面的距离公式：</strong>点 $P_1(x_1,y_1,z_1)$ 到平面 $ax+by+cz+d=0$ 的距离为
+  $$D = \frac{|ax_1+by_1+cz_1+d|}{\sqrt{a^2+b^2+c^2}}$$
+</div>
+
+<div class="box proof">
+  <strong>课本跳步补齐：距离公式推导</strong>
+  <div class="steps">
+    <div class="step">设 $P_0(x_0,y_0,z_0)$ 是平面上任意一点，则 $ax_0+by_0+cz_0+d=0$。</div>
+    <div class="step">向量 $\vec{P_0P_1}=\langle x_1-x_0,y_1-y_0,z_1-z_0\rangle$。</div>
+    <div class="step">点到平面的距离 = $\vec{P_0P_1}$ 在法向量 $\mathbf{n}=\langle a,b,c\rangle$ 方向上的标量投影的绝对值：</div>
+    <div class="step">$D = |\text{comp}_{\mathbf{n}}\vec{P_0P_1}| = \frac{|\mathbf{n}\cdot\vec{P_0P_1}|}{|\mathbf{n}|}$</div>
+    <div class="step">计算分子：$\mathbf{n}\cdot\vec{P_0P_1} = a(x_1-x_0)+b(y_1-y_0)+c(z_1-z_0) = (ax_1+by_1+cz_1)-(ax_0+by_0+cz_0)$</div>
+    <div class="step">因为 $ax_0+by_0+cz_0=-d$，所以分子 $= ax_1+by_1+cz_1+d$。</div>
+    <div class="step">因此 $D = \frac{|ax_1+by_1+cz_1+d|}{\sqrt{a^2+b^2+c^2}}$。</div>
+  </div>
+  <p><strong>核心思想：</strong>点到平面的距离就是向量在法向量方向上的投影长度。这和二维中点到直线的距离公式完全类比。</p>
+</div>
+
+<h4>6. 异面直线的距离</h4>
+<p>两条不平行也不相交的直线称为<strong>异面直线（skew lines）</strong>。它们之间的距离是公垂线段的长度。</p>
+
+<div class="box formula">
+  <strong>异面直线距离公式：</strong>设两直线的方向向量为 $\mathbf{v}_1,\mathbf{v}_2$，各取一点 $P_1,P_2$，则
+  $$D = \frac{|\vec{P_1P_2}\cdot(\mathbf{v}_1\times\mathbf{v}_2)|}{|\mathbf{v}_1\times\mathbf{v}_2|}$$
+</div>
+<p>理解：$\mathbf{v}_1\times\mathbf{v}_2$ 是同时垂直于两条直线的方向，$\vec{P_1P_2}$ 在这个方向上的投影就是两直线间的最短距离。</p>
+
+<!-- ===== 12.6 ===== -->
+<h3 id="s12-6">12.6 柱面与二次曲面 <span class="en">Cylinders and Quadric Surfaces</span> <span class="tag tag-medium">空间想象</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>圆锥曲线（椭圆、双曲线、抛物线）的标准方程和图形、空间坐标系、"截痕法"的思想。本节核心是学会用<strong>截痕（traces）</strong>来分析三维曲面——用坐标平面或平行平面去截曲面，看截线是什么形状。
+</div>
+
+<h4>1. 柱面（Cylinders）</h4>
+<div class="definition">
+  <div class="definition-title">柱面（Cylinder）</div>
+  <p>由一条直线（母线（generatrix））沿一条曲线（准线（directrix））平行移动所形成的曲面。在我们的课程中，柱面的方程<strong>缺少一个变量</strong>。</p>
+</div>
+
+<div class="box tip">
+  <strong>关键规则：方程中缺少哪个变量，柱面的母线就平行于哪个轴。</strong>
+  <ul style="margin-left:20px;margin-top:6px">
+    <li>$z=x^2$：缺少 $y$ → 母线平行于 $y$ 轴，准线是xz平面上的抛物线 $z=x^2$</li>
+    <li>$x^2+y^2=1$：缺少 $z$ → 母线平行于 $z$ 轴，准线是xy平面上的单位圆（圆柱面）</li>
+    <li>$y^2-z^2=1$：缺少 $x$ → 母线平行于 $x$ 轴，准线是yz平面上的双曲线</li>
+  </ul>
+</div>
+
+<div class="box warn">
+  <strong>维度陷阱：</strong>$x^2+y^2=1$ 在二维中是<strong>圆</strong>（曲线），在三维中是<strong>圆柱面</strong>（曲面）！因为z可以取任意值，圆沿着z轴方向无限延伸。
+</div>
+
+<h4>2. 二次曲面（Quadric Surfaces）</h4>
+<p>二次曲面是三元二次方程 $Ax^2+By^2+Cz^2+Dxy+Exz+Fyz+Gx+Hy+Iz+J=0$ 所表示的曲面。通过平移和旋转，可以化为六种标准形式。</p>
+
+<div class="box tip">
+  <strong>截痕法（Method of Traces）：</strong>要画一个三维曲面，分别令 $x=k$、$y=k$、$z=k$（$k$ 为常数），看每个坐标平面的平行平面截出的曲线（截痕）是什么形状，然后在脑中拼合起来。
+</div>
+
+<table class="quadric-table">
+  <tr><th>曲面名称</th><th>标准方程</th><th>截痕特征</th></tr>
+  <tr><td>椭球面（sphere）<br>Ellipsoid</td><td>$\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$</td><td>所有截痕都是椭圆</td></tr>
+  <tr><td>单叶双曲面<br>Hyperboloid of One Sheet</td><td>$\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1$</td><td>水平截痕椭圆，竖直截痕双曲线</td></tr>
+  <tr><td>双叶双曲面<br>Hyperboloid of Two Sheets</td><td>$-\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$</td><td>水平截痕椭圆（$|z|>c$时），竖直截痕双曲线</td></tr>
+  <tr><td>二次锥面<br>Cone</td><td>$\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0$</td><td>水平截痕椭圆，竖直截痕相交直线/双曲线</td></tr>
+  <tr><td>椭圆抛物面<br>Elliptic Paraboloid</td><td>$\frac{z}{c}=\frac{x^2}{a^2}+\frac{y^2}{b^2}$</td><td>水平截痕椭圆，竖直截痕抛物线</td></tr>
+  <tr><td>双曲抛物面<br>Hyperbolic Paraboloid</td><td>$\frac{z}{c}=\frac{x^2}{a^2}-\frac{y^2}{b^2}$</td><td>水平截痕双曲线，竖直截痕抛物线（马鞍面 saddle surface）</td></tr>
+</table>
+
+<div class="box tip">
+  <strong>快速判断口诀：</strong>
+  <ul style="margin-left:20px">
+    <li><strong>三个平方项都是正号，右边=1</strong> → 椭球面</li>
+    <li><strong>两个正一个负，右边=1</strong> → 单叶双曲面（负号对应的轴是"细腰"方向）</li>
+    <li><strong>两个负一个正，右边=1</strong> → 双叶双曲面（正号对应的轴是"两叶"方向）</li>
+    <li><strong>右边=0</strong> → 锥面</li>
+    <li><strong>一个一次项 + 两个正平方项</strong> → 椭圆抛物面（碗状）</li>
+    <li><strong>一个一次项 + 一正一负平方项</strong> → 双曲抛物面（马鞍状（saddle-shaped））</li>
+  </ul>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>用截痕法分析 $z=4x^2+y^2$。
+  <p><strong>解：</strong>这是椭圆抛物面（一个一次项z，两个正平方项）。</p>
+  <ul style="margin-left:20px">
+    <li>令 $z=k$（$k\geq0$）：$4x^2+y^2=k$，椭圆。$k=0$ 时退化为原点。</li>
+    <li>令 $x=k$：$z=4k^2+y^2$，抛物线（开口向上）。</li>
+    <li>令 $y=k$：$z=4x^2+k^2$，抛物线（开口向上）。</li>
+  </ul>
+  <p>拼合起来：一个开口向上的"碗"，水平截面是越来越大的椭圆。</p>
+</div>
+
+<!-- ==================== CHAPTER 13 ==================== -->
+<div class="chapter-card" id="ch13">
+  <h2>第13章 · 向量函数</h2>
+  <p><strong>Vector Functions</strong></p>
+  <p style="color:var(--text2);margin-top:8px">本章把第12章的向量和微积分（导数、积分）结合起来。向量函数描述空间中运动的物体，是物理中运动学的数学语言。我们将学习如何对向量函数求导、积分，以及由此导出的弧长、曲率、速度加速度等重要概念。</p>
+  <div style="margin-top:12px">
+    <span class="tag tag-easy">13.1 向量函数与空间曲线</span>
+    <span class="tag tag-medium">13.2 导数与积分</span>
+    <span class="tag tag-hard">13.3 弧长与曲率</span>
+    <span class="tag tag-hard">13.4 空间中的运动</span>
+  </div>
+</div>
+
+<!-- ===== 13.1 ===== -->
+<h3 id="s13-1">13.1 向量函数与空间曲线 <span class="en">Vector Functions and Space Curves</span> <span class="tag tag-easy">入门</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>向量的分量表示（第12章）、参数方程（二维中 $x=f(t), y=g(t)$）、函数的极限与连续的概念。向量函数就是"输入一个数，输出一个向量"的函数。
+</div>
+
+<h4>1. 向量函数的定义</h4>
+<div class="definition">
+  <div class="definition-title">向量函数（Vector-Valued Function）</div>
+  <p>向量函数 $\mathbf{r}(t)$ 的定义域是实数集的一个子集，值域是向量集。一般写作：
+  $$\mathbf{r}(t) = \langle f(t),\, g(t),\, h(t)\rangle = f(t)\mathbf{i} + g(t)\mathbf{j} + h(t)\mathbf{k}$$
+  其中 $f(t),g(t),h(t)$ 称为<strong>分量函数（component functions）</strong>，是普通的实值函数。</p>
+</div>
+
+<p>向量函数的<strong>定义域</strong>是所有分量函数定义域的交集。</p>
+
+<div class="box example">
+  <strong>例：</strong>$\mathbf{r}(t)=\langle t^3,\ln(3-t),\sqrt{t}\rangle$，求定义域。
+  <p><strong>解：</strong>$t^3$ 定义域 $\mathbb{R}$；$\ln(3-t)$ 要求 $t<3$；$\sqrt{t}$ 要求 $t\geq0$。交集为 $[0,3)$。</p>
+</div>
+
+<h4>2. 向量函数的极限与连续</h4>
+<div class="box formula">
+  <strong>极限：</strong>$\lim_{t\to a}\mathbf{r}(t) = \langle \lim_{t\to a}f(t),\,\lim_{t\to a}g(t),\,\lim_{t\to a}h(t)\rangle$
+  <p>即<strong>各分量分别取极限</strong>。</p>
+</div>
+
+<p><strong>连续：</strong>$\mathbf{r}(t)$ 在 $a$ 处连续当且仅当 $\lim_{t\to a}\mathbf{r}(t)=\mathbf{r}(a)$，等价于三个分量函数都在 $a$ 处连续。</p>
+
+<h4>3. 空间曲线（Space Curves）</h4>
+<p>当 $t$ 变化时，向量函数 $\mathbf{r}(t)$ 的终点描出一条空间曲线 $C$。对应的参数方程为：</p>
+$$x=f(t),\quad y=g(t),\quad z=h(t)$$
+
+<div class="box example">
+  <strong>例1（直线）：</strong>$\mathbf{r}(t)=\langle1+t,2+5t,-1+6t\rangle$ 是一条空间直线。参数方程 $x=1+t,y=2+5t,z=-1+6t$，消去 $t$ 得对称方程 $\frac{x-1}{1}=\frac{y-2}{5}=\frac{z+1}{6}$。
+</div>
+
+<div class="box example">
+  <strong>例2（螺旋线 Helix）：</strong>$\mathbf{r}(t)=\cos t\,\mathbf{i}+\sin t\,\mathbf{j}+t\,\mathbf{k}$
+  <p>参数方程 $x=\cos t,\;y=\sin t,\;z=t$。</p>
+  <p>$x^2+y^2=\cos^2t+\sin^2t=1$，所以曲线在圆柱面 $x^2+y^2=1$ 上。随着 $t$ 增大，$z=t$ 线性增加，点绕圆柱上升，形成螺旋线。</p>
+</div>
+
+<div class="diagram">
+  <svg width="280" height="220" viewBox="0 0 280 220">
+    <!-- cylinder -->
+    <ellipse cx="140" cy="50" rx="60" ry="18" fill="none" stroke="#2e3345" stroke-width="1.5"/>
+    <line x1="80" y1="50" x2="80" y2="180" stroke="#2e3345" stroke-width="1.5"/>
+    <line x1="200" y1="50" x2="200" y2="180" stroke="#2e3345" stroke-width="1.5"/>
+    <ellipse cx="140" cy="180" rx="60" ry="18" fill="none" stroke="#2e3345" stroke-width="1.5"/>
+    <!-- helix -->
+    <path d="M140,50 C185,60 195,80 165,95 C135,110 95,105 85,125 C75,145 110,160 140,170 C170,180 200,175 200,180" fill="none" stroke="#6c8cff" stroke-width="2.5"/>
+    <circle cx="140" cy="50" r="4" fill="#fc8181"/>
+    <text x="148" y="48" fill="#fc8181" font-size="11">t=0</text>
+    <circle cx="165" cy="95" r="4" fill="#4fd1c5"/>
+    <text x="173" y="93" fill="#4fd1c5" font-size="11">t=π/2</text>
+    <circle cx="85" cy="125" r="4" fill="#f6ad55"/>
+    <text x="50" y="123" fill="#f6ad55" font-size="11">t=π</text>
+  </svg>
+  <div class="diagram-caption">螺旋线：在圆柱面 x²+y²=1 上盘旋上升，z 随 t 线性增长</div>
+</div>
+
+<h4>4. 线段的向量方程</h4>
+<p>连接点 $P_0$（位置向量 $\mathbf{r}_0$）和 $P_1$（位置向量 $\mathbf{r}_1$）的线段：</p>
+$$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
+<p>$t=0$ 时在 $P_0$，$t=1$ 时在 $P_1$，$t$ 在中间时在线段上。这是第12章直线参数方程的"有限区间版本"。</p>
+
+<!-- ===== 13.2 ===== -->
+<h3 id="s13-2">13.2 向量函数的导数与积分 <span class="en">Derivatives and Integrals of Vector Functions</span> <span class="tag tag-medium">核心</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>单变量函数的导数定义 $f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$、导数的几何意义（切线斜率）、积分的定义和微积分基本定理。向量函数的微积分就是<strong>各分量分别做微积分</strong>。
+</div>
+
+<h4>1. 向量函数的导数</h4>
+<div class="definition">
+  <div class="definition-title">导数（Derivative）</div>
+  <p>$\mathbf{r}'(t) = \lim_{h\to 0}\frac{\mathbf{r}(t+h)-\mathbf{r}(t)}{h}$，如果极限存在。</p>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">定理：分量求导</div>
+  <p>若 $\mathbf{r}(t)=\langle f(t),g(t),h(t)\rangle$ 且 $f,g,h$ 可导，则
+  $$\mathbf{r}'(t) = \langle f'(t),\,g'(t),\,h'(t)\rangle$$
+  即<strong>各分量分别求导</strong>。</p>
+</div>
+
+<div class="box proof">
+  <strong>证明：</strong>
+  $\mathbf{r}'(t) = \lim_{h\to0}\frac{\langle f(t+h)-f(t),\,g(t+h)-g(t),\,h(t+h)-h(t)\rangle}{h}$
+  $= \langle \lim_{h\to0}\frac{f(t+h)-f(t)}{h},\,\ldots\rangle = \langle f'(t),g'(t),h'(t)\rangle$。
+  向量的极限就是各分量极限的向量，所以直接拆开即可。
+</div>
+
+<h4>2. 切向量与切线</h4>
+<p>$\mathbf{r}'(t)$ 称为<strong>切向量（tangent vector）</strong>，它指向曲线在 $\mathbf{r}(t)$ 处的切线方向。</p>
+
+<div class="box formula">
+  <strong>切线方程：</strong>曲线在 $t=t_0$ 处的切线（过点 $\mathbf{r}(t_0)$，方向 $\mathbf{r}'(t_0)$）：
+  $$\mathbf{l}(s) = \mathbf{r}(t_0) + s\,\mathbf{r}'(t_0)$$
+  <p>单位切向量：$\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}$</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求螺旋线 $\mathbf{r}(t)=\langle2\cos t,\sin t,t\rangle$ 在点 $(0,1,\pi/2)$ 处的切线方程。
+  <p><strong>解：</strong>点 $(0,1,\pi/2)$ 对应 $t=\pi/2$。</p>
+  <p>$\mathbf{r}'(t)=\langle-2\sin t,\cos t,1\rangle$，$\mathbf{r}'(\pi/2)=\langle-2,0,1\rangle$。</p>
+  <p>切线：$\mathbf{l}(s)=\langle0,1,\pi/2\rangle+s\langle-2,0,1\rangle = \langle-2s,\,1,\,\pi/2+s\rangle$。</p>
+</div>
+
+<h4>3. 向量函数的求导法则</h4>
+<div class="theorem">
+  <div class="theorem-title">求导法则</div>
+  <p>设 $\mathbf{u}(t),\mathbf{v}(t)$ 可导，$c$ 为标量，$f(t)$ 为实值函数：</p>
+  <table style="margin-top:8px">
+    <tr><td>1. 和法则</td><td>$\frac{d}{dt}[\mathbf{u}(t)+\mathbf{v}(t)]=\mathbf{u}'(t)+\mathbf{v}'(t)$</td></tr>
+    <tr><td>2. 标量乘</td><td>$\frac{d}{dt}[c\mathbf{u}(t)]=c\mathbf{u}'(t)$</td></tr>
+    <tr><td>3. 实函数乘向量</td><td>$\frac{d}{dt}[f(t)\mathbf{u}(t)]=f'(t)\mathbf{u}(t)+f(t)\mathbf{u}'(t)$</td></tr>
+    <tr><td>4. 点积法则</td><td>$\frac{d}{dt}[\mathbf{u}(t)\cdot\mathbf{v}(t)]=\mathbf{u}'(t)\cdot\mathbf{v}(t)+\mathbf{u}(t)\cdot\mathbf{v}'(t)$</td></tr>
+    <tr><td>5. 叉积法则</td><td>$\frac{d}{dt}[\mathbf{u}(t)\times\mathbf{v}(t)]=\mathbf{u}'(t)\times\mathbf{v}(t)+\mathbf{u}(t)\times\mathbf{v}'(t)$</td></tr>
+    <tr><td>6. 链式法则</td><td>$\frac{d}{dt}[\mathbf{u}(f(t))]=f'(t)\mathbf{u}'(f(t))$</td></tr>
+  </table>
+</div>
+
+<div class="box warn">
+  <strong>叉积求导注意顺序！</strong>叉积不满足交换律，所以 $\mathbf{u}'\times\mathbf{v}+\mathbf{u}\times\mathbf{v}'$ 中两项的顺序不能交换。$\mathbf{u}\times\mathbf{v}' \neq \mathbf{v}'\times\mathbf{u}$。
+</div>
+
+<div class="box proof">
+  <strong>点积法则证明（课本常略过）：</strong>
+  <p>设 $\mathbf{u}=\langle u_1,u_2,u_3\rangle$，$\mathbf{v}=\langle v_1,v_2,v_3\rangle$，则 $\mathbf{u}\cdot\mathbf{v}=u_1v_1+u_2v_2+u_3v_3$。</p>
+  <p>$\frac{d}{dt}(\mathbf{u}\cdot\mathbf{v}) = u_1'v_1+u_1v_1'+u_2'v_2+u_2v_2'+u_3'v_3+u_3v_3'$</p>
+  <p>$= (u_1'v_1+u_2'v_2+u_3'v_3)+(u_1v_1'+u_2v_2'+u_3v_3') = \mathbf{u}'\cdot\mathbf{v}+\mathbf{u}\cdot\mathbf{v}'$。</p>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">重要推论：定长向量的导数</div>
+  <p>若 $|\mathbf{r}(t)|=c$（常数）对所有 $t$ 成立，则 $\mathbf{r}(t)\cdot\mathbf{r}'(t)=0$，即<strong>定长向量与其导数垂直</strong>。</p>
+</div>
+<div class="box proof">
+  <strong>证明：</strong>$|\mathbf{r}|^2=\mathbf{r}\cdot\mathbf{r}=c^2$，两边求导：$2\mathbf{r}\cdot\mathbf{r}'=0$，所以 $\mathbf{r}\cdot\mathbf{r}'=0$。
+  <p><strong>物理意义：</strong>做匀速圆周运动的物体，位置向量长度不变，速度向量与位置向量垂直。这正是圆周运动的特征！</p>
+</div>
+
+<h4>4. 向量函数的积分</h4>
+<div class="box formula">
+  <strong>不定积分：</strong>
+  $$\int \mathbf{r}(t)\,dt = \left(\int f(t)\,dt\right)\mathbf{i} + \left(\int g(t)\,dt\right)\mathbf{j} + \left(\int h(t)\,dt\right)\mathbf{k} + \mathbf{C}$$
+  <p style="margin-top:8px"><strong>定积分（微积分基本定理）：</strong></p>
+  $$\int_a^b \mathbf{r}(t)\,dt = \mathbf{R}(b)-\mathbf{R}(a)$$
+  其中 $\mathbf{R}(t)$ 是 $\mathbf{r}(t)$ 的一个原函数（各分量分别积分）。
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$\mathbf{r}(t)=2\cos t\,\mathbf{i}+\sin t\,\mathbf{j}+2t\,\mathbf{k}$，求 $\int\mathbf{r}(t)\,dt$。
+  <p><strong>解：</strong>$\int\mathbf{r}(t)\,dt = 2\sin t\,\mathbf{i} - \cos t\,\mathbf{j} + t^2\mathbf{k} + \mathbf{C}$。</p>
+</div>
+
+<!-- ===== 13.3 ===== -->
+<h3 id="s13-3">13.3 弧长与曲率 <span class="en">Arc Length and Curvature</span> <span class="tag tag-hard">重点难点</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>二维参数曲线的弧长公式 $L=\int_a^b\sqrt{(dx/dt)^2+(dy/dt)^2}\,dt$、向量的模长、单位向量、导数的几何意义。曲率是描述曲线"弯曲程度"的量，是本节最抽象的概念。
+</div>
+
+<h4>1. 空间曲线的弧长（Arc Length）</h4>
+<div class="box formula">
+  <strong>弧长公式：</strong>曲线 $\mathbf{r}(t)=\langle f(t),g(t),h(t)\rangle$ 在 $t\in[a,b]$ 上的弧长为
+  $$L = \int_a^b |\mathbf{r}'(t)|\,dt = \int_a^b \sqrt{[f'(t)]^2+[g'(t)]^2+[h'(t)]^2}\,dt$$
+</div>
+
+<div class="box proof">
+  <strong>从二维到三维的推广：</strong>
+  <p>二维参数曲线弧长 $L=\int_a^b\sqrt{(dx/dt)^2+(dy/dt)^2}\,dt$。三维中只是多了一个z分量，被开方的变成三个平方和。</p>
+  <p>本质：$|\mathbf{r}'(t)|dt = \sqrt{(dx)^2+(dy)^2+(dz)^2}$ 是曲线的微元弧长 $ds$，积分就是把所有微元加起来。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求螺旋线 $\mathbf{r}(t)=\cos t\,\mathbf{i}+\sin t\,\mathbf{j}+t\,\mathbf{k}$ 从 $t=0$ 到 $t=2\pi$ 的弧长。
+  <p><strong>解：</strong>$\mathbf{r}'(t)=\langle-\sin t,\cos t,1\rangle$，$|\mathbf{r}'(t)|=\sqrt{\sin^2t+\cos^2t+1}=\sqrt{2}$。</p>
+  <p>$L=\int_0^{2\pi}\sqrt{2}\,dt = 2\sqrt{2}\pi$。</p>
+</div>
+
+<h4>2. 弧长函数（Arc Length Function）</h4>
+<div class="definition">
+  <div class="definition-title">弧长函数</div>
+  <p>从起点 $t=a$ 到当前 $t$ 的弧长：
+  $$s(t) = \int_a^t |\mathbf{r}'(u)|\,du$$
+  由微积分基本定理，$\frac{ds}{dt}=|\mathbf{r}'(t)|$。</p>
+</div>
+
+<div class="box tip">
+  <strong>为什么需要弧长参数？</strong>用 $t$ 作参数时，曲线的描述依赖于"速度"（参数化方式）。如果改用弧长 $s$ 作参数，曲线的描述就<strong>与参数化无关</strong>了——曲率等几何性质用弧长参数表达最简洁。
+</div>
+
+<h4>3. 曲率（Curvature）—— 本节核心</h4>
+<div class="definition">
+  <div class="definition-title">曲率（Curvature）</div>
+  <p>曲率 $\kappa$ 描述曲线的弯曲程度，定义为<strong>单位切向量对弧长的变化率</strong>：
+  $$\kappa = \left|\frac{d\mathbf{T}}{ds}\right|$$
+  其中 $\mathbf{T}$ 是单位切向量，$s$ 是弧长。</p>
+</div>
+
+<div class="box tip">
+  <strong>曲率的直觉：</strong>
+  <ul style="margin-left:20px">
+    <li>直线：方向不变，$\mathbf{T}$ 是常数，$\kappa=0$</li>
+    <li>小圆：弯得厉害，$\kappa$ 大</li>
+    <li>大圆：弯得平缓，$\kappa$ 小</li>
+    <li>半径为 $a$ 的圆：$\kappa=1/a$（半径越小，曲率越大）</li>
+  </ul>
+  <p style="margin-top:6px">用 $d\mathbf{T}/ds$ 而不是 $d\mathbf{T}/dt$，是因为我们要的是"走单位长度方向改变多少"，而不是"过单位时间方向改变多少"——后者依赖于运动速度。</p>
+</div>
+
+<div class="box formula">
+  <strong>曲率的实用计算公式：</strong>
+  $$\kappa(t) = \frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|} = \frac{|\mathbf{r}'(t)\times\mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3}$$
+</div>
+
+<div class="box proof">
+  <strong>课本跳步补齐：两个公式的推导</strong>
+  <p><strong>公式1：$\kappa=\frac{|\mathbf{T}'|}{|\mathbf{r}'|}$</strong></p>
+  <div class="steps">
+    <div class="step">由链式法则：$\frac{d\mathbf{T}}{dt} = \frac{d\mathbf{T}}{ds}\cdot\frac{ds}{dt}$</div>
+    <div class="step">所以 $\frac{d\mathbf{T}}{ds} = \frac{d\mathbf{T}/dt}{ds/dt} = \frac{\mathbf{T}'(t)}{|\mathbf{r}'(t)|}$（因为 $ds/dt=|\mathbf{r}'|$）</div>
+    <div class="step">取模长：$\kappa = \left|\frac{d\mathbf{T}}{ds}\right| = \frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|}$</div>
+  </div>
+  <p><strong>公式2：$\kappa=\frac{|\mathbf{r}'\times\mathbf{r}''|}{|\mathbf{r}'|^3}$</strong></p>
+  <div class="steps">
+    <div class="step">$\mathbf{T}=\frac{\mathbf{r}'}{|\mathbf{r}'|}$，记 $v=|\mathbf{r}'|$，则 $\mathbf{r}'=v\mathbf{T}$。</div>
+    <div class="step">求导：$\mathbf{r}''=v'\mathbf{T}+v\mathbf{T}'$（乘积法则）。</div>
+    <div class="step">叉积：$\mathbf{r}'\times\mathbf{r}'' = (v\mathbf{T})\times(v'\mathbf{T}+v\mathbf{T}') = vv'(\mathbf{T}\times\mathbf{T}) + v^2(\mathbf{T}\times\mathbf{T}')$</div>
+    <div class="step">因为 $\mathbf{T}\times\mathbf{T}=\mathbf{0}$，所以 $\mathbf{r}'\times\mathbf{r}''=v^2(\mathbf{T}\times\mathbf{T}')$。</div>
+    <div class="step">取模长：$|\mathbf{r}'\times\mathbf{r}''|=v^2|\mathbf{T}\times\mathbf{T}'|$。</div>
+    <div class="step">因为 $\mathbf{T}$ 是单位向量，由"定长向量与其导数垂直"的推论，$\mathbf{T}\perp\mathbf{T}'$，所以 $|\mathbf{T}\times\mathbf{T}'|=|\mathbf{T}||\mathbf{T}'|\sin(\pi/2)=|\mathbf{T}'|$。</div>
+    <div class="step">因此 $|\mathbf{r}'\times\mathbf{r}''|=v^2|\mathbf{T}'|$，即 $|\mathbf{T}'|=\frac{|\mathbf{r}'\times\mathbf{r}''|}{v^2}$。</div>
+    <div class="step">代入公式1：$\kappa=\frac{|\mathbf{T}'|}{v}=\frac{|\mathbf{r}'\times\mathbf{r}''|}{v^3}=\frac{|\mathbf{r}'\times\mathbf{r}''|}{|\mathbf{r}'|^3}$。</div>
+  </div>
+</div>
+
+<h4>4. 单位法向量（unit normal vector）与副法向量（binormal vector）</h4>
+<div class="box formula">
+  <p><strong>单位切向量（tangent vector）：</strong>$\mathbf{T}(t)=\frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}$</p>
+  <p><strong>单位法向量：</strong>$\mathbf{N}(t)=\frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|}$（指向曲线弯曲的方向）</p>
+  <p><strong>副法向量：</strong>$\mathbf{B}(t)=\mathbf{T}(t)\times\mathbf{N}(t)$（同时垂直于 $\mathbf{T}$ 和 $\mathbf{N}$）</p>
+</div>
+
+<div class="box tip">
+  <strong>TNB标架（Frenet标架）：</strong>$\mathbf{T},\mathbf{N},\mathbf{B}$ 三个互相垂直的单位向量（unit vector）构成一个随曲线移动的坐标系。
+  <ul style="margin-left:20px;margin-top:4px">
+    <li>$\mathbf{T}$：前进方向</li>
+    <li>$\mathbf{N}$：向左转的方向（曲线弯曲方向）</li>
+    <li>$\mathbf{B}$：垂直于运动平面的方向</li>
+  </ul>
+  <p>$\mathbf{T}\times\mathbf{N}=\mathbf{B}$，$\mathbf{N}\times\mathbf{B}=\mathbf{T}$，$\mathbf{B}\times\mathbf{T}=\mathbf{N}$（右手系）。</p>
+</div>
+
+<h4>5. 挠率（Torsion）</h4>
+<p>挠率 $\tau$ 描述曲线偏离平面的程度（"扭转"程度）：
+$$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''}{|\mathbf{r}'\times\mathbf{r}''|^2}$$
+平面曲线的挠率为0（因为 $\mathbf{B}$ 是常数，不随 $s$ 变化）。</p>
+
+<!-- ===== 13.4 ===== -->
+<h3 id="s13-4">13.4 空间中的运动：速度与加速度 <span class="en">Motion in Space: Velocity and Acceleration</span> <span class="tag tag-hard">物理应用</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>向量函数的导数与积分（13.2）、牛顿第二定律 $F=ma$、运动学基本概念。本节是向量微积分在物理中的直接应用。
+</div>
+
+<h4>1. 速度、加速度、速率</h4>
+<div class="box formula">
+  <p>设质点的位置向量为 $\mathbf{r}(t)$：</p>
+  <p><strong>速度：</strong>$\mathbf{v}(t)=\mathbf{r}'(t)$（向量，方向沿切线）</p>
+  <p><strong>加速度：</strong>$\mathbf{a}(t)=\mathbf{v}'(t)=\mathbf{r}''(t)$（向量）</p>
+  <p><strong>速率：</strong>$|\mathbf{v}(t)|=|\mathbf{r}'(t)|=\frac{ds}{dt}$（标量，速度的大小）</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$\mathbf{r}(t)=\langle t^2,e^t,te^t\rangle$，求 $t=1$ 时的速度、加速度、速率。
+  <p><strong>解：</strong>$\mathbf{v}(t)=\langle2t,e^t,(1+t)e^t\rangle$，$\mathbf{v}(1)=\langle2,e,2e\rangle$。</p>
+  <p>$\mathbf{a}(t)=\langle2,e^t,(2+t)e^t\rangle$，$\mathbf{a}(1)=\langle2,e,3e\rangle$。</p>
+  <p>速率 $|\mathbf{v}(1)|=\sqrt{4+e^2+4e^2}=\sqrt{4+5e^2}$。</p>
+</div>
+
+<h4>2. 抛体运动（Projectile Motion）</h4>
+<div class="box proof">
+  <strong>课本跳步补齐：抛体运动公式完整推导</strong>
+  <div class="steps">
+    <div class="step">建立坐标系：原点在抛射点，x轴水平，y轴竖直向上。加速度 $\mathbf{a}(t)=-g\mathbf{j}=\langle0,-g\rangle$。</div>
+    <div class="step">积分求速度：$\mathbf{v}(t)=\int\mathbf{a}\,dt = \langle0,-gt\rangle+\mathbf{v}_0$。设初速度大小 $v_0$，仰角 $\alpha$，则 $\mathbf{v}_0=\langle v_0\cos\alpha,\,v_0\sin\alpha\rangle$。所以 $\mathbf{v}(t)=\langle v_0\cos\alpha,\,v_0\sin\alpha-gt\rangle$。</div>
+    <div class="step">积分求位置：$\mathbf{r}(t)=\int\mathbf{v}\,dt = \langle v_0\cos\alpha\cdot t,\;v_0\sin\alpha\cdot t-\frac{1}{2}gt^2\rangle$（初始位置为原点）。</div>
+    <div class="step">参数方程：$x(t)=(v_0\cos\alpha)t$，$y(t)=(v_0\sin\alpha)t-\frac{1}{2}gt^2$。</div>
+    <div class="step">消去参数 $t$（由 $t=\frac{x}{v_0\cos\alpha}$ 代入y）：$y=(\tan\alpha)x-\frac{g}{2v_0^2\cos^2\alpha}x^2$，这是抛物线方程。</div>
+    <div class="step">飞行时间：令 $y=0$，$t=\frac{2v_0\sin\alpha}{g}$（$t=0$ 是出发时刻）。</div>
+    <div class="step">射程（水平距离）：$R=x(T)=v_0\cos\alpha\cdot\frac{2v_0\sin\alpha}{g}=\frac{v_0^2\sin2\alpha}{g}$。当 $\alpha=45°$ 时射程最大。</div>
+    <div class="step">最大高度：在最高点竖直速度为0，$v_0\sin\alpha-gt=0\Rightarrow t=\frac{v_0\sin\alpha}{g}$，$y_{\max}=\frac{v_0^2\sin^2\alpha}{2g}$。</div>
+  </div>
+</div>
+
+<h4>3. 加速度的切向与法向分量</h4>
+<p>加速度可以分解为沿速度方向（切向）和垂直于速度方向（法向）的两个分量：</p>
+
+<div class="box formula">
+  $$\mathbf{a} = a_T\mathbf{T} + a_N\mathbf{N}$$
+  <p style="margin-top:6px">其中：</p>
+  $$a_T = v' = \frac{\mathbf{r}'\cdot\mathbf{r}''}{|\mathbf{r}'|} \quad \text{（切向分量 = 速率的变化率）}$$
+  $$a_N = \kappa v^2 = \frac{|\mathbf{r}'\times\mathbf{r}''|}{|\mathbf{r}'|} \quad \text{（法向分量 = 向心加速度）}$$
+</div>
+
+<div class="box proof">
+  <strong>推导：</strong>
+  <div class="steps">
+    <div class="step">$\mathbf{v}=v\mathbf{T}$，其中 $v=|\mathbf{v}|$。</div>
+    <div class="step">$\mathbf{a}=\frac{d\mathbf{v}}{dt}=v'\mathbf{T}+v\mathbf{T}'$（乘积法则）。</div>
+    <div class="step">$\mathbf{T}'=\frac{d\mathbf{T}}{ds}\cdot\frac{ds}{dt}=\kappa\mathbf{N}\cdot v$（因为 $\frac{d\mathbf{T}}{ds}=\kappa\mathbf{N}$，方向沿法向量）。</div>
+    <div class="step">所以 $\mathbf{a}=v'\mathbf{T}+v(\kappa v\mathbf{N})=v'\mathbf{T}+\kappa v^2\mathbf{N}$。</div>
+    <div class="step">因此 $a_T=v'$，$a_N=\kappa v^2$。</div>
+  </div>
+  <p><strong>物理意义：</strong>切向分量 $a_T$ 改变速率的大小（加速/减速），法向分量 $a_N$ 改变速度的方向（转弯）。匀速圆周运动中 $a_T=0$，$a_N=v^2/r$（向心加速度）。</p>
+</div>
+
+<div class="box tip">
+  <strong>计算技巧：</strong>$a_T$ 可以直接用 $\frac{\mathbf{r}'\cdot\mathbf{r}''}{|\mathbf{r}'|}$ 计算（不需要先求 $\mathbf{T}$）。$a_N$ 可以用 $\sqrt{|\mathbf{a}|^2-a_T^2}$ 或 $\frac{|\mathbf{r}'\times\mathbf{r}''|}{|\mathbf{r}'|}$ 计算。
+</div>
+
+<h4>4. 开普勒定律（Kepler's Laws）</h4>
+<div class="definition">
+  <div class="definition-title">开普勒三定律</div>
+  <ol style="margin-left:20px;margin-top:4px">
+    <li><strong>轨道定律：</strong>行星绕太阳运动的轨道是椭圆，太阳在一个焦点上。</li>
+    <li><strong>面积定律：</strong>行星与太阳的连线在相等时间内扫过相等的面积。</li>
+    <li><strong>周期定律：</strong>行星公转周期的平方与轨道半长轴的立方成正比：$T^2\propto a^3$。</li>
+  </ol>
+</div>
+
+<div class="box proof">
+  <strong>开普勒第二定律的推导（核心）：</strong>
+  <div class="steps">
+    <div class="step">设太阳在原点，行星位置向量为 $\mathbf{r}$。万有引力 $\mathbf{F}=-\frac{GMm}{r^3}\mathbf{r}$（沿 $-\mathbf{r}$ 方向，有心力）。</div>
+    <div class="step">力矩 $\boldsymbol{\tau}=\mathbf{r}\times\mathbf{F}=\mathbf{r}\times(-\frac{GMm}{r^3}\mathbf{r})=\mathbf{0}$（因为 $\mathbf{r}\times\mathbf{r}=\mathbf{0}$）。</div>
+    <div class="step">角动量 $\mathbf{L}=\mathbf{r}\times m\mathbf{v}$，$\frac{d\mathbf{L}}{dt}=\mathbf{v}\times m\mathbf{v}+\mathbf{r}\times m\mathbf{a}=\mathbf{0}+\mathbf{r}\times\mathbf{F}=\boldsymbol{\tau}=\mathbf{0}$。</div>
+    <div class="step">所以角动量 $\mathbf{L}$ 是常向量，行星在固定平面内运动。</div>
+    <div class="step">面积速度：$\frac{dA}{dt}=\frac{1}{2}|\mathbf{r}\times\mathbf{v}|=\frac{|\mathbf{L}|}{2m}=$ 常数。这就是开普勒第二定律。</div>
+  </div>
+</div>
+
+<!-- ==================== CHAPTER 14 ==================== -->
+<div class="chapter-card" id="ch14">
+  <h2>第14章 · 偏导数</h2>
+  <p><strong>Partial Derivatives</strong></p>
+  <p style="color:var(--text2);margin-top:8px">本章是多元微积分的核心。我们把单变量微积分的导数、极限、链式法则、极值等概念推广到多元函数。偏导数是后续多重积分（第15章）和向量微积分（第16章）的基础，也是经济学、物理学、机器学习中优化问题的数学工具。</p>
+  <div style="margin-top:12px">
+    <span class="tag tag-easy">14.1 多元函数</span>
+    <span class="tag tag-medium">14.2 极限与连续</span>
+    <span class="tag tag-medium">14.3 偏导数</span>
+    <span class="tag tag-medium">14.4 切平面与线性近似</span>
+    <span class="tag tag-hard">14.5 链式法则</span>
+    <span class="tag tag-hard">14.6 方向导数与梯度</span>
+    <span class="tag tag-hard">14.7 最大值与最小值</span>
+    <span class="tag tag-hard">14.8 拉格朗日乘数法</span>
+  </div>
+</div>
+
+<!-- ===== 14.1 ===== -->
+<h3 id="s14-1">14.1 多元函数 <span class="en">Functions of Several Variables</span> <span class="tag tag-easy">入门</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>单变量函数的定义 $y=f(x)$、函数的定义域和值域、函数图像（二维曲线）。多元函数就是"输入多个数，输出一个数"的函数。最常见的是二元函数 $z=f(x,y)$。
+</div>
+
+<h4>1. 二元函数的定义</h4>
+<div class="definition">
+  <div class="definition-title">二元函数</div>
+  <p>二元函数 $f$ 是一个规则，对定义域 $D$ 中的每个有序实数对 $(x,y)$，指定唯一的实数 $f(x,y)$。定义域 $D\subseteq\mathbb{R}^2$，值域是 $f(x,y)$ 所有取值的集合。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$f(x,y)=\sqrt{9-x^2-y^2}$，求定义域和值域。
+  <p><strong>解：</strong>定义域要求 $9-x^2-y^2\geq0$，即 $x^2+y^2\leq9$，是xy平面上以原点为圆心、半径3的闭圆盘。</p>
+  <p>值域：$0\leq\sqrt{9-x^2-y^2}\leq3$，即 $[0,3]$。</p>
+</div>
+
+<h4>2. 二元函数的图像</h4>
+<p>二元函数 $z=f(x,y)$ 的图像是空间中的一个<strong>曲面（surface）</strong>，所有点 $(x,y,f(x,y))$ 组成。这和一元函数 $y=f(x)$ 的图像是平面曲线形成对比。</p>
+
+<div class="box tip">
+  <strong>常见曲面：</strong>
+  <ul style="margin-left:20px">
+    <li>$f(x,y)=ax+by+c$ → 平面</li>
+    <li>$f(x,y)=\sqrt{R^2-x^2-y^2}$ → 上半球面</li>
+    <li>$f(x,y)=x^2+y^2$ → 椭圆抛物面（旋转抛物面）</li>
+    <li>$f(x,y)=y^2-x^2$ → 双曲抛物面（马鞍面 saddle surface）</li>
+  </ul>
+</div>
+
+<h4>3. 等高线（Level Curves）</h4>
+<div class="definition">
+  <div class="definition-title">等高线 / 水平曲线</div>
+  <p>函数 $f(x,y)$ 的等高线是方程 $f(x,y)=k$（$k$ 为常数，在值域内）所表示的曲线。等高线就是曲面 $z=f(x,y)$ 与水平面 $z=k$ 的交线在xy平面上的投影。</p>
+</div>
+
+<div class="box tip">
+  <strong>等高线的直觉：</strong>就像地图上的等高线——相邻等高线越密集，说明地势越陡峭（函数变化越快）；越稀疏说明越平缓。等高线的形状反映了曲面的"地形"。
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$f(x,y)=6-3x-2y$ 的等高线为 $6-3x-2y=k$，即 $3x+2y=6-k$，是一族平行直线。这对应平面 $z=6-3x-2y$，平面的等高线自然是平行直线。
+</div>
+
+<h4>4. 三元及更多元函数</h4>
+<p>三元函数 $w=f(x,y,z)$ 的图像无法直接画出（需要四维空间），但可以用<strong>等值面（level surfaces）</strong> $f(x,y,z)=k$ 来理解。例如 $f(x,y,z)=x^2+y^2+z^2$ 的等值面是同心球面。</p>
+
+<!-- ===== 14.2 ===== -->
+<h3 id="s14-2">14.2 极限与连续性 <span class="en">Limits and Continuity</span> <span class="tag tag-medium">概念重点</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>单变量函数的极限定义（$\epsilon$-$\delta$ 定义）、极限的运算法则、连续的定义。多元极限的关键区别：$(x,y)$ 可以沿<strong>任意路径</strong>趋近 $(a,b)$，而不仅仅是从左右两个方向。
+</div>
+
+<h4>1. 二元函数的极限</h4>
+<div class="definition">
+  <div class="definition-title">极限的 $\epsilon$-$\delta$ 定义</div>
+  <p>$\lim_{(x,y)\to(a,b)}f(x,y)=L$ 表示：对任意 $\epsilon>0$，存在 $\delta>0$，使得当 $0<\sqrt{(x-a)^2+(y-b)^2}<\delta$ 时，有 $|f(x,y)-L|<\epsilon$。</p>
+</div>
+
+<div class="box tip">
+  <strong>和一元极限的关键区别：</strong>
+  <p>一元中 $x\to a$ 只有两个方向（左、右）。二元中 $(x,y)\to(a,b)$ 有<strong>无穷多条路径</strong>（直线、曲线、任意方式）。极限存在要求沿<strong>所有路径</strong>都趋近同一个值。</p>
+</div>
+
+<h4>2. 证明极限不存在</h4>
+<div class="box formula">
+  <strong>核心方法：找两条不同路径，得到不同极限值。</strong>
+  <p>如果沿路径 $C_1$ 趋近时极限为 $L_1$，沿路径 $C_2$ 趋近时极限为 $L_2$，且 $L_1\neq L_2$，则极限不存在。</p>
+</div>
+
+<div class="box example">
+  <strong>经典例题：</strong>证明 $\lim_{(x,y)\to(0,0)}\frac{x^2-y^2}{x^2+y^2}$ 不存在。
+  <p><strong>解：</strong></p>
+  <div class="steps">
+    <div class="step">沿x轴趋近（$y=0$）：$f(x,0)=\frac{x^2}{x^2}=1$，极限为1。</div>
+    <div class="step">沿y轴趋近（$x=0$）：$f(0,y)=\frac{-y^2}{y^2}=-1$，极限为-1。</div>
+    <div class="step">两条路径极限不同（1 ≠ -1），所以极限不存在。</div>
+  </div>
+</div>
+
+<div class="box warn">
+  <strong>常见误区：</strong>
+  <ul style="margin-left:20px">
+    <li>沿无数条直线趋近都得到相同值，也不能保证极限存在！可能沿某条曲线趋近得到不同值。</li>
+    <li>经典反例：$f(x,y)=\frac{x^2y}{x^4+y^2}$，沿任意直线 $y=mx$ 趋近极限为0，但沿抛物线 $y=x^2$ 趋近极限为 $\frac{1}{2}$。</li>
+    <li>所以"找路径证明不存在"是充分条件，但"验证了很多路径都相同"不是极限存在的证明。</li>
+  </ul>
+</div>
+
+<h4>3. 极限的性质</h4>
+<p>和一元函数类似：和、差、积、商（分母不为0）的极限等于极限的和、差、积、商。夹逼定理也适用。</p>
+
+<div class="box example">
+  <strong>例：</strong>求 $\lim_{(x,y)\to(0,0)}\frac{xy}{\sqrt{x^2+y^2}}$。
+  <p><strong>解：</strong>用夹逼定理。$0\leq\left|\frac{xy}{\sqrt{x^2+y^2}}\right|\leq\frac{x^2+y^2}{2\sqrt{x^2+y^2}}=\frac{\sqrt{x^2+y^2}}{2}\to0$（用了 $|xy|\leq\frac{x^2+y^2}{2}$）。所以极限为0。</p>
+</div>
+
+<h4>4. 连续性</h4>
+<div class="definition">
+  <div class="definition-title">连续</div>
+  <p>二元函数 $f$ 在 $(a,b)$ 处连续，如果 $\lim_{(x,y)\to(a,b)}f(x,y)=f(a,b)$。如果 $f$ 在定义域（domain）内每一点都连续，则称 $f$ 为连续函数。</p>
+</div>
+
+<p>多项式函数、有理函数（分母不为0处）、三角函数、指数函数、对数函数等都是连续函数。连续函数的复合也是连续函数。</p>
+
+<!-- ===== 14.3 ===== -->
+<h3 id="s14-3">14.3 偏导数 <span class="en">Partial Derivatives</span> <span class="tag tag-medium">核心</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>单变量导数的定义和几何意义、基本求导法则。偏导数的思想很简单：对一个变量求导时，把其他变量当作常数。
+</div>
+
+<h4>1. 偏导数的定义</h4>
+<div class="definition">
+  <div class="definition-title">偏导数（Partial Derivative）</div>
+  <p>$f$ 对 $x$ 的偏导数：
+  $$f_x(x,y) = \lim_{h\to0}\frac{f(x+h,y)-f(x,y)}{h}$$
+  $f$ 对 $y$ 的偏导数：
+  $$f_y(x,y) = \lim_{h\to0}\frac{f(x,y+h)-f(x,y)}{h}$$</p>
+</div>
+
+<div class="box tip">
+  <strong>求偏导的法则：</strong>
+  <ul style="margin-left:20px">
+    <li>求 $f_x$：把 $y$ 当作常数，对 $x$ 求导</li>
+    <li>求 $f_y$：把 $x$ 当作常数，对 $y$ 求导</li>
+  </ul>
+  <p style="margin-top:6px">记号：$f_x = \frac{\partial f}{\partial x} = \frac{\partial z}{\partial x} = z_x$，$f_y = \frac{\partial f}{\partial y} = \frac{\partial z}{\partial y} = z_y$。注意用 $\partial$ 而不是 $d$，表示"偏"。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$f(x,y)=x^3+x^2y^3-2y^2$，求 $f_x(2,1)$ 和 $f_y(2,1)$。
+  <p><strong>解：</strong>$f_x=3x^2+2xy^3$（把 $y$ 当常数），$f_x(2,1)=12+4=16$。</p>
+  <p>$f_y=3x^2y^2-4y$（把 $x$ 当常数），$f_y(2,1)=12-4=8$。</p>
+</div>
+
+<h4>2. 偏导数的几何意义</h4>
+<p>$f_x(a,b)$ 是曲面 $z=f(x,y)$ 与平面 $y=b$ 的交线在点 $(a,b,f(a,b))$ 处的<strong>切线斜率</strong>（沿x方向的坡度）。</p>
+<p>$f_y(a,b)$ 是曲面与平面 $x=a$ 的交线在该点处的切线斜率（沿y方向的坡度）。</p>
+
+<div class="box tip">
+  <strong>直觉：</strong>站在山坡上的一点，$f_x$ 是向东走的坡度，$f_y$ 是向北走的坡度。偏导数只告诉你沿坐标轴方向的变化率。
+</div>
+
+<h4>3. 高阶偏导数</h4>
+<p>对偏导数再求偏导，得到二阶偏导数：</p>
+$$(f_x)_x = f_{xx} = \frac{\partial^2 f}{\partial x^2},\quad (f_x)_y = f_{xy} = \frac{\partial^2 f}{\partial y\partial x}$$
+$$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f_{yy} = \frac{\partial^2 f}{\partial y^2}$$
+
+<div class="theorem">
+  <div class="theorem-title">克莱罗定理（Clairaut's Theorem / 混合偏导相等）</div>
+  <p>如果 $f_{xy}$ 和 $f_{yx}$ 在包含点 $(a,b)$ 的圆盘上连续，则 $f_{xy}(a,b)=f_{yx}(a,b)$。</p>
+  <p>即<strong>混合偏导数与求导顺序无关</strong>（在连续的条件下）。</p>
+</div>
+
+<div class="box warn">
+  <strong>注意：</strong>克莱罗定理要求混合偏导数<strong>连续</strong>。存在不连续的反例使得 $f_{xy}\neq f_{yx}$，但我们遇到的绝大多数函数都满足连续条件。
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$f(x,y)=x^3+x^2y^3-2y^2$，求所有二阶偏导。
+  <p>$f_x=3x^2+2xy^3$，$f_y=3x^2y^2-4y$</p>
+  <p>$f_{xx}=6x+2y^3$，$f_{xy}=6xy^2$</p>
+  <p>$f_{yx}=6xy^2$，$f_{yy}=6x^2y-4$</p>
+  <p>验证：$f_{xy}=f_{yx}=6xy^2$ ✓</p>
+</div>
+
+<h4>4. 偏微分方程（PDE）</h4>
+<p>偏导数在物理中用于描述偏微分方程。两个经典例子：</p>
+<ul style="margin-left:20px">
+  <li><strong>拉普拉斯方程：</strong>$\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0$（描述稳态温度分布、静电势等）</li>
+  <li><strong>波动方程：</strong>$\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial^2 u}{\partial x^2}$（描述波的传播）</li>
+</ul>
+
+<!-- ===== 14.4 ===== -->
+<h3 id="s14-4">14.4 切平面与线性近似 <span class="en">Tangent Planes and Linear Approximations</span> <span class="tag tag-medium">应用</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>一元函数的切线方程 $y-y_0=f'(x_0)(x-x_0)$、线性近似 $f(x)\approx f(x_0)+f'(x_0)(x-x_0)$、微分的概念。切平面是切线在三维中的推广。
+</div>
+
+<h4>1. 切平面方程（Tangent Plane）</h4>
+<div class="box formula">
+  <strong>切平面方程：</strong>曲面 $z=f(x,y)$ 在点 $P_0(x_0,y_0,z_0)$（其中 $z_0=f(x_0,y_0)$）处的切平面为
+  $$z-z_0 = f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)$$
+</div>
+
+<div class="box proof">
+  <strong>推导（课本跳步补齐）：</strong>
+  <div class="steps">
+    <div class="step">曲面 $z=f(x,y)$ 与平面 $y=y_0$ 的交线在 $P_0$ 处的切线方向向量为 $\langle1,0,f_x(x_0,y_0)\rangle$（x方向切线）。</div>
+    <div class="step">曲面与平面 $x=x_0$ 的交线在 $P_0$ 处的切线方向向量为 $\langle0,1,f_y(x_0,y_0)\rangle$（y方向切线）。</div>
+    <div class="step">切平面的法向量 = 两个切线方向的叉积：$\mathbf{n}=\langle1,0,f_x\rangle\times\langle0,1,f_y\rangle=\langle-f_x,-f_y,1\rangle$。</div>
+    <div class="step">由平面点法式：$-f_x(x-x_0)-f_y(y-y_0)+1(z-z_0)=0$，整理得 $z-z_0=f_x(x-x_0)+f_y(y-y_0)$。</div>
+  </div>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求 $z=2x^2+y^2$ 在 $(1,1,3)$ 处的切平面。
+  <p><strong>解：</strong>$f_x=4x$，$f_x(1,1)=4$；$f_y=2y$，$f_y(1,1)=2$。</p>
+  <p>切平面：$z-3=4(x-1)+2(y-1)$，即 $z=4x+2y-3$。</p>
+</div>
+
+<h4>2. 线性近似</h4>
+<div class="box formula">
+  <strong>线性近似（切平面近似）：</strong>
+  $$f(x,y)\approx f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$$
+  当 $(x,y)$ 接近 $(x_0,y_0)$ 时成立。这就是用切平面代替曲面。
+</div>
+
+<h4>3. 可微性（Differentiability）</h4>
+<div class="definition">
+  <div class="definition-title">可微的定义</div>
+  <p>$z=f(x,y)$ 在 $(a,b)$ 处可微，如果增量 $\Delta z$ 可以表示为
+  $$\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \varepsilon_1\Delta x + \varepsilon_2\Delta y$$
+  其中当 $(\Delta x,\Delta y)\to(0,0)$ 时，$\varepsilon_1,\varepsilon_2\to0$。</p>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">可微的充分条件</div>
+  <p>如果 $f_x$ 和 $f_y$ 在 $(a,b)$ 附近存在且在 $(a,b)$ 处连续，则 $f$ 在 $(a,b)$ 处可微。</p>
+</div>
+
+<div class="box warn">
+  <strong>重要区别：</strong>偏导数存在 ≠ 可微！在一元函数中，可导即可微。但在多元函数（function of several variables）中，偏导数存在只是可微的必要条件，不是充分条件。需要偏导数<strong>连续</strong>才能保证可微。这是多元微积分和一元微积分的重要区别之一。
+</div>
+
+<h4>4. 全微分（Differentials）</h4>
+<div class="box formula">
+  <strong>全微分：</strong>
+  $$dz = f_x(x,y)\,dx + f_y(x,y)\,dy = \frac{\partial z}{\partial x}dx + \frac{\partial z}{\partial y}dy$$
+  <p>全微分 $dz$ 是增量 $\Delta z$ 的线性近似部分。$dx=\Delta x$，$dy=\Delta y$。</p>
+</div>
+
+<!-- ===== 14.5 ===== -->
+<h3 id="s14-5">14.5 链式法则 <span class="en">The Chain Rule</span> <span class="tag tag-hard">重点难点</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>一元函数的链式法则 $\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx}$、偏导数的计算。多元链式法则的核心是"对每个中间变量都贡献一条路径，所有路径相加"。
+</div>
+
+<h4>1. 情形1：一个自变量</h4>
+<div class="theorem">
+  <div class="theorem-title">链式法则 — 情形1</div>
+  <p>设 $z=f(x,y)$ 可微，$x=g(t)$，$y=h(t)$ 可导，则
+  $$\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}$$</p>
+</div>
+
+<div class="box proof">
+  <strong>直觉理解：</strong>
+  <p>$z$ 依赖 $x$ 和 $y$，而 $x$ 和 $y$ 都依赖 $t$。当 $t$ 变化时，它通过 $x$ 间接影响 $z$（贡献 $\frac{\partial z}{\partial x}\frac{dx}{dt}$），同时通过 $y$ 间接影响 $z$（贡献 $\frac{\partial z}{\partial y}\frac{dy}{dt}$）。两条路径的影响相加。</p>
+  <p>可以画"依赖关系树"：$z$ 分出 $x,y$ 两个分支，每个分支再连到 $t$。从 $z$ 到 $t$ 的每条路径上的导数相乘，不同路径相加。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>$z=x^2y+3xy^4$，$x=\sin2t$，$y=\cos t$，求 $\frac{dz}{dt}\big|_{t=0}$。
+  <p><strong>解：</strong>$\frac{dz}{dt}=(2xy+3y^4)(2\cos2t)+(x^2+12xy^3)(-\sin t)$。</p>
+  <p>$t=0$ 时 $x=0,y=1$：$\frac{dz}{dt}=(0+3)(2)+(0+0)(0)=6$。</p>
+</div>
+
+<h4>2. 情形2：两个自变量</h4>
+<div class="theorem">
+  <div class="theorem-title">链式法则 — 情形2</div>
+  <p>设 $z=f(x,y)$ 可微，$x=g(s,t)$，$y=h(s,t)$ 有偏导数，则
+  $$\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s}$$
+  $$\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$$</p>
+</div>
+
+<div class="box tip">
+  <strong>记忆方法——树形图法：</strong>
+  <p>画出变量依赖关系：$z\to\{x,y\}\to\{s,t\}$。</p>
+  <p>求 $\frac{\partial z}{\partial s}$ 时，找所有从 $z$ 到 $s$ 的路径：$z\to x\to s$ 和 $z\to y\to s$。每条路径上的偏导数相乘，然后相加。</p>
+</div>
+
+<h4>3. 一般情形</h4>
+<div class="theorem">
+  <div class="theorem-title">链式法则 — 一般版</div>
+  <p>设 $u$ 是 $n$ 个变量 $x_1,\ldots,x_n$ 的可微函数，每个 $x_j$ 是 $m$ 个变量 $t_1,\ldots,t_m$ 的可微函数，则
+  $$\frac{\partial u}{\partial t_i} = \sum_{j=1}^n \frac{\partial u}{\partial x_j}\frac{\partial x_j}{\partial t_i} \quad (i=1,\ldots,m)$$</p>
+</div>
+
+<h4>4. 隐函数（implicit function）求导</h4>
+<div class="theorem">
+  <div class="theorem-title">隐函数定理（二元）</div>
+  <p>设 $F(x,y)=0$ 确定了 $y$ 是 $x$ 的函数，且 $F_y\neq0$，则
+  $$\frac{dy}{dx} = -\frac{F_x}{F_y}$$</p>
+</div>
+
+<div class="box proof">
+  <strong>推导：</strong>
+  <div class="steps">
+    <div class="step">$F(x,y)=0$ 两边对 $x$ 求导（注意 $y$ 是 $x$ 的函数）：</div>
+    <div class="step">由链式法则：$\frac{\partial F}{\partial x}\cdot\frac{dx}{dx}+\frac{\partial F}{\partial y}\cdot\frac{dy}{dx}=0$</div>
+    <div class="step">即 $F_x + F_y\frac{dy}{dx}=0$</div>
+    <div class="step">解得 $\frac{dy}{dx}=-\frac{F_x}{F_y}$。</div>
+  </div>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">隐函数定理（三元）</div>
+  <p>设 $F(x,y,z)=0$ 确定了 $z$ 是 $x,y$ 的函数，且 $F_z\neq0$，则
+  $$\frac{\partial z}{\partial x} = -\frac{F_x}{F_z},\quad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z}$$</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求 $x^3+y^3=6xy$（笛卡儿叶形线）的 $\frac{dy}{dx}$。
+  <p><strong>解：</strong>令 $F(x,y)=x^3+y^3-6xy=0$。$F_x=3x^2-6y$，$F_y=3y^2-6x$。</p>
+  <p>$\frac{dy}{dx}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=\frac{2y-x^2}{y^2-2x}$。</p>
+</div>
+
+<!-- ===== 14.6 ===== -->
+<h3 id="s14-6">14.6 方向导数与梯度向量 <span class="en">Directional Derivatives and the Gradient Vector</span> <span class="tag tag-hard">核心概念</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>偏导数（只描述沿坐标轴方向的变化率）、点积、单位向量。方向导数推广了偏导数——描述沿<strong>任意方向</strong>的变化率。梯度是本节最重要的概念，贯穿后续所有内容。
+</div>
+
+<h4>1. 方向导数</h4>
+<div class="definition">
+  <div class="definition-title">方向导数（Directional Derivative）</div>
+  <p>$f$ 在 $(x_0,y_0)$ 处沿单位向量 $\mathbf{u}=\langle a,b\rangle$ 方向的方向导数为
+  $$D_{\mathbf{u}}f(x_0,y_0) = \lim_{h\to0}\frac{f(x_0+ha,\,y_0+hb)-f(x_0,y_0)}{h}$$</p>
+</div>
+
+<div class="box tip">
+  <strong>和偏导数的关系：</strong>
+  <ul style="margin-left:20px">
+    <li>沿 $\mathbf{i}=\langle1,0\rangle$ 方向：$D_{\mathbf{i}}f=f_x$</li>
+    <li>沿 $\mathbf{j}=\langle0,1\rangle$ 方向：$D_{\mathbf{j}}f=f_y$</li>
+  </ul>
+  <p>偏导数是方向导数的特例（沿坐标轴方向）。方向导数是偏导数的推广（沿任意方向）。</p>
+  <p><strong>注意：</strong>$\mathbf{u}$ 必须是<strong>单位向量</strong>！如果给的不是单位向量，要先单位化。</p>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">方向导数计算公式</div>
+  <p>如果 $f$ 可微，则沿任意单位向量 $\mathbf{u}=\langle a,b\rangle$ 的方向导数为
+  $$D_{\mathbf{u}}f(x,y) = f_x(x,y)\,a + f_y(x,y)\,b$$</p>
+</div>
+
+<div class="box proof">
+  <strong>推导：</strong>
+  <div class="steps">
+    <div class="step">定义一元函数 $g(h)=f(x_0+ha,y_0+hb)$。</div>
+    <div class="step">$D_{\mathbf{u}}f=g'(0)$（由方向导数定义）。</div>
+    <div class="step">由链式法则（情形1）：$g'(h)=f_x(x_0+ha,y_0+hb)\cdot a+f_y(x_0+ha,y_0+hb)\cdot b$。</div>
+    <div class="step">令 $h=0$：$D_{\mathbf{u}}f=f_x(x_0,y_0)a+f_y(x_0,y_0)b$。</div>
+  </div>
+</div>
+
+<h4>2. 梯度向量（Gradient）</h4>
+<div class="definition">
+  <div class="definition-title">梯度</div>
+  <p>二元函数 $f(x,y)$ 的梯度向量为
+  $$\nabla f(x,y) = \langle f_x(x,y),\, f_y(x,y)\rangle = \frac{\partial f}{\partial x}\mathbf{i}+\frac{\partial f}{\partial y}\mathbf{j}$$
+  三元函数：$\nabla f(x,y,z)=\langle f_x,f_y,f_z\rangle$。</p>
+</div>
+
+<div class="box formula">
+  <strong>方向导数的梯度表示：</strong>
+  $$D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}$$
+  <p>这是本节最核心的公式。方向导数 = 梯度向量与方向单位向量的点积。</p>
+</div>
+
+<h4>3. 梯度的意义（最重要！）</h4>
+<div class="theorem">
+  <div class="theorem-title">梯度的方向与大小</div>
+  <p>设 $f$ 可微，则：</p>
+  <ol style="margin-left:20px;margin-top:4px">
+    <li><strong>方向：</strong>$\nabla f$ 指向 $f$ <strong>增长最快</strong>的方向。$-\nabla f$ 指向 $f$ 减少最快的方向。</li>
+    <li><strong>大小：</strong>$|\nabla f|$ 是最大的方向导数值（最快增长率）。</li>
+    <li><strong>垂直：</strong>$\nabla f$ 垂直于等高线 $f(x,y)=k$（在该点处）。</li>
+  </ol>
+</div>
+
+<div class="box proof">
+  <strong>为什么梯度指向增长最快的方向？</strong>
+  <div class="steps">
+    <div class="step">$D_{\mathbf{u}}f=\nabla f\cdot\mathbf{u}=|\nabla f||\mathbf{u}|\cos\theta=|\nabla f|\cos\theta$（因为 $\mathbf{u}$ 是单位向量）。</div>
+    <div class="step">$\cos\theta$ 的最大值为1（当 $\theta=0$，即 $\mathbf{u}$ 与 $\nabla f$ 同向时）。</div>
+    <div class="step">所以 $D_{\mathbf{u}}f$ 的最大值为 $|\nabla f|$，在 $\mathbf{u}$ 与 $\nabla f$ 同向时取得。</div>
+    <div class="step">即梯度方向是增长最快的方向，梯度的模是最大增长率。</div>
+  </div>
+</div>
+
+<div class="box tip">
+  <strong>梯度的物理直觉：</strong>
+  <ul style="margin-left:20px">
+    <li>站在山坡上，梯度指向<strong>最陡的上坡方向</strong></li>
+    <li>梯度的大小 = 最陡方向的坡度</li>
+    <li>负梯度 = 最陡下坡方向（梯度下降法的基础，机器学习中广泛使用）</li>
+    <li>沿等高线方向走（垂直于梯度），高度不变</li>
+  </ul>
+</div>
+
+<h4>4. 等值面（level surfaces）的切平面</h4>
+<div class="box formula">
+  <p>曲面 $F(x,y,z)=k$（等值面）在点 $P_0$ 处的法向量为 $\nabla F(P_0)$。</p>
+  <p>切平面方程：$F_x(P_0)(x-x_0)+F_y(P_0)(y-y_0)+F_z(P_0)(z-z_0)=0$。</p>
+  <p>法线方程：$\frac{x-x_0}{F_x}=\frac{y-y_0}{F_y}=\frac{z-z_0}{F_z}$。</p>
+</div>
+
+<div class="box proof">
+  <strong>为什么 $\nabla F$ 是等值面的法向量？</strong>
+  <p>在等值面 $F=k$ 上任取一条过 $P_0$ 的曲线 $\mathbf{r}(t)$，则 $F(\mathbf{r}(t))=k$。两边对 $t$ 求导：$\nabla F\cdot\mathbf{r}'(t)=0$。所以 $\nabla F$ 垂直于等值面上任意曲线的切向量，即 $\nabla F$ 是等值面的法向量。</p>
+</div>
+
+<!-- ===== 14.7 ===== -->
+<h3 id="s14-7">14.7 最大值与最小值 <span class="en">Maximum and Minimum Values</span> <span class="tag tag-hard">优化</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>一元函数的极值判定（$f'(c)=0$ 找临界点，二阶导数测试）、偏导数、梯度。多元极值的思想类似，但需要同时考虑所有方向的变化。
+</div>
+
+<h4>1. 局部极值</h4>
+<div class="definition">
+  <div class="definition-title">局部最大值/最小值</div>
+  <p>$f$ 在 $(a,b)$ 处有<strong>局部最大值</strong>，如果当 $(x,y)$ 接近 $(a,b)$ 时 $f(x,y)\leq f(a,b)$。<br>
+  $f$ 在 $(a,b)$ 处有<strong>局部最小值</strong>，如果当 $(x,y)$ 接近 $(a,b)$ 时 $f(x,y)\geq f(a,b)$。</p>
+</div>
+
+<div class="theorem">
+  <div class="theorem-title">极值的必要条件（费马定理的多元版）</div>
+  <p>如果 $f$ 在 $(a,b)$ 处有局部极值且一阶偏导数存在，则 $f_x(a,b)=0$ 且 $f_y(a,b)=0$，即 $\nabla f(a,b)=\mathbf{0}$。</p>
+</div>
+
+<div class="definition">
+  <div class="definition-title">临界点（Critical Point）</div>
+  <p>满足 $\nabla f(a,b)=\mathbf{0}$（即 $f_x=f_y=0$）的点，或者至少一个偏导数不存在的点。</p>
+  <p>局部极值一定在临界点处取得，但临界点不一定是极值点（可能是鞍点（saddle point））。</p>
+</div>
+
+<h4>2. 二阶导数测试（Second Derivatives Test）</h4>
+<div class="theorem">
+  <div class="theorem-title">二阶导数测试</div>
+  <p>设 $f$ 的二阶偏导数在以临界点 $(a,b)$ 为中心的圆盘上连续，且 $f_x(a,b)=f_y(a,b)=0$。令
+  $$D = D(a,b) = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)]^2$$
+  则：</p>
+  <table style="margin-top:8px">
+    <tr><th>条件</th><th>结论</th></tr>
+    <tr><td>$D>0$ 且 $f_{xx}>0$</td><td>局部最小值</td></tr>
+    <tr><td>$D>0$ 且 $f_{xx}<0$</td><td>局部最大值</td></tr>
+    <tr><td>$D<0$</td><td>鞍点（saddle point，不是极值）</td></tr>
+    <tr><td>$D=0$</td><td>无法判断（测试失败）</td></tr>
+  </table>
+</div>
+
+<div class="box tip">
+  <strong>D 的记忆：</strong>$D = \begin{vmatrix}f_{xx}&f_{xy}\\f_{yx}&f_{yy}\end{vmatrix}$（海森矩阵的行列式）。由克莱罗定理 $f_{xy}=f_{yx}$。
+  <p>$D>0$ 意味着两个方向"同弯"（都是凹或都是凸）→ 极值；$D<0$ 意味着"一个方向凹、一个方向凸"→ 鞍点。</p>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>求 $f(x,y)=x^4+y^4-4xy+1$ 的局部极值。
+  <p><strong>解：</strong></p>
+  <div class="steps">
+    <div class="step">$f_x=4x^3-4y=0\Rightarrow y=x^3$；$f_y=4y^3-4x=0\Rightarrow x=y^3$。</div>
+    <div class="step">联立：$x=(x^3)^3=x^9\Rightarrow x(x^8-1)=0\Rightarrow x=0,\pm1$。临界点：$(0,0),(1,1),(-1,-1)$。</div>
+    <div class="step">$f_{xx}=12x^2$，$f_{yy}=12y^2$，$f_{xy}=-4$。$D=144x^2y^2-16$。</div>
+    <div class="step">$(0,0)$：$D=-16<0$ → 鞍点。</div>
+    <div class="step">$(1,1)$：$D=128>0$，$f_{xx}=12>0$ → 局部最小值 $f(1,1)=-1$。</div>
+    <div class="step">$(-1,-1)$：$D=128>0$，$f_{xx}=12>0$ → 局部最小值 $f(-1,-1)=-1$。</div>
+  </div>
+</div>
+
+<h4>3. 绝对最大值与最小值</h4>
+<div class="theorem">
+  <div class="theorem-title">极值定理（二元版）</div>
+  <p>如果 $f$ 在 $\mathbb{R}^2$ 中的闭有界集 $D$ 上连续，则 $f$ 在 $D$ 上一定取得绝对最大值和绝对最小值。</p>
+</div>
+
+<div class="box formula">
+  <strong>求闭有界集上绝对最值的步骤：</strong>
+  <div class="steps">
+    <div class="step">求 $D$ 内部的临界点，计算函数值。</div>
+    <div class="step">求 $D$ 边界上的极值（把边界方程代入 $f$，化为一元函数求极值）。</div>
+    <div class="step">比较所有候选值，最大的就是绝对最大值，最小的就是绝对最小值。</div>
+  </div>
+</div>
+
+<!-- ===== 14.8 ===== -->
+<h3 id="s14-8">14.8 拉格朗日乘数法 <span class="en">Lagrange Multipliers</span> <span class="tag tag-hard">约束优化</span></h3>
+
+<div class="box prereq">
+  <strong>你需要先知道：</strong>梯度向量的几何意义（垂直于等值线/等值面）、条件极值的概念。拉格朗日乘数法是在<strong>约束条件</strong>下求极值的方法，不需要解出约束方程代入。
+</div>
+
+<h4>1. 方法思想</h4>
+<p>问题：在约束 $g(x,y)=k$ 下，求 $f(x,y)$ 的极值。</p>
+
+<div class="theorem">
+  <div class="theorem-title">拉格朗日乘数法</div>
+  <p>在约束 $g(x,y)=k$ 下，$f$ 的极值点满足
+  $$\nabla f(x,y) = \lambda\,\nabla g(x,y)$$
+  其中 $\lambda$ 称为拉格朗日乘数。</p>
+  <p>即解方程组：$f_x=\lambda g_x$，$f_y=\lambda g_y$，$g(x,y)=k$。</p>
+</div>
+
+<div class="box proof">
+  <strong>几何直觉（为什么 $\nabla f=\lambda\nabla g$？）</strong>
+  <div class="steps">
+    <div class="step">约束 $g(x,y)=k$ 是一条曲线（等高线）。$f$ 的极值点出现在 $f$ 的等高线与约束曲线<strong>相切</strong>的地方。</div>
+    <div class="step">如果不相切，沿约束曲线移动还能让 $f$ 增大或减小，就不是极值。</div>
+    <div class="step">两条曲线相切意味着它们在该点有共同的切线，因此法向量平行。</div>
+    <div class="step">$\nabla f$ 垂直于 $f$ 的等高线，$\nabla g$ 垂直于约束曲线。相切时两者平行，即 $\nabla f=\lambda\nabla g$。</div>
+  </div>
+</div>
+
+<div class="box example">
+  <strong>例：</strong>在约束 $x^2+y^2=1$ 下，求 $f(x,y)=x^2+2y^2$ 的极值。
+  <p><strong>解：</strong>$\nabla f=\langle2x,4y\rangle$，$\nabla g=\langle2x,2y\rangle$。</p>
+  <p>$\nabla f=\lambda\nabla g$：$2x=2\lambda x$，$4y=2\lambda y$，$x^2+y^2=1$。</p>
+  <div class="steps">
+    <div class="step">由第一式：$2x(1-\lambda)=0\Rightarrow x=0$ 或 $\lambda=1$。</div>
+    <div class="step">若 $x=0$：$y^2=1\Rightarrow y=\pm1$，$f=2$。</div>
+    <div class="step">若 $\lambda=1$：代入第二式 $4y=2y\Rightarrow y=0$，$x^2=1\Rightarrow x=\pm1$，$f=1$。</div>
+    <div class="step">比较：最大值为2（在 $(0,\pm1)$），最小值为1（在 $(\pm1,0)$）。</div>
+  </div>
+</div>
+
+<h4>2. 两个约束条件</h4>
+<div class="theorem">
+  <div class="theorem-title">两个约束的拉格朗日乘数法</div>
+  <p>在约束 $g(x,y,z)=k$ 和 $h(x,y,z)=c$ 下，$f$ 的极值点满足
+  $$\nabla f = \lambda\nabla g + \mu\nabla h$$
+  解五个方程（三个分量方程 + 两个约束方程）求五个未知数 $x,y,z,\lambda,\mu$。</p>
+</div>
+
+<div class="box tip">
+  <strong>$\lambda$ 的意义：</strong>$\lambda$ 近似等于约束条件的边际变化对目标函数极值的影响。在经济学中，$\lambda$ 可以解释为"影子价格"——约束放松一单位时，最优值增加多少。
+</div>
+
+<div class="box warn">
+  <strong>拉格朗日乘数法的局限：</strong>
+  <ul style="margin-left:20px">
+    <li>只能找到满足 $\nabla f=\lambda\nabla g$ 的点，需要验证哪些是最大/最小值</li>
+    <li>如果 $\nabla g=\mathbf{0}$，方法失效（需要单独检查）</li>
+    <li>方程组可能是非线性的，求解可能困难</li>
+    <li>得到的点需要比较函数值来确定最大还是最小</li>
+  </ul>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div style="margin-top:80px;padding-top:30px;border-top:1px solid var(--border);text-align:center;color:var(--text2);font-size:.85em">
+  <p>多元微积分完全指南 · Stewart Calculus 第12-14章</p>
+  <p>涵盖：向量与空间几何 · 向量函数 · 偏导数</p>
+  <p style="margin-top:8px">所有推导步骤已补齐 · 前置知识已标注 · 适合AP微积分BC 3分水平学生从头学习</p>
+</div>
+
+</div><!-- end main -->
+
+<script>
+// Navigation data
+const chapters = [
+  {id:'ch12', title:'第12章 向量与空间几何', sections:[
+    {id:'s12-1', title:'12.1 三维坐标系'},
+    {id:'s12-2', title:'12.2 向量'},
+    {id:'s12-3', title:'12.3 点积'},
+    {id:'s12-4', title:'12.4 叉积'},
+    {id:'s12-5', title:'12.5 直线与平面'},
+    {id:'s12-6', title:'12.6 柱面与二次曲面'},
+  ]},
+  {id:'ch13', title:'第13章 向量函数', sections:[
+    {id:'s13-1', title:'13.1 向量函数与空间曲线（space curve）'},
+    {id:'s13-2', title:'13.2 导数与积分'},
+    {id:'s13-3', title:'13.3 弧长（arc length）与曲率（curvature）'},
+    {id:'s13-4', title:'13.4 空间中的运动'},
+  ]},
+  {id:'ch14', title:'第14章 偏导数', sections:[
+    {id:'s14-1', title:'14.1 多元函数'},
+    {id:'s14-2', title:'14.2 极限与连续'},
+    {id:'s14-3', title:'14.3 偏导数'},
+    {id:'s14-4', title:'14.4 切平面与线性近似'},
+    {id:'s14-5', title:'14.5 链式法则'},
+    {id:'s14-6', title:'14.6 方向导数与梯度'},
+    {id:'s14-7', title:'14.7 最大值与最小值'},
+    {id:'s14-8', title:'14.8 拉格朗日乘数法'},
+  ]},
+];
+
+// Build sidebar
+const navEl = document.getElementById('nav-content');
+chapters.forEach(ch => {
+  const chDiv = document.createElement('div');
+  chDiv.innerHTML = `<div class="nav-chapter" onclick="toggleCh('${ch.id}')">${ch.title}<span id="arrow-${ch.id}">▼</span></div>`;
+  const secDiv = document.createElement('div');
+  secDiv.id = 'sec-'+ch.id;
+  ch.sections.forEach(s => {
+    secDiv.innerHTML += `<a class="nav-section" href="#${s.id}" onclick="closeSidebar()">${s.title}</a>`;
+  });
+  chDiv.appendChild(secDiv);
+  navEl.appendChild(chDiv);
+});
+
+function toggleCh(id) {
+  const sec = document.getElementById('sec-'+id);
+  const arrow = document.getElementById('arrow-'+id);
+  sec.style.display = sec.style.display === 'none' ? 'block' : 'none';
+  arrow.textContent = sec.style.display === 'none' ? '▶' : '▼';
+}
+function closeSidebar() {
+  if(window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+}
+
+// Active section highlighting + progress
+const sections = document.querySelectorAll('h3[id]');
+const navSections = document.querySelectorAll('.nav-section');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navSections.forEach(n => {
+    n.classList.toggle('active', n.getAttribute('href') === '#'+current);
+  });
+  // Progress bar
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ==== 实例5：曲率可视化（13.3）====
+(function(){
+  const wrap = injectViz('s13-3', '曲率 κ 可视化 · 拖动滑块看曲率圆', '曲线越弯，曲率 κ 越大，曲率圆半径 $1/\kappa$ 越小。直线弯曲程度为 0；小圆比大圆更"弯"。', `
+    <canvas height="360" style="height:360px"></canvas>
+    <div class="viz-controls">
+      <select id="v13c-curve">
+        <option value="circle">圆（r=1.5）</option>
+        <option value="bigcircle">大圆（r=3）</option>
+        <option value="parabola">抛物线 y = 0.4x²</option>
+        <option value="line">直线 y = 0.5x</option>
+      </select>
+      <label>点在曲线上移动 <input type="range" id="v13c-t" min="0" max="100" value="50"></label>
+    </div>`);
+  if (!wrap) return;
+  const cv = wrap.querySelector('canvas');
+  const c = make2D(cv);
+  c.setRange(-4, 4, -3.5, 3.5);
+  const sel = wrap.querySelector('#v13c-curve');
+  const sld = wrap.querySelector('#v13c-t');
+  let tVal = 0.5;
+  function curveInfo(type, t) {
+    // 返回 {p, tan, kappa, normal}
+    if (type === 'circle') {
+      const th = t * Math.PI * 2;
+      return {p:{x:1.5*Math.cos(th), y:1.5*Math.sin(th)}, tan:{x:-Math.sin(th), y:Math.cos(th)}, kappa:1/1.5, normal:{x:-Math.cos(th), y:-Math.sin(th)}};
+    }
+    if (type === 'bigcircle') {
+      const th = t * Math.PI * 2;
+      return {p:{x:3*Math.cos(th), y:3*Math.sin(th)}, tan:{x:-Math.sin(th), y:Math.cos(th)}, kappa:1/3, normal:{x:-Math.cos(th), y:-Math.sin(th)}};
+    }
+    if (type === 'line') {
+      const x = -3.5 + 7*t;
+      return {p:{x, y:0.5*x}, tan:{x:1/Math.sqrt(1.25), y:0.5/Math.sqrt(1.25)}, kappa:0, normal:{x:-0.5/Math.sqrt(1.25), y:1/Math.sqrt(1.25)}};
+    }
+    // parabola y = 0.4x²
+    const x = -3.2 + 6.4*t;
+    const y = 0.4*x*x;
+    const dy = 0.8*x;
+    const k = Math.abs(0.8) / Math.pow(1+dy*dy, 1.5);
+    const tanl = Math.sqrt(1+dy*dy);
+    const nx = -dy/tanl, ny = 1/tanl;
+    return {p:{x,y}, tan:{x:1/tanl, y:dy/tanl}, kappa:k, normal:{x:nx, y:ny}};
+  }
+  function render() {
+    const type = sel.value;
+    const info = curveInfo(type, tVal);
+    c.clear(); c.grid(1);
+    // 画整条曲线
+    if (type === 'circle' || type === 'bigcircle') {
+      const R = type==='circle' ? 1.5 : 3;
+      c.ctx.strokeStyle = 'rgba(108,140,255,0.7)'; c.ctx.lineWidth = 2;
+      c.ctx.beginPath();
+      for (let i = 0; i <= 120; i++) {
+        const th = i/120*Math.PI*2;
+        const px = c.sx(R*Math.cos(th)), py = c.sy(R*Math.sin(th));
+        i ? c.ctx.lineTo(px,py) : c.ctx.moveTo(px,py);
+      }
+      c.ctx.stroke();
+    } else if (type === 'line') {
+      c.line(-3.8, -1.9, 3.8, 1.9, 'rgba(108,140,255,0.7)', 2);
+    } else {
+      c.ctx.strokeStyle = 'rgba(108,140,255,0.7)'; c.ctx.lineWidth = 2;
+      c.ctx.beginPath();
+      for (let i = 0; i <= 120; i++) {
+        const x = -3.5 + 7*i/120, y = 0.4*x*x;
+        const px = c.sx(x), py = c.sy(y);
+        i ? c.ctx.lineTo(px,py) : c.ctx.moveTo(px,py);
+      }
+      c.ctx.stroke();
+    }
+    // 当前点、切线、法线
+    const {p, tan, kappa, normal} = info;
+    c.dot(p.x, p.y, '#fc8181', 6);
+    c.arrow(p.x, p.y, p.x+tan.x*1.3, p.y+tan.y*1.3, '#4fd1c5', 2.5);
+    c.text(p.x+tan.x*1.4, p.y+tan.y*1.4-0.15, 'T','#4fd1c5',13);
+    if (kappa > 1e-6) {
+      const R = 1/kappa;
+      // 曲率圆：圆心在法线方向距离 R 处（指向曲线凹侧）
+      const cx = p.x + normal.x*R, cy = p.y + normal.y*R;
+      c.ctx.strokeStyle = 'rgba(246,173,85,0.8)'; c.ctx.lineWidth = 2; c.ctx.setLineDash([6,4]);
+      c.ctx.beginPath();
+      for (let i = 0; i <= 90; i++) {
+        const th = i/90*Math.PI*2;
+        const px = c.sx(cx + R*Math.cos(th)), py = c.sy(cy + R*Math.sin(th));
+        i ? c.ctx.lineTo(px,py) : c.ctx.moveTo(px,py);
+      }
+      c.ctx.stroke(); c.ctx.setLineDash([]);
+      c.dot(cx, cy, 'rgba(246,173,85,0.9)', 3);
+      c.text(cx+0.15, cy+0.15, '曲率圆', '#f6ad55', 12);
+      c.line(p.x, p.y, cx, cy, 'rgba(246,173,85,0.5)', 1, [3,3]);
+      // 信息
+      c.ctx.fillStyle = 'rgba(15,17,23,0.88)'; c.ctx.fillRect(8, 8, 250, 78);
+      c.ctx.strokeStyle = '#2e3345'; c.ctx.strokeRect(8, 8, 250, 78);
+      c.ctx.fillStyle = '#e4e6ef'; c.ctx.font = '12px monospace';
+      c.ctx.fillText(`κ = ${kappa.toFixed(4)}`, 16, 28);
+      c.ctx.fillText(`曲率圆半径 1/κ = ${R.toFixed(2)}`, 16, 47);
+      c.ctx.fillStyle = '#f6ad55'; c.ctx.fillText(`（半径越小 → 弯得越厉害）`, 16, 66);
+    } else {
+      c.ctx.fillStyle = 'rgba(15,17,23,0.88)'; c.ctx.fillRect(8, 8, 250, 48);
+      c.ctx.strokeStyle = '#2e3345'; c.ctx.strokeRect(8, 8, 250, 48);
+      c.ctx.fillStyle = '#68d391'; c.ctx.font = '12px monospace';
+      c.ctx.fillText('κ = 0：直线不弯曲', 16, 34);
+    }
+  }
+  sel.addEventListener('change', render);
+  sld.addEventListener('input', () => { tVal = parseFloat(sld.value)/100; render(); });
+  c.setRender(render);
+  render();
+})();
+
+// ==== 实例6：梯度与等高线（14.6）====
+(function(){
+  const wrap = injectViz('s14-6', '梯度 ∇f 可视化 · 点击曲面上的点', '颜色越亮表示 f 越大。黑色箭头是梯度场（每点指向最陡上升方向）。点击画布任意点，显示该点的梯度向量——它总是垂直于等高线，且指向 $f$ 增长最快的方向。', `
+    <canvas height="420" style="height:420px"></canvas>
+    <div class="viz-controls">
+      <select id="v14g-fn">
+        <option value="bowl">碗形 f(x,y) = x²+y²</option>
+        <option value="saddle">马鞍面 f(x,y) = x²−y²</option>
+        <option value="hill">山丘 f(x,y) = sin(x)·sin(y)</option>
+      </select>
+      <label>显示梯度场 <input type="checkbox" id="v14g-field" checked></label>
+    </div>`);
+  if (!wrap) return;
+  const cv = wrap.querySelector('canvas');
+  const c = make2D(cv);
+  c.xmin=-4; c.xmax=4; c.ymin=-4; c.ymax=4;
+  const sel = wrap.querySelector('#v14g-fn');
+  const fieldChk = wrap.querySelector('#v14g-field');
+  let clickP = null;
+  function fval(type, x, y) {
+    if (type==='bowl') return x*x + y*y;
+    if (type==='saddle') return x*x - y*y;
+    return Math.sin(x)*Math.sin(y);
+  }
+  function grad(type, x, y) {
+    if (type==='bowl') return {x:2*x, y:2*y};
+    if (type==='saddle') return {x:2*x, y:-2*y};
+    return {x:Math.cos(x)*Math.sin(y), y:Math.sin(x)*Math.cos(y)};
+  }
+  function render() {
+    const type = sel.value;
+    c.clear();
+    // 像素着色
+    const img = c.ctx.createImageData(c.W, c.H);
+    let fmin = Infinity, fmax = -Infinity;
+    const vals = new Float32Array(c.W*c.H);
+    for (let i = 0; i < c.W; i++) {
+      for (let j = 0; j < c.H; j++) {
+        const x = c.wx(i), y = c.wy(j);
+        const v = fval(type, x, y);
+        vals[j*c.W+i] = v;
+        if (v < fmin) fmin = v; if (v > fmax) fmax = v;
+      }
+    }
+    const range = (fmax-fmin) || 1;
+    const cnt = 12;
+    for (let i = 0; i < c.W; i++) {
+      for (let j = 0; j < c.H; j++) {
+        const v = vals[j*c.W+i];
+        const t = (v - fmin)/range;
+        // 蓝→紫→粉渐变
+        const r = Math.round(40 + 180*t);
+        const g = Math.round(30 + 80*Math.sin(t*Math.PI));
+        const b = Math.round(120 + 120*(1-t));
+        const idx = (j*c.W+i)*4;
+        // 等高线：v 接近某个层级值时提亮
+        const lvl = Math.round(v/cnt);
+        const dist = Math.abs(v - lvl*cnt);
+        if (dist < range*0.02) {
+          img.data[idx]=255; img.data[idx+1]=255; img.data[idx+2]=255; img.data[idx+3]=255;
+        } else {
+          img.data[idx]=r; img.data[idx+1]=g; img.data[idx+2]=b; img.data[idx+3]=255;
+        }
+      }
+    }
+    c.ctx.putImageData(img, 0, 0);
+    // 网格线
+    c.grid(1);
+    // 梯度场
+    if (fieldChk.checked) {
+      const step = 0.8;
+      for (let x = -3.6; x <= 3.6; x += step) {
+        for (let y = -3.6; y <= 3.6; y += step) {
+          const g = grad(type, x, y);
+          const L = Math.hypot(g.x, g.y) || 1;
+          const s = 0.32;
+          c.arrow(x, y, x + g.x/L*s, y + g.y/L*s, 'rgba(0,0,0,0.55)', 1.6);
+        }
+      }
+    }
+    // 点击点显示梯度
+    if (clickP) {
+      const g = grad(type, clickP.x, clickP.y);
+      const L = Math.hypot(g.x, g.y) || 1;
+      const len = 1.1;
+      c.arrow(clickP.x, clickP.y, clickP.x + g.x/L*len, clickP.y + g.y/L*len, '#fc8181', 3.5);
+      c.dot(clickP.x, clickP.y, '#ffffff', 5);
+      // 等高线切线（垂直于梯度）
+      c.line(clickP.x, clickP.y, clickP.x - g.y/L*0.8, clickP.y + g.x/L*0.8, 'rgba(255,255,255,0.8)', 1.5, [4,3]);
+      c.text(clickP.x+0.3, clickP.y+0.4, '∇f', '#fc8181', 15);
+      c.ctx.fillStyle = 'rgba(15,17,23,0.9)'; c.ctx.fillRect(8, 8, 300, 76);
+      c.ctx.strokeStyle = '#2e3345'; c.ctx.strokeRect(8, 8, 300, 76);
+      c.ctx.fillStyle = '#e4e6ef'; c.ctx.font = '12px monospace';
+      c.ctx.fillText(`∇f(${clickP.x.toFixed(2)}, ${clickP.y.toFixed(2)}) = ⟨${g.x.toFixed(2)}, ${g.y.toFixed(2)}⟩`, 16, 28);
+      c.ctx.fillText(`|∇f| = ${L.toFixed(2)}  ← 最大方向导数`, 16, 47);
+      c.ctx.fillStyle = '#68d391';
+      c.ctx.fillText('红箭头 ⊥ 等高线，指向最陡上升方向', 16, 66);
+    } else {
+      c.text(-3.8, 3.5, '← 点击画布任意位置，查看该点梯度', 'rgba(255,255,255,0.7)', 12);
+    }
+  }
+  sel.addEventListener('change', () => { clickP = null; render(); });
+  fieldChk.addEventListener('change', render);
+  c.setRender(render);
+  cv.addEventListener('click', e => {
+    const r = cv.getBoundingClientRect();
+    clickP = {x: c.wx(e.clientX-r.left), y: c.wy(e.clientY-r.top)};
+    render();
+  });
+  render();
+})();
+
+// ==== 实例7：拉格朗日乘数法 · 相切（14.8）====
+(function(){
+  const wrap = injectViz('s14-8', '拉格朗日乘数法可视化 · 极值发生在相切处', '在约束 $x^2+y^2=R^2$（黄圈）下最大化 $f(x,y)=x^2+2y^2$。点击圆周上的点，红/蓝箭头显示 $\nabla f$ 与 $\nabla g$——两者平行（夹角0°或180°）时就是极值点。', `
+    <canvas height="420" style="height:420px"></canvas>
+    <div class="viz-controls">
+      <label>约束半径 R <input type="range" id="v14l-R" min="0.5" max="2.5" step="0.1" value="1.4"></label>
+      <button id="v14l-auto">自动演示极值点</button>
+    </div>`);
+  if (!wrap) return;
+  const cv = wrap.querySelector('canvas');
+  const c = make2D(cv);
+  c.xmin=-4; c.xmax=4; c.ymin=-4; c.ymax=4;
+  const sld = wrap.querySelector('#v14l-R');
+  const autoBtn = wrap.querySelector('#v14l-auto');
+  let R = 1.4, th = Math.PI/4, autoMode = false;
+  function render() {
+    c.clear();
+    // f 的等高线（椭圆）像素级渲染
+    const img = c.ctx.createImageData(c.W, c.H);
+    let fmin = Infinity, fmax = -Infinity;
+    const vals = new Float32Array(c.W*c.H);
+    for (let i = 0; i < c.W; i++) {
+      for (let j = 0; j < c.H; j++) {
+        const x = c.wx(i), y = c.wy(j);
+        const v = x*x + 2*y*y;
+        vals[j*c.W+i] = v;
+        if (v < fmin) fmin = v; if (v > fmax) fmax = v;
+      }
+    }
+    const range = fmax - fmin || 1;
+    const cnt = 2.0;
+    for (let i = 0; i < c.W; i++) {
+      for (let j = 0; j < c.H; j++) {
+        const v = vals[j*c.W+i];
+        const t = (v-fmin)/range;
+        const r = Math.round(30+110*t), g = Math.round(40+60*t), b = Math.round(80+120*(1-t));
+        const idx = (j*c.W+i)*4;
+        const lvl = Math.round(v/cnt);
+        if (Math.abs(v - lvl*cnt) < range*0.015) { img.data[idx]=255; img.data[idx+1]=255; img.data[idx+2]=255; img.data[idx+3]=255; }
+        else { img.data[idx]=r; img.data[idx+1]=g; img.data[idx+2]=b; img.data[idx+3]=255; }
+      }
+    }
+    c.ctx.putImageData(img, 0, 0);
+    c.grid(1);
+    // 约束圆
+    c.ctx.strokeStyle = '#f6ad55'; c.ctx.lineWidth = 3;
+    c.ctx.beginPath();
+    for (let i = 0; i <= 120; i++) {
+      const a = i/120*Math.PI*2;
+      const px = c.sx(R*Math.cos(a)), py = c.sy(R*Math.sin(a));
+      i ? c.ctx.lineTo(px,py) : c.ctx.moveTo(px,py);
+    }
+    c.ctx.stroke();
+    c.text(R+0.2, -0.3, '约束 x²+y²=R²', '#f6ad55', 13);
+    // 当前点
+    const px = R*Math.cos(th), py = R*Math.sin(th);
+    const gf = {x:2*px, y:4*py};       // ∇f
+    const gg = {x:2*px, y:2*py};       // ∇g
+    const Lf = Math.hypot(gf.x,gf.y)||1, Lg = Math.hypot(gg.x,gg.y)||1;
+    const cosAng = (gf.x*gg.x+gf.y*gg.y)/(Lf*Lg);
+    const angDeg = Math.acos(Math.max(-1,Math.min(1,cosAng)))*180/Math.PI;
+    const isExtreme = angDeg < 4 || angDeg > 176;
+    // 箭头
+    const s = 0.55;
+    c.arrow(px, py, px + gf.x/Lf*s, py + gf.y/Lf*s, '#fc8181', 3);
+    c.arrow(px, py, px + gg.x/Lg*s, py + gg.y/Lg*s, '#4fd1c5', 2.5);
+    c.text(px + gf.x/Lf*s + 0.15, py + gf.y/Lf*s + 0.15, '∇f', '#fc8181', 13);
+    c.text(px + gg.x/Lg*s + 0.15, py + gg.y/Lg*s - 0.1, '∇g', '#4fd1c5', 13);
+    c.dot(px, py, isExtreme ? '#f6ad55' : '#ffffff', isExtreme ? 7 : 5);
+    // 极值点标注
+    c.dot(R, 0, '#68d391', 6); c.text(R+0.15, 0.3, '极小 (R,0)', '#68d391', 12);
+    c.dot(0, R, '#68d391', 6); c.text(-0.15, R+0.3, '极大 (0,R)', '#68d391', 12);
+    // 信息
+    c.ctx.fillStyle = 'rgba(15,17,23,0.9)'; c.ctx.fillRect(8, 8, 310, 92);
+    c.ctx.strokeStyle = '#2e3345'; c.ctx.strokeRect(8, 8, 310, 92);
+    c.ctx.fillStyle = '#e4e6ef'; c.ctx.font = '12px monospace';
+    c.ctx.fillText(`f = x²+2y² = ${(px*px+2*py*py).toFixed(2)}   ∇f=⟨${gf.x.toFixed(2)},${gf.y.toFixed(2)}⟩`, 16, 28);
+    c.ctx.fillText(`∇g=⟨${gg.x.toFixed(2)},${gg.y.toFixed(2)}⟩   夹角=${angDeg.toFixed(1)}°`, 16, 47);
+    if (isExtreme) {
+      c.ctx.fillStyle = '#f6ad55';
+      c.ctx.fillText(`★ 相切！∇f ${cosAng>0?'∥':'反∥'} ∇g → 拉格朗日条件 ∇f = λ∇g 成立`, 16, 66);
+    } else {
+      c.ctx.fillStyle = '#9ba1b5';
+      c.ctx.fillText(`未相切：沿圆周移动还能改变 f`, 16, 66);
+    }
+    c.ctx.fillStyle = '#4fd1c5'; c.ctx.font = '11px monospace';
+    c.ctx.fillText('拖动黄圈上的白点，观察箭头夹角变化', 16, 84);
+  }
+  cv.addEventListener('mousedown', e => {
+    const r = cv.getBoundingClientRect();
+    const x = c.wx(e.clientX-r.left), y = c.wy(e.clientY-r.top);
+    const d = Math.hypot(Math.hypot(x,y) - R, 0);
+    if (d < 0.7) {
+      const move = e2 => {
+        const r2 = cv.getBoundingClientRect();
+        const x2 = c.wx(e2.clientX-r2.left), y2 = c.wy(e2.clientY-r2.top);
+        th = Math.atan2(y2, x2);
+        render();
+      };
+      move(e);
+      const mm = ev => move(ev);
+      const mu = () => { window.removeEventListener('mousemove', mm); window.removeEventListener('mouseup', mu); };
+      window.addEventListener('mousemove', mm);
+      window.addEventListener('mouseup', mu);
+    }
+  });
+  sld.addEventListener('input', () => { R = parseFloat(sld.value); render(); });
+  c.setRender(render);
+  autoBtn.addEventListener('click', () => {
+    autoMode = !autoMode;
+    autoBtn.textContent = autoMode ? '停止演示' : '自动演示极值点';
+    if (autoMode) {
+      const timer = setInterval(() => {
+        if (!autoMode) { clearInterval(timer); return; }
+        th += 0.02;
+        render();
+      }, 30);
+    }
+  });
+  render();
+})();
+
+// 2D 画布帮助：世界坐标 <-> 像素
+function make2D(canvas) {
+  const ctx = canvas.getContext('2d');
+  let W, H, dpr;
+  let xmin = -5, xmax = 5, ymin = -5, ymax = 5;
+  let onRender = null;
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = canvas.clientWidth || 300; H = canvas.clientHeight || 300;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (onRender) onRender(); // 清空画布后立即重绘
+  }
+  resize(); window.addEventListener('resize', resize);
+  const sx = x => (x - xmin) / (xmax - xmin) * W;
+  const sy = y => H - (y - ymin) / (ymax - ymin) * H;
+  const wx = px => xmin + px / W * (xmax - xmin);
+  const wy = py => ymin + (H - py) / H * (ymax - ymin);
+  function clear(bg) { ctx.clearRect(0,0,W,H); ctx.fillStyle = bg || '#0b0d13'; ctx.fillRect(0,0,W,H); }
+  function grid(step, color) {
+    ctx.strokeStyle = color || 'rgba(255,255,255,0.07)';
+    ctx.lineWidth = 1;
+    for (let g = Math.ceil(xmin/step)*step; g <= xmax; g += step) { const px = sx(g); ctx.beginPath(); ctx.moveTo(px,0); ctx.lineTo(px,H); ctx.stroke(); }
+    for (let g = Math.ceil(ymin/step)*step; g <= ymax; g += step) { const py = sy(g); ctx.beginPath(); ctx.moveTo(0,py); ctx.lineTo(W,py); ctx.stroke(); }
+    ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+    ctx.beginPath(); ctx.moveTo(sx(0),0); ctx.lineTo(sx(0),H); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0,sy(0)); ctx.lineTo(W,sy(0)); ctx.stroke();
+  }
+  function line(x1,y1,x2,y2,color,width,dash) {
+    ctx.strokeStyle = color; ctx.lineWidth = width || 1.5;
+    ctx.setLineDash(dash || []);
+    ctx.beginPath(); ctx.moveTo(sx(x1),sy(y1)); ctx.lineTo(sx(x2),sy(y2)); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+  function arrow(x1,y1,x2,y2,color,width) {
+    const ax = sx(x2), ay = sy(y2), bx = sx(x1), by = sy(y1);
+    const ang = Math.atan2(ay-by, ax-bx);
+    line(x1,y1,x2,y2,color,width);
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(ax, ay);
+    ctx.lineTo(ax - 9*Math.cos(ang-0.35), ay - 9*Math.sin(ang-0.35));
+    ctx.lineTo(ax - 9*Math.cos(ang+0.35), ay - 9*Math.sin(ang+0.35));
+    ctx.closePath(); ctx.fill();
+  }
+  function dot(x,y,color,r) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(sx(x),sy(y),r||4,0,Math.PI*2); ctx.fill(); }
+  function text(x,y,str,color,size,align) {
+    ctx.fillStyle = color || '#9ba1b5';
+    ctx.font = (size||12)+'px sans-serif';
+    ctx.textAlign = align || 'left';
+    ctx.fillText(str, sx(x), sy(y));
+  }
+  function onDrag(getTarget, onMove) {
+    let drag = false;
+    canvas.addEventListener('mousedown', e => {
+      const r = canvas.getBoundingClientRect();
+      const t = getTarget(wx(e.clientX-r.left), wy(e.clientY-r.top));
+      if (t) { drag = true; onMove(t); }
+    });
+    window.addEventListener('mousemove', e => {
+      if (!drag) return;
+      const r = canvas.getBoundingClientRect();
+      const t = getTarget(wx(e.clientX-r.left), wy(e.clientY-r.top));
+      if (t) onMove(t);
+    });
+    window.addEventListener('mouseup', () => drag = false);
+  }
+  function setRange(x1, x2, y1, y2) { xmin = x1; xmax = x2; ymin = y1; ymax = y2; }
+  function setRender(fn) { onRender = fn; }
+  return {ctx, W, H, sx, sy, wx, wy, clear, grid, line, arrow, dot, text, onDrag, setRange, setRender};
+}
+
+// ==== 实例3：向量加法 · 平行四边形法则（12.2）====
+(function(){
+  const wrap = injectViz('s12-2', '向量加法交互演示 · 拖动向量端点', '拖动绿色和蓝色的向量端点，观察 $\mathbf{a}+\mathbf{b}$（对角线）与 $\mathbf{a}-\mathbf{b}$ 如何变化。', `
+    <canvas height="380" style="height:380px"></canvas>
+    <div class="viz-controls"><button id="v12v-reset">重置</button><label style="margin-left:8px">试试让 a、b 首尾相接再看加法</label></div>`);
+  if (!wrap) return;
+  const cv = wrap.querySelector('canvas');
+  const c = make2D(cv);
+  let a = {x:3, y:1.5}, b = {x:1, y:3};
+  function render() {
+    c.clear(); c.grid(1);
+    const ab = {x:a.x+b.x, y:a.y+b.y}, am = {x:a.x-b.x, y:a.y-b.y};
+    // 平行四边形虚线
+    c.line(a.x,a.y,ab.x,ab.y,'rgba(255,255,255,0.2)',1,[5,4]);
+    c.line(b.x,b.y,ab.x,ab.y,'rgba(255,255,255,0.2)',1,[5,4]);
+    c.arrow(0,0,a.x,a.y,'#4fd1c5',3); c.text(a.x/2, a.y/2+0.3, 'a','#4fd1c5',15);
+    c.arrow(0,0,b.x,b.y,'#6c8cff',3); c.text(b.x/2+0.2, b.y/2, 'b','#6c8cff',15);
+    c.arrow(0,0,ab.x,ab.y,'#f6ad55',3); c.text(ab.x/2+0.2, ab.y/2+0.4, 'a+b','#f6ad55',15);
+    c.arrow(0,0,am.x,am.y,'#b794f4',2.5,[6,3]); c.text(am.x/2+0.2, am.y/2-0.3, 'a−b','#b794f4',13);
+    c.dot(a.x,a.y,'#4fd1c5',6); c.dot(b.x,b.y,'#6c8cff',6);
+    // 信息面板
+    c.ctx.fillStyle = 'rgba(15,17,23,0.85)';
+    c.ctx.fillRect(8, 8, 250, 92);
+    c.ctx.strokeStyle = '#2e3345'; c.ctx.strokeRect(8, 8, 250, 92);
+    const lines = [
+      `a = ⟨${a.x.toFixed(2)}, ${a.y.toFixed(2)}⟩   |a| = ${Math.hypot(a.x,a.y).toFixed(2)}`,
+      `b = ⟨${b.x.toFixed(2)}, ${b.y.toFixed(2)}⟩   |b| = ${Math.hypot(b.x,b.y).toFixed(2)}`,
+      `a+b = ⟨${ab.x.toFixed(2)}, ${ab.y.toFixed(2)}⟩   |a+b| = ${Math.hypot(ab.x,ab.y).toFixed(2)}`,
+      `a−b = ⟨${am.x.toFixed(2)}, ${am.y.toFixed(2)}⟩`
+    ];
+    c.ctx.fillStyle = '#e4e6ef'; c.ctx.font = '12px monospace';
+    lines.forEach((t,i) => c.ctx.fillText(t, 16, 28 + i*19));
+  }
+  c.onDrag((wx, wy) => {
+    const da = Math.hypot(wx-a.x, wy-a.y), db = Math.hypot(wx-b.x, wy-b.y);
+    if (da < 0.6 && da <= db) return {x:a.x, y:a.y};
+    if (db < 0.6) return {x:b.x, y:b.y};
+    return null;
+  }, t => { /* marker; actual move handled below via window listener */ });
+  // 直接绑定拖拽逻辑
+  let dragging = null;
+  cv.addEventListener('mousedown', e => {
+    const r = cv.getBoundingClientRect();
+    const wpx = c.wx(e.clientX-r.left), wpy = c.wy(e.clientY-r.top);
+    const da = Math.hypot(wpx-a.x, wpy-a.y), db = Math.hypot(wpx-b.x, wpy-b.y);
+    if (da < 0.6 && da <= db) dragging = 'a';
+    else if (db < 0.6) dragging = 'b';
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const r = cv.getBoundingClientRect();
+    const x = c.wx(e.clientX-r.left), y = c.wy(e.clientY-r.top);
+    if (dragging === 'a') { a = {x:Math.max(-5,Math.min(5,x)), y:Math.max(-5,Math.min(5,y))}; }
+    else { b = {x:Math.max(-5,Math.min(5,x)), y:Math.max(-5,Math.min(5,y))}; }
+    render();
+  });
+  window.addEventListener('mouseup', () => dragging = null);
+  wrap.querySelector('#v12v-reset').addEventListener('click', () => { a = {x:3,y:1.5}; b = {x:1,y:3}; render(); });
+  c.setRender(render);
+  render();
+})();
+
+// ==== 实例4：点积 · 夹角 · 投影（12.3）====
+(function(){
+  const wrap = injectViz('s12-3', '点积与投影交互演示 · 拖动向量端点', '拖动向量端点，观察点积 $\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|\cos\theta$：钝角时为负、垂直时为 0；同时显示 $\mathbf{a}$ 在 $\mathbf{b}$ 上的投影。', `
+    <canvas height="380" style="height:380px"></canvas>
+    <div class="viz-controls"><button id="v12d-reset">重置</button><label style="margin-left:8px">把两向量拖成垂直，看 a·b = 0</label></div>`);
+  if (!wrap) return;
+  const cv = wrap.querySelector('canvas');
+  const c = make2D(cv);
+  let a = {x:3.2, y:1.6}, b = {x:2.5, y:3.4};
+  function render() {
+    c.clear(); c.grid(1);
+    const dot = a.x*b.x + a.y*b.y;
+    const la = Math.hypot(a.x,a.y), lb = Math.hypot(b.x,b.y);
+    const ang = la*lb === 0 ? 0 : Math.acos(Math.max(-1,Math.min(1,dot/(la*lb))));
+    // 投影 proj_b a = (a·b/|b|²) b
+    const t = lb === 0 ? 0 : dot/(lb*lb);
+    const px = t*b.x, py = t*b.y;
+    // 投影虚线
+    c.line(a.x,a.y,px,py,'rgba(183,148,244,0.6)',1,[4,4]);
+    c.arrow(0,0,px,py,'#b794f4',2);
+    // 夹角弧
+    if (la>0 && lb>0) {
+      c.ctx.strokeStyle = '#f6ad55'; c.ctx.lineWidth = 2;
+      c.ctx.beginPath();
+      const r = 0.9;
+      const ang0 = Math.atan2(a.y,a.x), ang1 = Math.atan2(b.y,b.x);
+      c.ctx.arc(c.sx(0), c.sy(0), r*Math.min(c.W,c.H)/10, -ang0, -ang1, false);
+      c.ctx.stroke();
+      c.text(1.1, 0.4, `θ=${(ang*180/Math.PI).toFixed(1)}°`, '#f6ad55', 13);
+    }
+    c.arrow(0,0,a.x,a.y,'#4fd1c5',3); c.text(a.x/2+0.2, a.y/2+0.3, 'a','#4fd1c5',15);
+    c.arrow(0,0,b.x,b.y,'#6c8cff',3); c.text(b.x/2+0.3, b.y/2, 'b','#6c8cff',15);
+    c.dot(a.x,a.y,'#4fd1c5',6); c.dot(b.x,b.y,'#6c8cff',6);
+    // 信息面板
+    c.ctx.fillStyle = 'rgba(15,17,23,0.88)';
+    c.ctx.fillRect(8, 8, 270, 118);
+    c.ctx.strokeStyle = '#2e3345'; c.ctx.strokeRect(8, 8, 270, 118);
+    c.ctx.fillStyle = '#e4e6ef'; c.ctx.font = '12px monospace';
+    const info = [
+      `a·b = ${dot.toFixed(2)}`,
+      `|a| = ${la.toFixed(2)}   |b| = ${lb.toFixed(2)}`,
+      `cosθ = ${(dot/(la*lb||1)).toFixed(3)}`,
+      `proj_b(a) = ⟨${px.toFixed(2)}, ${py.toFixed(2)}⟩`,
+      dot===0 ? '→ 两向量垂直！' : (dot<0 ? '→ 钝角，点积为负' : '→ 锐角，点积为正')
+    ];
+    info.forEach((t,i) => { c.ctx.fillStyle = t.startsWith('→') ? '#68d391' : '#e4e6ef'; c.ctx.fillText(t, 16, 28 + i*19); });
+  }
+  let dragging = null;
+  cv.addEventListener('mousedown', e => {
+    const r = cv.getBoundingClientRect();
+    const wpx = c.wx(e.clientX-r.left), wpy = c.wy(e.clientY-r.top);
+    const da = Math.hypot(wpx-a.x, wpy-a.y), db = Math.hypot(wpx-b.x, wpy-b.y);
+    if (da < 0.6 && da <= db) dragging = 'a';
+    else if (db < 0.6) dragging = 'b';
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const r = cv.getBoundingClientRect();
+    const x = c.wx(e.clientX-r.left), y = c.wy(e.clientY-r.top);
+    if (dragging === 'a') a = {x:Math.max(-5,Math.min(5,x)), y:Math.max(-5,Math.min(5,y))};
+    else b = {x:Math.max(-5,Math.min(5,x)), y:Math.max(-5,Math.min(5,y))};
+    render();
+  });
+  window.addEventListener('mouseup', () => dragging = null);
+  wrap.querySelector('#v12d-reset').addEventListener('click', () => { a = {x:3.2,y:1.6}; b = {x:2.5,y:3.4}; render(); });
+  c.setRender(render);
+  render();
+})();
+
+// ---- 轻量 3D 引擎：正交投影 + 鼠标拖拽旋转 ----
+function make3D(canvas) {
+  const ctx = canvas.getContext('2d');
+  let rotY = 0.6, rotX = -0.35;
+  let W = 300, H = 300, dpr = 1;
+  let dragging = false, lx = 0, ly = 0;
+  const size = 2.2; // 世界坐标范围 ±size/2
+  let onFrame = null;
+
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = canvas.clientWidth || 300; H = canvas.clientHeight || 300;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (onFrame) onFrame(); // 清空画布后立即重绘
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function rot(p) {
+    let {x, y, z} = p;
+    let x1 = x * Math.cos(rotY) + z * Math.sin(rotY);
+    let z1 = -x * Math.sin(rotY) + z * Math.cos(rotY);
+    let y1 = y * Math.cos(rotX) - z1 * Math.sin(rotX);
+    let z2 = y * Math.sin(rotX) + z1 * Math.cos(rotX);
+    return {x: x1, y: y1, z: z2};
+  }
+  function project(p) {
+    const r = rot(p);
+    const s = Math.min(W, H) / size;
+    return [W/2 + r.x * s, H/2 - r.y * s];
+  }
+  function line(p1, p2, color, width) {
+    const [a, b] = [project(p1), project(p2)];
+    ctx.strokeStyle = color; ctx.lineWidth = width || 1;
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+  }
+  function poly(pts, color, fill) {
+    ctx.strokeStyle = color; ctx.lineWidth = 1;
+    ctx.beginPath();
+    pts.forEach((p, i) => { const [x, y] = project(p); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+    ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    ctx.stroke();
+  }
+  function dot(p, color, r) {
+    const [x, y] = project(p);
+    ctx.fillStyle = color || '#fc8181';
+    ctx.beginPath(); ctx.arc(x, y, r || 4, 0, Math.PI*2); ctx.fill();
+  }
+  function text3d(p, str, color) {
+    const [x, y] = project(p);
+    ctx.fillStyle = color || '#9ba1b5';
+    ctx.font = '12px sans-serif';
+    ctx.fillText(str, x + 6, y - 4);
+  }
+  function drawAxes(labels) {
+    const L = 1.05;
+    line({x:0,y:0,z:0},{x:L,y:0,z:0},'#6c8cff',2); text3d({x:L,y:0,z:0},'x','#6c8cff');
+    line({x:0,y:0,z:0},{x:0,y:L,z:0},'#4fd1c5',2); text3d({x:0,y:L,z:0},'y','#4fd1c5');
+    line({x:0,y:0,z:0},{x:0,y:0,z:L},'#f6ad55',2); text3d({x:0,y:0,z:L},'z','#f6ad55');
+    dot({x:0,y:0,z:0},'#ffffff',3);
+    if (labels !== false) { text3d({x:0,y:0,z:0},'O','#ffffff'); }
+  }
+  // 鼠标拖拽
+  canvas.addEventListener('mousedown', e => {
+    const r = canvas.getBoundingClientRect();
+    dragging = true; lx = e.clientX - r.left; ly = e.clientY - r.top;
+    canvas.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const r = canvas.getBoundingClientRect();
+    const nx = e.clientX - r.left, ny = e.clientY - r.top;
+    rotY += (nx - lx) * 0.01; rotX += (ny - ly) * 0.01;
+    lx = nx; ly = ny;
+    if (onFrame) onFrame();
+  });
+  window.addEventListener('mouseup', () => { dragging = false; canvas.style.cursor = 'grab'; });
+  canvas.style.cursor = 'grab';
+  function loop(fn) { onFrame = fn; fn(); }
+  function clear() { ctx.clearRect(0, 0, W, H); ctx.fillStyle = '#0b0d13'; ctx.fillRect(0, 0, W, H); }
+  function setRot(y, x) { rotY = y; rotX = x; if (onFrame) onFrame(); }
+  return {clear, line, poly, dot, text3d, drawAxes, project, loop, resize, setRot};
+}
+
+// ---- 注入可视化容器 ----
+function injectViz(secId, title, hint, html) {
+  const h = document.getElementById(secId);
+  if (!h) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'viz-wrap';
+  wrap.innerHTML = `<div class="viz-title">🎮 ${title}</div>${html}${hint ? `<div class="viz-hint">${hint}</div>` : ''}`;
+  const target = document.getElementById('note-' + secId) || (() => {
+    let n = h.nextElementSibling; while (n && !(n.matches('h3[id]') || n.classList.contains('chapter-card'))) n = n.nextElementSibling; return n;
+  })();
+  h.parentNode.insertBefore(wrap, target);
+  if (window.MathJax && MathJax.typesetPromise) { try { MathJax.typesetPromise([wrap]).catch(()=>{}); } catch(e){} }
+  return wrap;
+}
+
+// ==== 实例1：三维坐标系 + 点与球面（12.1）====
+(function(){
+  const wrap = injectViz('s12-1', '三维坐标系 · 拖拽旋转', '拖动鼠标旋转视角；勾选「球面」显示以原点为球心、过点P的球面。', `
+    <canvas height="320" style="height:320px"></canvas>
+    <div class="viz-controls">
+      <label><input type="checkbox" id="v12s-showSphere"> 显示球面</label>
+      <button id="v12s-reset">重置视角</button>
+    </div>`);
+  if (!wrap) return;
+  const cv = wrap.querySelector('canvas');
+  const d3 = make3D(cv);
+  const P = {x:1.1, y:0.9, z:0.7};
+  const showSphere = wrap.querySelector('#v12s-showSphere');
+  const resetBtn = wrap.querySelector('#v12s-reset');
+  resetBtn.addEventListener('click', () => { d3.setRot(0.6, -0.35); });
+  function drawSphere() {
+    const R = Math.sqrt(P.x*P.x + P.y*P.y + P.z*P.z);
+    const uN = 24, vN = 16;
+    for (let i = 0; i <= uN; i++) {
+      const u = i / uN * Math.PI * 2;
+      for (let j = 0; j < vN; j++) {
+        const v1 = j / vN * Math.PI, v2 = (j+1) / vN * Math.PI;
+        d3.poly([
+          {x:R*Math.cos(u)*Math.sin(v1), y:R*Math.sin(u)*Math.sin(v1), z:R*Math.cos(v1)},
+          {x:R*Math.cos(u+0.1)*Math.sin(v1), y:R*Math.sin(u+0.1)*Math.sin(v1), z:R*Math.cos(v1)},
+          {x:R*Math.cos(u+0.1)*Math.sin(v2), y:R*Math.sin(u+0.1)*Math.sin(v2), z:R*Math.cos(v2)},
+          {x:R*Math.cos(u)*Math.sin(v2), y:R*Math.sin(u)*Math.sin(v2), z:R*Math.cos(v2)}
+        ], 'rgba(108,140,255,0.35)', 'rgba(108,140,255,0.06)');
+      }
+    }
+  }
+  d3.loop(() => {
+    d3.clear();
+    d3.drawAxes();
+    if (showSphere.checked) drawSphere();
+    d3.line({x:0,y:0,z:0}, P, 'rgba(252,129,129,0.5)', 1);
+    d3.line(P, {x:P.x,y:0,z:0}, 'rgba(252,129,129,0.35)', 1);
+    d3.line(P, {x:P.x,y:P.y,z:0}, 'rgba(252,129,129,0.35)', 1);
+    d3.line({x:P.x,y:0,z:0}, {x:P.x,y:P.y,z:0}, 'rgba(252,129,129,0.35)', 1);
+    d3.dot(P, '#fc8181', 5);
+    d3.text3d(P, 'P(x,y,z)', '#fc8181');
+  });
+})();
+
+// ==== 实例2（替换）：二次曲面交互画廊 —— 伊利诺伊大学 Interactive Gallery of Quadric Surfaces ====
+(function(){
+  const wrap = injectViz('s12-6', '二次曲面 交互式画廊（来自伊利诺伊大学）', '这是伊利诺伊大学数学系的交互式二次曲面画廊，比上面的自制3D演示更专业：<br>① 点击 iframe 顶部导航，可切换 6 种标准二次曲面（椭圆抛物面 / 双曲抛物面 / 椭球面 / 二次锥面 / 单叶双曲面 / 双叶双曲面）；<br>② 在画布上<b>拖动旋转</b>视角、<b>滚轮缩放</b>；<br>③ 拖动 <b>A / B / C</b> 滑动条实时改变方程参数，观察曲面如何伸缩变形；<br>④ 勾选 <b>show slices</b> 叠加平面切片——这就是课本里"截痕法"的动态版。', `
+    <div class="viz-frame-wrap">
+      <iframe src="quadrics_gallery/ellipsoid.html" title="Interactive Gallery of Quadric Surfaces (University of Illinois)" loading="lazy"></iframe>
+    </div>
+    <div class="viz-note">提示：默认打开椭球面。iframe 内的页面公式由 MathJax CDN 渲染，首次加载需联网；曲面交互与资源均已保存在本地 quadrics_gallery 文件夹，离线也可交互。</div>`);
+  if (!wrap) return;
+})();
+
+(function(){
+  const VIDEOS = {
+    's12-1': [{id:'EzJP9uwV3ms', t:'Plotting Points In a Three Dimensional Coordinate System', ch:'The Organic Chemistry Tutor', v:'95万次观看'}],
+    's12-2': [{id:'fNk_zzaMoSs', t:'Vectors — Essence of linear algebra（向量到底是什么）', ch:'3Blue1Brown', v:'1233万次观看'}],
+    's12-3': [{id:'LyGKycYT2v0', t:'Dot products and duality（点积与对偶性）', ch:'3Blue1Brown', v:'333万次观看'}],
+    's12-4': [{id:'eu6i7WJeinw', t:'Cross products（叉积的几何直觉）', ch:'3Blue1Brown', v:'241万次观看'}],
+    's12-5': [
+      {id:'MkjazYnvNP8', t:'How To Find The Vector Equation of a Line and Symmetric & Parametric Equations', ch:'The Organic Chemistry Tutor', v:'86万次观看'},
+      {id:'rL9UXzZYYo4', t:'How To Find The Equation of a Plane Given Three Points', ch:'The Organic Chemistry Tutor', v:'85万次观看'},
+      {id:'IB1-lrPQjCw', t:'Calculus 3 Lecture 11.5: Lines and Planes in 3-D（完整课）', ch:'Professor Leonard', v:'83万次观看'}
+    ],
+    's12-6': [{id:'aBlKxFsoMZw', t:'Calculus 3 Lecture 11.6: Cylinders and Surfaces in 3-D（完整课）', ch:'Professor Leonard', v:'53万次观看'}],
+    's13-1': [{id:'FfJtVvQtqTM', t:'Concept of Vector Point Function & Vector Differentiation', ch:'Dr. Gajendra Purohit', v:'274万次观看'}],
+    's13-2': [{id:'FfJtVvQtqTM', t:'Concept of Vector Point Function & Vector Differentiation', ch:'Dr. Gajendra Purohit', v:'274万次观看'}],
+    's13-3': [
+      {id:'DNDAwWIL5FY', t:'Arc Length Calculus Problems', ch:'The Organic Chemistry Tutor', v:'123万次观看'},
+      {id:'qW9slRb9Fic', t:'Radius of Curvature — Formula & Example & Solution', ch:'Dr. Gajendra Purohit', v:'94万次观看'}
+    ],
+    's13-4': [{id:'8NLzuURxFwY', t:'Introduction to Projectile Motion — Formulas and Equations', ch:'The Organic Chemistry Tutor', v:'332万次观看'}],
+    's14-1': [{id:'nIJQPX5kxp4', t:'Calculus 3 Lecture 13.1: Intro to Multivariable Functions (Domain, Sketching)', ch:'Professor Leonard', v:'82万次观看'}],
+    's14-2': [{id:'9brk313DjV8', t:'Limits and Continuity', ch:'The Organic Chemistry Tutor', v:'261万次观看'}],
+    's14-3': [{id:'JAf_aSIJryg', t:'Partial Derivatives - Multivariable Calculus', ch:'The Organic Chemistry Tutor', v:'270万次观看'}],
+    's14-4': [{id:'yLbqHfuWsr8', t:'Calculus 3 Lecture 13.7: Finding Tangent Planes and Normal Lines', ch:'Professor Leonard', v:'36万次观看'}],
+    's14-5': [{id:'YG15m2VwSjA', t:'Visualizing the chain rule and product rule（可视化链式法则）', ch:'3Blue1Brown', v:'230万次观看'}],
+    's14-6': [{id:'CnVes9TdnPo', t:'How To Find The Directional Derivative and The Gradient Vector', ch:'The Organic Chemistry Tutor', v:'92万次观看'}],
+    's14-7': [{id:'UID893EosM8', t:'Local Extrema, Critical Points, & Saddle Points of Multivariable Functions', ch:'The Organic Chemistry Tutor', v:'97万次观看'}],
+    's14-8': [{id:'5-CUqogfPLY', t:'Lagrange Multipliers（从入门到应用）', ch:'The Organic Chemistry Tutor', v:'110万次观看'}]
+  };
+  const LABEL = {
+    's12-1':'📺 视频讲解 · 三维坐标系', 's12-2':'📺 视频讲解 · 向量本质', 's12-3':'📺 视频讲解 · 点积', 's12-4':'📺 视频讲解 · 叉积',
+    's12-5':'📺 视频讲解 · 直线与平面', 's12-6':'📺 视频讲解 · 二次曲面', 's13-1':'📺 视频讲解 · 向量函数', 's13-2':'📺 视频讲解 · 向量微分',
+    's13-3':'📺 视频讲解 · 弧长与曲率', 's13-4':'📺 视频讲解 · 抛体运动', 's14-1':'📺 视频讲解 · 多元函数', 's14-2':'📺 视频讲解 · 极限与连续',
+    's14-3':'📺 视频讲解 · 偏导数', 's14-4':'📺 视频讲解 · 切平面', 's14-5':'📺 视频讲解 · 链式法则', 's14-6':'📺 视频讲解 · 方向导数与梯度',
+    's14-7':'📺 视频讲解 · 极值与鞍点', 's14-8':'📺 视频讲解 · 拉格朗日乘数法'
+  };
+  Object.keys(VIDEOS).forEach(secId => {
+    const h = document.getElementById(secId);
+    if (!h) return;
+    const card = document.createElement('div');
+    card.className = 'video-card';
+    const items = VIDEOS[secId].map(v => `
+      <div class="video-item">
+        <a class="v-thumb" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" title="在新标签页打开 YouTube 观看">
+          <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${v.t}" loading="lazy">
+          <span class="v-play">▶</span>
+          <span class="v-note">点击打开 YouTube</span>
+        </a>
+        <div class="video-item-info">
+          <div class="v-title"><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">${v.t}</a></div>
+          <div class="v-meta">${v.ch} · <b>${v.v}</b></div>
+        </div>
+      </div>`).join('');
+    card.innerHTML = `<div class="video-card-title">${LABEL[secId]}<span style="font-weight:400;font-size:.8em;color:var(--text2)">（按浏览量筛选的高赞优质视频 · 点击缩略图在新标签页观看）</span></div>
+      <div class="video-grid">${items}</div>`;
+    // 插到该节内容之后、笔记框之前
+    const noteBox = document.getElementById('note-' + secId);
+    if (noteBox) h.parentNode.insertBefore(card, noteBox);
+    else {
+      let next = h.nextElementSibling;
+      while (next && !(next.matches('h3[id]') || next.classList.contains('chapter-card'))) next = next.nextElementSibling;
+      h.parentNode.insertBefore(card, next);
+    }
+  });
+})();
+(function(){
+  const FAV_KEY = 'calc_guide_favs_v1';
+  const NOTE_KEY = 'calc_guide_notes_v1';
+
+  const load = (k, def) => { try { return JSON.parse(localStorage.getItem(k)) || def; } catch(e){ return def; } };
+  const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} };
+  let favs = load(FAV_KEY, {});
+  let notes = load(NOTE_KEY, {});
+
+  // 小节信息映射
+  const secInfo = {};
+  document.querySelectorAll('h3[id]').forEach(h => {
+    secInfo[h.id] = { title: h.textContent.replace(/^\d+(\.\d+)?\s*/,'').trim(), navTitle: h.textContent.trim() };
+  });
+
+  // ---- 注入收藏按钮 ----
+  document.querySelectorAll('h3[id]').forEach(h => {
+    const btn = document.createElement('span');
+    btn.className = 'fav-btn' + (favs[h.id] ? ' faved' : '');
+    btn.textContent = favs[h.id] ? '★' : '☆';
+    btn.title = '收藏/取消收藏本节';
+    btn.addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      if (favs[h.id]) { delete favs[h.id]; btn.textContent='☆'; btn.classList.remove('faved'); }
+      else { favs[h.id] = 1; btn.textContent='★'; btn.classList.add('faved'); }
+      save(FAV_KEY, favs); updateFavCount();
+    });
+    h.prepend(btn);
+  });
+
+  // ---- 注入笔记框（每节末尾） ----
+  const h3s = Array.from(document.querySelectorAll('h3[id]'));
+  h3s.forEach((h, i) => {
+    const box = document.createElement('div');
+    box.className = 'note-box';
+    box.id = 'note-' + h.id;
+    const saved = notes[h.id] || '';
+    box.innerHTML = `
+      <div class="note-box-title">📝 我的笔记（仅保存在本机浏览器）</div>
+      <textarea placeholder="在这节记下你的疑问、重点、易错点……">${saved.replace(/</g,'&lt;')}</textarea>
+      <div><button class="note-save-btn">保存笔记</button><span class="note-saved-tip">✓ 已保存</span></div>
+      <div class="note-meta">笔记保存在浏览器 localStorage 中，清除浏览器数据会丢失</div>`;
+    // 插入到本 h3 之后、下一个 h3/chapter-card 之前
+    let next = h.nextElementSibling;
+    while (next && !(next.matches('h3[id]') || next.classList.contains('chapter-card'))) next = next.nextElementSibling;
+    h.parentNode.insertBefore(box, next);
+    // 保存逻辑
+    const ta = box.querySelector('textarea');
+    const tip = box.querySelector('.note-saved-tip');
+    const btn = box.querySelector('.note-save-btn');
+    btn.addEventListener('click', () => {
+      notes[h.id] = ta.value;
+      save(NOTE_KEY, notes);
+      tip.classList.add('show');
+      setTimeout(()=>tip.classList.remove('show'), 1500);
+    });
+  });
+
+  // ---- 侧边"我的收藏"入口按钮 ----
+  const navBtn = document.createElement('button');
+  navBtn.id = 'fav-btn-nav';
+  navBtn.innerHTML = '⭐ 我的收藏 <span class="count">0</span>';
+  document.body.appendChild(navBtn);
+
+  // ---- 汇总面板 ----
+  const overlay = document.createElement('div'); overlay.id = 'panel-overlay';
+  const panel = document.createElement('div'); panel.id = 'mypanel';
+  panel.innerHTML = `
+    <div class="panel-head"><h3>📚 我的学习中心</h3><button id="panel-close">✕</button></div>
+    <div id="panel-tabs">
+      <button data-tab="favs" class="active">⭐ 收藏</button>
+      <button data-tab="notes">📝 笔记</button>
+    </div>
+    <div id="panel-body"></div>`;
+  document.body.appendChild(overlay);
+  document.body.appendChild(panel);
+  document.getElementById('panel-close').addEventListener('click', closePanel);
+  overlay.addEventListener('click', closePanel);
+  document.querySelectorAll('#panel-tabs button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#panel-tabs button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      renderPanel(b.dataset.tab);
+    });
+  });
+  function closePanel(){ overlay.classList.remove('show'); panel.classList.remove('open'); }
+  function openPanel(tab){
+    document.querySelectorAll('#panel-tabs button').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
+    renderPanel(tab);
+    overlay.classList.add('show'); panel.classList.add('open');
+  }
+  navBtn.addEventListener('click', () => openPanel('favs'));
+
+  function updateFavCount(){
+    const n = Object.keys(favs).length;
+    navBtn.querySelector('.count').textContent = n;
+  }
+  updateFavCount();
+
+  function renderPanel(tab){
+    const body = document.getElementById('panel-body');
+    if (tab === 'favs') {
+      const keys = Object.keys(favs);
+      if (!keys.length) { body.innerHTML = '<p style="color:var(--text2);font-size:.9em">还没有收藏任何小节。点击每节标题旁的 ⭐ 收藏。</p>'; return; }
+      body.innerHTML = '';
+      keys.forEach(k => {
+        const item = document.createElement('div');
+        item.className = 'panel-item';
+        item.innerHTML = `<div class="pi-title" data-sec="${k}">⭐ ${secInfo[k]?.navTitle || k}</div>
+          <div class="pi-actions"><button data-rmfav="${k}">取消收藏</button></div>`;
+        body.appendChild(item);
+        item.querySelector('.pi-title').addEventListener('click', () => { closePanel(); document.getElementById(k)?.scrollIntoView({behavior:'smooth'}); });
+        item.querySelector('[data-rmfav]').addEventListener('click', () => {
+          delete favs[k]; save(FAV_KEY, favs); updateFavCount();
+          document.querySelectorAll(`.fav-btn[data-sec="${k}"]`).forEach(b=>{});
+          h3s.forEach(h=>{ if(h.id===k){ const b=h.querySelector('.fav-btn'); if(b){b.textContent='☆';b.classList.remove('faved');} } });
+          renderPanel('favs');
+        });
+      });
+    } else {
+      const keys = Object.keys(notes).filter(k => notes[k].trim());
+      if (!keys.length) { body.innerHTML = '<p style="color:var(--text2);font-size:.9em">还没有写任何笔记。在每节末尾的「我的笔记」框中记录。</p>'; return; }
+      body.innerHTML = '';
+      keys.forEach(k => {
+        const item = document.createElement('div');
+        item.className = 'panel-item';
+        item.innerHTML = `<div class="pi-title" data-sec="${k}">📝 ${secInfo[k]?.navTitle || k}</div>
+          <div class="pi-note">${notes[k].replace(/</g,'&lt;').replace(/\n/g,'<br>')}</div>
+          <div class="pi-actions"><button data-rmnote="${k}">删除笔记</button></div>`;
+        body.appendChild(item);
+        item.querySelector('.pi-title').addEventListener('click', () => { closePanel(); document.getElementById(k)?.scrollIntoView({behavior:'smooth'}); });
+        item.querySelector('[data-rmnote]').addEventListener('click', () => {
+          delete notes[k]; save(NOTE_KEY, notes);
+          const nb = document.getElementById('note-'+k); if(nb) nb.querySelector('textarea').value='';
+          renderPanel('notes');
+        });
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
