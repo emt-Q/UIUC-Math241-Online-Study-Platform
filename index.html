@@ -167,6 +167,10 @@ code { background:var(--code-bg); padding:2px 6px; border-radius:4px; font-size:
 .v-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:56px; height:40px; background:rgba(20,20,20,.72); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; border:1px solid rgba(255,255,255,.35); transition:background .2s; }
 .v-thumb:hover .v-play { background:#ff0033; }
 .v-note { position:absolute; top:8px; left:8px; font-size:.66em; color:#ffe9a8; background:rgba(0,0,0,.68); padding:3px 7px; border-radius:6px; }
+#lang-toggle { display:block; width:calc(100% - 40px); margin:2px 20px 10px; padding:7px 12px; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--text); font-size:12.5px; cursor:pointer; transition:border-color .2s, color .2s; }
+#lang-toggle:hover { border-color:var(--accent); color:var(--accent2); }
+html[lang="en"] .zh { display:none !important; }
+html[lang="en"] h3 .en { font-style:normal; font-weight:700; color:var(--accent); }
 .viz-frame-wrap { border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#002058; box-shadow:0 4px 24px rgba(0,0,0,.35); }
 .viz-frame-wrap iframe { width:100%; height:960px; border:none; display:block; background:#002058; }
 .viz-note { margin-top:8px; font-size:.8em; color:var(--text2); }
@@ -221,6 +225,7 @@ code { background:var(--code-bg); padding:2px 6px; border-radius:4px; font-size:
 
 <nav id="sidebar">
   <h2>📚 多元微积分指南</h2>
+  <button id="lang-toggle" type="button" title="切换界面语言 / Toggle interface language">🌐 English</button>
   <div id="search-wrap">
     <input id="search-input" type="text" placeholder="🔍 搜索知识点（中/英文）如 ellipsoid、梯度、曲率…" autocomplete="off" spellcheck="false">
     <div id="search-results"></div>
@@ -261,7 +266,7 @@ code { background:var(--code-bg); padding:2px 6px; border-radius:4px; font-size:
 </div>
 
 <!-- ===== 12.1 ===== -->
-<h3 id="s12-1">12.1 三维坐标系 <span class="en">Three-Dimensional Coordinate Systems</span> <span class="tag tag-easy">入门</span></h3>
+<h3 id="s12-1"><span class="zh">12.1 三维坐标系</span> <span class="en">Three-Dimensional Coordinate Systems</span> <span class="tag tag-easy">入门</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>二维平面直角坐标系（x轴、y轴、原点、象限）、勾股定理 $a^2+b^2=c^2$、圆的方程 $(x-h)^2+(y-k)^2=r^2$。如果你对这些有疑问，先复习一下高中解析几何。
@@ -353,7 +358,7 @@ code { background:var(--code-bg); padding:2px 6px; border-radius:4px; font-size:
 </div>
 
 <!-- ===== 12.2 ===== -->
-<h3 id="s12-2">12.2 向量 <span class="en">Vectors</span> <span class="tag tag-easy">入门</span></h3>
+<h3 id="s12-2"><span class="zh">12.2 向量</span> <span class="en">Vectors</span> <span class="tag tag-easy">入门</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>有向线段的概念、三角函数（sin/cos/tan）、基本代数运算。向量是"既有大小又有方向的量"，对比"只有大小的标量（scalar，如温度、质量）。
@@ -477,7 +482,7 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
 </table>
 
 <!-- ===== 12.3 ===== -->
-<h3 id="s12-3">12.3 点积 <span class="en">The Dot Product</span> <span class="tag tag-medium">核心</span></h3>
+<h3 id="s12-3"><span class="zh">12.3 点积</span> <span class="en">The Dot Product</span> <span class="tag tag-medium">核心</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>向量的分量表示、向量的模长、余弦定理 $c^2=a^2+b^2-2ab\cos C$、三角函数基本值。点积是向量的第一种"乘法"，结果是一个<strong>标量</strong>（数），不是向量。
@@ -607,7 +612,7 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
 </div>
 
 <!-- ===== 12.4 ===== -->
-<h3 id="s12-4">12.4 叉积 <span class="en">The Cross Product</span> <span class="tag tag-medium">核心</span></h3>
+<h3 id="s12-4"><span class="zh">12.4 叉积</span> <span class="en">The Cross Product</span> <span class="tag tag-medium">核心</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>行列式（determinant）的计算（2阶和3阶）、点积的几何意义、向量垂直的概念。叉积是向量的第二种"乘法"，结果是一个<strong>向量</strong>，且只在三维空间中有定义。
@@ -734,7 +739,7 @@ $$\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}$$
 力矩的大小 $|\boldsymbol{\tau}|=|\mathbf{r}||\mathbf{F}|\sin\theta$ 描述力使物体绕原点转动的能力，方向由右手定则确定（转动轴方向）。</p>
 
 <!-- ===== 12.5 ===== -->
-<h3 id="s12-5">12.5 空间直线与平面方程 <span class="en">Equations of Lines and Planes</span> <span class="tag tag-hard">重点难点</span></h3>
+<h3 id="s12-5"><span class="zh">12.5 空间直线与平面方程</span> <span class="en">Equations of Lines and Planes</span> <span class="tag tag-hard">重点难点</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>向量的参数表示、点积、叉积、法向量的概念。二维中直线方程 $y=mx+b$ 的思想在三维中需要扩展——三维中直线不能用一个方程表示，需要参数方程（parametric equations）或对称方程（symmetric equations）。
@@ -839,7 +844,7 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
 <p>理解：$\mathbf{v}_1\times\mathbf{v}_2$ 是同时垂直于两条直线的方向，$\vec{P_1P_2}$ 在这个方向上的投影就是两直线间的最短距离。</p>
 
 <!-- ===== 12.6 ===== -->
-<h3 id="s12-6">12.6 柱面与二次曲面 <span class="en">Cylinders and Quadric Surfaces</span> <span class="tag tag-medium">空间想象</span></h3>
+<h3 id="s12-6"><span class="zh">12.6 柱面与二次曲面</span> <span class="en">Cylinders and Quadric Surfaces</span> <span class="tag tag-medium">空间想象</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>圆锥曲线（椭圆、双曲线、抛物线）的标准方程和图形、空间坐标系、"截痕法"的思想。本节核心是学会用<strong>截痕（traces）</strong>来分析三维曲面——用坐标平面或平行平面去截曲面，看截线是什么形状。
@@ -918,7 +923,7 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
 </div>
 
 <!-- ===== 13.1 ===== -->
-<h3 id="s13-1">13.1 向量函数与空间曲线 <span class="en">Vector Functions and Space Curves</span> <span class="tag tag-easy">入门</span></h3>
+<h3 id="s13-1"><span class="zh">13.1 向量函数与空间曲线</span> <span class="en">Vector Functions and Space Curves</span> <span class="tag tag-easy">入门</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>向量的分量表示（第12章）、参数方程（二维中 $x=f(t), y=g(t)$）、函数的极限与连续的概念。向量函数就是"输入一个数，输出一个向量"的函数。
@@ -986,7 +991,7 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
 <p>$t=0$ 时在 $P_0$，$t=1$ 时在 $P_1$，$t$ 在中间时在线段上。这是第12章直线参数方程的"有限区间版本"。</p>
 
 <!-- ===== 13.2 ===== -->
-<h3 id="s13-2">13.2 向量函数的导数与积分 <span class="en">Derivatives and Integrals of Vector Functions</span> <span class="tag tag-medium">核心</span></h3>
+<h3 id="s13-2"><span class="zh">13.2 向量函数的导数与积分</span> <span class="en">Derivatives and Integrals of Vector Functions</span> <span class="tag tag-medium">核心</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>单变量函数的导数定义 $f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$、导数的几何意义（切线斜率）、积分的定义和微积分基本定理。向量函数的微积分就是<strong>各分量分别做微积分</strong>。
@@ -1077,7 +1082,7 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
 </div>
 
 <!-- ===== 13.3 ===== -->
-<h3 id="s13-3">13.3 弧长与曲率 <span class="en">Arc Length and Curvature</span> <span class="tag tag-hard">重点难点</span></h3>
+<h3 id="s13-3"><span class="zh">13.3 弧长与曲率</span> <span class="en">Arc Length and Curvature</span> <span class="tag tag-hard">重点难点</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>二维参数曲线的弧长公式 $L=\int_a^b\sqrt{(dx/dt)^2+(dy/dt)^2}\,dt$、向量的模长、单位向量、导数的几何意义。曲率是描述曲线"弯曲程度"的量，是本节最抽象的概念。
@@ -1181,7 +1186,7 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
 平面曲线的挠率为0（因为 $\mathbf{B}$ 是常数，不随 $s$ 变化）。</p>
 
 <!-- ===== 13.4 ===== -->
-<h3 id="s13-4">13.4 空间中的运动：速度与加速度 <span class="en">Motion in Space: Velocity and Acceleration</span> <span class="tag tag-hard">物理应用</span></h3>
+<h3 id="s13-4"><span class="zh">13.4 空间中的运动：速度与加速度</span> <span class="en">Motion in Space: Velocity and Acceleration</span> <span class="tag tag-hard">物理应用</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>向量函数的导数与积分（13.2）、牛顿第二定律 $F=ma$、运动学基本概念。本节是向量微积分在物理中的直接应用。
@@ -1282,7 +1287,7 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
 </div>
 
 <!-- ===== 14.1 ===== -->
-<h3 id="s14-1">14.1 多元函数 <span class="en">Functions of Several Variables</span> <span class="tag tag-easy">入门</span></h3>
+<h3 id="s14-1"><span class="zh">14.1 多元函数</span> <span class="en">Functions of Several Variables</span> <span class="tag tag-easy">入门</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>单变量函数的定义 $y=f(x)$、函数的定义域和值域、函数图像（二维曲线）。多元函数就是"输入多个数，输出一个数"的函数。最常见的是二元函数 $z=f(x,y)$。
@@ -1331,7 +1336,7 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
 <p>三元函数 $w=f(x,y,z)$ 的图像无法直接画出（需要四维空间），但可以用<strong>等值面（level surfaces）</strong> $f(x,y,z)=k$ 来理解。例如 $f(x,y,z)=x^2+y^2+z^2$ 的等值面是同心球面。</p>
 
 <!-- ===== 14.2 ===== -->
-<h3 id="s14-2">14.2 极限与连续性 <span class="en">Limits and Continuity</span> <span class="tag tag-medium">概念重点</span></h3>
+<h3 id="s14-2"><span class="zh">14.2 极限与连续性</span> <span class="en">Limits and Continuity</span> <span class="tag tag-medium">概念重点</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>单变量函数的极限定义（$\epsilon$-$\delta$ 定义）、极限的运算法则、连续的定义。多元极限的关键区别：$(x,y)$ 可以沿<strong>任意路径</strong>趋近 $(a,b)$，而不仅仅是从左右两个方向。
@@ -1390,7 +1395,7 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
 <p>多项式函数、有理函数（分母不为0处）、三角函数、指数函数、对数函数等都是连续函数。连续函数的复合也是连续函数。</p>
 
 <!-- ===== 14.3 ===== -->
-<h3 id="s14-3">14.3 偏导数 <span class="en">Partial Derivatives</span> <span class="tag tag-medium">核心</span></h3>
+<h3 id="s14-3"><span class="zh">14.3 偏导数</span> <span class="en">Partial Derivatives</span> <span class="tag tag-medium">核心</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>单变量导数的定义和几何意义、基本求导法则。偏导数的思想很简单：对一个变量求导时，把其他变量当作常数。
@@ -1459,7 +1464,7 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 </ul>
 
 <!-- ===== 14.4 ===== -->
-<h3 id="s14-4">14.4 切平面与线性近似 <span class="en">Tangent Planes and Linear Approximations</span> <span class="tag tag-medium">应用</span></h3>
+<h3 id="s14-4"><span class="zh">14.4 切平面与线性近似</span> <span class="en">Tangent Planes and Linear Approximations</span> <span class="tag tag-medium">应用</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>一元函数的切线方程 $y-y_0=f'(x_0)(x-x_0)$、线性近似 $f(x)\approx f(x_0)+f'(x_0)(x-x_0)$、微分的概念。切平面是切线在三维中的推广。
@@ -1519,7 +1524,7 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 </div>
 
 <!-- ===== 14.5 ===== -->
-<h3 id="s14-5">14.5 链式法则 <span class="en">The Chain Rule</span> <span class="tag tag-hard">重点难点</span></h3>
+<h3 id="s14-5"><span class="zh">14.5 链式法则</span> <span class="en">The Chain Rule</span> <span class="tag tag-hard">重点难点</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>一元函数的链式法则 $\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx}$、偏导数的计算。多元链式法则的核心是"对每个中间变量都贡献一条路径，所有路径相加"。
@@ -1595,7 +1600,7 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 </div>
 
 <!-- ===== 14.6 ===== -->
-<h3 id="s14-6">14.6 方向导数与梯度向量 <span class="en">Directional Derivatives and the Gradient Vector</span> <span class="tag tag-hard">核心概念</span></h3>
+<h3 id="s14-6"><span class="zh">14.6 方向导数与梯度向量</span> <span class="en">Directional Derivatives and the Gradient Vector</span> <span class="tag tag-hard">核心概念</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>偏导数（只描述沿坐标轴方向的变化率）、点积、单位向量。方向导数推广了偏导数——描述沿<strong>任意方向</strong>的变化率。梯度是本节最重要的概念，贯穿后续所有内容。
@@ -1692,7 +1697,7 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 </div>
 
 <!-- ===== 14.7 ===== -->
-<h3 id="s14-7">14.7 最大值与最小值 <span class="en">Maximum and Minimum Values</span> <span class="tag tag-hard">优化</span></h3>
+<h3 id="s14-7"><span class="zh">14.7 最大值与最小值</span> <span class="en">Maximum and Minimum Values</span> <span class="tag tag-hard">优化</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>一元函数的极值判定（$f'(c)=0$ 找临界点，二阶导数测试）、偏导数、梯度。多元极值的思想类似，但需要同时考虑所有方向的变化。
@@ -1765,7 +1770,7 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 </div>
 
 <!-- ===== 14.8 ===== -->
-<h3 id="s14-8">14.8 拉格朗日乘数法 <span class="en">Lagrange Multipliers</span> <span class="tag tag-hard">约束优化</span></h3>
+<h3 id="s14-8"><span class="zh">14.8 拉格朗日乘数法</span> <span class="en">Lagrange Multipliers</span> <span class="tag tag-hard">约束优化</span></h3>
 
 <div class="box prereq">
   <strong>你需要先知道：</strong>梯度向量的几何意义（垂直于等值线/等值面）、条件极值的概念。拉格朗日乘数法是在<strong>约束条件</strong>下求极值的方法，不需要解出约束方程代入。
@@ -2783,13 +2788,13 @@ function injectViz(secId, title, hint, html) {
     const body = document.getElementById('panel-body');
     if (tab === 'favs') {
       const keys = Object.keys(favs);
-      if (!keys.length) { body.innerHTML = '<p style="color:var(--text2);font-size:.9em">还没有收藏任何小节。点击每节标题旁的 ⭐ 收藏。</p>'; return; }
+      if (!keys.length) { body.innerHTML = '<p style="color:var(--text2);font-size:.9em">' + window.__T('还没有收藏任何小节。点击每节标题旁的 ⭐ 收藏。','No favorites yet. Click ⭐ next to a section title to save it.') + '</p>'; return; }
       body.innerHTML = '';
       keys.forEach(k => {
         const item = document.createElement('div');
         item.className = 'panel-item';
-        item.innerHTML = `<div class="pi-title" data-sec="${k}">⭐ ${secInfo[k]?.navTitle || k}</div>
-          <div class="pi-actions"><button data-rmfav="${k}">取消收藏</button></div>`;
+        item.innerHTML = `<div class="pi-title" data-sec="${k}">⭐ ${window.__secTitle(k)}</div>
+          <div class="pi-actions"><button data-rmfav="${k}">${window.__T('取消收藏','Remove')}</button></div>`;
         body.appendChild(item);
         item.querySelector('.pi-title').addEventListener('click', () => { closePanel(); document.getElementById(k)?.scrollIntoView({behavior:'smooth'}); });
         item.querySelector('[data-rmfav]').addEventListener('click', () => {
@@ -2801,14 +2806,14 @@ function injectViz(secId, title, hint, html) {
       });
     } else {
       const keys = Object.keys(notes).filter(k => notes[k].trim());
-      if (!keys.length) { body.innerHTML = '<p style="color:var(--text2);font-size:.9em">还没有写任何笔记。在每节末尾的「我的笔记」框中记录。</p>'; return; }
+      if (!keys.length) { body.innerHTML = '<p style="color:var(--text2);font-size:.9em">' + window.__T('还没有写任何笔记。在每节末尾的「我的笔记」框中记录。','No notes yet. Write in the “My Notes” box at the end of each section.') + '</p>'; return; }
       body.innerHTML = '';
       keys.forEach(k => {
         const item = document.createElement('div');
         item.className = 'panel-item';
-        item.innerHTML = `<div class="pi-title" data-sec="${k}">📝 ${secInfo[k]?.navTitle || k}</div>
+        item.innerHTML = `<div class="pi-title" data-sec="${k}">📝 ${window.__secTitle(k)}</div>
           <div class="pi-note">${notes[k].replace(/</g,'&lt;').replace(/\n/g,'<br>')}</div>
-          <div class="pi-actions"><button data-rmnote="${k}">删除笔记</button></div>`;
+          <div class="pi-actions"><button data-rmnote="${k}">${window.__T('删除笔记','Delete Note')}</button></div>`;
         body.appendChild(item);
         item.querySelector('.pi-title').addEventListener('click', () => { closePanel(); document.getElementById(k)?.scrollIntoView({behavior:'smooth'}); });
         item.querySelector('[data-rmnote]').addEventListener('click', () => {
@@ -2819,6 +2824,8 @@ function injectViz(secId, title, hint, html) {
       });
     }
   }
+  window.__renderPanel = renderPanel;
+  window.__updateFavCount = updateFavCount;
 })();
 
 // ==== 搜索知识点（支持中英文）====
@@ -2884,7 +2891,7 @@ function injectViz(secId, title, hint, html) {
   function render(list) {
     results = list;
     if (!list.length) {
-      box.innerHTML = '<div class="sr-empty">未找到相关知识点，换个关键词试试（支持中/英文）</div>';
+      box.innerHTML = '<div class="sr-empty">' + window.__T('未找到相关知识点，换个关键词试试（支持中/英文）','No matching topics. Try another keyword (CN/EN).') + '</div>';
       box.classList.add('show');
       return;
     }
@@ -2893,7 +2900,7 @@ function injectViz(secId, title, hint, html) {
       const d = document.createElement('div');
       d.className = 'sr-item';
       const enHtml = r.en ? ' <span class="sr-en">' + r.en + '</span>' : '';
-      d.innerHTML = '<div class="sr-title">' + r.title + enHtml + '</div>' + (r.hint ? '<div class="sr-hint">' + r.hint + '</div>' : '');
+      d.innerHTML = '<div class="sr-title">' + (window.__secTitle ? window.__secTitle(r.id) : r.title) + (document.documentElement.lang === 'en' ? '' : enHtml) + '</div>' + (r.hint ? '<div class="sr-hint">' + r.hint + '</div>' : '');
       d.addEventListener('click', function(){ jump(r.id); });
       box.appendChild(d);
     });
@@ -2934,6 +2941,177 @@ function injectViz(secId, title, hint, html) {
   document.addEventListener('click', function(e){
     if (!box.contains(e.target) && e.target !== input) box.classList.remove('show');
   });
+})();
+
+
+
+// ==== 界面语言切换（中文 / English，知识点内容保持不变）====
+(function(){
+  const LANG_KEY = 'calc_guide_lang';
+
+  window.__T = function(zh, en){ return document.documentElement.lang === 'en' ? en : zh; };
+
+  const I18N = {
+    '例：':'Example:', '证明：':'Proof:', '推导：':'Derivation:',
+    '你需要先知道：':'Prerequisites:', '如何使用本指南：':'How to use this guide:',
+    '提示：':'Tip:', '注意：':'Note:', '常见混淆：':'Common confusion:',
+    '常见误区：':'Common mistake:', '计算技巧：':'Computation tip:', '记忆方法：':'Memory aid:',
+    '记忆口诀：':'Mnemonic:', '几何意义：':'Geometric meaning:', '直觉理解：':'Intuition:',
+    '课本跳步补齐：':'Textbook gap filled:', '经典例题：':'Classic example:',
+    '维度陷阱：':'Dimension trap:', '重要区别：':'Key difference:', '快速判断口诀：':'Quick rule:',
+    '关键规则：':'Key rule:', '极限：':'Limits:', '不定积分：':'Indefinite integral:',
+    '切线方程：':'Tangent equation:', '常见曲面：':'Common surfaces:',
+    '求偏导的法则：':'Rules for partial derivatives:', '全微分：':'Total differential:',
+    '切平面方程：':'Tangent plane equation:', '线性近似（切平面近似）：':'Linear approximation:',
+    '弧长公式：':'Arc length formula:', '曲率的直觉：':'Intuition of curvature:',
+    '梯度的物理直觉：':'Physical intuition of gradient:', '直觉：':'Intuition:',
+    '参数方程：':'Parametric equations:', '直线的向量方程：':'Vector equation of a line:',
+    '对称方程的理解：':'Understanding symmetric equations:', '平面的向量方程：':'Vector equation of a plane:',
+    '方向导数的梯度表示：':'Gradient form of directional derivative:'
+  };
+
+  const TAGS = {
+    '入门':'Easy', '核心':'Core', '重点难点':'Key & Hard', '空间想象':'Visualization',
+    '物理应用':'Physics', '概念重点':'Concept', '应用':'Applications',
+    '核心概念':'Core Concept', '优化':'Optimization', '约束优化':'Constrained Opt.'
+  };
+
+  const CH_TITLES = {
+    '第12章 向量与空间几何':'Chapter 12 · Vectors and the Geometry of Space',
+    '第13章 向量函数':'Chapter 13 · Vector Functions',
+    '第14章 偏导数':'Chapter 14 · Partial Derivatives'
+  };
+
+  const CH_CARD_IDS = { 'ch12':'Chapter 12 · Vectors and the Geometry of Space', 'ch13':'Chapter 13 · Vector Functions', 'ch14':'Chapter 14 · Partial Derivatives' };
+
+  function secTitleEn(secId){
+    const h = document.getElementById(secId);
+    if (!h) return secId;
+    const num = (h.textContent.match(/^\d+(\.\d+)?/) || [''])[0];
+    const enEl = h.querySelector('.en');
+    return (num ? num + ' ' : '') + (enEl ? enEl.textContent.trim() : h.textContent.trim());
+  }
+  window.__secTitle = function(k){
+    const h = document.getElementById(k);
+    if (!h) return k;
+    if (document.documentElement.lang === 'en') return secTitleEn(k);
+    const num = (h.textContent.match(/^\d+(\.\d+)?/) || [''])[0];
+    const clone = h.cloneNode(true);
+    clone.querySelectorAll('.en, .fav-btn, button, span[class*=fav], .tag').forEach(function(e){ e.remove(); });
+    return ((num ? num + ' ' : '') + (clone.textContent || '').trim()).trim() || h.textContent.trim();
+  };
+
+  function rebuildNav(){
+    const navEl = document.getElementById('nav-content');
+    if (!navEl || typeof chapters === 'undefined') return;
+    const en = document.documentElement.lang === 'en';
+    navEl.innerHTML = '';
+    chapters.forEach(function(ch){
+      const chDiv = document.createElement('div');
+      chDiv.innerHTML = '<div class="nav-chapter" onclick="toggleCh(\'' + ch.id + '\')">' + (en ? (CH_TITLES[ch.title] || ch.title) : ch.title) + '<span id="arrow-' + ch.id + '">▼</span></div>';
+      const secDiv = document.createElement('div');
+      secDiv.id = 'sec-' + ch.id;
+      ch.sections.forEach(function(s){
+        secDiv.innerHTML += '<a class="nav-section" href="#' + s.id + '" onclick="closeSidebar()">' + (en ? secTitleEn(s.id) : s.title) + '</a>';
+      });
+      chDiv.appendChild(secDiv);
+      navEl.appendChild(chDiv);
+    });
+  }
+
+  function applyUI(){
+    const en = document.documentElement.lang === 'en';
+
+    const lt = document.getElementById('lang-toggle');
+    if (lt) lt.textContent = en ? '🌐 中文' : '🌐 English';
+
+    const sh = document.querySelector('#sidebar h2');
+    if (sh) sh.textContent = en ? '📚 Multivariable Calculus Guide' : '📚 多元微积分指南';
+
+    const h1 = document.querySelector('.hero h1');
+    if (h1) h1.textContent = en ? 'Complete Guide to Multivariable Calculus' : '多元微积分完全指南';
+    Object.keys(CH_CARD_IDS).forEach(function(cid){
+      const ch2 = document.querySelector('#' + cid + ' h2');
+      if (ch2) {
+        if (!ch2.getAttribute('data-zh')) ch2.setAttribute('data-zh', ch2.textContent.trim());
+        ch2.textContent = en ? CH_CARD_IDS[cid] : ch2.getAttribute('data-zh');
+      }
+    });
+    const hp = document.querySelector('.hero > p');
+    if (hp) hp.textContent = en ? 'Stewart Calculus Ch. 12–14 · From AP Calculus BC level 3 to full understanding' : 'Stewart Calculus 第12–14章 · 从AP微积分BC 3分水平起步，从零理解所有内容';
+    const hlabels = ['章节','小节','知识点','推导与例题'];
+    const elabels = ['Chapters','Sections','Topics','Proofs & Examples'];
+    document.querySelectorAll('.hero-stat .label').forEach(function(l, i){
+      const zh = l.getAttribute('data-zh');
+      if (zh) l.textContent = en ? (elabels[hlabels.indexOf(zh)] || zh) : zh;
+      else if (i < hlabels.length) { l.setAttribute('data-zh', hlabels[i]); l.textContent = en ? elabels[i] : hlabels[i]; }
+    });
+
+    const si = document.getElementById('search-input');
+    if (si) si.placeholder = en ? '🔍 Search topics (CN/EN) e.g. ellipsoid, gradient, curvature…' : '🔍 搜索知识点（中/英文）如 ellipsoid、梯度、曲率…';
+    const sr = document.getElementById('search-results');
+    if (sr && sr.classList.contains('show')) {
+      const em = sr.querySelector('.sr-empty');
+      if (em) em.textContent = en ? 'No matching topics. Try another keyword (CN/EN).' : '未找到相关知识点，换个关键词试试（支持中/英文）';
+    }
+
+    const nb = document.getElementById('fav-btn-nav');
+    if (nb) {
+      const c = nb.querySelector('.count');
+      const cHtml = c ? c.outerHTML : '<span class="count">0</span>';
+      nb.innerHTML = (en ? '⭐ My Favorites ' : '⭐ 我的收藏 ') + cHtml;
+      if (window.__updateFavCount) window.__updateFavCount();
+    }
+
+    const ph = document.querySelector('#mypanel .panel-head h3');
+    if (ph) ph.textContent = en ? '📚 My Study Center' : '📚 我的学习中心';
+    const tabs = document.querySelectorAll('#panel-tabs button');
+    if (tabs[0]) tabs[0].textContent = '⭐ ' + (en ? 'Favorites' : '收藏');
+    if (tabs[1]) tabs[1].textContent = '📝 ' + (en ? 'Notes' : '笔记');
+
+    document.querySelectorAll('.note-box-title').forEach(function(e){ e.textContent = en ? '📝 My Notes (saved locally in this browser)' : '📝 我的笔记（仅保存在本机浏览器）'; });
+    document.querySelectorAll('.note-save-btn').forEach(function(e){ e.textContent = en ? 'Save Note' : '保存笔记'; });
+    document.querySelectorAll('.note-meta').forEach(function(e){ e.textContent = en ? 'Notes are stored in browser localStorage; clearing browser data will lose them.' : '笔记保存在浏览器 localStorage 中，清除浏览器数据会丢失'; });
+    document.querySelectorAll('.note-box textarea').forEach(function(t){ t.placeholder = en ? 'Write down your questions, key points and pitfalls here…' : '在这节记下你的疑问、重点、易错点……'; });
+    document.querySelectorAll('.fav-btn').forEach(function(b){ b.title = en ? 'Favorite / unfavorite this section' : '收藏/取消收藏本节'; });
+
+    document.querySelectorAll('.box > strong, .box > b').forEach(function(st){
+      const zh = st.getAttribute('data-zh');
+      if (zh) { st.textContent = en ? (I18N[zh] || zh) : zh; }
+      else {
+        const t = st.textContent.trim();
+        if (I18N[t]) { st.setAttribute('data-zh', t); st.textContent = I18N[t]; }
+      }
+    });
+
+    document.querySelectorAll('h3 .tag').forEach(function(t){
+      const zh = t.getAttribute('data-zh') || t.textContent.trim();
+      if (!t.getAttribute('data-zh')) t.setAttribute('data-zh', zh);
+      t.textContent = en ? (TAGS[zh] || zh) : zh;
+    });
+
+    rebuildNav();
+
+    if (window.__renderPanel) {
+      const active = document.querySelector('#panel-tabs button.active');
+      if (active && document.getElementById('mypanel') && document.getElementById('mypanel').classList.contains('open')) window.__renderPanel(active.dataset.tab);
+    }
+  }
+
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    applyUI();
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
+  }
+
+  const ltBtn = document.getElementById('lang-toggle');
+  if (ltBtn) ltBtn.addEventListener('click', function(){
+    setLang(document.documentElement.lang === 'en' ? 'zh-CN' : 'en');
+  });
+
+  let saved = null;
+  try { saved = localStorage.getItem(LANG_KEY); } catch(e){}
+  if (saved === 'en') setLang('en');
 })();
 
 </script>
