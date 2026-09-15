@@ -246,15 +246,15 @@ html[lang="en"] h3 .en { font-style:normal; font-weight:700; color:var(--accent)
   </div>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b001" data-box="1">
   <strong>如何使用本指南：</strong>每节包含「前置知识」（你需要先懂什么）、「核心概念」（定义与定理）、「推导证明」（课本跳步的地方全部补齐）、「例题」（手把手演算）和「常见误区」。遇到不懂的公式，点击折叠区可以看到完整推导。
 </div>
 
 <!-- ==================== CHAPTER 12 ==================== -->
 <div class="chapter-card" id="ch12">
   <h2>第12章 · 向量与空间几何</h2>
-  <p><strong>Vectors and the Geometry of Space</strong></p>
-  <p style="color:var(--text2);margin-top:8px">本章是多元微积分的基础。我们从二维平面扩展到三维空间，引入向量这个核心工具。向量不仅是后续章节（向量函数（vector-valued function）、偏导数）的语言基础，也是物理、工程、计算机图形学的通用语言。</p>
+  <p data-enk="b132"><strong>Vectors and the Geometry of Space</strong></p>
+  <p style="color:var(--text2);margin-top:8px" data-enk="b133">本章是多元微积分的基础。我们从二维平面扩展到三维空间，引入向量这个核心工具。向量不仅是后续章节（向量函数（vector-valued function）、偏导数）的语言基础，也是物理、工程、计算机图形学的通用语言。</p>
   <div style="margin-top:12px">
     <span class="tag tag-easy">12.1 三维坐标系</span>
     <span class="tag tag-easy">12.2 向量</span>
@@ -268,12 +268,12 @@ html[lang="en"] h3 .en { font-style:normal; font-weight:700; color:var(--accent)
 <!-- ===== 12.1 ===== -->
 <h3 id="s12-1"><span class="zh">12.1 三维坐标系</span> <span class="en">Three-Dimensional Coordinate Systems</span> <span class="tag tag-easy">入门</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b002" data-box="1">
   <strong>你需要先知道：</strong>二维平面直角坐标系（x轴、y轴、原点、象限）、勾股定理 $a^2+b^2=c^2$、圆的方程 $(x-h)^2+(y-k)^2=r^2$。如果你对这些有疑问，先复习一下高中解析几何。
 </div>
 
-<h4>1. 三维坐标系的建立</h4>
-<p>在二维平面中，我们用两条互相垂直的轴（x轴、y轴）定位一个点。到了三维空间，我们需要<strong>第三条轴</strong>——z轴，它同时垂直于x轴和y轴。</p>
+<h4 data-enk="b234">1. 三维坐标系的建立</h4>
+<p data-enk="b134">在二维平面中，我们用两条互相垂直的轴（x轴、y轴）定位一个点。到了三维空间，我们需要<strong>第三条轴</strong>——z轴，它同时垂直于x轴和y轴。</p>
 
 <div class="diagram">
   <svg width="320" height="260" viewBox="0 0 320 260">
@@ -299,19 +299,19 @@ html[lang="en"] h3 .en { font-style:normal; font-weight:700; color:var(--accent)
 
 <div class="definition">
   <div class="definition-title">右手定则（Right-Hand Rule）</div>
-  <p>将右手四指从x轴正向弯向y轴正向，大拇指所指的方向就是z轴正向。这就是<strong>右手坐标系</strong>。如果用左手做同样的动作得到z轴方向，那就是左手坐标系。数学和物理中统一使用右手坐标系。</p>
+  <p data-enk="b135">将右手四指从x轴正向弯向y轴正向，大拇指所指的方向就是z轴正向。这就是<strong>右手坐标系</strong>。如果用左手做同样的动作得到z轴方向，那就是左手坐标系。数学和物理中统一使用右手坐标系。</p>
 </div>
 
-<p>三个坐标平面（xy平面、yz平面、xz平面）把空间分成八个<strong>卦限（octant）</strong>。第一卦限中 $x>0, y>0, z>0$，类似于二维的第一象限。</p>
+<p data-enk="b136">三个坐标平面（xy平面、yz平面、xz平面）把空间分成八个<strong>卦限（octant）</strong>。第一卦限中 $x>0, y>0, z>0$，类似于二维的第一象限。</p>
 
-<h4>2. 空间中两点间的距离</h4>
+<h4 data-enk="b235">2. 空间中两点间的距离</h4>
 
-<div class="box formula">
+<div class="box formula" data-enk="b003" data-box="1">
   <strong>三维距离公式：</strong>空间中点 $P_1(x_1,y_1,z_1)$ 和 $P_2(x_2,y_2,z_2)$ 之间的距离为
   $$|P_1P_2| = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$$
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b004" data-box="1">
   <strong>课本跳步补齐：距离公式怎么来的？</strong>
   <div class="steps">
     <div class="step">把 $P_1$ 和 $P_2$ 投影到xy平面，得到点 $Q_1(x_1,y_1,0)$ 和 $Q_2(x_2,y_2,0)$。在xy平面上，由二维距离公式：$|Q_1Q_2| = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$。</div>
@@ -322,28 +322,28 @@ html[lang="en"] h3 .en { font-style:normal; font-weight:700; color:var(--accent)
   <p><strong>关键直觉：</strong>三维距离 = 先用二维距离公式算xy平面上的投影距离，再和z方向的差一起用一次勾股定理。本质上是勾股定理用了两次。</p>
 </div>
 
-<h4>3. 球面方程</h4>
+<h4 data-enk="b236">3. 球面方程</h4>
 
-<div class="box formula">
+<div class="box formula" data-enk="b005" data-box="1">
   <strong>球面方程：</strong>球心在 $C(h,k,l)$、半径为 $r$ 的球面方程为
   $$(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$$
   <p style="margin-top:8px">球心在原点时：$x^2+y^2+z^2=r^2$</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b006" data-box="1">
   <strong>推导：</strong>球面上任意一点 $P(x,y,z)$ 到球心 $C(h,k,l)$ 的距离都等于半径 $r$。由距离公式：
   $$\sqrt{(x-h)^2+(y-k)^2+(z-l)^2} = r$$
   两边平方即得球面方程。<strong>这和二维中圆的方程完全类比</strong>——圆是"到定点距离等于定长的点的集合"，球面是三维版本。
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b007" data-box="1">
   <strong>例：</strong>求球心在 $(2,-1,3)$、半径为5的球面方程，并判断点 $(4,1,1)$ 是否在球面上。
   <p><strong>解：</strong>方程为 $(x-2)^2+(y+1)^2+(z-3)^2=25$。</p>
   <p>代入 $(4,1,1)$：$(4-2)^2+(1+1)^2+(1-3)^2 = 4+4+4 = 12 \neq 25$，所以该点在球<strong>内部</strong>（距离平方12 < 25）。</p>
 </div>
 
-<h4>4. 坐标面与平行平面</h4>
-<p>方程 $x=0$ 表示yz平面（所有x坐标为0的点）。$x=3$ 表示一个平行于yz平面的平面，它在x轴上截距为3。</p>
+<h4 data-enk="b237">4. 坐标面与平行平面</h4>
+<p data-enk="b137">方程 $x=0$ 表示yz平面（所有x坐标为0的点）。$x=3$ 表示一个平行于yz平面的平面，它在x轴上截距为3。</p>
 <table>
   <tr><th>方程</th><th>图形</th></tr>
   <tr><td>$x=0$</td><td>yz坐标平面</td></tr>
@@ -353,41 +353,41 @@ html[lang="en"] h3 .en { font-style:normal; font-weight:700; color:var(--accent)
   <tr><td>$z=c$</td><td>平行于xy平面的水平面</td></tr>
 </table>
 
-<div class="box warn">
+<div class="box warn" data-enk="b008" data-box="1">
   <strong>注意维度差异：</strong>在二维中，$x=3$ 是一条<strong>竖直线</strong>；在三维中，$x=3$ 是一个<strong>平面</strong>（因为y和z可以自由取值）。这是从二维到三维最容易混淆的点之一。
 </div>
 
 <!-- ===== 12.2 ===== -->
 <h3 id="s12-2"><span class="zh">12.2 向量</span> <span class="en">Vectors</span> <span class="tag tag-easy">入门</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b009" data-box="1">
   <strong>你需要先知道：</strong>有向线段的概念、三角函数（sin/cos/tan）、基本代数运算。向量是"既有大小又有方向的量"，对比"只有大小的标量（scalar，如温度、质量）。
 </div>
 
-<h4>1. 什么是向量</h4>
+<h4 data-enk="b238">1. 什么是向量</h4>
 <div class="definition">
   <div class="definition-title">向量（Vector）</div>
-  <p>向量是既有<strong>大小（magnitude）</strong>又有<strong>方向（direction）</strong>的量。几何上用箭头（有向线段）表示：箭头长度 = 大小，箭头指向 = 方向。记作 $\mathbf{v}$ 或 $\vec{v}$。</p>
+  <p data-enk="b138">向量是既有<strong>大小（magnitude）</strong>又有<strong>方向（direction）</strong>的量。几何上用箭头（有向线段）表示：箭头长度 = 大小，箭头指向 = 方向。记作 $\mathbf{v}$ 或 $\vec{v}$。</p>
 </div>
 
-<p><strong>关键概念——等价向量：</strong>两个向量只要大小相同、方向相同，就是<strong>相等的</strong>，不管它们起点在哪里。这意味着向量可以在空间中自由平移。$\vec{AB} = \vec{CD}$ 当且仅当它们长度相等且平行同向。</p>
+<p data-enk="b139"><strong>关键概念——等价向量：</strong>两个向量只要大小相同、方向相同，就是<strong>相等的</strong>，不管它们起点在哪里。这意味着向量可以在空间中自由平移。$\vec{AB} = \vec{CD}$ 当且仅当它们长度相等且平行同向。</p>
 
-<div class="box tip">
+<div class="box tip" data-enk="b010" data-box="1">
   <strong>为什么向量可以平移？</strong>因为向量描述的是"位移"——从A到B的移动和从C到D的移动，如果方向和距离一样，效果就是一样的。这就像"向东走3公里"不管从哪里出发都是同一个位移向量。
 </div>
 
-<p><strong>零向量（zero vector） $\mathbf{0}$：</strong>长度为0的向量，没有特定方向。</p>
+<p data-enk="b140"><strong>零向量（zero vector） $\mathbf{0}$：</strong>长度为0的向量，没有特定方向。</p>
 
-<h4>2. 向量加法</h4>
+<h4 data-enk="b239">2. 向量加法</h4>
 
 <div class="definition">
   <div class="definition-title">三角形法则（Triangle Law）</div>
-  <p>将向量 $\mathbf{v}$ 的起点移到 $\mathbf{u}$ 的终点，则 $\mathbf{u}+\mathbf{v}$ 是从 $\mathbf{u}$ 的起点指向 $\mathbf{v}$ 的终点的向量。</p>
+  <p data-enk="b141">将向量 $\mathbf{v}$ 的起点移到 $\mathbf{u}$ 的终点，则 $\mathbf{u}+\mathbf{v}$ 是从 $\mathbf{u}$ 的起点指向 $\mathbf{v}$ 的终点的向量。</p>
 </div>
 
 <div class="definition">
   <div class="definition-title">平行四边形法则（Parallelogram Law）</div>
-  <p>将 $\mathbf{u}$ 和 $\mathbf{v}$ 起点放在一起，以它们为邻边作平行四边形，则 $\mathbf{u}+\mathbf{v}$ 是从公共起点出发的对角线向量。</p>
+  <p data-enk="b142">将 $\mathbf{u}$ 和 $\mathbf{v}$ 起点放在一起，以它们为邻边作平行四边形，则 $\mathbf{u}+\mathbf{v}$ 是从公共起点出发的对角线向量。</p>
 </div>
 
 <div class="diagram">
@@ -415,31 +415,31 @@ html[lang="en"] h3 .en { font-style:normal; font-weight:700; color:var(--accent)
   <div class="diagram-caption">两种加法法则给出相同结果，说明向量加法满足交换律 u+v = v+u</div>
 </div>
 
-<h4>3. 标量乘法</h4>
+<h4 data-enk="b240">3. 标量乘法</h4>
 <div class="definition">
   <div class="definition-title">标量乘法（Scalar Multiplication）</div>
-  <p>标量 $c$ 乘以向量 $\mathbf{v}$ 得到新向量 $c\mathbf{v}$：</p>
+  <p data-enk="b143">标量 $c$ 乘以向量 $\mathbf{v}$ 得到新向量 $c\mathbf{v}$：</p>
   <ul style="margin-left:20px;margin-top:6px">
-    <li>大小：$|c\mathbf{v}| = |c| \cdot |\mathbf{v}|$</li>
-    <li>方向：$c>0$ 时与 $\mathbf{v}$ 同向；$c<0$ 时与 $\mathbf{v}$ 反向；$c=0$ 时为零向量</li>
+    <li data-enk="b313">大小：$|c\mathbf{v}| = |c| \cdot |\mathbf{v}|$</li>
+    <li data-enk="b314">方向：$c>0$ 时与 $\mathbf{v}$ 同向；$c<0$ 时与 $\mathbf{v}$ 反向；$c=0$ 时为零向量</li>
   </ul>
 </div>
 
-<p><strong>向量减法：</strong>$\mathbf{u}-\mathbf{v} = \mathbf{u} + (-\mathbf{v})$。几何上，如果 $\mathbf{u}$ 和 $\mathbf{v}$ 起点相同，$\mathbf{u}-\mathbf{v}$ 是从 $\mathbf{v}$ 的终点指向 $\mathbf{u}$ 的终点的向量。</p>
+<p data-enk="b144"><strong>向量减法：</strong>$\mathbf{u}-\mathbf{v} = \mathbf{u} + (-\mathbf{v})$。几何上，如果 $\mathbf{u}$ 和 $\mathbf{v}$ 起点相同，$\mathbf{u}-\mathbf{v}$ 是从 $\mathbf{v}$ 的终点指向 $\mathbf{u}$ 的终点的向量。</p>
 
-<h4>4. 向量的分量表示</h4>
-<p>把向量的起点移到原点，终点坐标 $(a_1,a_2,a_3)$ 就是向量的<strong>分量（components）</strong>，记作：</p>
+<h4 data-enk="b241">4. 向量的分量表示</h4>
+<p data-enk="b145">把向量的起点移到原点，终点坐标 $(a_1,a_2,a_3)$ 就是向量的<strong>分量（components）</strong>，记作：</p>
 $$\mathbf{a} = \langle a_1, a_2, a_3 \rangle = a_1\mathbf{i} + a_2\mathbf{j} + a_3\mathbf{k}$$
 
-<p>其中 $\mathbf{i}=\langle1,0,0\rangle$、$\mathbf{j}=\langle0,1,0\rangle$、$\mathbf{k}=\langle0,0,1\rangle$ 是<strong>标准基向量（standard basis vectors）</strong>，分别沿x、y、z轴正方向，长度均为1。</p>
+<p data-enk="b146">其中 $\mathbf{i}=\langle1,0,0\rangle$、$\mathbf{j}=\langle0,1,0\rangle$、$\mathbf{k}=\langle0,0,1\rangle$ 是<strong>标准基向量（standard basis vectors）</strong>，分别沿x、y、z轴正方向，长度均为1。</p>
 
-<div class="box formula">
+<div class="box formula" data-enk="b011" data-box="1">
   <strong>向量的大小（模长）：</strong>
   $$|\mathbf{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$$
   这就是从原点到 $(a_1,a_2,a_3)$ 的距离，由距离公式直接得到。
 </div>
 
-<div class="box formula">
+<div class="box formula" data-enk="b012" data-box="1">
   <strong>分量运算：</strong>设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
   $$\mathbf{a}+\mathbf{b} = \langle a_1+b_1,\; a_2+b_2,\; a_3+b_3\rangle$$
   $$\mathbf{a}-\mathbf{b} = \langle a_1-b_1,\; a_2-b_2,\; a_3-b_3\rangle$$
@@ -447,28 +447,28 @@ $$\mathbf{a} = \langle a_1, a_2, a_3 \rangle = a_1\mathbf{i} + a_2\mathbf{j} + a
   <p style="margin-top:8px"><strong>直觉：</strong>向量运算就是<strong>各分量分别运算</strong>。加法就是x加x、y加y、z加z。</p>
 </div>
 
-<h4>5. 单位向量</h4>
+<h4 data-enk="b242">5. 单位向量</h4>
 <div class="definition">
   <div class="definition-title">单位向量（Unit Vector）</div>
-  <p>长度为1的向量。与非零向量 $\mathbf{a}$ 同方向的单位向量为：
+  <p data-enk="b147">长度为1的向量。与非零向量 $\mathbf{a}$ 同方向的单位向量为：
   $$\mathbf{u} = \frac{\mathbf{a}}{|\mathbf{a}|}$$
   这个操作叫"单位化"（normalizing）。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b013" data-box="1">
   <strong>例：</strong>求与 $\mathbf{a}=\langle3,4,0\rangle$ 同方向的单位向量。
   <p><strong>解：</strong>$|\mathbf{a}| = \sqrt{9+16+0} = 5$，所以 $\mathbf{u} = \frac{1}{5}\langle3,4,0\rangle = \langle\frac{3}{5},\frac{4}{5},0\rangle$。验证：$|\mathbf{u}| = \sqrt{9/25+16/25} = 1$。 ✓</p>
 </div>
 
-<h4>6. 两点确定的向量</h4>
-<p>给定点 $A(x_1,y_1,z_1)$ 和 $B(x_2,y_2,z_2)$，则向量 $\vec{AB}$（从A指向B）为：</p>
+<h4 data-enk="b243">6. 两点确定的向量</h4>
+<p data-enk="b148">给定点 $A(x_1,y_1,z_1)$ 和 $B(x_2,y_2,z_2)$，则向量 $\vec{AB}$（从A指向B）为：</p>
 $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
 
-<div class="box tip">
+<div class="box tip" data-enk="b014" data-box="1">
   <strong>记忆口诀：</strong>"终点减起点"。$\vec{AB}$ 的分量 = B的坐标 - A的坐标。这和位移的概念一致：从A到B，x方向移动了 $x_2-x_1$。
 </div>
 
-<h4>7. 向量的性质</h4>
+<h4 data-enk="b244">7. 向量的性质</h4>
 <table>
   <tr><th>性质</th><th>公式</th></tr>
   <tr><td>交换律</td><td>$\mathbf{a}+\mathbf{b}=\mathbf{b}+\mathbf{a}$</td></tr>
@@ -484,31 +484,31 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
 <!-- ===== 12.3 ===== -->
 <h3 id="s12-3"><span class="zh">12.3 点积</span> <span class="en">The Dot Product</span> <span class="tag tag-medium">核心</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b015" data-box="1">
   <strong>你需要先知道：</strong>向量的分量表示、向量的模长、余弦定理 $c^2=a^2+b^2-2ab\cos C$、三角函数基本值。点积是向量的第一种"乘法"，结果是一个<strong>标量</strong>（数），不是向量。
 </div>
 
-<h4>1. 点积的定义</h4>
+<h4 data-enk="b245">1. 点积的定义</h4>
 <div class="definition">
   <div class="definition-title">点积（Dot Product / 内积）</div>
-  <p>设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
+  <p data-enk="b149">设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
   $$\mathbf{a}\cdot\mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3$$
   即<strong>对应分量相乘再相加</strong>。结果是一个标量。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b016" data-box="1">
   <strong>例：</strong>$\mathbf{a}=\langle2,1,-3\rangle$，$\mathbf{b}=\langle0,4,2\rangle$，则 $\mathbf{a}\cdot\mathbf{b} = 2(0)+1(4)+(-3)(2) = 0+4-6 = -2$。
 </div>
 
-<h4>2. 点积的几何意义（最重要！）</h4>
+<h4 data-enk="b246">2. 点积的几何意义（最重要！）</h4>
 
 <div class="theorem">
   <div class="theorem-title">定理：点积的几何公式</div>
-  <p>设 $\theta$ 为 $\mathbf{a}$ 与 $\mathbf{b}$ 之间的夹角（$0\leq\theta\leq\pi$），则
+  <p data-enk="b150">设 $\theta$ 为 $\mathbf{a}$ 与 $\mathbf{b}$ 之间的夹角（$0\leq\theta\leq\pi$），则
   $$\mathbf{a}\cdot\mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta$$</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b017" data-box="1">
   <strong>课本跳步补齐：这个公式怎么来的？</strong>
   <div class="steps">
     <div class="step">将 $\mathbf{a}$ 和 $\mathbf{b}$ 起点放在一起，考虑三角形：两边为 $|\mathbf{a}|$ 和 $|\mathbf{b}|$，夹角为 $\theta$，第三边为 $|\mathbf{a}-\mathbf{b}|$。</div>
@@ -522,7 +522,7 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
   <p><strong>这个证明的核心</strong>是余弦定理 + 分量展开，两者描述同一个三角形的第三边，从而建立代数定义和几何意义的联系。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b018" data-box="1">
   <strong>如何理解 $\cos\theta$？</strong>
   <ul style="margin-left:20px">
     <li>$\theta=0$（同向）：$\cos0=1$，点积最大 $=|\mathbf{a}||\mathbf{b}|$</li>
@@ -532,14 +532,14 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
   <p style="margin-top:6px">点积的符号告诉你两个向量"指向同一个方向的程度"：正=锐角，零=垂直，负=钝角。</p>
 </div>
 
-<h4>3. 垂直的判定</h4>
+<h4 data-enk="b247">3. 垂直的判定</h4>
 <div class="theorem">
   <div class="theorem-title">推论：垂直判定</div>
-  <p>两个非零向量 $\mathbf{a}$ 和 $\mathbf{b}$ <strong>垂直（orthogonal）</strong>当且仅当 $\mathbf{a}\cdot\mathbf{b}=0$。</p>
+  <p data-enk="b151">两个非零向量 $\mathbf{a}$ 和 $\mathbf{b}$ <strong>垂直（orthogonal）</strong>当且仅当 $\mathbf{a}\cdot\mathbf{b}=0$。</p>
 </div>
-<p>证明：$\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|\cos\theta=0$，而 $|\mathbf{a}|,|\mathbf{b}|\neq0$，所以 $\cos\theta=0$，即 $\theta=\pi/2$。</p>
+<p data-enk="b152">证明：$\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|\cos\theta=0$，而 $|\mathbf{a}|,|\mathbf{b}|\neq0$，所以 $\cos\theta=0$，即 $\theta=\pi/2$。</p>
 
-<h4>4. 点积的性质</h4>
+<h4 data-enk="b248">4. 点积的性质</h4>
 <table>
   <tr><th>性质</th><th>公式</th></tr>
   <tr><td>交换律</td><td>$\mathbf{a}\cdot\mathbf{b}=\mathbf{b}\cdot\mathbf{a}$</td></tr>
@@ -549,38 +549,38 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
   <tr><td>与零向量</td><td>$\mathbf{a}\cdot\mathbf{0}=0$</td></tr>
 </table>
 
-<div class="box proof">
+<div class="box proof" data-enk="b019" data-box="1">
   <strong>分配律证明（课本常略过）：</strong>
   $\mathbf{a}\cdot(\mathbf{b}+\mathbf{c}) = a_1(b_1+c_1)+a_2(b_2+c_2)+a_3(b_3+c_3)$
   $= (a_1b_1+a_2b_2+a_3b_3)+(a_1c_1+a_2c_2+a_3c_3) = \mathbf{a}\cdot\mathbf{b}+\mathbf{a}\cdot\mathbf{c}$。
   本质就是实数乘法分配律在每个分量上分别应用。
 </div>
 
-<h4>5. 方向角与方向余弦</h4>
-<p>向量 $\mathbf{a}$ 与x轴、y轴、z轴正方向的夹角 $\alpha,\beta,\gamma$ 称为<strong>方向角（direction angles）</strong>，它们的余弦 $\cos\alpha,\cos\beta,\cos\gamma$ 称为<strong>方向余弦（direction cosines）</strong>。</p>
+<h4 data-enk="b249">5. 方向角与方向余弦</h4>
+<p data-enk="b153">向量 $\mathbf{a}$ 与x轴、y轴、z轴正方向的夹角 $\alpha,\beta,\gamma$ 称为<strong>方向角（direction angles）</strong>，它们的余弦 $\cos\alpha,\cos\beta,\cos\gamma$ 称为<strong>方向余弦（direction cosines）</strong>。</p>
 
-<div class="box formula">
+<div class="box formula" data-enk="b020" data-box="1">
   $$\cos\alpha = \frac{a_1}{|\mathbf{a}|},\quad \cos\beta = \frac{a_2}{|\mathbf{a}|},\quad \cos\gamma = \frac{a_3}{|\mathbf{a}|}$$
   <p style="margin-top:6px">并且恒有 $\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1$（因为 $\frac{a_1^2+a_2^2+a_3^2}{|\mathbf{a}|^2}=1$）。</p>
   <p>方向余弦组成的向量 $\langle\cos\alpha,\cos\beta,\cos\gamma\rangle$ 就是 $\mathbf{a}$ 方向的单位向量。</p>
 </div>
 
-<h4>6. 投影（Projections）</h4>
-<p>这是点积最重要的应用之一。想象阳光从正上方照下来，向量 $\mathbf{a}$ 在向量 $\mathbf{b}$ 方向上的"影子"就是投影。</p>
+<h4 data-enk="b250">6. 投影（Projections）</h4>
+<p data-enk="b154">这是点积最重要的应用之一。想象阳光从正上方照下来，向量 $\mathbf{a}$ 在向量 $\mathbf{b}$ 方向上的"影子"就是投影。</p>
 
 <div class="definition">
   <div class="definition-title">标量投影（Scalar Projection）</div>
-  <p>$\mathbf{a}$ 在 $\mathbf{b}$ 方向上的标量投影（即影子的长度，带符号）：
+  <p data-enk="b155">$\mathbf{a}$ 在 $\mathbf{b}$ 方向上的标量投影（即影子的长度，带符号）：
   $$\text{comp}_{\mathbf{b}}\mathbf{a} = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|} = |\mathbf{a}|\cos\theta$$</p>
 </div>
 
 <div class="definition">
   <div class="definition-title">向量投影（Vector Projection）</div>
-  <p>$\mathbf{a}$ 在 $\mathbf{b}$ 方向上的向量投影（影子本身，是一个向量）：
+  <p data-enk="b156">$\mathbf{a}$ 在 $\mathbf{b}$ 方向上的向量投影（影子本身，是一个向量）：
   $$\text{proj}_{\mathbf{b}}\mathbf{a} = \left(\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|^2}\right)\mathbf{b} = \left(\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|}\right)\frac{\mathbf{b}}{|\mathbf{b}|}$$</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b021" data-box="1">
   <strong>投影公式推导：</strong>
   <div class="steps">
     <div class="step">标量投影就是 $\mathbf{a}$ 在 $\mathbf{b}$ 方向上的"影子长度"。由几何公式 $\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}||\mathbf{b}|\cos\theta$，解出 $|\mathbf{a}|\cos\theta = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{b}|}$。这就是影子的有符号长度。</div>
@@ -588,7 +588,7 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
   </div>
 </div>
 
-<div class="box warn">
+<div class="box warn" data-enk="b022" data-box="1">
   <strong>常见混淆：</strong>
   <ul style="margin-left:20px">
     <li>标量（scalar）投影 $\text{comp}_{\mathbf{b}}\mathbf{a}$ 是一个<strong>数</strong>（可正可负）</li>
@@ -598,14 +598,14 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
   </ul>
 </div>
 
-<h4>7. 功（Work）</h4>
-<div class="box formula">
+<h4 data-enk="b251">7. 功（Work）</h4>
+<div class="box formula" data-enk="b023" data-box="1">
   <p>恒力 $\mathbf{F}$ 使物体位移 $\mathbf{D}$ 所做的功：
   $$W = \mathbf{F}\cdot\mathbf{D} = |\mathbf{F}||\mathbf{D}|\cos\theta$$</p>
   <p style="margin-top:6px">其中 $\theta$ 是力和位移的夹角。只有力在位移方向上的分量才做功。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b024" data-box="1">
   <strong>例：</strong>力 $\mathbf{F}=\langle3,4\rangle$ N，位移 $\mathbf{D}=\langle5,0\rangle$ m，求功。
   <p><strong>解：</strong>$W = \mathbf{F}\cdot\mathbf{D} = 3(5)+4(0) = 15$ J。</p>
   <p>物理直觉：力的水平分量3N推动物体移动5m，做功15J；竖直分量4N不做功（因为位移在水平方向）。</p>
@@ -614,21 +614,21 @@ $$\vec{AB} = \langle x_2-x_1,\; y_2-y_1,\; z_2-z_1\rangle$$
 <!-- ===== 12.4 ===== -->
 <h3 id="s12-4"><span class="zh">12.4 叉积</span> <span class="en">The Cross Product</span> <span class="tag tag-medium">核心</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b025" data-box="1">
   <strong>你需要先知道：</strong>行列式（determinant）的计算（2阶和3阶）、点积的几何意义、向量垂直的概念。叉积是向量的第二种"乘法"，结果是一个<strong>向量</strong>，且只在三维空间中有定义。
 </div>
 
-<h4>1. 叉积的定义</h4>
+<h4 data-enk="b252">1. 叉积的定义</h4>
 <div class="definition">
   <div class="definition-title">叉积（Cross Product）</div>
-  <p>设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
+  <p data-enk="b157">设 $\mathbf{a}=\langle a_1,a_2,a_3\rangle$，$\mathbf{b}=\langle b_1,b_2,b_3\rangle$，则
   $$\mathbf{a}\times\mathbf{b} = \langle a_2b_3-a_3b_2,\; a_3b_1-a_1b_3,\; a_1b_2-a_2b_1\rangle$$</p>
 </div>
 
-<p>为了便于记忆，用<strong>行列式</strong>表示：</p>
+<p data-enk="b158">为了便于记忆，用<strong>行列式</strong>表示：</p>
 $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}$$
 
-<div class="box proof">
+<div class="box proof" data-enk="b026" data-box="1">
   <strong>行列式展开（补齐步骤）：</strong>
   <p>按第一行展开3阶行列式：</p>
   $$\mathbf{a}\times\mathbf{b} = \mathbf{i}\begin{vmatrix}a_2&a_3\\b_2&b_3\end{vmatrix} - \mathbf{j}\begin{vmatrix}a_1&a_3\\b_1&b_3\end{vmatrix} + \mathbf{k}\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix}$$
@@ -637,21 +637,21 @@ $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf
   <p style="margin-top:6px"><strong>注意j分量的负号！</strong>这是最容易出错的地方。展开时中间项是减号。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b027" data-box="1">
   <strong>例：</strong>$\mathbf{a}=\langle1,3,4\rangle$，$\mathbf{b}=\langle2,7,-5\rangle$，求 $\mathbf{a}\times\mathbf{b}$。
   <p><strong>解：</strong></p>
   $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&3&4\\2&7&-5\end{vmatrix} = \mathbf{i}(3(-5)-4\cdot7) - \mathbf{j}(1(-5)-4\cdot2) + \mathbf{k}(1\cdot7-3\cdot2)$$
   $$= \mathbf{i}(-15-28) - \mathbf{j}(-5-8) + \mathbf{k}(7-6) = -43\mathbf{i}+13\mathbf{j}+\mathbf{k} = \langle-43,13,1\rangle$$
 </div>
 
-<h4>2. 叉积的几何意义</h4>
+<h4 data-enk="b253">2. 叉积的几何意义</h4>
 
 <div class="theorem">
   <div class="theorem-title">定理1：叉积垂直于两个因子</div>
-  <p>$\mathbf{a}\times\mathbf{b}$ 同时垂直于 $\mathbf{a}$ 和 $\mathbf{b}$。</p>
+  <p data-enk="b159">$\mathbf{a}\times\mathbf{b}$ 同时垂直于 $\mathbf{a}$ 和 $\mathbf{b}$。</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b028" data-box="1">
   <strong>证明：</strong>只需验证 $(\mathbf{a}\times\mathbf{b})\cdot\mathbf{a}=0$ 和 $(\mathbf{a}\times\mathbf{b})\cdot\mathbf{b}=0$。
   <p>$(\mathbf{a}\times\mathbf{b})\cdot\mathbf{a} = (a_2b_3-a_3b_2)a_1 + (a_3b_1-a_1b_3)a_2 + (a_1b_2-a_2b_1)a_3$</p>
   $= a_1a_2b_3 - a_1a_3b_2 + a_2a_3b_1 - a_1a_2b_3 + a_1a_3b_2 - a_2a_3b_1 = 0$。
@@ -660,11 +660,11 @@ $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf
 
 <div class="theorem">
   <div class="theorem-title">定理2：叉积的模长</div>
-  <p>设 $\theta$ 为 $\mathbf{a}$ 与 $\mathbf{b}$ 的夹角，则
+  <p data-enk="b160">设 $\theta$ 为 $\mathbf{a}$ 与 $\mathbf{b}$ 的夹角，则
   $$|\mathbf{a}\times\mathbf{b}| = |\mathbf{a}||\mathbf{b}|\sin\theta$$</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b029" data-box="1">
   <strong>课本跳步补齐：</strong>
   <div class="steps">
     <div class="step">$|\mathbf{a}\times\mathbf{b}|^2 = (a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+(a_1b_2-a_2b_1)^2$</div>
@@ -676,20 +676,20 @@ $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf
   </div>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b030" data-box="1">
   <strong>叉积模长的几何意义：</strong>$|\mathbf{a}\times\mathbf{b}|$ 等于以 $\mathbf{a}$ 和 $\mathbf{b}$ 为邻边的<strong>平行四边形的面积</strong>。
   <p>因为平行四边形面积 = 底 × 高 = $|\mathbf{a}| \times (|\mathbf{b}|\sin\theta) = |\mathbf{a}||\mathbf{b}|\sin\theta$。</p>
   <p>三角形面积 = $\frac{1}{2}|\mathbf{a}\times\mathbf{b}|$。</p>
 </div>
 
-<h4>3. 右手定则确定方向</h4>
-<p>$\mathbf{a}\times\mathbf{b}$ 的方向由<strong>右手定则</strong>确定：右手四指从 $\mathbf{a}$ 弯向 $\mathbf{b}$（沿小于 $\pi$ 的角），大拇指指向就是 $\mathbf{a}\times\mathbf{b}$ 的方向。</p>
+<h4 data-enk="b254">3. 右手定则确定方向</h4>
+<p data-enk="b161">$\mathbf{a}\times\mathbf{b}$ 的方向由<strong>右手定则</strong>确定：右手四指从 $\mathbf{a}$ 弯向 $\mathbf{b}$（沿小于 $\pi$ 的角），大拇指指向就是 $\mathbf{a}\times\mathbf{b}$ 的方向。</p>
 
-<div class="box warn">
+<div class="box warn" data-enk="b031" data-box="1">
   <strong>叉积不满足交换律！</strong>$\mathbf{a}\times\mathbf{b} = -\mathbf{b}\times\mathbf{a}$。交换顺序会得到相反方向的向量。这和点积（交换律成立）完全不同。
 </div>
 
-<h4>4. 叉积的性质</h4>
+<h4 data-enk="b255">4. 叉积的性质</h4>
 <table>
   <tr><th>性质</th><th>公式</th></tr>
   <tr><td>反交换律</td><td>$\mathbf{a}\times\mathbf{b} = -\mathbf{b}\times\mathbf{a}$</td></tr>
@@ -700,88 +700,88 @@ $$\mathbf{a}\times\mathbf{b} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf
   <tr><td>雅可比恒等式</td><td>$\mathbf{a}\times(\mathbf{b}\times\mathbf{c})+\mathbf{b}\times(\mathbf{c}\times\mathbf{a})+\mathbf{c}\times(\mathbf{a}\times\mathbf{b})=\mathbf{0}$</td></tr>
 </table>
 
-<p><strong>标准基向量的叉积：</strong></p>
+<p data-enk="b162"><strong>标准基向量的叉积：</strong></p>
 $$\mathbf{i}\times\mathbf{j}=\mathbf{k},\quad \mathbf{j}\times\mathbf{k}=\mathbf{i},\quad \mathbf{k}\times\mathbf{i}=\mathbf{j}$$
 $$\mathbf{j}\times\mathbf{i}=-\mathbf{k},\quad \mathbf{k}\times\mathbf{j}=-\mathbf{i},\quad \mathbf{i}\times\mathbf{k}=-\mathbf{j}$$
 
-<div class="box tip">
+<div class="box tip" data-enk="b032" data-box="1">
   <strong>记忆方法：</strong>按 $\mathbf{i}\to\mathbf{j}\to\mathbf{k}\to\mathbf{i}$ 的循环顺序，相邻两个的叉积等于下一个。逆序则加负号。
 </div>
 
-<h4>5. 标量三重积（Scalar Triple Product）</h4>
+<h4 data-enk="b256">5. 标量三重积（Scalar Triple Product）</h4>
 <div class="definition">
   <div class="definition-title">标量三重积</div>
-  <p>$\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})$ 称为标量三重积，结果是一个标量。可用行列式计算：
+  <p data-enk="b163">$\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})$ 称为标量三重积，结果是一个标量。可用行列式计算：
   $$\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c}) = \begin{vmatrix} a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3 \end{vmatrix}$$</p>
 </div>
 
-<div class="box formula">
+<div class="box formula" data-enk="b033" data-box="1">
   <strong>几何意义：</strong>标量三重积的绝对值 $|\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|$ 等于以 $\mathbf{a},\mathbf{b},\mathbf{c}$ 为邻边的<strong>平行六面体的体积</strong>。
   <p>体积 = 底面积 × 高 = $|\mathbf{b}\times\mathbf{c}| \times |\mathbf{a}|\cos\phi = |\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})|$，其中 $\phi$ 是 $\mathbf{a}$ 与法向量（normal vector） $\mathbf{b}\times\mathbf{c}$ 的夹角。</p>
 </div>
 
 <div class="theorem">
   <div class="theorem-title">共面判定</div>
-  <p>三个向量 $\mathbf{a},\mathbf{b},\mathbf{c}$ <strong>共面</strong>（位于同一平面内）当且仅当 $\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})=0$。</p>
-  <p>因为共面时平行六面体体积为0。</p>
+  <p data-enk="b164">三个向量 $\mathbf{a},\mathbf{b},\mathbf{c}$ <strong>共面</strong>（位于同一平面内）当且仅当 $\mathbf{a}\cdot(\mathbf{b}\times\mathbf{c})=0$。</p>
+  <p data-enk="b165">因为共面时平行六面体体积为0。</p>
 </div>
 
-<h4>6. 向量三重积</h4>
-<div class="box formula">
+<h4 data-enk="b257">6. 向量三重积</h4>
+<div class="box formula" data-enk="b034" data-box="1">
   <strong>向量三重积公式（BAC-CAB规则）：</strong>
   $$\mathbf{a}\times(\mathbf{b}\times\mathbf{c}) = \mathbf{b}(\mathbf{a}\cdot\mathbf{c}) - \mathbf{c}(\mathbf{a}\cdot\mathbf{b})$$
   <p style="margin-top:6px">记忆口诀"BAC minus CAB"：= B(A·C) - C(A·B)。这个公式在第13章推导开普勒定律时会用到。</p>
 </div>
 
-<h4>7. 力矩（Torque）</h4>
-<p>力 $\mathbf{F}$ 作用在位置向量（position vector）为 $\mathbf{r}$ 的点上，对原点的力矩为：
+<h4 data-enk="b258">7. 力矩（Torque）</h4>
+<p data-enk="b166">力 $\mathbf{F}$ 作用在位置向量（position vector）为 $\mathbf{r}$ 的点上，对原点的力矩为：
 $$\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}$$
 力矩的大小 $|\boldsymbol{\tau}|=|\mathbf{r}||\mathbf{F}|\sin\theta$ 描述力使物体绕原点转动的能力，方向由右手定则确定（转动轴方向）。</p>
 
 <!-- ===== 12.5 ===== -->
 <h3 id="s12-5"><span class="zh">12.5 空间直线与平面方程</span> <span class="en">Equations of Lines and Planes</span> <span class="tag tag-hard">重点难点</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b035" data-box="1">
   <strong>你需要先知道：</strong>向量的参数表示、点积、叉积、法向量的概念。二维中直线方程 $y=mx+b$ 的思想在三维中需要扩展——三维中直线不能用一个方程表示，需要参数方程（parametric equations）或对称方程（symmetric equations）。
 </div>
 
-<h4>1. 空间直线的向量方程</h4>
-<p>一条直线由<strong>一个点</strong>和<strong>一个方向向量（direction vector）</strong>唯一确定。</p>
+<h4 data-enk="b259">1. 空间直线的向量方程</h4>
+<p data-enk="b167">一条直线由<strong>一个点</strong>和<strong>一个方向向量（direction vector）</strong>唯一确定。</p>
 
-<div class="box formula">
+<div class="box formula" data-enk="b036" data-box="1">
   <strong>直线的向量方程：</strong>过点 $P_0(x_0,y_0,z_0)$、方向向量为 $\mathbf{v}=\langle a,b,c\rangle$ 的直线：
   $$\mathbf{r} = \mathbf{r}_0 + t\mathbf{v}$$
   其中 $\mathbf{r}=\langle x,y,z\rangle$ 是直线上动点的位置向量，$\mathbf{r}_0=\langle x_0,y_0,z_0\rangle$，$t\in\mathbb{R}$ 是参数。
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b037" data-box="1">
   <strong>为什么是 $\mathbf{r}_0+t\mathbf{v}$？</strong>
   <p>当 $t=0$ 时，$\mathbf{r}=\mathbf{r}_0$，即起点 $P_0$。当 $t$ 变化时，$t\mathbf{v}$ 是沿方向 $\mathbf{v}$ 的位移，所以 $\mathbf{r}_0+t\mathbf{v}$ 描出所有沿 $\mathbf{v}$ 方向经过 $P_0$ 的点。这和二维中"点+方向"确定直线是完全一样的思想，只是多了一个z分量。</p>
 </div>
 
-<h4>2. 参数方程与对称方程</h4>
-<div class="box formula">
+<h4 data-enk="b260">2. 参数方程与对称方程</h4>
+<div class="box formula" data-enk="b038" data-box="1">
   <strong>参数方程：</strong>
   $$x = x_0+at,\quad y = y_0+bt,\quad z = z_0+ct$$
   <p style="margin-top:8px"><strong>对称方程：</strong>（当 $a,b,c$ 均不为0时）</p>
   $$\frac{x-x_0}{a} = \frac{y-y_0}{b} = \frac{z-z_0}{c}$$
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b039" data-box="1">
   <strong>对称方程的理解：</strong>从参数方程解出 $t=\frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}$。三个分式都等于同一个参数 $t$，所以彼此相等。<strong>如果某个方向分量为0</strong>（比如 $a=0$），则对应的坐标 $x=x_0$ 保持不变，对称方程写成 $x=x_0,\;\frac{y-y_0}{b}=\frac{z-z_0}{c}$。
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b040" data-box="1">
   <strong>例：</strong>求过点 $A(2,4,-3)$ 和 $B(3,-1,1)$ 的直线的参数方程和对称方程。
   <p><strong>解：</strong>方向向量 $\mathbf{v}=\vec{AB}=\langle3-2,-1-4,1-(-3)\rangle=\langle1,-5,4\rangle$。</p>
   <p>参数方程：$x=2+t,\;y=4-5t,\;z=-3+4t$</p>
   <p>对称方程：$\frac{x-2}{1}=\frac{y-4}{-5}=\frac{z+3}{4}$</p>
 </div>
 
-<h4>3. 平面方程</h4>
-<p>一个平面由<strong>一个点</strong>和一个<strong>法向量（normal vector）</strong>唯一确定。法向量是垂直于平面的向量。</p>
+<h4 data-enk="b261">3. 平面方程</h4>
+<p data-enk="b168">一个平面由<strong>一个点</strong>和一个<strong>法向量（normal vector）</strong>唯一确定。法向量是垂直于平面的向量。</p>
 
-<div class="box formula">
+<div class="box formula" data-enk="b041" data-box="1">
   <strong>平面的向量方程：</strong>过点 $P_0(x_0,y_0,z_0)$、法向量为 $\mathbf{n}=\langle a,b,c\rangle$ 的平面：
   $$\mathbf{n}\cdot(\mathbf{r}-\mathbf{r}_0)=0$$
   <p style="margin-top:8px"><strong>标量方程（点法式）：</strong></p>
@@ -790,12 +790,12 @@ $$\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}$$
   $$ax+by+cz+d=0,\quad \text{其中 } d=-(ax_0+by_0+cz_0)$$
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b042" data-box="1">
   <strong>为什么法向量点乘 = 0？</strong>
   <p>设 $P(x,y,z)$ 是平面上任意一点，则向量 $\vec{P_0P}=\mathbf{r}-\mathbf{r}_0$ 在平面内。法向量 $\mathbf{n}$ 垂直于平面，所以 $\mathbf{n}\perp(\mathbf{r}-\mathbf{r}_0)$。由垂直判定，$\mathbf{n}\cdot(\mathbf{r}-\mathbf{r}_0)=0$。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b043" data-box="1">
   <strong>例：</strong>求过点 $P(1,3,2)$、$Q(3,-1,6)$、$R(5,2,0)$ 的平面方程。
   <p><strong>解：</strong></p>
   <div class="steps">
@@ -806,21 +806,21 @@ $$\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F}$$
   </div>
 </div>
 
-<h4>4. 两平面的夹角</h4>
-<p>两个平面的夹角等于它们法向量的夹角（或其补角，取锐角）：</p>
+<h4 data-enk="b262">4. 两平面的夹角</h4>
+<p data-enk="b169">两个平面的夹角等于它们法向量的夹角（或其补角，取锐角）：</p>
 $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_2|}$$
 
-<p>两平面<strong>平行</strong>当且仅当法向量平行（$\mathbf{n}_1\times\mathbf{n}_2=\mathbf{0}$）。</p>
-<p>两平面<strong>垂直</strong>当且仅当法向量垂直（$\mathbf{n}_1\cdot\mathbf{n}_2=0$）。</p>
+<p data-enk="b170">两平面<strong>平行</strong>当且仅当法向量平行（$\mathbf{n}_1\times\mathbf{n}_2=\mathbf{0}$）。</p>
+<p data-enk="b171">两平面<strong>垂直</strong>当且仅当法向量垂直（$\mathbf{n}_1\cdot\mathbf{n}_2=0$）。</p>
 
-<h4>5. 点到平面的距离</h4>
+<h4 data-enk="b263">5. 点到平面的距离</h4>
 
-<div class="box formula">
+<div class="box formula" data-enk="b044" data-box="1">
   <strong>点到平面的距离公式：</strong>点 $P_1(x_1,y_1,z_1)$ 到平面 $ax+by+cz+d=0$ 的距离为
   $$D = \frac{|ax_1+by_1+cz_1+d|}{\sqrt{a^2+b^2+c^2}}$$
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b045" data-box="1">
   <strong>课本跳步补齐：距离公式推导</strong>
   <div class="steps">
     <div class="step">设 $P_0(x_0,y_0,z_0)$ 是平面上任意一点，则 $ax_0+by_0+cz_0+d=0$。</div>
@@ -834,29 +834,29 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
   <p><strong>核心思想：</strong>点到平面的距离就是向量在法向量方向上的投影长度。这和二维中点到直线的距离公式完全类比。</p>
 </div>
 
-<h4>6. 异面直线的距离</h4>
-<p>两条不平行也不相交的直线称为<strong>异面直线（skew lines）</strong>。它们之间的距离是公垂线段的长度。</p>
+<h4 data-enk="b264">6. 异面直线的距离</h4>
+<p data-enk="b172">两条不平行也不相交的直线称为<strong>异面直线（skew lines）</strong>。它们之间的距离是公垂线段的长度。</p>
 
-<div class="box formula">
+<div class="box formula" data-enk="b046" data-box="1">
   <strong>异面直线距离公式：</strong>设两直线的方向向量为 $\mathbf{v}_1,\mathbf{v}_2$，各取一点 $P_1,P_2$，则
   $$D = \frac{|\vec{P_1P_2}\cdot(\mathbf{v}_1\times\mathbf{v}_2)|}{|\mathbf{v}_1\times\mathbf{v}_2|}$$
 </div>
-<p>理解：$\mathbf{v}_1\times\mathbf{v}_2$ 是同时垂直于两条直线的方向，$\vec{P_1P_2}$ 在这个方向上的投影就是两直线间的最短距离。</p>
+<p data-enk="b173">理解：$\mathbf{v}_1\times\mathbf{v}_2$ 是同时垂直于两条直线的方向，$\vec{P_1P_2}$ 在这个方向上的投影就是两直线间的最短距离。</p>
 
 <!-- ===== 12.6 ===== -->
 <h3 id="s12-6"><span class="zh">12.6 柱面与二次曲面</span> <span class="en">Cylinders and Quadric Surfaces</span> <span class="tag tag-medium">空间想象</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b047" data-box="1">
   <strong>你需要先知道：</strong>圆锥曲线（椭圆、双曲线、抛物线）的标准方程和图形、空间坐标系、"截痕法"的思想。本节核心是学会用<strong>截痕（traces）</strong>来分析三维曲面——用坐标平面或平行平面去截曲面，看截线是什么形状。
 </div>
 
-<h4>1. 柱面（Cylinders）</h4>
+<h4 data-enk="b265">1. 柱面（Cylinders）</h4>
 <div class="definition">
   <div class="definition-title">柱面（Cylinder）</div>
-  <p>由一条直线（母线（generatrix））沿一条曲线（准线（directrix））平行移动所形成的曲面。在我们的课程中，柱面的方程<strong>缺少一个变量</strong>。</p>
+  <p data-enk="b174">由一条直线（母线（generatrix））沿一条曲线（准线（directrix））平行移动所形成的曲面。在我们的课程中，柱面的方程<strong>缺少一个变量</strong>。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b048" data-box="1">
   <strong>关键规则：方程中缺少哪个变量，柱面的母线就平行于哪个轴。</strong>
   <ul style="margin-left:20px;margin-top:6px">
     <li>$z=x^2$：缺少 $y$ → 母线平行于 $y$ 轴，准线是xz平面上的抛物线 $z=x^2$</li>
@@ -865,14 +865,14 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
   </ul>
 </div>
 
-<div class="box warn">
+<div class="box warn" data-enk="b049" data-box="1">
   <strong>维度陷阱：</strong>$x^2+y^2=1$ 在二维中是<strong>圆</strong>（曲线），在三维中是<strong>圆柱面</strong>（曲面）！因为z可以取任意值，圆沿着z轴方向无限延伸。
 </div>
 
-<h4>2. 二次曲面（Quadric Surfaces）</h4>
-<p>二次曲面是三元二次方程 $Ax^2+By^2+Cz^2+Dxy+Exz+Fyz+Gx+Hy+Iz+J=0$ 所表示的曲面。通过平移和旋转，可以化为六种标准形式。</p>
+<h4 data-enk="b266">2. 二次曲面（Quadric Surfaces）</h4>
+<p data-enk="b175">二次曲面是三元二次方程 $Ax^2+By^2+Cz^2+Dxy+Exz+Fyz+Gx+Hy+Iz+J=0$ 所表示的曲面。通过平移和旋转，可以化为六种标准形式。</p>
 
-<div class="box tip">
+<div class="box tip" data-enk="b050" data-box="1">
   <strong>截痕法（Method of Traces）：</strong>要画一个三维曲面，分别令 $x=k$、$y=k$、$z=k$（$k$ 为常数），看每个坐标平面的平行平面截出的曲线（截痕）是什么形状，然后在脑中拼合起来。
 </div>
 
@@ -886,7 +886,7 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
   <tr><td>双曲抛物面<br>Hyperbolic Paraboloid</td><td>$\frac{z}{c}=\frac{x^2}{a^2}-\frac{y^2}{b^2}$</td><td>水平截痕双曲线，竖直截痕抛物线（马鞍面 saddle surface）</td></tr>
 </table>
 
-<div class="box tip">
+<div class="box tip" data-enk="b051" data-box="1">
   <strong>快速判断口诀：</strong>
   <ul style="margin-left:20px">
     <li><strong>三个平方项都是正号，右边=1</strong> → 椭球面</li>
@@ -898,7 +898,7 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
   </ul>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b052" data-box="1">
   <strong>例：</strong>用截痕法分析 $z=4x^2+y^2$。
   <p><strong>解：</strong>这是椭圆抛物面（一个一次项z，两个正平方项）。</p>
   <ul style="margin-left:20px">
@@ -912,8 +912,8 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
 <!-- ==================== CHAPTER 13 ==================== -->
 <div class="chapter-card" id="ch13">
   <h2>第13章 · 向量函数</h2>
-  <p><strong>Vector Functions</strong></p>
-  <p style="color:var(--text2);margin-top:8px">本章把第12章的向量和微积分（导数、积分）结合起来。向量函数描述空间中运动的物体，是物理中运动学的数学语言。我们将学习如何对向量函数求导、积分，以及由此导出的弧长、曲率、速度加速度等重要概念。</p>
+  <p data-enk="b176"><strong>Vector Functions</strong></p>
+  <p style="color:var(--text2);margin-top:8px" data-enk="b177">本章把第12章的向量和微积分（导数、积分）结合起来。向量函数描述空间中运动的物体，是物理中运动学的数学语言。我们将学习如何对向量函数求导、积分，以及由此导出的弧长、曲率、速度加速度等重要概念。</p>
   <div style="margin-top:12px">
     <span class="tag tag-easy">13.1 向量函数与空间曲线</span>
     <span class="tag tag-medium">13.2 导数与积分</span>
@@ -925,42 +925,42 @@ $$\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_
 <!-- ===== 13.1 ===== -->
 <h3 id="s13-1"><span class="zh">13.1 向量函数与空间曲线</span> <span class="en">Vector Functions and Space Curves</span> <span class="tag tag-easy">入门</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b053" data-box="1">
   <strong>你需要先知道：</strong>向量的分量表示（第12章）、参数方程（二维中 $x=f(t), y=g(t)$）、函数的极限与连续的概念。向量函数就是"输入一个数，输出一个向量"的函数。
 </div>
 
-<h4>1. 向量函数的定义</h4>
+<h4 data-enk="b267">1. 向量函数的定义</h4>
 <div class="definition">
   <div class="definition-title">向量函数（Vector-Valued Function）</div>
-  <p>向量函数 $\mathbf{r}(t)$ 的定义域是实数集的一个子集，值域是向量集。一般写作：
+  <p data-enk="b178">向量函数 $\mathbf{r}(t)$ 的定义域是实数集的一个子集，值域是向量集。一般写作：
   $$\mathbf{r}(t) = \langle f(t),\, g(t),\, h(t)\rangle = f(t)\mathbf{i} + g(t)\mathbf{j} + h(t)\mathbf{k}$$
   其中 $f(t),g(t),h(t)$ 称为<strong>分量函数（component functions）</strong>，是普通的实值函数。</p>
 </div>
 
-<p>向量函数的<strong>定义域</strong>是所有分量函数定义域的交集。</p>
+<p data-enk="b179">向量函数的<strong>定义域</strong>是所有分量函数定义域的交集。</p>
 
-<div class="box example">
+<div class="box example" data-enk="b054" data-box="1">
   <strong>例：</strong>$\mathbf{r}(t)=\langle t^3,\ln(3-t),\sqrt{t}\rangle$，求定义域。
   <p><strong>解：</strong>$t^3$ 定义域 $\mathbb{R}$；$\ln(3-t)$ 要求 $t<3$；$\sqrt{t}$ 要求 $t\geq0$。交集为 $[0,3)$。</p>
 </div>
 
-<h4>2. 向量函数的极限与连续</h4>
-<div class="box formula">
+<h4 data-enk="b268">2. 向量函数的极限与连续</h4>
+<div class="box formula" data-enk="b055" data-box="1">
   <strong>极限：</strong>$\lim_{t\to a}\mathbf{r}(t) = \langle \lim_{t\to a}f(t),\,\lim_{t\to a}g(t),\,\lim_{t\to a}h(t)\rangle$
   <p>即<strong>各分量分别取极限</strong>。</p>
 </div>
 
-<p><strong>连续：</strong>$\mathbf{r}(t)$ 在 $a$ 处连续当且仅当 $\lim_{t\to a}\mathbf{r}(t)=\mathbf{r}(a)$，等价于三个分量函数都在 $a$ 处连续。</p>
+<p data-enk="b180"><strong>连续：</strong>$\mathbf{r}(t)$ 在 $a$ 处连续当且仅当 $\lim_{t\to a}\mathbf{r}(t)=\mathbf{r}(a)$，等价于三个分量函数都在 $a$ 处连续。</p>
 
-<h4>3. 空间曲线（Space Curves）</h4>
-<p>当 $t$ 变化时，向量函数 $\mathbf{r}(t)$ 的终点描出一条空间曲线 $C$。对应的参数方程为：</p>
+<h4 data-enk="b269">3. 空间曲线（Space Curves）</h4>
+<p data-enk="b181">当 $t$ 变化时，向量函数 $\mathbf{r}(t)$ 的终点描出一条空间曲线 $C$。对应的参数方程为：</p>
 $$x=f(t),\quad y=g(t),\quad z=h(t)$$
 
-<div class="box example">
+<div class="box example" data-enk="b056" data-box="1">
   <strong>例1（直线）：</strong>$\mathbf{r}(t)=\langle1+t,2+5t,-1+6t\rangle$ 是一条空间直线。参数方程 $x=1+t,y=2+5t,z=-1+6t$，消去 $t$ 得对称方程 $\frac{x-1}{1}=\frac{y-2}{5}=\frac{z+1}{6}$。
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b057" data-box="1">
   <strong>例2（螺旋线 Helix）：</strong>$\mathbf{r}(t)=\cos t\,\mathbf{i}+\sin t\,\mathbf{j}+t\,\mathbf{k}$
   <p>参数方程 $x=\cos t,\;y=\sin t,\;z=t$。</p>
   <p>$x^2+y^2=\cos^2t+\sin^2t=1$，所以曲线在圆柱面 $x^2+y^2=1$ 上。随着 $t$ 增大，$z=t$ 线性增加，点绕圆柱上升，形成螺旋线。</p>
@@ -985,58 +985,58 @@ $$x=f(t),\quad y=g(t),\quad z=h(t)$$
   <div class="diagram-caption">螺旋线：在圆柱面 x²+y²=1 上盘旋上升，z 随 t 线性增长</div>
 </div>
 
-<h4>4. 线段的向量方程</h4>
-<p>连接点 $P_0$（位置向量 $\mathbf{r}_0$）和 $P_1$（位置向量 $\mathbf{r}_1$）的线段：</p>
+<h4 data-enk="b270">4. 线段的向量方程</h4>
+<p data-enk="b182">连接点 $P_0$（位置向量 $\mathbf{r}_0$）和 $P_1$（位置向量 $\mathbf{r}_1$）的线段：</p>
 $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
-<p>$t=0$ 时在 $P_0$，$t=1$ 时在 $P_1$，$t$ 在中间时在线段上。这是第12章直线参数方程的"有限区间版本"。</p>
+<p data-enk="b183">$t=0$ 时在 $P_0$，$t=1$ 时在 $P_1$，$t$ 在中间时在线段上。这是第12章直线参数方程的"有限区间版本"。</p>
 
 <!-- ===== 13.2 ===== -->
 <h3 id="s13-2"><span class="zh">13.2 向量函数的导数与积分</span> <span class="en">Derivatives and Integrals of Vector Functions</span> <span class="tag tag-medium">核心</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b058" data-box="1">
   <strong>你需要先知道：</strong>单变量函数的导数定义 $f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$、导数的几何意义（切线斜率）、积分的定义和微积分基本定理。向量函数的微积分就是<strong>各分量分别做微积分</strong>。
 </div>
 
-<h4>1. 向量函数的导数</h4>
+<h4 data-enk="b271">1. 向量函数的导数</h4>
 <div class="definition">
   <div class="definition-title">导数（Derivative）</div>
-  <p>$\mathbf{r}'(t) = \lim_{h\to 0}\frac{\mathbf{r}(t+h)-\mathbf{r}(t)}{h}$，如果极限存在。</p>
+  <p data-enk="b184">$\mathbf{r}'(t) = \lim_{h\to 0}\frac{\mathbf{r}(t+h)-\mathbf{r}(t)}{h}$，如果极限存在。</p>
 </div>
 
 <div class="theorem">
   <div class="theorem-title">定理：分量求导</div>
-  <p>若 $\mathbf{r}(t)=\langle f(t),g(t),h(t)\rangle$ 且 $f,g,h$ 可导，则
+  <p data-enk="b185">若 $\mathbf{r}(t)=\langle f(t),g(t),h(t)\rangle$ 且 $f,g,h$ 可导，则
   $$\mathbf{r}'(t) = \langle f'(t),\,g'(t),\,h'(t)\rangle$$
   即<strong>各分量分别求导</strong>。</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b059" data-box="1">
   <strong>证明：</strong>
   $\mathbf{r}'(t) = \lim_{h\to0}\frac{\langle f(t+h)-f(t),\,g(t+h)-g(t),\,h(t+h)-h(t)\rangle}{h}$
   $= \langle \lim_{h\to0}\frac{f(t+h)-f(t)}{h},\,\ldots\rangle = \langle f'(t),g'(t),h'(t)\rangle$。
   向量的极限就是各分量极限的向量，所以直接拆开即可。
 </div>
 
-<h4>2. 切向量与切线</h4>
-<p>$\mathbf{r}'(t)$ 称为<strong>切向量（tangent vector）</strong>，它指向曲线在 $\mathbf{r}(t)$ 处的切线方向。</p>
+<h4 data-enk="b272">2. 切向量与切线</h4>
+<p data-enk="b186">$\mathbf{r}'(t)$ 称为<strong>切向量（tangent vector）</strong>，它指向曲线在 $\mathbf{r}(t)$ 处的切线方向。</p>
 
-<div class="box formula">
+<div class="box formula" data-enk="b060" data-box="1">
   <strong>切线方程：</strong>曲线在 $t=t_0$ 处的切线（过点 $\mathbf{r}(t_0)$，方向 $\mathbf{r}'(t_0)$）：
   $$\mathbf{l}(s) = \mathbf{r}(t_0) + s\,\mathbf{r}'(t_0)$$
   <p>单位切向量：$\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}$</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b061" data-box="1">
   <strong>例：</strong>求螺旋线 $\mathbf{r}(t)=\langle2\cos t,\sin t,t\rangle$ 在点 $(0,1,\pi/2)$ 处的切线方程。
   <p><strong>解：</strong>点 $(0,1,\pi/2)$ 对应 $t=\pi/2$。</p>
   <p>$\mathbf{r}'(t)=\langle-2\sin t,\cos t,1\rangle$，$\mathbf{r}'(\pi/2)=\langle-2,0,1\rangle$。</p>
   <p>切线：$\mathbf{l}(s)=\langle0,1,\pi/2\rangle+s\langle-2,0,1\rangle = \langle-2s,\,1,\,\pi/2+s\rangle$。</p>
 </div>
 
-<h4>3. 向量函数的求导法则</h4>
+<h4 data-enk="b273">3. 向量函数的求导法则</h4>
 <div class="theorem">
   <div class="theorem-title">求导法则</div>
-  <p>设 $\mathbf{u}(t),\mathbf{v}(t)$ 可导，$c$ 为标量，$f(t)$ 为实值函数：</p>
+  <p data-enk="b187">设 $\mathbf{u}(t),\mathbf{v}(t)$ 可导，$c$ 为标量，$f(t)$ 为实值函数：</p>
   <table style="margin-top:8px">
     <tr><td>1. 和法则</td><td>$\frac{d}{dt}[\mathbf{u}(t)+\mathbf{v}(t)]=\mathbf{u}'(t)+\mathbf{v}'(t)$</td></tr>
     <tr><td>2. 标量乘</td><td>$\frac{d}{dt}[c\mathbf{u}(t)]=c\mathbf{u}'(t)$</td></tr>
@@ -1047,11 +1047,11 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
   </table>
 </div>
 
-<div class="box warn">
+<div class="box warn" data-enk="b062" data-box="1">
   <strong>叉积求导注意顺序！</strong>叉积不满足交换律，所以 $\mathbf{u}'\times\mathbf{v}+\mathbf{u}\times\mathbf{v}'$ 中两项的顺序不能交换。$\mathbf{u}\times\mathbf{v}' \neq \mathbf{v}'\times\mathbf{u}$。
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b063" data-box="1">
   <strong>点积法则证明（课本常略过）：</strong>
   <p>设 $\mathbf{u}=\langle u_1,u_2,u_3\rangle$，$\mathbf{v}=\langle v_1,v_2,v_3\rangle$，则 $\mathbf{u}\cdot\mathbf{v}=u_1v_1+u_2v_2+u_3v_3$。</p>
   <p>$\frac{d}{dt}(\mathbf{u}\cdot\mathbf{v}) = u_1'v_1+u_1v_1'+u_2'v_2+u_2v_2'+u_3'v_3+u_3v_3'$</p>
@@ -1060,15 +1060,15 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
 
 <div class="theorem">
   <div class="theorem-title">重要推论：定长向量的导数</div>
-  <p>若 $|\mathbf{r}(t)|=c$（常数）对所有 $t$ 成立，则 $\mathbf{r}(t)\cdot\mathbf{r}'(t)=0$，即<strong>定长向量与其导数垂直</strong>。</p>
+  <p data-enk="b188">若 $|\mathbf{r}(t)|=c$（常数）对所有 $t$ 成立，则 $\mathbf{r}(t)\cdot\mathbf{r}'(t)=0$，即<strong>定长向量与其导数垂直</strong>。</p>
 </div>
-<div class="box proof">
+<div class="box proof" data-enk="b064" data-box="1">
   <strong>证明：</strong>$|\mathbf{r}|^2=\mathbf{r}\cdot\mathbf{r}=c^2$，两边求导：$2\mathbf{r}\cdot\mathbf{r}'=0$，所以 $\mathbf{r}\cdot\mathbf{r}'=0$。
   <p><strong>物理意义：</strong>做匀速圆周运动的物体，位置向量长度不变，速度向量与位置向量垂直。这正是圆周运动的特征！</p>
 </div>
 
-<h4>4. 向量函数的积分</h4>
-<div class="box formula">
+<h4 data-enk="b274">4. 向量函数的积分</h4>
+<div class="box formula" data-enk="b065" data-box="1">
   <strong>不定积分：</strong>
   $$\int \mathbf{r}(t)\,dt = \left(\int f(t)\,dt\right)\mathbf{i} + \left(\int g(t)\,dt\right)\mathbf{j} + \left(\int h(t)\,dt\right)\mathbf{k} + \mathbf{C}$$
   <p style="margin-top:8px"><strong>定积分（微积分基本定理）：</strong></p>
@@ -1076,7 +1076,7 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
   其中 $\mathbf{R}(t)$ 是 $\mathbf{r}(t)$ 的一个原函数（各分量分别积分）。
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b066" data-box="1">
   <strong>例：</strong>$\mathbf{r}(t)=2\cos t\,\mathbf{i}+\sin t\,\mathbf{j}+2t\,\mathbf{k}$，求 $\int\mathbf{r}(t)\,dt$。
   <p><strong>解：</strong>$\int\mathbf{r}(t)\,dt = 2\sin t\,\mathbf{i} - \cos t\,\mathbf{j} + t^2\mathbf{k} + \mathbf{C}$。</p>
 </div>
@@ -1084,49 +1084,49 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
 <!-- ===== 13.3 ===== -->
 <h3 id="s13-3"><span class="zh">13.3 弧长与曲率</span> <span class="en">Arc Length and Curvature</span> <span class="tag tag-hard">重点难点</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b067" data-box="1">
   <strong>你需要先知道：</strong>二维参数曲线的弧长公式 $L=\int_a^b\sqrt{(dx/dt)^2+(dy/dt)^2}\,dt$、向量的模长、单位向量、导数的几何意义。曲率是描述曲线"弯曲程度"的量，是本节最抽象的概念。
 </div>
 
-<h4>1. 空间曲线的弧长（Arc Length）</h4>
-<div class="box formula">
+<h4 data-enk="b275">1. 空间曲线的弧长（Arc Length）</h4>
+<div class="box formula" data-enk="b068" data-box="1">
   <strong>弧长公式：</strong>曲线 $\mathbf{r}(t)=\langle f(t),g(t),h(t)\rangle$ 在 $t\in[a,b]$ 上的弧长为
   $$L = \int_a^b |\mathbf{r}'(t)|\,dt = \int_a^b \sqrt{[f'(t)]^2+[g'(t)]^2+[h'(t)]^2}\,dt$$
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b069" data-box="1">
   <strong>从二维到三维的推广：</strong>
   <p>二维参数曲线弧长 $L=\int_a^b\sqrt{(dx/dt)^2+(dy/dt)^2}\,dt$。三维中只是多了一个z分量，被开方的变成三个平方和。</p>
   <p>本质：$|\mathbf{r}'(t)|dt = \sqrt{(dx)^2+(dy)^2+(dz)^2}$ 是曲线的微元弧长 $ds$，积分就是把所有微元加起来。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b070" data-box="1">
   <strong>例：</strong>求螺旋线 $\mathbf{r}(t)=\cos t\,\mathbf{i}+\sin t\,\mathbf{j}+t\,\mathbf{k}$ 从 $t=0$ 到 $t=2\pi$ 的弧长。
   <p><strong>解：</strong>$\mathbf{r}'(t)=\langle-\sin t,\cos t,1\rangle$，$|\mathbf{r}'(t)|=\sqrt{\sin^2t+\cos^2t+1}=\sqrt{2}$。</p>
   <p>$L=\int_0^{2\pi}\sqrt{2}\,dt = 2\sqrt{2}\pi$。</p>
 </div>
 
-<h4>2. 弧长函数（Arc Length Function）</h4>
+<h4 data-enk="b276">2. 弧长函数（Arc Length Function）</h4>
 <div class="definition">
   <div class="definition-title">弧长函数</div>
-  <p>从起点 $t=a$ 到当前 $t$ 的弧长：
+  <p data-enk="b189">从起点 $t=a$ 到当前 $t$ 的弧长：
   $$s(t) = \int_a^t |\mathbf{r}'(u)|\,du$$
   由微积分基本定理，$\frac{ds}{dt}=|\mathbf{r}'(t)|$。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b071" data-box="1">
   <strong>为什么需要弧长参数？</strong>用 $t$ 作参数时，曲线的描述依赖于"速度"（参数化方式）。如果改用弧长 $s$ 作参数，曲线的描述就<strong>与参数化无关</strong>了——曲率等几何性质用弧长参数表达最简洁。
 </div>
 
-<h4>3. 曲率（Curvature）—— 本节核心</h4>
+<h4 data-enk="b277">3. 曲率（Curvature）—— 本节核心</h4>
 <div class="definition">
   <div class="definition-title">曲率（Curvature）</div>
-  <p>曲率 $\kappa$ 描述曲线的弯曲程度，定义为<strong>单位切向量对弧长的变化率</strong>：
+  <p data-enk="b190">曲率 $\kappa$ 描述曲线的弯曲程度，定义为<strong>单位切向量对弧长的变化率</strong>：
   $$\kappa = \left|\frac{d\mathbf{T}}{ds}\right|$$
   其中 $\mathbf{T}$ 是单位切向量，$s$ 是弧长。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b072" data-box="1">
   <strong>曲率的直觉：</strong>
   <ul style="margin-left:20px">
     <li>直线：方向不变，$\mathbf{T}$ 是常数，$\kappa=0$</li>
@@ -1137,12 +1137,12 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
   <p style="margin-top:6px">用 $d\mathbf{T}/ds$ 而不是 $d\mathbf{T}/dt$，是因为我们要的是"走单位长度方向改变多少"，而不是"过单位时间方向改变多少"——后者依赖于运动速度。</p>
 </div>
 
-<div class="box formula">
+<div class="box formula" data-enk="b073" data-box="1">
   <strong>曲率的实用计算公式：</strong>
   $$\kappa(t) = \frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|} = \frac{|\mathbf{r}'(t)\times\mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3}$$
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b074" data-box="1">
   <strong>课本跳步补齐：两个公式的推导</strong>
   <p><strong>公式1：$\kappa=\frac{|\mathbf{T}'|}{|\mathbf{r}'|}$</strong></p>
   <div class="steps">
@@ -1163,14 +1163,14 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
   </div>
 </div>
 
-<h4>4. 单位法向量（unit normal vector）与副法向量（binormal vector）</h4>
-<div class="box formula">
+<h4 data-enk="b278">4. 单位法向量（unit normal vector）与副法向量（binormal vector）</h4>
+<div class="box formula" data-enk="b075" data-box="1">
   <p><strong>单位切向量（tangent vector）：</strong>$\mathbf{T}(t)=\frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}$</p>
   <p><strong>单位法向量：</strong>$\mathbf{N}(t)=\frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|}$（指向曲线弯曲的方向）</p>
   <p><strong>副法向量：</strong>$\mathbf{B}(t)=\mathbf{T}(t)\times\mathbf{N}(t)$（同时垂直于 $\mathbf{T}$ 和 $\mathbf{N}$）</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b076" data-box="1">
   <strong>TNB标架（Frenet标架）：</strong>$\mathbf{T},\mathbf{N},\mathbf{B}$ 三个互相垂直的单位向量（unit vector）构成一个随曲线移动的坐标系。
   <ul style="margin-left:20px;margin-top:4px">
     <li>$\mathbf{T}$：前进方向</li>
@@ -1180,35 +1180,35 @@ $$\mathbf{r}(t) = (1-t)\mathbf{r}_0 + t\mathbf{r}_1,\quad 0\leq t\leq 1$$
   <p>$\mathbf{T}\times\mathbf{N}=\mathbf{B}$，$\mathbf{N}\times\mathbf{B}=\mathbf{T}$，$\mathbf{B}\times\mathbf{T}=\mathbf{N}$（右手系）。</p>
 </div>
 
-<h4>5. 挠率（Torsion）</h4>
-<p>挠率 $\tau$ 描述曲线偏离平面的程度（"扭转"程度）：
+<h4 data-enk="b279">5. 挠率（Torsion）</h4>
+<p data-enk="b191">挠率 $\tau$ 描述曲线偏离平面的程度（"扭转"程度）：
 $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''}{|\mathbf{r}'\times\mathbf{r}''|^2}$$
 平面曲线的挠率为0（因为 $\mathbf{B}$ 是常数，不随 $s$ 变化）。</p>
 
 <!-- ===== 13.4 ===== -->
 <h3 id="s13-4"><span class="zh">13.4 空间中的运动：速度与加速度</span> <span class="en">Motion in Space: Velocity and Acceleration</span> <span class="tag tag-hard">物理应用</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b077" data-box="1">
   <strong>你需要先知道：</strong>向量函数的导数与积分（13.2）、牛顿第二定律 $F=ma$、运动学基本概念。本节是向量微积分在物理中的直接应用。
 </div>
 
-<h4>1. 速度、加速度、速率</h4>
-<div class="box formula">
+<h4 data-enk="b280">1. 速度、加速度、速率</h4>
+<div class="box formula" data-enk="b078" data-box="1">
   <p>设质点的位置向量为 $\mathbf{r}(t)$：</p>
   <p><strong>速度：</strong>$\mathbf{v}(t)=\mathbf{r}'(t)$（向量，方向沿切线）</p>
   <p><strong>加速度：</strong>$\mathbf{a}(t)=\mathbf{v}'(t)=\mathbf{r}''(t)$（向量）</p>
   <p><strong>速率：</strong>$|\mathbf{v}(t)|=|\mathbf{r}'(t)|=\frac{ds}{dt}$（标量，速度的大小）</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b079" data-box="1">
   <strong>例：</strong>$\mathbf{r}(t)=\langle t^2,e^t,te^t\rangle$，求 $t=1$ 时的速度、加速度、速率。
   <p><strong>解：</strong>$\mathbf{v}(t)=\langle2t,e^t,(1+t)e^t\rangle$，$\mathbf{v}(1)=\langle2,e,2e\rangle$。</p>
   <p>$\mathbf{a}(t)=\langle2,e^t,(2+t)e^t\rangle$，$\mathbf{a}(1)=\langle2,e,3e\rangle$。</p>
   <p>速率 $|\mathbf{v}(1)|=\sqrt{4+e^2+4e^2}=\sqrt{4+5e^2}$。</p>
 </div>
 
-<h4>2. 抛体运动（Projectile Motion）</h4>
-<div class="box proof">
+<h4 data-enk="b281">2. 抛体运动（Projectile Motion）</h4>
+<div class="box proof" data-enk="b080" data-box="1">
   <strong>课本跳步补齐：抛体运动公式完整推导</strong>
   <div class="steps">
     <div class="step">建立坐标系：原点在抛射点，x轴水平，y轴竖直向上。加速度 $\mathbf{a}(t)=-g\mathbf{j}=\langle0,-g\rangle$。</div>
@@ -1222,17 +1222,17 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
   </div>
 </div>
 
-<h4>3. 加速度的切向与法向分量</h4>
-<p>加速度可以分解为沿速度方向（切向）和垂直于速度方向（法向）的两个分量：</p>
+<h4 data-enk="b282">3. 加速度的切向与法向分量</h4>
+<p data-enk="b192">加速度可以分解为沿速度方向（切向）和垂直于速度方向（法向）的两个分量：</p>
 
-<div class="box formula">
+<div class="box formula" data-enk="b081" data-box="1">
   $$\mathbf{a} = a_T\mathbf{T} + a_N\mathbf{N}$$
   <p style="margin-top:6px">其中：</p>
   $$a_T = v' = \frac{\mathbf{r}'\cdot\mathbf{r}''}{|\mathbf{r}'|} \quad \text{（切向分量 = 速率的变化率）}$$
   $$a_N = \kappa v^2 = \frac{|\mathbf{r}'\times\mathbf{r}''|}{|\mathbf{r}'|} \quad \text{（法向分量 = 向心加速度）}$$
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b082" data-box="1">
   <strong>推导：</strong>
   <div class="steps">
     <div class="step">$\mathbf{v}=v\mathbf{T}$，其中 $v=|\mathbf{v}|$。</div>
@@ -1244,21 +1244,21 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
   <p><strong>物理意义：</strong>切向分量 $a_T$ 改变速率的大小（加速/减速），法向分量 $a_N$ 改变速度的方向（转弯）。匀速圆周运动中 $a_T=0$，$a_N=v^2/r$（向心加速度）。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b083" data-box="1">
   <strong>计算技巧：</strong>$a_T$ 可以直接用 $\frac{\mathbf{r}'\cdot\mathbf{r}''}{|\mathbf{r}'|}$ 计算（不需要先求 $\mathbf{T}$）。$a_N$ 可以用 $\sqrt{|\mathbf{a}|^2-a_T^2}$ 或 $\frac{|\mathbf{r}'\times\mathbf{r}''|}{|\mathbf{r}'|}$ 计算。
 </div>
 
-<h4>4. 开普勒定律（Kepler's Laws）</h4>
+<h4 data-enk="b283">4. 开普勒定律（Kepler's Laws）</h4>
 <div class="definition">
   <div class="definition-title">开普勒三定律</div>
   <ol style="margin-left:20px;margin-top:4px">
-    <li><strong>轨道定律：</strong>行星绕太阳运动的轨道是椭圆，太阳在一个焦点上。</li>
-    <li><strong>面积定律：</strong>行星与太阳的连线在相等时间内扫过相等的面积。</li>
-    <li><strong>周期定律：</strong>行星公转周期的平方与轨道半长轴的立方成正比：$T^2\propto a^3$。</li>
+    <li data-enk="b315"><strong>轨道定律：</strong>行星绕太阳运动的轨道是椭圆，太阳在一个焦点上。</li>
+    <li data-enk="b316"><strong>面积定律：</strong>行星与太阳的连线在相等时间内扫过相等的面积。</li>
+    <li data-enk="b317"><strong>周期定律：</strong>行星公转周期的平方与轨道半长轴的立方成正比：$T^2\propto a^3$。</li>
   </ol>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b084" data-box="1">
   <strong>开普勒第二定律的推导（核心）：</strong>
   <div class="steps">
     <div class="step">设太阳在原点，行星位置向量为 $\mathbf{r}$。万有引力 $\mathbf{F}=-\frac{GMm}{r^3}\mathbf{r}$（沿 $-\mathbf{r}$ 方向，有心力）。</div>
@@ -1272,8 +1272,8 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
 <!-- ==================== CHAPTER 14 ==================== -->
 <div class="chapter-card" id="ch14">
   <h2>第14章 · 偏导数</h2>
-  <p><strong>Partial Derivatives</strong></p>
-  <p style="color:var(--text2);margin-top:8px">本章是多元微积分的核心。我们把单变量微积分的导数、极限、链式法则、极值等概念推广到多元函数。偏导数是后续多重积分（第15章）和向量微积分（第16章）的基础，也是经济学、物理学、机器学习中优化问题的数学工具。</p>
+  <p data-enk="b193"><strong>Partial Derivatives</strong></p>
+  <p style="color:var(--text2);margin-top:8px" data-enk="b194">本章是多元微积分的核心。我们把单变量微积分的导数、极限、链式法则、极值等概念推广到多元函数。偏导数是后续多重积分（第15章）和向量微积分（第16章）的基础，也是经济学、物理学、机器学习中优化问题的数学工具。</p>
   <div style="margin-top:12px">
     <span class="tag tag-easy">14.1 多元函数</span>
     <span class="tag tag-medium">14.2 极限与连续</span>
@@ -1289,26 +1289,26 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
 <!-- ===== 14.1 ===== -->
 <h3 id="s14-1"><span class="zh">14.1 多元函数</span> <span class="en">Functions of Several Variables</span> <span class="tag tag-easy">入门</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b085" data-box="1">
   <strong>你需要先知道：</strong>单变量函数的定义 $y=f(x)$、函数的定义域和值域、函数图像（二维曲线）。多元函数就是"输入多个数，输出一个数"的函数。最常见的是二元函数 $z=f(x,y)$。
 </div>
 
-<h4>1. 二元函数的定义</h4>
+<h4 data-enk="b284">1. 二元函数的定义</h4>
 <div class="definition">
   <div class="definition-title">二元函数</div>
-  <p>二元函数 $f$ 是一个规则，对定义域 $D$ 中的每个有序实数对 $(x,y)$，指定唯一的实数 $f(x,y)$。定义域 $D\subseteq\mathbb{R}^2$，值域是 $f(x,y)$ 所有取值的集合。</p>
+  <p data-enk="b195">二元函数 $f$ 是一个规则，对定义域 $D$ 中的每个有序实数对 $(x,y)$，指定唯一的实数 $f(x,y)$。定义域 $D\subseteq\mathbb{R}^2$，值域是 $f(x,y)$ 所有取值的集合。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b086" data-box="1">
   <strong>例：</strong>$f(x,y)=\sqrt{9-x^2-y^2}$，求定义域和值域。
   <p><strong>解：</strong>定义域要求 $9-x^2-y^2\geq0$，即 $x^2+y^2\leq9$，是xy平面上以原点为圆心、半径3的闭圆盘。</p>
   <p>值域：$0\leq\sqrt{9-x^2-y^2}\leq3$，即 $[0,3]$。</p>
 </div>
 
-<h4>2. 二元函数的图像</h4>
-<p>二元函数 $z=f(x,y)$ 的图像是空间中的一个<strong>曲面（surface）</strong>，所有点 $(x,y,f(x,y))$ 组成。这和一元函数 $y=f(x)$ 的图像是平面曲线形成对比。</p>
+<h4 data-enk="b285">2. 二元函数的图像</h4>
+<p data-enk="b196">二元函数 $z=f(x,y)$ 的图像是空间中的一个<strong>曲面（surface）</strong>，所有点 $(x,y,f(x,y))$ 组成。这和一元函数 $y=f(x)$ 的图像是平面曲线形成对比。</p>
 
-<div class="box tip">
+<div class="box tip" data-enk="b087" data-box="1">
   <strong>常见曲面：</strong>
   <ul style="margin-left:20px">
     <li>$f(x,y)=ax+by+c$ → 平面</li>
@@ -1318,48 +1318,48 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
   </ul>
 </div>
 
-<h4>3. 等高线（Level Curves）</h4>
+<h4 data-enk="b286">3. 等高线（Level Curves）</h4>
 <div class="definition">
   <div class="definition-title">等高线 / 水平曲线</div>
-  <p>函数 $f(x,y)$ 的等高线是方程 $f(x,y)=k$（$k$ 为常数，在值域内）所表示的曲线。等高线就是曲面 $z=f(x,y)$ 与水平面 $z=k$ 的交线在xy平面上的投影。</p>
+  <p data-enk="b197">函数 $f(x,y)$ 的等高线是方程 $f(x,y)=k$（$k$ 为常数，在值域内）所表示的曲线。等高线就是曲面 $z=f(x,y)$ 与水平面 $z=k$ 的交线在xy平面上的投影。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b088" data-box="1">
   <strong>等高线的直觉：</strong>就像地图上的等高线——相邻等高线越密集，说明地势越陡峭（函数变化越快）；越稀疏说明越平缓。等高线的形状反映了曲面的"地形"。
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b089" data-box="1">
   <strong>例：</strong>$f(x,y)=6-3x-2y$ 的等高线为 $6-3x-2y=k$，即 $3x+2y=6-k$，是一族平行直线。这对应平面 $z=6-3x-2y$，平面的等高线自然是平行直线。
 </div>
 
-<h4>4. 三元及更多元函数</h4>
-<p>三元函数 $w=f(x,y,z)$ 的图像无法直接画出（需要四维空间），但可以用<strong>等值面（level surfaces）</strong> $f(x,y,z)=k$ 来理解。例如 $f(x,y,z)=x^2+y^2+z^2$ 的等值面是同心球面。</p>
+<h4 data-enk="b287">4. 三元及更多元函数</h4>
+<p data-enk="b198">三元函数 $w=f(x,y,z)$ 的图像无法直接画出（需要四维空间），但可以用<strong>等值面（level surfaces）</strong> $f(x,y,z)=k$ 来理解。例如 $f(x,y,z)=x^2+y^2+z^2$ 的等值面是同心球面。</p>
 
 <!-- ===== 14.2 ===== -->
 <h3 id="s14-2"><span class="zh">14.2 极限与连续性</span> <span class="en">Limits and Continuity</span> <span class="tag tag-medium">概念重点</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b090" data-box="1">
   <strong>你需要先知道：</strong>单变量函数的极限定义（$\epsilon$-$\delta$ 定义）、极限的运算法则、连续的定义。多元极限的关键区别：$(x,y)$ 可以沿<strong>任意路径</strong>趋近 $(a,b)$，而不仅仅是从左右两个方向。
 </div>
 
-<h4>1. 二元函数的极限</h4>
+<h4 data-enk="b288">1. 二元函数的极限</h4>
 <div class="definition">
   <div class="definition-title">极限的 $\epsilon$-$\delta$ 定义</div>
-  <p>$\lim_{(x,y)\to(a,b)}f(x,y)=L$ 表示：对任意 $\epsilon>0$，存在 $\delta>0$，使得当 $0<\sqrt{(x-a)^2+(y-b)^2}<\delta$ 时，有 $|f(x,y)-L|<\epsilon$。</p>
+  <p data-enk="b199">$\lim_{(x,y)\to(a,b)}f(x,y)=L$ 表示：对任意 $\epsilon>0$，存在 $\delta>0$，使得当 $0<\sqrt{(x-a)^2+(y-b)^2}<\delta$ 时，有 $|f(x,y)-L|<\epsilon$。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b091" data-box="1">
   <strong>和一元极限的关键区别：</strong>
   <p>一元中 $x\to a$ 只有两个方向（左、右）。二元中 $(x,y)\to(a,b)$ 有<strong>无穷多条路径</strong>（直线、曲线、任意方式）。极限存在要求沿<strong>所有路径</strong>都趋近同一个值。</p>
 </div>
 
-<h4>2. 证明极限不存在</h4>
-<div class="box formula">
+<h4 data-enk="b289">2. 证明极限不存在</h4>
+<div class="box formula" data-enk="b092" data-box="1">
   <strong>核心方法：找两条不同路径，得到不同极限值。</strong>
   <p>如果沿路径 $C_1$ 趋近时极限为 $L_1$，沿路径 $C_2$ 趋近时极限为 $L_2$，且 $L_1\neq L_2$，则极限不存在。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b093" data-box="1">
   <strong>经典例题：</strong>证明 $\lim_{(x,y)\to(0,0)}\frac{x^2-y^2}{x^2+y^2}$ 不存在。
   <p><strong>解：</strong></p>
   <div class="steps">
@@ -1369,7 +1369,7 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
   </div>
 </div>
 
-<div class="box warn">
+<div class="box warn" data-enk="b094" data-box="1">
   <strong>常见误区：</strong>
   <ul style="margin-left:20px">
     <li>沿无数条直线趋近都得到相同值，也不能保证极限存在！可能沿某条曲线趋近得到不同值。</li>
@@ -1378,39 +1378,39 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
   </ul>
 </div>
 
-<h4>3. 极限的性质</h4>
-<p>和一元函数类似：和、差、积、商（分母不为0）的极限等于极限的和、差、积、商。夹逼定理也适用。</p>
+<h4 data-enk="b290">3. 极限的性质</h4>
+<p data-enk="b200">和一元函数类似：和、差、积、商（分母不为0）的极限等于极限的和、差、积、商。夹逼定理也适用。</p>
 
-<div class="box example">
+<div class="box example" data-enk="b095" data-box="1">
   <strong>例：</strong>求 $\lim_{(x,y)\to(0,0)}\frac{xy}{\sqrt{x^2+y^2}}$。
   <p><strong>解：</strong>用夹逼定理。$0\leq\left|\frac{xy}{\sqrt{x^2+y^2}}\right|\leq\frac{x^2+y^2}{2\sqrt{x^2+y^2}}=\frac{\sqrt{x^2+y^2}}{2}\to0$（用了 $|xy|\leq\frac{x^2+y^2}{2}$）。所以极限为0。</p>
 </div>
 
-<h4>4. 连续性</h4>
+<h4 data-enk="b291">4. 连续性</h4>
 <div class="definition">
   <div class="definition-title">连续</div>
-  <p>二元函数 $f$ 在 $(a,b)$ 处连续，如果 $\lim_{(x,y)\to(a,b)}f(x,y)=f(a,b)$。如果 $f$ 在定义域（domain）内每一点都连续，则称 $f$ 为连续函数。</p>
+  <p data-enk="b201">二元函数 $f$ 在 $(a,b)$ 处连续，如果 $\lim_{(x,y)\to(a,b)}f(x,y)=f(a,b)$。如果 $f$ 在定义域（domain）内每一点都连续，则称 $f$ 为连续函数。</p>
 </div>
 
-<p>多项式函数、有理函数（分母不为0处）、三角函数、指数函数、对数函数等都是连续函数。连续函数的复合也是连续函数。</p>
+<p data-enk="b202">多项式函数、有理函数（分母不为0处）、三角函数、指数函数、对数函数等都是连续函数。连续函数的复合也是连续函数。</p>
 
 <!-- ===== 14.3 ===== -->
 <h3 id="s14-3"><span class="zh">14.3 偏导数</span> <span class="en">Partial Derivatives</span> <span class="tag tag-medium">核心</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b096" data-box="1">
   <strong>你需要先知道：</strong>单变量导数的定义和几何意义、基本求导法则。偏导数的思想很简单：对一个变量求导时，把其他变量当作常数。
 </div>
 
-<h4>1. 偏导数的定义</h4>
+<h4 data-enk="b292">1. 偏导数的定义</h4>
 <div class="definition">
   <div class="definition-title">偏导数（Partial Derivative）</div>
-  <p>$f$ 对 $x$ 的偏导数：
+  <p data-enk="b203">$f$ 对 $x$ 的偏导数：
   $$f_x(x,y) = \lim_{h\to0}\frac{f(x+h,y)-f(x,y)}{h}$$
   $f$ 对 $y$ 的偏导数：
   $$f_y(x,y) = \lim_{h\to0}\frac{f(x,y+h)-f(x,y)}{h}$$</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b097" data-box="1">
   <strong>求偏导的法则：</strong>
   <ul style="margin-left:20px">
     <li>求 $f_x$：把 $y$ 当作常数，对 $x$ 求导</li>
@@ -1419,36 +1419,36 @@ $$\tau = -\frac{d\mathbf{B}}{ds}\cdot\mathbf{N} = \frac{(\mathbf{r}'\times\mathb
   <p style="margin-top:6px">记号：$f_x = \frac{\partial f}{\partial x} = \frac{\partial z}{\partial x} = z_x$，$f_y = \frac{\partial f}{\partial y} = \frac{\partial z}{\partial y} = z_y$。注意用 $\partial$ 而不是 $d$，表示"偏"。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b098" data-box="1">
   <strong>例：</strong>$f(x,y)=x^3+x^2y^3-2y^2$，求 $f_x(2,1)$ 和 $f_y(2,1)$。
   <p><strong>解：</strong>$f_x=3x^2+2xy^3$（把 $y$ 当常数），$f_x(2,1)=12+4=16$。</p>
   <p>$f_y=3x^2y^2-4y$（把 $x$ 当常数），$f_y(2,1)=12-4=8$。</p>
 </div>
 
-<h4>2. 偏导数的几何意义</h4>
-<p>$f_x(a,b)$ 是曲面 $z=f(x,y)$ 与平面 $y=b$ 的交线在点 $(a,b,f(a,b))$ 处的<strong>切线斜率</strong>（沿x方向的坡度）。</p>
-<p>$f_y(a,b)$ 是曲面与平面 $x=a$ 的交线在该点处的切线斜率（沿y方向的坡度）。</p>
+<h4 data-enk="b293">2. 偏导数的几何意义</h4>
+<p data-enk="b204">$f_x(a,b)$ 是曲面 $z=f(x,y)$ 与平面 $y=b$ 的交线在点 $(a,b,f(a,b))$ 处的<strong>切线斜率</strong>（沿x方向的坡度）。</p>
+<p data-enk="b205">$f_y(a,b)$ 是曲面与平面 $x=a$ 的交线在该点处的切线斜率（沿y方向的坡度）。</p>
 
-<div class="box tip">
+<div class="box tip" data-enk="b099" data-box="1">
   <strong>直觉：</strong>站在山坡上的一点，$f_x$ 是向东走的坡度，$f_y$ 是向北走的坡度。偏导数只告诉你沿坐标轴方向的变化率。
 </div>
 
-<h4>3. 高阶偏导数</h4>
-<p>对偏导数再求偏导，得到二阶偏导数：</p>
+<h4 data-enk="b294">3. 高阶偏导数</h4>
+<p data-enk="b206">对偏导数再求偏导，得到二阶偏导数：</p>
 $$(f_x)_x = f_{xx} = \frac{\partial^2 f}{\partial x^2},\quad (f_x)_y = f_{xy} = \frac{\partial^2 f}{\partial y\partial x}$$
 $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f_{yy} = \frac{\partial^2 f}{\partial y^2}$$
 
 <div class="theorem">
   <div class="theorem-title">克莱罗定理（Clairaut's Theorem / 混合偏导相等）</div>
-  <p>如果 $f_{xy}$ 和 $f_{yx}$ 在包含点 $(a,b)$ 的圆盘上连续，则 $f_{xy}(a,b)=f_{yx}(a,b)$。</p>
-  <p>即<strong>混合偏导数与求导顺序无关</strong>（在连续的条件下）。</p>
+  <p data-enk="b207">如果 $f_{xy}$ 和 $f_{yx}$ 在包含点 $(a,b)$ 的圆盘上连续，则 $f_{xy}(a,b)=f_{yx}(a,b)$。</p>
+  <p data-enk="b208">即<strong>混合偏导数与求导顺序无关</strong>（在连续的条件下）。</p>
 </div>
 
-<div class="box warn">
+<div class="box warn" data-enk="b100" data-box="1">
   <strong>注意：</strong>克莱罗定理要求混合偏导数<strong>连续</strong>。存在不连续的反例使得 $f_{xy}\neq f_{yx}$，但我们遇到的绝大多数函数都满足连续条件。
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b101" data-box="1">
   <strong>例：</strong>$f(x,y)=x^3+x^2y^3-2y^2$，求所有二阶偏导。
   <p>$f_x=3x^2+2xy^3$，$f_y=3x^2y^2-4y$</p>
   <p>$f_{xx}=6x+2y^3$，$f_{xy}=6xy^2$</p>
@@ -1456,27 +1456,27 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   <p>验证：$f_{xy}=f_{yx}=6xy^2$ ✓</p>
 </div>
 
-<h4>4. 偏微分方程（PDE）</h4>
-<p>偏导数在物理中用于描述偏微分方程。两个经典例子：</p>
+<h4 data-enk="b295">4. 偏微分方程（PDE）</h4>
+<p data-enk="b209">偏导数在物理中用于描述偏微分方程。两个经典例子：</p>
 <ul style="margin-left:20px">
-  <li><strong>拉普拉斯方程：</strong>$\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0$（描述稳态温度分布、静电势等）</li>
-  <li><strong>波动方程：</strong>$\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial^2 u}{\partial x^2}$（描述波的传播）</li>
+  <li data-enk="b318"><strong>拉普拉斯方程：</strong>$\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0$（描述稳态温度分布、静电势等）</li>
+  <li data-enk="b319"><strong>波动方程：</strong>$\frac{\partial^2 u}{\partial t^2}=a^2\frac{\partial^2 u}{\partial x^2}$（描述波的传播）</li>
 </ul>
 
 <!-- ===== 14.4 ===== -->
 <h3 id="s14-4"><span class="zh">14.4 切平面与线性近似</span> <span class="en">Tangent Planes and Linear Approximations</span> <span class="tag tag-medium">应用</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b102" data-box="1">
   <strong>你需要先知道：</strong>一元函数的切线方程 $y-y_0=f'(x_0)(x-x_0)$、线性近似 $f(x)\approx f(x_0)+f'(x_0)(x-x_0)$、微分的概念。切平面是切线在三维中的推广。
 </div>
 
-<h4>1. 切平面方程（Tangent Plane）</h4>
-<div class="box formula">
+<h4 data-enk="b296">1. 切平面方程（Tangent Plane）</h4>
+<div class="box formula" data-enk="b103" data-box="1">
   <strong>切平面方程：</strong>曲面 $z=f(x,y)$ 在点 $P_0(x_0,y_0,z_0)$（其中 $z_0=f(x_0,y_0)$）处的切平面为
   $$z-z_0 = f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)$$
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b104" data-box="1">
   <strong>推导（课本跳步补齐）：</strong>
   <div class="steps">
     <div class="step">曲面 $z=f(x,y)$ 与平面 $y=y_0$ 的交线在 $P_0$ 处的切线方向向量为 $\langle1,0,f_x(x_0,y_0)\rangle$（x方向切线）。</div>
@@ -1486,38 +1486,38 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </div>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b105" data-box="1">
   <strong>例：</strong>求 $z=2x^2+y^2$ 在 $(1,1,3)$ 处的切平面。
   <p><strong>解：</strong>$f_x=4x$，$f_x(1,1)=4$；$f_y=2y$，$f_y(1,1)=2$。</p>
   <p>切平面：$z-3=4(x-1)+2(y-1)$，即 $z=4x+2y-3$。</p>
 </div>
 
-<h4>2. 线性近似</h4>
-<div class="box formula">
+<h4 data-enk="b297">2. 线性近似</h4>
+<div class="box formula" data-enk="b106" data-box="1">
   <strong>线性近似（切平面近似）：</strong>
   $$f(x,y)\approx f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$$
   当 $(x,y)$ 接近 $(x_0,y_0)$ 时成立。这就是用切平面代替曲面。
 </div>
 
-<h4>3. 可微性（Differentiability）</h4>
+<h4 data-enk="b298">3. 可微性（Differentiability）</h4>
 <div class="definition">
   <div class="definition-title">可微的定义</div>
-  <p>$z=f(x,y)$ 在 $(a,b)$ 处可微，如果增量 $\Delta z$ 可以表示为
+  <p data-enk="b210">$z=f(x,y)$ 在 $(a,b)$ 处可微，如果增量 $\Delta z$ 可以表示为
   $$\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \varepsilon_1\Delta x + \varepsilon_2\Delta y$$
   其中当 $(\Delta x,\Delta y)\to(0,0)$ 时，$\varepsilon_1,\varepsilon_2\to0$。</p>
 </div>
 
 <div class="theorem">
   <div class="theorem-title">可微的充分条件</div>
-  <p>如果 $f_x$ 和 $f_y$ 在 $(a,b)$ 附近存在且在 $(a,b)$ 处连续，则 $f$ 在 $(a,b)$ 处可微。</p>
+  <p data-enk="b211">如果 $f_x$ 和 $f_y$ 在 $(a,b)$ 附近存在且在 $(a,b)$ 处连续，则 $f$ 在 $(a,b)$ 处可微。</p>
 </div>
 
-<div class="box warn">
+<div class="box warn" data-enk="b107" data-box="1">
   <strong>重要区别：</strong>偏导数存在 ≠ 可微！在一元函数中，可导即可微。但在多元函数（function of several variables）中，偏导数存在只是可微的必要条件，不是充分条件。需要偏导数<strong>连续</strong>才能保证可微。这是多元微积分和一元微积分的重要区别之一。
 </div>
 
-<h4>4. 全微分（Differentials）</h4>
-<div class="box formula">
+<h4 data-enk="b299">4. 全微分（Differentials）</h4>
+<div class="box formula" data-enk="b108" data-box="1">
   <strong>全微分：</strong>
   $$dz = f_x(x,y)\,dx + f_y(x,y)\,dy = \frac{\partial z}{\partial x}dx + \frac{\partial z}{\partial y}dy$$
   <p>全微分 $dz$ 是增量 $\Delta z$ 的线性近似部分。$dx=\Delta x$，$dy=\Delta y$。</p>
@@ -1526,58 +1526,58 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 <!-- ===== 14.5 ===== -->
 <h3 id="s14-5"><span class="zh">14.5 链式法则</span> <span class="en">The Chain Rule</span> <span class="tag tag-hard">重点难点</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b109" data-box="1">
   <strong>你需要先知道：</strong>一元函数的链式法则 $\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx}$、偏导数的计算。多元链式法则的核心是"对每个中间变量都贡献一条路径，所有路径相加"。
 </div>
 
-<h4>1. 情形1：一个自变量</h4>
+<h4 data-enk="b300">1. 情形1：一个自变量</h4>
 <div class="theorem">
   <div class="theorem-title">链式法则 — 情形1</div>
-  <p>设 $z=f(x,y)$ 可微，$x=g(t)$，$y=h(t)$ 可导，则
+  <p data-enk="b212">设 $z=f(x,y)$ 可微，$x=g(t)$，$y=h(t)$ 可导，则
   $$\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}$$</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b110" data-box="1">
   <strong>直觉理解：</strong>
   <p>$z$ 依赖 $x$ 和 $y$，而 $x$ 和 $y$ 都依赖 $t$。当 $t$ 变化时，它通过 $x$ 间接影响 $z$（贡献 $\frac{\partial z}{\partial x}\frac{dx}{dt}$），同时通过 $y$ 间接影响 $z$（贡献 $\frac{\partial z}{\partial y}\frac{dy}{dt}$）。两条路径的影响相加。</p>
   <p>可以画"依赖关系树"：$z$ 分出 $x,y$ 两个分支，每个分支再连到 $t$。从 $z$ 到 $t$ 的每条路径上的导数相乘，不同路径相加。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b111" data-box="1">
   <strong>例：</strong>$z=x^2y+3xy^4$，$x=\sin2t$，$y=\cos t$，求 $\frac{dz}{dt}\big|_{t=0}$。
   <p><strong>解：</strong>$\frac{dz}{dt}=(2xy+3y^4)(2\cos2t)+(x^2+12xy^3)(-\sin t)$。</p>
   <p>$t=0$ 时 $x=0,y=1$：$\frac{dz}{dt}=(0+3)(2)+(0+0)(0)=6$。</p>
 </div>
 
-<h4>2. 情形2：两个自变量</h4>
+<h4 data-enk="b301">2. 情形2：两个自变量</h4>
 <div class="theorem">
   <div class="theorem-title">链式法则 — 情形2</div>
-  <p>设 $z=f(x,y)$ 可微，$x=g(s,t)$，$y=h(s,t)$ 有偏导数，则
+  <p data-enk="b213">设 $z=f(x,y)$ 可微，$x=g(s,t)$，$y=h(s,t)$ 有偏导数，则
   $$\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s}$$
   $$\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$$</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b112" data-box="1">
   <strong>记忆方法——树形图法：</strong>
   <p>画出变量依赖关系：$z\to\{x,y\}\to\{s,t\}$。</p>
   <p>求 $\frac{\partial z}{\partial s}$ 时，找所有从 $z$ 到 $s$ 的路径：$z\to x\to s$ 和 $z\to y\to s$。每条路径上的偏导数相乘，然后相加。</p>
 </div>
 
-<h4>3. 一般情形</h4>
+<h4 data-enk="b302">3. 一般情形</h4>
 <div class="theorem">
   <div class="theorem-title">链式法则 — 一般版</div>
-  <p>设 $u$ 是 $n$ 个变量 $x_1,\ldots,x_n$ 的可微函数，每个 $x_j$ 是 $m$ 个变量 $t_1,\ldots,t_m$ 的可微函数，则
+  <p data-enk="b214">设 $u$ 是 $n$ 个变量 $x_1,\ldots,x_n$ 的可微函数，每个 $x_j$ 是 $m$ 个变量 $t_1,\ldots,t_m$ 的可微函数，则
   $$\frac{\partial u}{\partial t_i} = \sum_{j=1}^n \frac{\partial u}{\partial x_j}\frac{\partial x_j}{\partial t_i} \quad (i=1,\ldots,m)$$</p>
 </div>
 
-<h4>4. 隐函数（implicit function）求导</h4>
+<h4 data-enk="b303">4. 隐函数（implicit function）求导</h4>
 <div class="theorem">
   <div class="theorem-title">隐函数定理（二元）</div>
-  <p>设 $F(x,y)=0$ 确定了 $y$ 是 $x$ 的函数，且 $F_y\neq0$，则
+  <p data-enk="b215">设 $F(x,y)=0$ 确定了 $y$ 是 $x$ 的函数，且 $F_y\neq0$，则
   $$\frac{dy}{dx} = -\frac{F_x}{F_y}$$</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b113" data-box="1">
   <strong>推导：</strong>
   <div class="steps">
     <div class="step">$F(x,y)=0$ 两边对 $x$ 求导（注意 $y$ 是 $x$ 的函数）：</div>
@@ -1589,11 +1589,11 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 
 <div class="theorem">
   <div class="theorem-title">隐函数定理（三元）</div>
-  <p>设 $F(x,y,z)=0$ 确定了 $z$ 是 $x,y$ 的函数，且 $F_z\neq0$，则
+  <p data-enk="b216">设 $F(x,y,z)=0$ 确定了 $z$ 是 $x,y$ 的函数，且 $F_z\neq0$，则
   $$\frac{\partial z}{\partial x} = -\frac{F_x}{F_z},\quad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z}$$</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b114" data-box="1">
   <strong>例：</strong>求 $x^3+y^3=6xy$（笛卡儿叶形线）的 $\frac{dy}{dx}$。
   <p><strong>解：</strong>令 $F(x,y)=x^3+y^3-6xy=0$。$F_x=3x^2-6y$，$F_y=3y^2-6x$。</p>
   <p>$\frac{dy}{dx}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=\frac{2y-x^2}{y^2-2x}$。</p>
@@ -1602,18 +1602,18 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 <!-- ===== 14.6 ===== -->
 <h3 id="s14-6"><span class="zh">14.6 方向导数与梯度向量</span> <span class="en">Directional Derivatives and the Gradient Vector</span> <span class="tag tag-hard">核心概念</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b115" data-box="1">
   <strong>你需要先知道：</strong>偏导数（只描述沿坐标轴方向的变化率）、点积、单位向量。方向导数推广了偏导数——描述沿<strong>任意方向</strong>的变化率。梯度是本节最重要的概念，贯穿后续所有内容。
 </div>
 
-<h4>1. 方向导数</h4>
+<h4 data-enk="b304">1. 方向导数</h4>
 <div class="definition">
   <div class="definition-title">方向导数（Directional Derivative）</div>
-  <p>$f$ 在 $(x_0,y_0)$ 处沿单位向量 $\mathbf{u}=\langle a,b\rangle$ 方向的方向导数为
+  <p data-enk="b217">$f$ 在 $(x_0,y_0)$ 处沿单位向量 $\mathbf{u}=\langle a,b\rangle$ 方向的方向导数为
   $$D_{\mathbf{u}}f(x_0,y_0) = \lim_{h\to0}\frac{f(x_0+ha,\,y_0+hb)-f(x_0,y_0)}{h}$$</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b116" data-box="1">
   <strong>和偏导数的关系：</strong>
   <ul style="margin-left:20px">
     <li>沿 $\mathbf{i}=\langle1,0\rangle$ 方向：$D_{\mathbf{i}}f=f_x$</li>
@@ -1625,11 +1625,11 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 
 <div class="theorem">
   <div class="theorem-title">方向导数计算公式</div>
-  <p>如果 $f$ 可微，则沿任意单位向量 $\mathbf{u}=\langle a,b\rangle$ 的方向导数为
+  <p data-enk="b218">如果 $f$ 可微，则沿任意单位向量 $\mathbf{u}=\langle a,b\rangle$ 的方向导数为
   $$D_{\mathbf{u}}f(x,y) = f_x(x,y)\,a + f_y(x,y)\,b$$</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b117" data-box="1">
   <strong>推导：</strong>
   <div class="steps">
     <div class="step">定义一元函数 $g(h)=f(x_0+ha,y_0+hb)$。</div>
@@ -1639,32 +1639,32 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </div>
 </div>
 
-<h4>2. 梯度向量（Gradient）</h4>
+<h4 data-enk="b305">2. 梯度向量（Gradient）</h4>
 <div class="definition">
   <div class="definition-title">梯度</div>
-  <p>二元函数 $f(x,y)$ 的梯度向量为
+  <p data-enk="b219">二元函数 $f(x,y)$ 的梯度向量为
   $$\nabla f(x,y) = \langle f_x(x,y),\, f_y(x,y)\rangle = \frac{\partial f}{\partial x}\mathbf{i}+\frac{\partial f}{\partial y}\mathbf{j}$$
   三元函数：$\nabla f(x,y,z)=\langle f_x,f_y,f_z\rangle$。</p>
 </div>
 
-<div class="box formula">
+<div class="box formula" data-enk="b118" data-box="1">
   <strong>方向导数的梯度表示：</strong>
   $$D_{\mathbf{u}}f = \nabla f \cdot \mathbf{u}$$
   <p>这是本节最核心的公式。方向导数 = 梯度向量与方向单位向量的点积。</p>
 </div>
 
-<h4>3. 梯度的意义（最重要！）</h4>
+<h4 data-enk="b306">3. 梯度的意义（最重要！）</h4>
 <div class="theorem">
   <div class="theorem-title">梯度的方向与大小</div>
-  <p>设 $f$ 可微，则：</p>
+  <p data-enk="b220">设 $f$ 可微，则：</p>
   <ol style="margin-left:20px;margin-top:4px">
-    <li><strong>方向：</strong>$\nabla f$ 指向 $f$ <strong>增长最快</strong>的方向。$-\nabla f$ 指向 $f$ 减少最快的方向。</li>
-    <li><strong>大小：</strong>$|\nabla f|$ 是最大的方向导数值（最快增长率）。</li>
-    <li><strong>垂直：</strong>$\nabla f$ 垂直于等高线 $f(x,y)=k$（在该点处）。</li>
+    <li data-enk="b320"><strong>方向：</strong>$\nabla f$ 指向 $f$ <strong>增长最快</strong>的方向。$-\nabla f$ 指向 $f$ 减少最快的方向。</li>
+    <li data-enk="b321"><strong>大小：</strong>$|\nabla f|$ 是最大的方向导数值（最快增长率）。</li>
+    <li data-enk="b322"><strong>垂直：</strong>$\nabla f$ 垂直于等高线 $f(x,y)=k$（在该点处）。</li>
   </ol>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b119" data-box="1">
   <strong>为什么梯度指向增长最快的方向？</strong>
   <div class="steps">
     <div class="step">$D_{\mathbf{u}}f=\nabla f\cdot\mathbf{u}=|\nabla f||\mathbf{u}|\cos\theta=|\nabla f|\cos\theta$（因为 $\mathbf{u}$ 是单位向量）。</div>
@@ -1674,7 +1674,7 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </div>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b120" data-box="1">
   <strong>梯度的物理直觉：</strong>
   <ul style="margin-left:20px">
     <li>站在山坡上，梯度指向<strong>最陡的上坡方向</strong></li>
@@ -1684,14 +1684,14 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </ul>
 </div>
 
-<h4>4. 等值面（level surfaces）的切平面</h4>
-<div class="box formula">
+<h4 data-enk="b307">4. 等值面（level surfaces）的切平面</h4>
+<div class="box formula" data-enk="b121" data-box="1">
   <p>曲面 $F(x,y,z)=k$（等值面）在点 $P_0$ 处的法向量为 $\nabla F(P_0)$。</p>
   <p>切平面方程：$F_x(P_0)(x-x_0)+F_y(P_0)(y-y_0)+F_z(P_0)(z-z_0)=0$。</p>
   <p>法线方程：$\frac{x-x_0}{F_x}=\frac{y-y_0}{F_y}=\frac{z-z_0}{F_z}$。</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b122" data-box="1">
   <strong>为什么 $\nabla F$ 是等值面的法向量？</strong>
   <p>在等值面 $F=k$ 上任取一条过 $P_0$ 的曲线 $\mathbf{r}(t)$，则 $F(\mathbf{r}(t))=k$。两边对 $t$ 求导：$\nabla F\cdot\mathbf{r}'(t)=0$。所以 $\nabla F$ 垂直于等值面上任意曲线的切向量，即 $\nabla F$ 是等值面的法向量。</p>
 </div>
@@ -1699,32 +1699,32 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 <!-- ===== 14.7 ===== -->
 <h3 id="s14-7"><span class="zh">14.7 最大值与最小值</span> <span class="en">Maximum and Minimum Values</span> <span class="tag tag-hard">优化</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b123" data-box="1">
   <strong>你需要先知道：</strong>一元函数的极值判定（$f'(c)=0$ 找临界点，二阶导数测试）、偏导数、梯度。多元极值的思想类似，但需要同时考虑所有方向的变化。
 </div>
 
-<h4>1. 局部极值</h4>
+<h4 data-enk="b308">1. 局部极值</h4>
 <div class="definition">
   <div class="definition-title">局部最大值/最小值</div>
-  <p>$f$ 在 $(a,b)$ 处有<strong>局部最大值</strong>，如果当 $(x,y)$ 接近 $(a,b)$ 时 $f(x,y)\leq f(a,b)$。<br>
+  <p data-enk="b221">$f$ 在 $(a,b)$ 处有<strong>局部最大值</strong>，如果当 $(x,y)$ 接近 $(a,b)$ 时 $f(x,y)\leq f(a,b)$。<br>
   $f$ 在 $(a,b)$ 处有<strong>局部最小值</strong>，如果当 $(x,y)$ 接近 $(a,b)$ 时 $f(x,y)\geq f(a,b)$。</p>
 </div>
 
 <div class="theorem">
   <div class="theorem-title">极值的必要条件（费马定理的多元版）</div>
-  <p>如果 $f$ 在 $(a,b)$ 处有局部极值且一阶偏导数存在，则 $f_x(a,b)=0$ 且 $f_y(a,b)=0$，即 $\nabla f(a,b)=\mathbf{0}$。</p>
+  <p data-enk="b222">如果 $f$ 在 $(a,b)$ 处有局部极值且一阶偏导数存在，则 $f_x(a,b)=0$ 且 $f_y(a,b)=0$，即 $\nabla f(a,b)=\mathbf{0}$。</p>
 </div>
 
 <div class="definition">
   <div class="definition-title">临界点（Critical Point）</div>
-  <p>满足 $\nabla f(a,b)=\mathbf{0}$（即 $f_x=f_y=0$）的点，或者至少一个偏导数不存在的点。</p>
-  <p>局部极值一定在临界点处取得，但临界点不一定是极值点（可能是鞍点（saddle point））。</p>
+  <p data-enk="b223">满足 $\nabla f(a,b)=\mathbf{0}$（即 $f_x=f_y=0$）的点，或者至少一个偏导数不存在的点。</p>
+  <p data-enk="b224">局部极值一定在临界点处取得，但临界点不一定是极值点（可能是鞍点（saddle point））。</p>
 </div>
 
-<h4>2. 二阶导数测试（Second Derivatives Test）</h4>
+<h4 data-enk="b309">2. 二阶导数测试（Second Derivatives Test）</h4>
 <div class="theorem">
   <div class="theorem-title">二阶导数测试</div>
-  <p>设 $f$ 的二阶偏导数在以临界点 $(a,b)$ 为中心的圆盘上连续，且 $f_x(a,b)=f_y(a,b)=0$。令
+  <p data-enk="b225">设 $f$ 的二阶偏导数在以临界点 $(a,b)$ 为中心的圆盘上连续，且 $f_x(a,b)=f_y(a,b)=0$。令
   $$D = D(a,b) = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)]^2$$
   则：</p>
   <table style="margin-top:8px">
@@ -1736,12 +1736,12 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </table>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b124" data-box="1">
   <strong>D 的记忆：</strong>$D = \begin{vmatrix}f_{xx}&f_{xy}\\f_{yx}&f_{yy}\end{vmatrix}$（海森矩阵的行列式）。由克莱罗定理 $f_{xy}=f_{yx}$。
   <p>$D>0$ 意味着两个方向"同弯"（都是凹或都是凸）→ 极值；$D<0$ 意味着"一个方向凹、一个方向凸"→ 鞍点。</p>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b125" data-box="1">
   <strong>例：</strong>求 $f(x,y)=x^4+y^4-4xy+1$ 的局部极值。
   <p><strong>解：</strong></p>
   <div class="steps">
@@ -1754,13 +1754,13 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </div>
 </div>
 
-<h4>3. 绝对最大值与最小值</h4>
+<h4 data-enk="b310">3. 绝对最大值与最小值</h4>
 <div class="theorem">
   <div class="theorem-title">极值定理（二元版）</div>
-  <p>如果 $f$ 在 $\mathbb{R}^2$ 中的闭有界集 $D$ 上连续，则 $f$ 在 $D$ 上一定取得绝对最大值和绝对最小值。</p>
+  <p data-enk="b226">如果 $f$ 在 $\mathbb{R}^2$ 中的闭有界集 $D$ 上连续，则 $f$ 在 $D$ 上一定取得绝对最大值和绝对最小值。</p>
 </div>
 
-<div class="box formula">
+<div class="box formula" data-enk="b126" data-box="1">
   <strong>求闭有界集上绝对最值的步骤：</strong>
   <div class="steps">
     <div class="step">求 $D$ 内部的临界点，计算函数值。</div>
@@ -1772,22 +1772,22 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 <!-- ===== 14.8 ===== -->
 <h3 id="s14-8"><span class="zh">14.8 拉格朗日乘数法</span> <span class="en">Lagrange Multipliers</span> <span class="tag tag-hard">约束优化</span></h3>
 
-<div class="box prereq">
+<div class="box prereq" data-enk="b127" data-box="1">
   <strong>你需要先知道：</strong>梯度向量的几何意义（垂直于等值线/等值面）、条件极值的概念。拉格朗日乘数法是在<strong>约束条件</strong>下求极值的方法，不需要解出约束方程代入。
 </div>
 
-<h4>1. 方法思想</h4>
-<p>问题：在约束 $g(x,y)=k$ 下，求 $f(x,y)$ 的极值。</p>
+<h4 data-enk="b311">1. 方法思想</h4>
+<p data-enk="b227">问题：在约束 $g(x,y)=k$ 下，求 $f(x,y)$ 的极值。</p>
 
 <div class="theorem">
   <div class="theorem-title">拉格朗日乘数法</div>
-  <p>在约束 $g(x,y)=k$ 下，$f$ 的极值点满足
+  <p data-enk="b228">在约束 $g(x,y)=k$ 下，$f$ 的极值点满足
   $$\nabla f(x,y) = \lambda\,\nabla g(x,y)$$
   其中 $\lambda$ 称为拉格朗日乘数。</p>
-  <p>即解方程组：$f_x=\lambda g_x$，$f_y=\lambda g_y$，$g(x,y)=k$。</p>
+  <p data-enk="b229">即解方程组：$f_x=\lambda g_x$，$f_y=\lambda g_y$，$g(x,y)=k$。</p>
 </div>
 
-<div class="box proof">
+<div class="box proof" data-enk="b128" data-box="1">
   <strong>几何直觉（为什么 $\nabla f=\lambda\nabla g$？）</strong>
   <div class="steps">
     <div class="step">约束 $g(x,y)=k$ 是一条曲线（等高线）。$f$ 的极值点出现在 $f$ 的等高线与约束曲线<strong>相切</strong>的地方。</div>
@@ -1797,7 +1797,7 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </div>
 </div>
 
-<div class="box example">
+<div class="box example" data-enk="b129" data-box="1">
   <strong>例：</strong>在约束 $x^2+y^2=1$ 下，求 $f(x,y)=x^2+2y^2$ 的极值。
   <p><strong>解：</strong>$\nabla f=\langle2x,4y\rangle$，$\nabla g=\langle2x,2y\rangle$。</p>
   <p>$\nabla f=\lambda\nabla g$：$2x=2\lambda x$，$4y=2\lambda y$，$x^2+y^2=1$。</p>
@@ -1809,19 +1809,19 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
   </div>
 </div>
 
-<h4>2. 两个约束条件</h4>
+<h4 data-enk="b312">2. 两个约束条件</h4>
 <div class="theorem">
   <div class="theorem-title">两个约束的拉格朗日乘数法</div>
-  <p>在约束 $g(x,y,z)=k$ 和 $h(x,y,z)=c$ 下，$f$ 的极值点满足
+  <p data-enk="b230">在约束 $g(x,y,z)=k$ 和 $h(x,y,z)=c$ 下，$f$ 的极值点满足
   $$\nabla f = \lambda\nabla g + \mu\nabla h$$
   解五个方程（三个分量方程 + 两个约束方程）求五个未知数 $x,y,z,\lambda,\mu$。</p>
 </div>
 
-<div class="box tip">
+<div class="box tip" data-enk="b130" data-box="1">
   <strong>$\lambda$ 的意义：</strong>$\lambda$ 近似等于约束条件的边际变化对目标函数极值的影响。在经济学中，$\lambda$ 可以解释为"影子价格"——约束放松一单位时，最优值增加多少。
 </div>
 
-<div class="box warn">
+<div class="box warn" data-enk="b131" data-box="1">
   <strong>拉格朗日乘数法的局限：</strong>
   <ul style="margin-left:20px">
     <li>只能找到满足 $\nabla f=\lambda\nabla g$ 的点，需要验证哪些是最大/最小值</li>
@@ -1833,9 +1833,9 @@ $$(f_y)_x = f_{yx} = \frac{\partial^2 f}{\partial x\partial y},\quad (f_y)_y = f
 
 <!-- ==================== FOOTER ==================== -->
 <div style="margin-top:80px;padding-top:30px;border-top:1px solid var(--border);text-align:center;color:var(--text2);font-size:.85em">
-  <p>多元微积分完全指南 · Stewart Calculus 第12-14章</p>
-  <p>涵盖：向量与空间几何 · 向量函数 · 偏导数</p>
-  <p style="margin-top:8px">所有推导步骤已补齐 · 前置知识已标注 · 适合AP微积分BC 3分水平学生从头学习</p>
+  <p data-enk="b231">多元微积分完全指南 · Stewart Calculus 第12-14章</p>
+  <p data-enk="b232">涵盖：向量与空间几何 · 向量函数 · 偏导数</p>
+  <p style="margin-top:8px" data-enk="b233">所有推导步骤已补齐 · 前置知识已标注 · 适合AP微积分BC 3分水平学生从头学习</p>
 </div>
 
 </div><!-- end main -->
@@ -3101,6 +3101,7 @@ function injectViz(secId, title, hint, html) {
   function setLang(lang){
     document.documentElement.lang = lang;
     applyUI();
+    if (window.__applyLangBodies) window.__applyLangBodies(lang);
     try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
   }
 
@@ -3115,5 +3116,498 @@ function injectViz(secId, title, hint, html) {
 })();
 
 </script>
+
+
+
+<script>
+(function(){
+window.EN_MAP = {
+"b001": "Each section contains \"Prerequisites\" (what you need to know first), \"Core Concepts\" (definitions and theorems), \"Derivations & Proofs\" (every step the textbook skips is filled in), \"Examples\" (step-by-step worked problems), and \"Common Mistakes\". If you meet a formula you do not understand, click the collapsible area to see the full derivation.",
+"b002": "The 2D rectangular coordinate system (x-axis, y-axis, origin, quadrants), the Pythagorean theorem $a^2+b^2=c^2$, and the equation of a circle $(x-h)^2+(y-k)^2=r^2$. If you have questions about these, review high-school analytic geometry first.",
+"b003": "The distance between points $P_1(x_1,y_1,z_1)$ and $P_2(x_2,y_2,z_2)$ in space is\n  $$|P_1P_2| = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$$",
+"b004": "\n  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eProject $P_1$ and $P_2$ onto the xy-plane, obtaining points $Q_1(x_1,y_1,0)$ and $Q_2(x_2,y_2,0)$. In the xy-plane, by the 2D distance formula: $|Q_1Q_2| = \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eLook at the right triangle $P_1Q_1P_2$: the base $|Q_1P_2| = |Q_1Q_2|$ (the horizontal separation between $Q_1$ and $P_2$ is exactly $Q_1Q_2$), and the vertical leg $|P_1Q_1| = |z_2-z_1|$ (the difference of the two points' z-coordinates).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eMore precisely, build a right triangle: the horizontal leg in the xy-plane has length $\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$, the vertical leg has length $|z_2-z_1|$, and the hypotenuse is $|P_1P_2|$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eBy the Pythagorean theorem: $|P_1P_2|^2 = (x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2$. Taking the square root of both sides gives the distance formula.\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cp\u003e\u003cstrong\u003eKey intuition:\u003c/strong\u003e 3D distance = first use the 2D distance formula on the xy-plane projection, then apply the Pythagorean theorem once more together with the z-difference. In essence, the Pythagorean theorem is used twice.\u003c/p\u003e",
+"b005": "The sphere centered at $C(h,k,l)$ with radius $r$ has equation\n  $$(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$$\n  \u003cp style=\"margin-top:8px\"\u003eWhen the center is the origin: $x^2+y^2+z^2=r^2$\u003c/p\u003e",
+"b006": "Every point $P(x,y,z)$ on the sphere is at distance $r$ from the center $C(h,k,l)$. By the distance formula:\n  $$\\sqrt{(x-h)^2+(y-k)^2+(z-l)^2} = r$$\n  Squaring both sides gives the equation of the sphere. \u003cstrong\u003eThis is a direct analogy of the circle equation in 2D\u003c/strong\u003e — a circle is \"the set of points at a fixed distance from a fixed point\", and a sphere is the 3D version.",
+"b007": "Find the equation of the sphere centered at $(2,-1,3)$ with radius 5, and decide whether the point $(4,1,1)$ lies on the sphere.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e The equation is $(x-2)^2+(y+1)^2+(z-3)^2=25$.\u003c/p\u003e\n  \u003cp\u003ePlug in $(4,1,1)$: $(4-2)^2+(1+1)^2+(1-3)^2 = 4+4+4 = 12 \\neq 25$, so the point is \u003cstrong\u003einside\u003c/strong\u003e the sphere (distance squared 12 &lt; 25).\u003c/p\u003e",
+"b008": "In 2D, $x=3$ is a \u003cstrong\u003evertical line\u003c/strong\u003e; in 3D, $x=3$ is a \u003cstrong\u003eplane\u003c/strong\u003e (because y and z can take any values). This is one of the easiest things to get confused about when moving from 2D to 3D.",
+"b009": "The idea of directed line segments, trigonometric functions (sin/cos/tan), and basic algebra. A vector is a quantity with \"both magnitude and direction\", as opposed to a scalar, which has only magnitude (e.g., temperature, mass).",
+"b010": "Because a vector describes a \"displacement\" — moving from A to B and from C to D have the same effect if the direction and distance are the same. It is like \"walking 3 km east\": it is the same displacement vector no matter where you start.",
+"b011": "\n  $$|\\mathbf{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$$\n  This is exactly the distance from the origin to $(a_1,a_2,a_3)$, obtained directly from the distance formula.",
+"b012": "Let $\\mathbf{a}=\\langle a_1,a_2,a_3\\rangle$ and $\\mathbf{b}=\\langle b_1,b_2,b_3\\rangle$. Then\n  $$\\mathbf{a}+\\mathbf{b} = \\langle a_1+b_1,\\; a_2+b_2,\\; a_3+b_3\\rangle$$\n  $$\\mathbf{a}-\\mathbf{b} = \\langle a_1-b_1,\\; a_2-b_2,\\; a_3-b_3\\rangle$$\n  $$c\\mathbf{a} = \\langle ca_1,\\; ca_2,\\; ca_3\\rangle$$\n  \u003cp style=\"margin-top:8px\"\u003e\u003cstrong\u003eIntuition:\u003c/strong\u003e vector operations are just \u003cstrong\u003eoperations on each component separately\u003c/strong\u003e. Addition means x plus x, y plus y, z plus z.\u003c/p\u003e",
+"b013": "Find the unit vector in the direction of $\\mathbf{a}=\\langle3,4,0\\rangle$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $|\\mathbf{a}| = \\sqrt{9+16+0} = 5$, so $\\mathbf{u} = \\frac{1}{5}\\langle3,4,0\\rangle = \\langle\\frac{3}{5},\\frac{4}{5},0\\rangle$. Check: $|\\mathbf{u}| = \\sqrt{9/25+16/25} = 1$. ✓\u003c/p\u003e",
+"b014": "\"Endpoint minus starting point\". The components of $\\vec{AB}$ = coordinates of B − coordinates of A. This matches the idea of displacement: going from A to B, you move $x_2-x_1$ in the x-direction.",
+"b015": "Component form of vectors, vector magnitude, the law of cosines $c^2=a^2+b^2-2ab\\cos C$, and basic values of trig functions. The dot product is the first kind of \"multiplication\" of vectors, and its result is a \u003cstrong\u003escalar\u003c/strong\u003e (a number), not a vector.",
+"b016": "$\\mathbf{a}=\\langle2,1,-3\\rangle$, $\\mathbf{b}=\\langle0,4,2\\rangle$. Then $\\mathbf{a}\\cdot\\mathbf{b} = 2(0)+1(4)+(-3)(2) = 0+4-6 = -2$.",
+"b017": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003ePlace $\\mathbf{a}$ and $\\mathbf{b}$ with the same initial point and look at the triangle: two sides are $|\\mathbf{a}|$ and $|\\mathbf{b}|$, the angle between them is $\\theta$, and the third side is $|\\mathbf{a}-\\mathbf{b}|$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eBy the \u003cstrong\u003elaw of cosines\u003c/strong\u003e: $|\\mathbf{a}-\\mathbf{b}|^2 = |\\mathbf{a}|^2 + |\\mathbf{b}|^2 - 2|\\mathbf{a}||\\mathbf{b}|\\cos\\theta$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eOn the other hand, expand the left side in components: $|\\mathbf{a}-\\mathbf{b}|^2 = (a_1-b_1)^2+(a_2-b_2)^2+(a_3-b_3)^2$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eExpanding: $= (a_1^2+a_2^2+a_3^2) + (b_1^2+b_2^2+b_3^2) - 2(a_1b_1+a_2b_2+a_3b_3)$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThat is, $= |\\mathbf{a}|^2 + |\\mathbf{b}|^2 - 2(\\mathbf{a}\\cdot\\mathbf{b})$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eEquate the results of steps 2 and 5: $|\\mathbf{a}|^2+|\\mathbf{b}|^2-2(\\mathbf{a}\\cdot\\mathbf{b}) = |\\mathbf{a}|^2+|\\mathbf{b}|^2-2|\\mathbf{a}||\\mathbf{b}|\\cos\\theta$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eCancel the common terms and divide both sides by $-2$: $\\mathbf{a}\\cdot\\mathbf{b} = |\\mathbf{a}||\\mathbf{b}|\\cos\\theta$. Done.\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cp\u003e\u003cstrong\u003eThe heart of this proof\u003c/strong\u003e is the law of cosines plus component expansion: both describe the third side of the same triangle, which connects the algebraic definition to the geometric meaning.\u003c/p\u003e",
+"b018": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003e$\\theta=0$ (same direction): $\\cos0=1$, dot product is maximal $=|\\mathbf{a}||\\mathbf{b}|$\u003c/li\u003e\n    \u003cli\u003e$\\theta=\\pi/2$ (perpendicular): $\\cos(\\pi/2)=0$, dot product $=0$\u003c/li\u003e\n    \u003cli\u003e$\\theta=\\pi$ (opposite): $\\cos\\pi=-1$, dot product is minimal $=-|\\mathbf{a}||\\mathbf{b}|$\u003c/li\u003e\n  \u003c/ul\u003e\n  \u003cp style=\"margin-top:6px\"\u003eThe sign of the dot product tells you \"how much the two vectors point in the same direction\": positive = acute angle, zero = perpendicular, negative = obtuse angle.\u003c/p\u003e",
+"b019": "  $\\mathbf{a}\\cdot(\\mathbf{b}+\\mathbf{c}) = a_1(b_1+c_1)+a_2(b_2+c_2)+a_3(b_3+c_3)$\n  $= (a_1b_1+a_2b_2+a_3b_3)+(a_1c_1+a_2c_2+a_3c_3) = \\mathbf{a}\\cdot\\mathbf{b}+\\mathbf{a}\\cdot\\mathbf{c}$.\n  In essence, it is the distributive law for real numbers applied to each component separately.",
+"b020": "  $$\\cos\\alpha = \\frac{a_1}{|\\mathbf{a}|},\\quad \\cos\\beta = \\frac{a_2}{|\\mathbf{a}|},\\quad \\cos\\gamma = \\frac{a_3}{|\\mathbf{a}|}$$\n  \u003cp style=\"margin-top:6px\"\u003eAnd it always holds that $\\cos^2\\alpha+\\cos^2\\beta+\\cos^2\\gamma=1$ (because $\\frac{a_1^2+a_2^2+a_3^2}{|\\mathbf{a}|^2}=1$).\u003c/p\u003e\n  \u003cp\u003eThe vector of direction cosines $\\langle\\cos\\alpha,\\cos\\beta,\\cos\\gamma\\rangle$ is exactly the unit vector in the direction of $\\mathbf{a}$.\u003c/p\u003e",
+"b021": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eThe scalar projection is the \"shadow length\" of $\\mathbf{a}$ in the direction of $\\mathbf{b}$. From the geometric formula $\\mathbf{a}\\cdot\\mathbf{b}=|\\mathbf{a}||\\mathbf{b}|\\cos\\theta$, solve for $|\\mathbf{a}|\\cos\\theta = \\frac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{b}|}$. This is the signed length of the shadow.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe vector projection = scalar projection × unit vector in the direction of $\\mathbf{b}$. That is, $\\text{proj}_{\\mathbf{b}}\\mathbf{a} = \\left(\\frac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{b}|}\\right)\\cdot\\frac{\\mathbf{b}}{|\\mathbf{b}|} = \\frac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{b}|^2}\\mathbf{b}$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b022": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eThe scalar projection $\\text{comp}_{\\mathbf{b}}\\mathbf{a}$ is a \u003cstrong\u003enumber\u003c/strong\u003e (can be positive or negative)\u003c/li\u003e\n    \u003cli\u003eThe vector projection $\\text{proj}_{\\mathbf{b}}\\mathbf{a}$ is a \u003cstrong\u003evector\u003c/strong\u003e (along the direction of $\\mathbf{b}$)\u003c/li\u003e\n    \u003cli\u003e$\\text{comp}_{\\mathbf{b}}\\mathbf{a} \\neq \\text{comp}_{\\mathbf{a}}\\mathbf{b}$ (unless $|\\mathbf{a}|=|\\mathbf{b}|$)\u003c/li\u003e\n    \u003cli\u003eWatch the denominator: the scalar projection divides by $|\\mathbf{b}|$, the vector projection divides by $|\\mathbf{b}|^2$\u003c/li\u003e\n  \u003c/ul\u003e",
+"b023": "  \u003cp\u003eThe work done by a constant force $\\mathbf{F}$ displacing an object by $\\mathbf{D}$:\n  $$W = \\mathbf{F}\\cdot\\mathbf{D} = |\\mathbf{F}||\\mathbf{D}|\\cos\\theta$$\u003c/p\u003e\n  \u003cp style=\"margin-top:6px\"\u003ewhere $\\theta$ is the angle between the force and the displacement. Only the component of the force along the displacement does work.\u003c/p\u003e",
+"b024": "Force $\\mathbf{F}=\\langle3,4\\rangle$ N, displacement $\\mathbf{D}=\\langle5,0\\rangle$ m. Find the work.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $W = \\mathbf{F}\\cdot\\mathbf{D} = 3(5)+4(0) = 15$ J.\u003c/p\u003e\n  \u003cp\u003ePhysical intuition: the horizontal component of 3 N pushes the object 5 m, doing 15 J; the vertical component of 4 N does no work (since the displacement is horizontal).\u003c/p\u003e",
+"b025": "Computing determinants (2×2 and 3×3), the geometric meaning of the dot product, and the idea of perpendicular vectors. The cross product is the second kind of \"multiplication\" of vectors: its result is a \u003cstrong\u003evector\u003c/strong\u003e, and it is only defined in 3D space.",
+"b026": "  \u003cp\u003eExpand the 3×3 determinant along the first row:\u003c/p\u003e\n  $$\\mathbf{a}\\times\\mathbf{b} = \\mathbf{i}\\begin{vmatrix}a_2&a_3\\\\b_2&b_3\\end{vmatrix} - \\mathbf{j}\\begin{vmatrix}a_1&a_3\\\\b_1&b_3\\end{vmatrix} + \\mathbf{k}\\begin{vmatrix}a_1&a_2\\\\b_1&b_2\\end{vmatrix}$$\n  $$= \\mathbf{i}(a_2b_3-a_3b_2) - \\mathbf{j}(a_1b_3-a_3b_1) + \\mathbf{k}(a_1b_2-a_2b_1)$$\n  $$= \\langle a_2b_3-a_3b_2,\\; a_3b_1-a_1b_3,\\; a_1b_2-a_2b_1\\rangle$$\n  \u003cp style=\"margin-top:6px\"\u003e\u003cstrong\u003eMind the minus sign on the j-component!\u003c/strong\u003e This is the easiest place to make a mistake. The middle term is subtracted during expansion.\u003c/p\u003e",
+"b027": "$\\mathbf{a}=\\langle1,3,4\\rangle$, $\\mathbf{b}=\\langle2,7,-5\\rangle$. Find $\\mathbf{a}\\times\\mathbf{b}$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e\u003c/p\u003e\n  $$\\mathbf{a}\\times\\mathbf{b} = \\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\1&3&4\\\\2&7&-5\\end{vmatrix} = \\mathbf{i}(3(-5)-4\\cdot7) - \\mathbf{j}(1(-5)-4\\cdot2) + \\mathbf{k}(1\\cdot7-3\\cdot2)$$\n  $$= \\mathbf{i}(-15-28) - \\mathbf{j}(-5-8) + \\mathbf{k}(7-6) = -43\\mathbf{i}+13\\mathbf{j}+\\mathbf{k} = \\langle-43,13,1\\rangle$$",
+"b028": "Just verify $(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{a}=0$ and $(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{b}=0$.\n  \u003cp\u003e$(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{a} = (a_2b_3-a_3b_2)a_1 + (a_3b_1-a_1b_3)a_2 + (a_1b_2-a_2b_1)a_3$\u003c/p\u003e\n  $= a_1a_2b_3 - a_1a_3b_2 + a_2a_3b_1 - a_1a_2b_3 + a_1a_3b_2 - a_2a_3b_1 = 0$.\n  \u003cp\u003eAll the terms cancel in pairs. The dot product with $\\mathbf{b}$ is shown to be 0 in the same way.\u003c/p\u003e",
+"b029": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003e$|\\mathbf{a}\\times\\mathbf{b}|^2 = (a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+(a_1b_2-a_2b_1)^2$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eExpand and rearrange (this step is usually just stated in the textbook): $= (a_1^2+a_2^2+a_3^2)(b_1^2+b_2^2+b_3^2) - (a_1b_1+a_2b_2+a_3b_3)^2$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThat is, $= |\\mathbf{a}|^2|\\mathbf{b}|^2 - (\\mathbf{a}\\cdot\\mathbf{b})^2$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSubstitute the geometric formula $\\mathbf{a}\\cdot\\mathbf{b}=|\\mathbf{a}||\\mathbf{b}|\\cos\\theta$:\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$= |\\mathbf{a}|^2|\\mathbf{b}|^2 - |\\mathbf{a}|^2|\\mathbf{b}|^2\\cos^2\\theta = |\\mathbf{a}|^2|\\mathbf{b}|^2(1-\\cos^2\\theta) = |\\mathbf{a}|^2|\\mathbf{b}|^2\\sin^2\\theta$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSince $0\\leq\\theta\\leq\\pi$, $\\sin\\theta\\geq0$, so taking the square root gives $|\\mathbf{a}\\times\\mathbf{b}|=|\\mathbf{a}||\\mathbf{b}|\\sin\\theta$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b030": "$|\\mathbf{a}\\times\\mathbf{b}|$ equals the \u003cstrong\u003earea of the parallelogram\u003c/strong\u003e with $\\mathbf{a}$ and $\\mathbf{b}$ as adjacent sides.\n  \u003cp\u003eBecause the area of a parallelogram = base × height = $|\\mathbf{a}| \\times (|\\mathbf{b}|\\sin\\theta) = |\\mathbf{a}||\\mathbf{b}|\\sin\\theta$.\u003c/p\u003e\n  \u003cp\u003eThe area of the triangle is $\\frac{1}{2}|\\mathbf{a}\\times\\mathbf{b}|$.\u003c/p\u003e",
+"b031": "$\\mathbf{a}\\times\\mathbf{b} = -\\mathbf{b}\\times\\mathbf{a}$. Swapping the order gives a vector in the opposite direction. This is completely different from the dot product (where commutativity holds).",
+"b032": "Following the cyclic order $\\mathbf{i}\\to\\mathbf{j}\\to\\mathbf{k}\\to\\mathbf{i}$, the cross product of any two adjacent ones equals the next one. Going backwards adds a minus sign.",
+"b033": "The absolute value of the scalar triple product $|\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c})|$ equals the \u003cstrong\u003evolume of the parallelepiped\u003c/strong\u003e with $\\mathbf{a},\\mathbf{b},\\mathbf{c}$ as adjacent edges.\n  \u003cp\u003eVolume = base area × height = $|\\mathbf{b}\\times\\mathbf{c}| \\times |\\mathbf{a}|\\cos\\phi = |\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c})|$, where $\\phi$ is the angle between $\\mathbf{a}$ and the normal vector $\\mathbf{b}\\times\\mathbf{c}$.\u003c/p\u003e",
+"b034": "  $$\\mathbf{a}\\times(\\mathbf{b}\\times\\mathbf{c}) = \\mathbf{b}(\\mathbf{a}\\cdot\\mathbf{c}) - \\mathbf{c}(\\mathbf{a}\\cdot\\mathbf{b})$$\n  \u003cp style=\"margin-top:6px\"\u003eMnemonic \"BAC minus CAB\": = B(A·C) - C(A·B). This formula will be used when deriving Kepler's laws in Chapter 13.\u003c/p\u003e",
+"b035": "Parametric representation of vectors, dot product, cross product, and the idea of a normal vector. The 2D idea of a line $y=mx+b$ needs to be extended in 3D — in space a line cannot be described by a single equation; it needs parametric equations or symmetric equations.",
+"b036": "The line through $P_0(x_0,y_0,z_0)$ with direction vector $\\mathbf{v}=\\langle a,b,c\\rangle$:\n  $$\\mathbf{r} = \\mathbf{r}_0 + t\\mathbf{v}$$\n  where $\\mathbf{r}=\\langle x,y,z\\rangle$ is the position vector of a moving point on the line, $\\mathbf{r}_0=\\langle x_0,y_0,z_0\\rangle$, and $t\\in\\mathbb{R}$ is the parameter.",
+"b037": "  \u003cp\u003eWhen $t=0$, $\\mathbf{r}=\\mathbf{r}_0$, i.e., the starting point $P_0$. As $t$ varies, $t\\mathbf{v}$ is the displacement along the direction $\\mathbf{v}$, so $\\mathbf{r}_0+t\\mathbf{v}$ traces out all points through $P_0$ in the direction of $\\mathbf{v}$. This is exactly the same idea as \"point + direction determines a line\" in 2D, just with one more z-component.\u003c/p\u003e",
+"b038": "  $$x = x_0+at,\\quad y = y_0+bt,\\quad z = z_0+ct$$\n  \u003cp style=\"margin-top:8px\"\u003e\u003cstrong\u003eSymmetric equations:\u003c/strong\u003e (when $a,b,c$ are all nonzero)\u003c/p\u003e\n  $$\\frac{x-x_0}{a} = \\frac{y-y_0}{b} = \\frac{z-z_0}{c}$$",
+"b039": "Solve the parametric equations for $t=\\frac{x-x_0}{a}=\\frac{y-y_0}{b}=\\frac{z-z_0}{c}$. All three fractions equal the same parameter $t$, so they are equal to each other. \u003cstrong\u003eIf one direction component is 0\u003c/strong\u003e (say $a=0$), the corresponding coordinate $x=x_0$ stays constant, and the symmetric equations are written as $x=x_0,\\;\\frac{y-y_0}{b}=\\frac{z-z_0}{c}$.",
+"b040": "Find the parametric and symmetric equations of the line through $A(2,4,-3)$ and $B(3,-1,1)$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e direction vector $\\mathbf{v}=\\vec{AB}=\\langle3-2,-1-4,1-(-3)\\rangle=\\langle1,-5,4\\rangle$.\u003c/p\u003e\n  \u003cp\u003eParametric equations: $x=2+t,\\;y=4-5t,\\;z=-3+4t$\u003c/p\u003e\n  \u003cp\u003eSymmetric equations: $\\frac{x-2}{1}=\\frac{y-4}{-5}=\\frac{z+3}{4}$\u003c/p\u003e",
+"b041": "The plane through $P_0(x_0,y_0,z_0)$ with normal vector $\\mathbf{n}=\\langle a,b,c\\rangle$:\n  $$\\mathbf{n}\\cdot(\\mathbf{r}-\\mathbf{r}_0)=0$$\n  \u003cp style=\"margin-top:8px\"\u003e\u003cstrong\u003eScalar (point-normal) equation:\u003c/strong\u003e\u003c/p\u003e\n  $$a(x-x_0)+b(y-y_0)+c(z-z_0)=0$$\n  \u003cp style=\"margin-top:8px\"\u003e\u003cstrong\u003eGeneral form:\u003c/strong\u003e\u003c/p\u003e\n  $$ax+by+cz+d=0,\\quad \\text{where } d=-(ax_0+by_0+cz_0)$$",
+"b042": "  \u003cp\u003eLet $P(x,y,z)$ be any point on the plane. Then the vector $\\vec{P_0P}=\\mathbf{r}-\\mathbf{r}_0$ lies in the plane. The normal vector $\\mathbf{n}$ is perpendicular to the plane, so $\\mathbf{n}\\perp(\\mathbf{r}-\\mathbf{r}_0)$. By the perpendicularity test, $\\mathbf{n}\\cdot(\\mathbf{r}-\\mathbf{r}_0)=0$.\u003c/p\u003e",
+"b043": "Find the equation of the plane through $P(1,3,2)$, $Q(3,-1,6)$, and $R(5,2,0)$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e\u003c/p\u003e\n  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eFind two vectors in the plane: $\\vec{PQ}=\\langle2,-4,4\\rangle$, $\\vec{PR}=\\langle4,-1,-2\\rangle$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe normal vector is the cross product of the two vectors: $\\mathbf{n}=\\vec{PQ}\\times\\vec{PR} = \\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&-4&4\\\\4&-1&-2\\end{vmatrix} = \\langle12,20,14\\rangle$, which can be simplified to $\\langle6,10,7\\rangle$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eUse point $P(1,3,2)$ and the normal vector: $6(x-1)+10(y-3)+7(z-2)=0$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSimplify: $6x+10y+7z-50=0$\u003c/div\u003e\n  \u003c/div\u003e",
+"b044": "The distance from point $P_1(x_1,y_1,z_1)$ to the plane $ax+by+cz+d=0$ is\n  $$D = \\frac{|ax_1+by_1+cz_1+d|}{\\sqrt{a^2+b^2+c^2}}$$",
+"b045": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eLet $P_0(x_0,y_0,z_0)$ be any point on the plane; then $ax_0+by_0+cz_0+d=0$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe vector $\\vec{P_0P_1}=\\langle x_1-x_0,y_1-y_0,z_1-z_0\\rangle$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe distance from the point to the plane = the absolute value of the scalar projection of $\\vec{P_0P_1}$ onto the normal vector $\\mathbf{n}=\\langle a,b,c\\rangle$:\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$D = |\\text{comp}_{\\mathbf{n}}\\vec{P_0P_1}| = \\frac{|\\mathbf{n}\\cdot\\vec{P_0P_1}|}{|\\mathbf{n}|}$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eCompute the numerator: $\\mathbf{n}\\cdot\\vec{P_0P_1} = a(x_1-x_0)+b(y_1-y_0)+c(z_1-z_0) = (ax_1+by_1+cz_1)-(ax_0+by_0+cz_0)$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSince $ax_0+by_0+cz_0=-d$, the numerator $= ax_1+by_1+cz_1+d$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eTherefore $D = \\frac{|ax_1+by_1+cz_1+d|}{\\sqrt{a^2+b^2+c^2}}$.\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cp\u003e\u003cstrong\u003eKey idea:\u003c/strong\u003e the distance from a point to a plane is the length of the projection of the vector onto the normal direction. This is completely analogous to the point-to-line distance formula in 2D.\u003c/p\u003e",
+"b046": "Let the direction vectors of the two lines be $\\mathbf{v}_1,\\mathbf{v}_2$, and choose one point on each line, $P_1$ and $P_2$. Then\n  $$D = \\frac{|\\vec{P_1P_2}\\cdot(\\mathbf{v}_1\\times\\mathbf{v}_2)|}{|\\mathbf{v}_1\\times\\mathbf{v}_2|}$$",
+"b047": "Standard equations and graphs of conic sections (ellipse, hyperbola, parabola), the 3D coordinate system, and the idea of \"traces\". The core of this section is learning to analyze 3D surfaces using \u003cstrong\u003etraces\u003c/strong\u003e — cutting the surface with coordinate planes or parallel planes and seeing what shape the intersection is.",
+"b048": "  \u003cul style=\"margin-left:20px;margin-top:6px\"\u003e\n    \u003cli\u003e$z=x^2$: missing $y$ → generatrices are parallel to the y-axis; the directrix is the parabola $z=x^2$ in the xz-plane\u003c/li\u003e\n    \u003cli\u003e$x^2+y^2=1$: missing $z$ → generatrices are parallel to the z-axis; the directrix is the unit circle in the xy-plane (a circular cylinder)\u003c/li\u003e\n    \u003cli\u003e$y^2-z^2=1$: missing $x$ → generatrices are parallel to the x-axis; the directrix is a hyperbola in the yz-plane\u003c/li\u003e\n  \u003c/ul\u003e",
+"b049": "$x^2+y^2=1$ is a \u003cstrong\u003ecircle\u003c/strong\u003e (a curve) in 2D, but in 3D it is a \u003cstrong\u003ecylindrical surface\u003c/strong\u003e! Because z can take any value, the circle extends infinitely along the z-axis.",
+"b050": "To visualize a 3D surface, set $x=k$, $y=k$, and $z=k$ (with $k$ constant) in turn, look at the curves cut out by the planes parallel to each coordinate plane (the traces), and then mentally piece them together.",
+"b051": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003e\u003cstrong\u003eThree positive square terms, right side = 1\u003c/strong\u003e → ellipsoid\u003c/li\u003e\n    \u003cli\u003e\u003cstrong\u003eTwo positive, one negative, right side = 1\u003c/strong\u003e → hyperboloid of one sheet (the axis with the minus sign is the \"waist\" direction)\u003c/li\u003e\n    \u003cli\u003e\u003cstrong\u003eTwo negative, one positive, right side = 1\u003c/strong\u003e → hyperboloid of two sheets (the axis with the plus sign is the \"two sheets\" direction)\u003c/li\u003e\n    \u003cli\u003e\u003cstrong\u003eRight side = 0\u003c/strong\u003e → cone\u003c/li\u003e\n    \u003cli\u003e\u003cstrong\u003eOne linear term + two positive square terms\u003c/strong\u003e → elliptic paraboloid (bowl-shaped)\u003c/li\u003e\n    \u003cli\u003e\u003cstrong\u003eOne linear term + one positive and one negative square term\u003c/strong\u003e → hyperbolic paraboloid (saddle-shaped)\u003c/li\u003e\n  \u003c/ul\u003e",
+"b052": "Analyze $z=4x^2+y^2$ using the method of traces.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e This is an elliptic paraboloid (one linear term z, two positive square terms).\u003c/p\u003e\n  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eSet $z=k$ ($k\\geq0$): $4x^2+y^2=k$, an ellipse. When $k=0$ it degenerates to the origin.\u003c/li\u003e\n    \u003cli\u003eSet $x=k$: $z=4k^2+y^2$, a parabola (opening upward).\u003c/li\u003e\n    \u003cli\u003eSet $y=k$: $z=4x^2+k^2$, a parabola (opening upward).\u003c/li\u003e\n  \u003c/ul\u003e\n  \u003cp\u003ePutting them together: a \"bowl\" opening upward, whose horizontal cross-sections are ellipses that grow larger.\u003c/p\u003e",
+"b053": "Component form of vectors (Chapter 12), parametric equations (in 2D: $x=f(t), y=g(t)$), and the concepts of limits and continuity of functions. A vector function is a function that \"takes a number as input and outputs a vector\".",
+"b054": "$\\mathbf{r}(t)=\\langle t^3,\\ln(3-t),\\sqrt{t}\\rangle$. Find the domain.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $t^3$ is defined for all $t\\in\\mathbb{R}$; $\\ln(3-t)$ requires $t\u003c3$; $\\sqrt{t}$ requires $t\\geq0$. The intersection is $[0,3)$.\u003c/p\u003e",
+"b055": "$\\lim_{t\\to a}\\mathbf{r}(t) = \\langle \\lim_{t\\to a}f(t),\\,\\lim_{t\\to a}g(t),\\,\\lim_{t\\to a}h(t)\\rangle$\n  \u003cp\u003eThat is, \u003cstrong\u003etake the limit of each component separately\u003c/strong\u003e.\u003c/p\u003e",
+"b056": "$\\mathbf{r}(t)=\\langle1+t,2+5t,-1+6t\\rangle$ is a line in space. The parametric equations are $x=1+t,y=2+5t,z=-1+6t$; eliminating $t$ gives the symmetric equations $\\frac{x-1}{1}=\\frac{y-2}{5}=\\frac{z+1}{6}$.",
+"b057": "$\\mathbf{r}(t)=\\cos t\\,\\mathbf{i}+\\sin t\\,\\mathbf{j}+t\\,\\mathbf{k}$\n  \u003cp\u003eParametric equations: $x=\\cos t,\\;y=\\sin t,\\;z=t$.\u003c/p\u003e\n  \u003cp\u003e$x^2+y^2=\\cos^2t+\\sin^2t=1$, so the curve lies on the cylinder $x^2+y^2=1$. As $t$ increases, $z=t$ grows linearly, so the point rises while circling the cylinder — forming a helix.\u003c/p\u003e",
+"b058": "The derivative definition for single-variable functions $f'(a)=\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$, the geometric meaning of the derivative (slope of the tangent line), and the definition of integrals and the Fundamental Theorem of Calculus. The calculus of vector functions is simply \u003cstrong\u003ecalculus applied to each component separately\u003c/strong\u003e.",
+"b059": "  $\\mathbf{r}'(t) = \\lim_{h\\to0}\\frac{\\langle f(t+h)-f(t),\\,g(t+h)-g(t),\\,h(t+h)-h(t)\\rangle}{h}$\n  $= \\langle \\lim_{h\\to0}\\frac{f(t+h)-f(t)}{h},\\,\\ldots\\rangle = \\langle f'(t),g'(t),h'(t)\\rangle$.\n  The limit of a vector is the vector of the limits of its components, so we can simply split it apart.",
+"b060": "The tangent line to the curve at $t=t_0$ (through the point $\\mathbf{r}(t_0)$, in the direction $\\mathbf{r}'(t_0)$):\n  $$\\mathbf{l}(s) = \\mathbf{r}(t_0) + s\\,\\mathbf{r}'(t_0)$$\n  \u003cp\u003eUnit tangent vector: $\\mathbf{T}(t) = \\frac{\\mathbf{r}'(t)}{|\\mathbf{r}'(t)|}$\u003c/p\u003e",
+"b061": "Find the tangent line to the helix $\\mathbf{r}(t)=\\langle2\\cos t,\\sin t,t\\rangle$ at the point $(0,1,\\pi/2)$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e The point $(0,1,\\pi/2)$ corresponds to $t=\\pi/2$.\u003c/p\u003e\n  \u003cp\u003e$\\mathbf{r}'(t)=\\langle-2\\sin t,\\cos t,1\\rangle$, so $\\mathbf{r}'(\\pi/2)=\\langle-2,0,1\\rangle$.\u003c/p\u003e\n  \u003cp\u003eTangent line: $\\mathbf{l}(s)=\\langle0,1,\\pi/2\\rangle+s\\langle-2,0,1\\rangle = \\langle-2s,\\,1,\\,\\pi/2+s\\rangle$.\u003c/p\u003e",
+"b062": "The cross product does not satisfy commutativity, so in $\\mathbf{u}'\\times\\mathbf{v}+\\mathbf{u}\\times\\mathbf{v}'$ the two terms cannot be swapped. $\\mathbf{u}\\times\\mathbf{v}' \\neq \\mathbf{v}'\\times\\mathbf{u}$.",
+"b063": "  \u003cp\u003eLet $\\mathbf{u}=\\langle u_1,u_2,u_3\\rangle$ and $\\mathbf{v}=\\langle v_1,v_2,v_3\\rangle$. Then $\\mathbf{u}\\cdot\\mathbf{v}=u_1v_1+u_2v_2+u_3v_3$.\u003c/p\u003e\n  \u003cp\u003e$\\frac{d}{dt}(\\mathbf{u}\\cdot\\mathbf{v}) = u_1'v_1+u_1v_1'+u_2'v_2+u_2v_2'+u_3'v_3+u_3v_3'$\u003c/p\u003e\n  \u003cp\u003e$= (u_1'v_1+u_2'v_2+u_3'v_3)+(u_1v_1'+u_2v_2'+u_3v_3') = \\mathbf{u}'\\cdot\\mathbf{v}+\\mathbf{u}\\cdot\\mathbf{v}'$.\u003c/p\u003e",
+"b064": "$|\\mathbf{r}|^2=\\mathbf{r}\\cdot\\mathbf{r}=c^2$. Differentiating both sides: $2\\mathbf{r}\\cdot\\mathbf{r}'=0$, so $\\mathbf{r}\\cdot\\mathbf{r}'=0$.\n  \u003cp\u003e\u003cstrong\u003ePhysical meaning:\u003c/strong\u003e an object in uniform circular motion has a position vector of constant length, and its velocity vector is perpendicular to its position vector. That is exactly the signature of circular motion!\u003c/p\u003e",
+"b065": "  $$\\int \\mathbf{r}(t)\\,dt = \\left(\\int f(t)\\,dt\\right)\\mathbf{i} + \\left(\\int g(t)\\,dt\\right)\\mathbf{j} + \\left(\\int h(t)\\,dt\\right)\\mathbf{k} + \\mathbf{C}$$\n  \u003cp style=\"margin-top:8px\"\u003e\u003cstrong\u003eDefinite integral (Fundamental Theorem of Calculus):\u003c/strong\u003e\u003c/p\u003e\n  $$\\int_a^b \\mathbf{r}(t)\\,dt = \\mathbf{R}(b)-\\mathbf{R}(a)$$\n  where $\\mathbf{R}(t)$ is an antiderivative of $\\mathbf{r}(t)$ (integrate each component separately).",
+"b066": "$\\mathbf{r}(t)=2\\cos t\\,\\mathbf{i}+\\sin t\\,\\mathbf{j}+2t\\,\\mathbf{k}$. Find $\\int\\mathbf{r}(t)\\,dt$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $\\int\\mathbf{r}(t)\\,dt = 2\\sin t\\,\\mathbf{i} - \\cos t\\,\\mathbf{j} + t^2\\mathbf{k} + \\mathbf{C}$.\u003c/p\u003e",
+"b067": "The arc length formula for a 2D parametric curve $L=\\int_a^b\\sqrt{(dx/dt)^2+(dy/dt)^2}\\,dt$, vector magnitude, unit vectors, and the geometric meaning of the derivative. Curvature measures \"how sharply a curve bends\" and is the most abstract concept of this section.",
+"b068": "The arc length of the curve $\\mathbf{r}(t)=\\langle f(t),g(t),h(t)\\rangle$ for $t\\in[a,b]$ is\n  $$L = \\int_a^b |\\mathbf{r}'(t)|\\,dt = \\int_a^b \\sqrt{[f'(t)]^2+[g'(t)]^2+[h'(t)]^2}\\,dt$$",
+"b069": "  \u003cp\u003eThe 2D parametric arc length is $L=\\int_a^b\\sqrt{(dx/dt)^2+(dy/dt)^2}\\,dt$. In 3D we just add one more z-component, so the expression under the square root becomes a sum of three squares.\u003c/p\u003e\n  \u003cp\u003eIn essence: $|\\mathbf{r}'(t)|dt = \\sqrt{(dx)^2+(dy)^2+(dz)^2}$ is the infinitesimal arc length element $ds$; the integral simply adds up all the infinitesimal pieces.\u003c/p\u003e",
+"b070": "Find the arc length of the helix $\\mathbf{r}(t)=\\cos t\\,\\mathbf{i}+\\sin t\\,\\mathbf{j}+t\\,\\mathbf{k}$ from $t=0$ to $t=2\\pi$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $\\mathbf{r}'(t)=\\langle-\\sin t,\\cos t,1\\rangle$, $|\\mathbf{r}'(t)|=\\sqrt{\\sin^2t+\\cos^2t+1}=\\sqrt{2}$.\u003c/p\u003e\n  \u003cp\u003e$L=\\int_0^{2\\pi}\\sqrt{2}\\,dt = 2\\sqrt{2}\\pi$.\u003c/p\u003e",
+"b071": "When using $t$ as the parameter, the description of the curve depends on the \"speed\" (the parametrization). If we switch to the arc length $s$ as the parameter, the description becomes \u003cstrong\u003eindependent of the parametrization\u003c/strong\u003e — geometric quantities like curvature take their simplest form in terms of the arc-length parameter.",
+"b072": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eLine: direction never changes, $\\mathbf{T}$ is constant, $\\kappa=0$\u003c/li\u003e\n    \u003cli\u003eSmall circle: bends sharply, $\\kappa$ is large\u003c/li\u003e\n    \u003cli\u003eLarge circle: bends gently, $\\kappa$ is small\u003c/li\u003e\n    \u003cli\u003eCircle of radius $a$: $\\kappa=1/a$ (the smaller the radius, the larger the curvature)\u003c/li\u003e\n  \u003c/ul\u003e\n  \u003cp style=\"margin-top:6px\"\u003eWe use $d\\mathbf{T}/ds$ rather than $d\\mathbf{T}/dt$ because we want \"how much the direction changes per unit distance traveled\", not \"per unit time\" — the latter depends on the speed of motion.\u003c/p\u003e",
+"b073": "\n  $$\\kappa(t) = \\frac{|\\mathbf{T}'(t)|}{|\\mathbf{r}'(t)|} = \\frac{|\\mathbf{r}'(t)\\times\\mathbf{r}''(t)|}{|\\mathbf{r}'(t)|^3}$$",
+"b074": "  \u003cp\u003e\u003cstrong\u003eFormula 1: $\\kappa=\\frac{|\\mathbf{T}'|}{|\\mathbf{r}'|}$\u003c/strong\u003e\u003c/p\u003e\n  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eBy the chain rule: $\\frac{d\\mathbf{T}}{dt} = \\frac{d\\mathbf{T}}{ds}\\cdot\\frac{ds}{dt}$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSo $\\frac{d\\mathbf{T}}{ds} = \\frac{d\\mathbf{T}/dt}{ds/dt} = \\frac{\\mathbf{T}'(t)}{|\\mathbf{r}'(t)|}$ (since $ds/dt=|\\mathbf{r}'|$)\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eTake magnitudes: $\\kappa = \\left|\\frac{d\\mathbf{T}}{ds}\\right| = \\frac{|\\mathbf{T}'(t)|}{|\\mathbf{r}'(t)|}$\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cp\u003e\u003cstrong\u003eFormula 2: $\\kappa=\\frac{|\\mathbf{r}'\\times\\mathbf{r}''|}{|\\mathbf{r}'|^3}$\u003c/strong\u003e\u003c/p\u003e\n  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003e$\\mathbf{T}=\\frac{\\mathbf{r}'}{|\\mathbf{r}'|}$. Let $v=|\\mathbf{r}'|$; then $\\mathbf{r}'=v\\mathbf{T}$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eDifferentiate: $\\mathbf{r}''=v'\\mathbf{T}+v\\mathbf{T}'$ (product rule).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eCross product: $\\mathbf{r}'\\times\\mathbf{r}'' = (v\\mathbf{T})\\times(v'\\mathbf{T}+v\\mathbf{T}') = vv'(\\mathbf{T}\\times\\mathbf{T}) + v^2(\\mathbf{T}\\times\\mathbf{T}')$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSince $\\mathbf{T}\\times\\mathbf{T}=\\mathbf{0}$, we get $\\mathbf{r}'\\times\\mathbf{r}''=v^2(\\mathbf{T}\\times\\mathbf{T}')$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eTake magnitudes: $|\\mathbf{r}'\\times\\mathbf{r}''|=v^2|\\mathbf{T}\\times\\mathbf{T}'|$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eBecause $\\mathbf{T}$ is a unit vector, from \"a constant-length vector is perpendicular to its derivative\", $\\mathbf{T}\\perp\\mathbf{T}'$, so $|\\mathbf{T}\\times\\mathbf{T}'|=|\\mathbf{T}||\\mathbf{T}'|\\sin(\\pi/2)=|\\mathbf{T}'|$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eHence $|\\mathbf{r}'\\times\\mathbf{r}''|=v^2|\\mathbf{T}'|$, i.e., $|\\mathbf{T}'|=\\frac{|\\mathbf{r}'\\times\\mathbf{r}''|}{v^2}$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSubstitute into Formula 1: $\\kappa=\\frac{|\\mathbf{T}'|}{v}=\\frac{|\\mathbf{r}'\\times\\mathbf{r}''|}{v^3}=\\frac{|\\mathbf{r}'\\times\\mathbf{r}''|}{|\\mathbf{r}'|^3}$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b075": "  \u003cp\u003e\u003cstrong\u003eUnit tangent vector:\u003c/strong\u003e$\\mathbf{T}(t)=\\frac{\\mathbf{r}'(t)}{|\\mathbf{r}'(t)|}$\u003c/p\u003e\n  \u003cp\u003e\u003cstrong\u003eUnit normal vector:\u003c/strong\u003e$\\mathbf{N}(t)=\\frac{\\mathbf{T}'(t)}{|\\mathbf{T}'(t)|}$ (points toward the direction in which the curve bends)\u003c/p\u003e\n  \u003cp\u003e\u003cstrong\u003eBinormal vector:\u003c/strong\u003e$\\mathbf{B}(t)=\\mathbf{T}(t)\\times\\mathbf{N}(t)$ (perpendicular to both $\\mathbf{T}$ and $\\mathbf{N}$)\u003c/p\u003e",
+"b076": "$\\mathbf{T},\\mathbf{N},\\mathbf{B}$ are three mutually perpendicular unit vectors that form a moving coordinate frame along the curve.\n  \u003cul style=\"margin-left:20px;margin-top:4px\"\u003e\n    \u003cli\u003e$\\mathbf{T}$: the direction of motion\u003c/li\u003e\n    \u003cli\u003e$\\mathbf{N}$: the direction of turning (the direction in which the curve bends)\u003c/li\u003e\n    \u003cli\u003e$\\mathbf{B}$: the direction perpendicular to the plane of motion\u003c/li\u003e\n  \u003c/ul\u003e\n  \u003cp\u003e$\\mathbf{T}\\times\\mathbf{N}=\\mathbf{B}$, $\\mathbf{N}\\times\\mathbf{B}=\\mathbf{T}$, $\\mathbf{B}\\times\\mathbf{T}=\\mathbf{N}$ (right-handed).\u003c/p\u003e",
+"b077": "Derivatives and integrals of vector functions (13.2), Newton's second law $F=ma$, and the basic concepts of kinematics. This section is a direct application of vector calculus to physics.",
+"b078": "  \u003cp\u003eLet the position vector of a particle be $\\mathbf{r}(t)$:\u003c/p\u003e\n  \u003cp\u003e\u003cstrong\u003eVelocity:\u003c/strong\u003e$\\mathbf{v}(t)=\\mathbf{r}'(t)$ (a vector, pointing along the tangent)\u003c/p\u003e\n  \u003cp\u003e\u003cstrong\u003eAcceleration:\u003c/strong\u003e$\\mathbf{a}(t)=\\mathbf{v}'(t)=\\mathbf{r}''(t)$ (a vector)\u003c/p\u003e\n  \u003cp\u003e\u003cstrong\u003eSpeed:\u003c/strong\u003e$|\\mathbf{v}(t)|=|\\mathbf{r}'(t)|=\\frac{ds}{dt}$ (a scalar, the magnitude of velocity)\u003c/p\u003e",
+"b079": "$\\mathbf{r}(t)=\\langle t^2,e^t,te^t\\rangle$. Find the velocity, acceleration, and speed at $t=1$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $\\mathbf{v}(t)=\\langle2t,e^t,(1+t)e^t\\rangle$, $\\mathbf{v}(1)=\\langle2,e,2e\\rangle$.\u003c/p\u003e\n  \u003cp\u003e$\\mathbf{a}(t)=\\langle2,e^t,(2+t)e^t\\rangle$, $\\mathbf{a}(1)=\\langle2,e,3e\\rangle$.\u003c/p\u003e\n  \u003cp\u003eSpeed $|\\mathbf{v}(1)|=\\sqrt{4+e^2+4e^2}=\\sqrt{4+5e^2}$.\u003c/p\u003e",
+"b080": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eSet up coordinates: origin at the launch point, x-axis horizontal, y-axis upward. Acceleration $\\mathbf{a}(t)=-g\\mathbf{j}=\\langle0,-g\\rangle$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eIntegrate to get velocity: $\\mathbf{v}(t)=\\int\\mathbf{a}\\,dt = \\langle0,-gt\\rangle+\\mathbf{v}_0$. Let the initial speed be $v_0$ and the launch angle be $\\alpha$; then $\\mathbf{v}_0=\\langle v_0\\cos\\alpha,\\,v_0\\sin\\alpha\\rangle$. So $\\mathbf{v}(t)=\\langle v_0\\cos\\alpha,\\,v_0\\sin\\alpha-gt\\rangle$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eIntegrate to get position: $\\mathbf{r}(t)=\\int\\mathbf{v}\\,dt = \\langle v_0\\cos\\alpha\\cdot t,\\;v_0\\sin\\alpha\\cdot t-\\frac{1}{2}gt^2\\rangle$ (initial position is the origin).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eParametric equations: $x(t)=(v_0\\cos\\alpha)t$, $y(t)=(v_0\\sin\\alpha)t-\\frac{1}{2}gt^2$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eEliminate the parameter $t$ (substitute $t=\\frac{x}{v_0\\cos\\alpha}$ into y): $y=(\\tan\\alpha)x-\\frac{g}{2v_0^2\\cos^2\\alpha}x^2$, a parabola.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eTime of flight: set $y=0$, $t=\\frac{2v_0\\sin\\alpha}{g}$ ($t=0$ is the launch instant).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eRange (horizontal distance): $R=x(T)=v_0\\cos\\alpha\\cdot\\frac{2v_0\\sin\\alpha}{g}=\\frac{v_0^2\\sin2\\alpha}{g}$. The range is maximal when $\\alpha=45°$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eMaximum height: at the highest point the vertical velocity is 0, so $v_0\\sin\\alpha-gt=0\\Rightarrow t=\\frac{v_0\\sin\\alpha}{g}$, and $y_{\\max}=\\frac{v_0^2\\sin^2\\alpha}{2g}$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b081": "  $$\\mathbf{a} = a_T\\mathbf{T} + a_N\\mathbf{N}$$\n  \u003cp style=\"margin-top:6px\"\u003ewhere:\u003c/p\u003e\n  $$a_T = v' = \\frac{\\mathbf{r}'\\cdot\\mathbf{r}''}{|\\mathbf{r}'|} \\quad \\text{(tangential component = rate of change of speed)}$$\n  $$a_N = \\kappa v^2 = \\frac{|\\mathbf{r}'\\times\\mathbf{r}''|}{|\\mathbf{r}'|} \\quad \\text{(normal component = centripetal acceleration)}$$",
+"b082": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003e$\\mathbf{v}=v\\mathbf{T}$, where $v=|\\mathbf{v}|$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$\\mathbf{a}=\\frac{d\\mathbf{v}}{dt}=v'\\mathbf{T}+v\\mathbf{T}'$ (product rule).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$\\mathbf{T}'=\\frac{d\\mathbf{T}}{ds}\\cdot\\frac{ds}{dt}=\\kappa\\mathbf{N}\\cdot v$ (because $\\frac{d\\mathbf{T}}{ds}=\\kappa\\mathbf{N}$, pointing along the normal).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSo $\\mathbf{a}=v'\\mathbf{T}+v(\\kappa v\\mathbf{N})=v'\\mathbf{T}+\\kappa v^2\\mathbf{N}$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eTherefore $a_T=v'$ and $a_N=\\kappa v^2$.\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cp\u003e\u003cstrong\u003ePhysical meaning:\u003c/strong\u003e the tangential component $a_T$ changes the magnitude of the speed (speeding up/slowing down), while the normal component $a_N$ changes the direction of the velocity (turning). In uniform circular motion $a_T=0$ and $a_N=v^2/r$ (centripetal acceleration).\u003c/p\u003e",
+"b083": "$a_T$ can be computed directly with $\\frac{\\mathbf{r}'\\cdot\\mathbf{r}''}{|\\mathbf{r}'|}$ (no need to find $\\mathbf{T}$ first). $a_N$ can be computed with $\\sqrt{|\\mathbf{a}|^2-a_T^2}$ or $\\frac{|\\mathbf{r}'\\times\\mathbf{r}''|}{|\\mathbf{r}'|}$.",
+"b084": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003ePut the Sun at the origin and let the planet's position vector be $\\mathbf{r}$. Gravity is $\\mathbf{F}=-\\frac{GMm}{r^3}\\mathbf{r}$ (along $-\\mathbf{r}$, a central force).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eTorque $\\boldsymbol{\\tau}=\\mathbf{r}\\times\\mathbf{F}=\\mathbf{r}\\times(-\\frac{GMm}{r^3}\\mathbf{r})=\\mathbf{0}$ (because $\\mathbf{r}\\times\\mathbf{r}=\\mathbf{0}$).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eAngular momentum $\\mathbf{L}=\\mathbf{r}\\times m\\mathbf{v}$, so $\\frac{d\\mathbf{L}}{dt}=\\mathbf{v}\\times m\\mathbf{v}+\\mathbf{r}\\times m\\mathbf{a}=\\mathbf{0}+\\mathbf{r}\\times\\mathbf{F}=\\boldsymbol{\\tau}=\\mathbf{0}$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThus the angular momentum $\\mathbf{L}$ is a constant vector, and the planet moves in a fixed plane.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eAreal velocity: $\\frac{dA}{dt}=\\frac{1}{2}|\\mathbf{r}\\times\\mathbf{v}|=\\frac{|\\mathbf{L}|}{2m}=$ constant. This is Kepler's Second Law.\u003c/div\u003e\n  \u003c/div\u003e",
+"b085": "Definition of single-variable functions $y=f(x)$, domain and range, and graphs (2D curves). A multivariable function takes several numbers as input and outputs one number. The most common type is a function of two variables $z=f(x,y)$.",
+"b086": "$f(x,y)=\\sqrt{9-x^2-y^2}$. Find the domain and range.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e the domain requires $9-x^2-y^2\\geq0$, i.e., $x^2+y^2\\leq9$: the closed disk in the xy-plane centered at the origin with radius 3.\u003c/p\u003e\n  \u003cp\u003eRange: $0\\leq\\sqrt{9-x^2-y^2}\\leq3$, i.e., $[0,3]$.\u003c/p\u003e",
+"b087": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003e$f(x,y)=ax+by+c$ → a plane\u003c/li\u003e\n    \u003cli\u003e$f(x,y)=\\sqrt{R^2-x^2-y^2}$ → upper hemisphere\u003c/li\u003e\n    \u003cli\u003e$f(x,y)=x^2+y^2$ → elliptic paraboloid (paraboloid of revolution)\u003c/li\u003e\n    \u003cli\u003e$f(x,y)=y^2-x^2$ → hyperbolic paraboloid (saddle surface)\u003c/li\u003e\n  \u003c/ul\u003e",
+"b088": "Just like contour lines on a map — the denser the adjacent level curves, the steeper the terrain (the faster the function changes); the sparser, the gentler. The shape of the level curves reflects the \"topography\" of the surface.",
+"b089": "The level curves of $f(x,y)=6-3x-2y$ are $6-3x-2y=k$, i.e., $3x+2y=6-k$: a family of parallel lines. This matches the plane $z=6-3x-2y$, whose level curves are naturally parallel lines.",
+"b090": "The $\\epsilon$-$\\delta$ definition of limits for single-variable functions, limit laws, and the definition of continuity. The key difference for multivariable limits: $(x,y)$ can approach $(a,b)$ along \u003cstrong\u003eany path\u003c/strong\u003e, not just from the left and the right.",
+"b091": "  \u003cp\u003eIn one variable, $x\\to a$ has only two directions (left and right). In two variables, $(x,y)\\to(a,b)$ has \u003cstrong\u003einfinitely many paths\u003c/strong\u003e (lines, curves, anything). A limit exists only if the value approached is the same along \u003cstrong\u003eall\u003c/strong\u003e paths.\u003c/p\u003e",
+"b092": "  \u003cp\u003eIf the limit along path $C_1$ is $L_1$, along path $C_2$ is $L_2$, and $L_1\\neq L_2$, then the limit does not exist.\u003c/p\u003e",
+"b093": "Prove that $\\lim_{(x,y)\\to(0,0)}\\frac{x^2-y^2}{x^2+y^2}$ does not exist.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e\u003c/p\u003e\n  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eApproach along the x-axis ($y=0$): $f(x,0)=\\frac{x^2}{x^2}=1$, limit is 1.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eApproach along the y-axis ($x=0$): $f(0,y)=\\frac{-y^2}{y^2}=-1$, limit is -1.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe two paths give different limits (1 ≠ -1), so the limit does not exist.\u003c/div\u003e\n  \u003c/div\u003e",
+"b094": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eGetting the same value along infinitely many lines does NOT guarantee the limit exists! Approaching along some curve may give a different value.\u003c/li\u003e\n    \u003cli\u003eClassic counterexample: $f(x,y)=\\frac{x^2y}{x^4+y^2}$. Along any line $y=mx$ the limit is 0, but along the parabola $y=x^2$ the limit is $\\frac{1}{2}$.\u003c/li\u003e\n    \u003cli\u003eSo \"finding paths to show the limit does not exist\" is a sufficient test, but \"checking many paths that all agree\" is not a proof that the limit exists.\u003c/li\u003e\n  \u003c/ul\u003e",
+"b095": "Find $\\lim_{(x,y)\\to(0,0)}\\frac{xy}{\\sqrt{x^2+y^2}}$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e use the Squeeze Theorem. $0\\leq\\left|\\frac{xy}{\\sqrt{x^2+y^2}}\\right|\\leq\\frac{x^2+y^2}{2\\sqrt{x^2+y^2}}=\\frac{\\sqrt{x^2+y^2}}{2}\\to0$ (using $|xy|\\leq\\frac{x^2+y^2}{2}$). So the limit is 0.\u003c/p\u003e",
+"b096": "Definition and geometric meaning of single-variable derivatives, and the basic differentiation rules. The idea of partial derivatives is simple: when differentiating with respect to one variable, treat all other variables as constants.",
+"b097": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eTo find $f_x$: treat $y$ as a constant and differentiate with respect to $x$\u003c/li\u003e\n    \u003cli\u003eTo find $f_y$: treat $x$ as a constant and differentiate with respect to $y$\u003c/li\u003e\n  \u003c/ul\u003e\n  \u003cp style=\"margin-top:6px\"\u003eNotation: $f_x = \\frac{\\partial f}{\\partial x} = \\frac{\\partial z}{\\partial x} = z_x$, $f_y = \\frac{\\partial f}{\\partial y} = \\frac{\\partial z}{\\partial y} = z_y$. Note we use $\\partial$ instead of $d$, meaning \"partial\".\u003c/p\u003e",
+"b098": "$f(x,y)=x^3+x^2y^3-2y^2$. Find $f_x(2,1)$ and $f_y(2,1)$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $f_x=3x^2+2xy^3$ (treat $y$ as constant), $f_x(2,1)=12+4=16$.\u003c/p\u003e\n  \u003cp\u003e$f_y=3x^2y^2-4y$ (treat $x$ as constant), $f_y(2,1)=12-4=8$.\u003c/p\u003e",
+"b099": "Standing at a point on a hillside, $f_x$ is the slope if you walk east and $f_y$ is the slope if you walk north. Partial derivatives only tell you the rate of change along the coordinate axes.",
+"b100": "Clairaut's theorem requires the mixed partial derivatives to be \u003cstrong\u003econtinuous\u003c/strong\u003e. There are discontinuous counterexamples where $f_{xy}\\neq f_{yx}$, but almost every function we encounter satisfies the continuity condition.",
+"b101": "$f(x,y)=x^3+x^2y^3-2y^2$. Find all second partial derivatives.\n  \u003cp\u003e$f_x=3x^2+2xy^3$, $f_y=3x^2y^2-4y$\u003c/p\u003e\n  \u003cp\u003e$f_{xx}=6x+2y^3$, $f_{xy}=6xy^2$\u003c/p\u003e\n  \u003cp\u003e$f_{yx}=6xy^2$, $f_{yy}=6x^2y-4$\u003c/p\u003e\n  \u003cp\u003eCheck: $f_{xy}=f_{yx}=6xy^2$ ✓\u003c/p\u003e",
+"b102": "The tangent line for single-variable functions $y-y_0=f'(x_0)(x-x_0)$, linear approximation $f(x)\\approx f(x_0)+f'(x_0)(x-x_0)$, and the idea of differentials. The tangent plane is the generalization of the tangent line to three dimensions.",
+"b103": "The tangent plane to the surface $z=f(x,y)$ at the point $P_0(x_0,y_0,z_0)$ (where $z_0=f(x_0,y_0)$) is\n  $$z-z_0 = f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)$$",
+"b104": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eThe curve cut from the surface $z=f(x,y)$ by the plane $y=y_0$ has tangent direction vector $\\langle1,0,f_x(x_0,y_0)\\rangle$ at $P_0$ (the tangent in the x-direction).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe curve cut by the plane $x=x_0$ has tangent direction vector $\\langle0,1,f_y(x_0,y_0)\\rangle$ at $P_0$ (the tangent in the y-direction).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe normal vector of the tangent plane = cross product of the two tangent directions: $\\mathbf{n}=\\langle1,0,f_x\\rangle\\times\\langle0,1,f_y\\rangle=\\langle-f_x,-f_y,1\\rangle$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eBy the point-normal form: $-f_x(x-x_0)-f_y(y-y_0)+1(z-z_0)=0$, which rearranges to $z-z_0=f_x(x-x_0)+f_y(y-y_0)$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b105": "Find the tangent plane to $z=2x^2+y^2$ at $(1,1,3)$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $f_x=4x$, $f_x(1,1)=4$; $f_y=2y$, $f_y(1,1)=2$.\u003c/p\u003e\n  \u003cp\u003eTangent plane: $z-3=4(x-1)+2(y-1)$, i.e., $z=4x+2y-3$.\u003c/p\u003e",
+"b106": "\n  $$f(x,y)\\approx f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$$\n  valid when $(x,y)$ is close to $(x_0,y_0)$. This is replacing the surface with the tangent plane.",
+"b107": "Existence of partial derivatives ≠ differentiability! In one variable, differentiable follows from the derivative existing. But for a function of several variables, the existence of partial derivatives is only a necessary condition, not a sufficient one. The partial derivatives must be \u003cstrong\u003econtinuous\u003c/strong\u003e to guarantee differentiability. This is one of the important differences between multivariable and single-variable calculus.",
+"b108": "  $$dz = f_x(x,y)\\,dx + f_y(x,y)\\,dy = \\frac{\\partial z}{\\partial x}dx + \\frac{\\partial z}{\\partial y}dy$$\n  \u003cp\u003eThe total differential $dz$ is the linear approximation of the increment $\\Delta z$. Here $dx=\\Delta x$, $dy=\\Delta y$.\u003c/p\u003e",
+"b109": "The chain rule for single-variable functions $\\frac{dy}{dx}=\\frac{dy}{du}\\cdot\\frac{du}{dx}$, and computing partial derivatives. The core of the multivariable chain rule: \"each intermediate variable contributes one path, and all paths are added together\".",
+"b110": "  \u003cp\u003e$z$ depends on $x$ and $y$, and both $x$ and $y$ depend on $t$. When $t$ changes, it affects $z$ indirectly through $x$ (contributing $\\frac{\\partial z}{\\partial x}\\frac{dx}{dt}$) and through $y$ (contributing $\\frac{\\partial z}{\\partial y}\\frac{dy}{dt}$). The effects of the two paths add up.\u003c/p\u003e\n  \u003cp\u003eYou can draw a \"dependency tree\": $z$ branches into $x,y$, and each branch connects to $t$. Along each path from $z$ to $t$, multiply the derivatives; then add the different paths.\u003c/p\u003e",
+"b111": "$z=x^2y+3xy^4$, $x=\\sin2t$, $y=\\cos t$. Find $\\frac{dz}{dt}\\big|_{t=0}$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $\\frac{dz}{dt}=(2xy+3y^4)(2\\cos2t)+(x^2+12xy^3)(-\\sin t)$.\u003c/p\u003e\n  \u003cp\u003eAt $t=0$: $x=0,y=1$, so $\\frac{dz}{dt}=(0+3)(2)+(0+0)(0)=6$.\u003c/p\u003e",
+"b112": "  \u003cp\u003eDraw the dependency tree: $z\\to\\{x,y\\}\\to\\{s,t\\}$.\u003c/p\u003e\n  \u003cp\u003eTo find $\\frac{\\partial z}{\\partial s}$, find all paths from $z$ to $s$: $z\\to x\\to s$ and $z\\to y\\to s$. Multiply the partial derivatives along each path, then add the results.\u003c/p\u003e",
+"b113": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eDifferentiate both sides of $F(x,y)=0$ with respect to $x$ (remembering that $y$ is a function of $x$):\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eBy the chain rule: $\\frac{\\partial F}{\\partial x}\\cdot\\frac{dx}{dx}+\\frac{\\partial F}{\\partial y}\\cdot\\frac{dy}{dx}=0$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThat is, $F_x + F_y\\frac{dy}{dx}=0$\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSolve: $\\frac{dy}{dx}=-\\frac{F_x}{F_y}$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b114": "Find $\\frac{dy}{dx}$ for $x^3+y^3=6xy$ (the folium of Descartes).\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e let $F(x,y)=x^3+y^3-6xy=0$. $F_x=3x^2-6y$, $F_y=3y^2-6x$.\u003c/p\u003e\n  \u003cp\u003e$\\frac{dy}{dx}=-\\frac{F_x}{F_y}=-\\frac{3x^2-6y}{3y^2-6x}=\\frac{2y-x^2}{y^2-2x}$.\u003c/p\u003e",
+"b115": "Partial derivatives (which only describe the rate of change along the coordinate axes), the dot product, and unit vectors. The directional derivative generalizes partial derivatives — it describes the rate of change along \u003cstrong\u003eany direction\u003c/strong\u003e. The gradient is the most important concept of this section and runs through everything that follows.",
+"b116": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eDirection $\\mathbf{i}=\\langle1,0\\rangle$: $D_{\\mathbf{i}}f=f_x$\u003c/li\u003e\n    \u003cli\u003eDirection $\\mathbf{j}=\\langle0,1\\rangle$: $D_{\\mathbf{j}}f=f_y$\u003c/li\u003e\n  \u003c/ul\u003e\n  \u003cp\u003ePartial derivatives are special cases of directional derivatives (along the coordinate axes). Directional derivatives generalize partial derivatives (along any direction).\u003c/p\u003e\n  \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e $\\mathbf{u}$ must be a \u003cstrong\u003eunit vector\u003c/strong\u003e! If you are not given a unit vector, normalize it first.\u003c/p\u003e",
+"b117": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eDefine the single-variable function $g(h)=f(x_0+ha,y_0+hb)$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$D_{\\mathbf{u}}f=g'(0)$ (by the definition of the directional derivative).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eBy the chain rule (Case 1): $g'(h)=f_x(x_0+ha,y_0+hb)\\cdot a+f_y(x_0+ha,y_0+hb)\\cdot b$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSet $h=0$: $D_{\\mathbf{u}}f=f_x(x_0,y_0)a+f_y(x_0,y_0)b$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b118": "  $$D_{\\mathbf{u}}f = \\nabla f \\cdot \\mathbf{u}$$\n  \u003cp\u003eThis is the core formula of this section. The directional derivative = the dot product of the gradient vector and the unit direction vector.\u003c/p\u003e",
+"b119": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003e$D_{\\mathbf{u}}f=\\nabla f\\cdot\\mathbf{u}=|\\nabla f||\\mathbf{u}|\\cos\\theta=|\\nabla f|\\cos\\theta$ (since $\\mathbf{u}$ is a unit vector).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eThe maximum of $\\cos\\theta$ is 1 (when $\\theta=0$, i.e., $\\mathbf{u}$ points in the same direction as $\\nabla f$).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eSo the maximum of $D_{\\mathbf{u}}f$ is $|\\nabla f|$, attained when $\\mathbf{u}$ is in the direction of $\\nabla f$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eIn other words: the gradient points in the direction of fastest increase, and its magnitude is the maximum rate of increase.\u003c/div\u003e\n  \u003c/div\u003e",
+"b120": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eStanding on a hillside, the gradient points to the \u003cstrong\u003esteepest uphill direction\u003c/strong\u003e\u003c/li\u003e\n    \u003cli\u003eThe magnitude of the gradient = the steepness in that direction\u003c/li\u003e\n    \u003cli\u003eThe negative gradient = the steepest downhill direction (the basis of gradient descent, widely used in machine learning)\u003c/li\u003e\n    \u003cli\u003eWalking along a level curve (perpendicular to the gradient) keeps the height unchanged\u003c/li\u003e\n  \u003c/ul\u003e",
+"b121": "  \u003cp\u003eThe normal vector of the level surface $F(x,y,z)=k$ at $P_0$ is $\\nabla F(P_0)$.\u003c/p\u003e\n  \u003cp\u003eTangent plane: $F_x(P_0)(x-x_0)+F_y(P_0)(y-y_0)+F_z(P_0)(z-z_0)=0$.\u003c/p\u003e\n  \u003cp\u003eNormal line: $\\frac{x-x_0}{F_x}=\\frac{y-y_0}{F_y}=\\frac{z-z_0}{F_z}$.\u003c/p\u003e",
+"b122": "  \u003cp\u003eTake any curve $\\mathbf{r}(t)$ through $P_0$ lying on the level surface $F=k$. Then $F(\\mathbf{r}(t))=k$. Differentiate both sides with respect to $t$: $\\nabla F\\cdot\\mathbf{r}'(t)=0$. So $\\nabla F$ is perpendicular to the tangent vector of every curve on the level surface — in other words, $\\nabla F$ is a normal vector of the level surface.\u003c/p\u003e",
+"b123": "Extrema tests for single-variable functions (find critical points via $f'(c)=0$, second derivative test), partial derivatives, and the gradient. Multivariable extrema are similar in spirit, but you must consider changes in all directions at once.",
+"b124": "$D = \\begin{vmatrix}f_{xx}&f_{xy}\\\\f_{yx}&f_{yy}\\end{vmatrix}$ (the determinant of the Hessian matrix). By Clairaut's theorem $f_{xy}=f_{yx}$.\n  \u003cp\u003e$D\u003e0$ means the two directions \"bend the same way\" (both concave up or both concave down) → extremum; $D\u003c0$ means \"one direction concave, the other convex\" → saddle point.\u003c/p\u003e",
+"b125": "Find the local extrema of $f(x,y)=x^4+y^4-4xy+1$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e\u003c/p\u003e\n  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003e$f_x=4x^3-4y=0\\Rightarrow y=x^3$; $f_y=4y^3-4x=0\\Rightarrow x=y^3$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eCombine: $x=(x^3)^3=x^9\\Rightarrow x(x^8-1)=0\\Rightarrow x=0,\\pm1$. Critical points: $(0,0),(1,1),(-1,-1)$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$f_{xx}=12x^2$, $f_{yy}=12y^2$, $f_{xy}=-4$. $D=144x^2y^2-16$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$(0,0)$: $D=-16\u003c0$ → saddle point.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$(1,1)$: $D=128\u003e0$, $f_{xx}=12\u003e0$ → local minimum $f(1,1)=-1$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$(-1,-1)$: $D=128\u003e0$, $f_{xx}=12\u003e0$ → local minimum $f(-1,-1)=-1$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b126": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eFind the critical points in the interior of $D$ and evaluate the function there.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eFind the extrema on the boundary of $D$ (substitute the boundary equation into $f$, reducing to a single-variable problem).\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eCompare all candidate values: the largest is the absolute maximum, the smallest is the absolute minimum.\u003c/div\u003e\n  \u003c/div\u003e",
+"b127": "The geometric meaning of the gradient (perpendicular to level curves/level surfaces), and the idea of constrained extrema. The method of Lagrange multipliers finds extrema \u003cstrong\u003eunder a constraint\u003c/strong\u003e without solving the constraint equation and substituting it in.",
+"b128": "  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eThe constraint $g(x,y)=k$ is a curve (a level curve). An extremum of $f$ occurs where a level curve of $f$ is \u003cstrong\u003etangent\u003c/strong\u003e to the constraint curve.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eIf they are not tangent, moving along the constraint curve would still increase or decrease $f$, so it would not be an extremum.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eTwo curves being tangent means they share a common tangent line, so their normal vectors are parallel.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003e$\\nabla f$ is perpendicular to the level curves of $f$; $\\nabla g$ is perpendicular to the constraint curve. When they are tangent, the two gradients are parallel: $\\nabla f=\\lambda\\nabla g$.\u003c/div\u003e\n  \u003c/div\u003e",
+"b129": "Find the extrema of $f(x,y)=x^2+2y^2$ subject to $x^2+y^2=1$.\n  \u003cp\u003e\u003cstrong\u003eSolution:\u003c/strong\u003e $\\nabla f=\\langle2x,4y\\rangle$, $\\nabla g=\\langle2x,2y\\rangle$.\u003c/p\u003e\n  \u003cp\u003e$\\nabla f=\\lambda\\nabla g$: $2x=2\\lambda x$, $4y=2\\lambda y$, $x^2+y^2=1$.\u003c/p\u003e\n  \u003cdiv class=\"steps\"\u003e\n    \u003cdiv class=\"step\"\u003eFrom the first equation: $2x(1-\\lambda)=0\\Rightarrow x=0$ or $\\lambda=1$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eIf $x=0$: $y^2=1\\Rightarrow y=\\pm1$, $f=2$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eIf $\\lambda=1$: substitute into the second equation, $4y=2y\\Rightarrow y=0$, so $x^2=1\\Rightarrow x=\\pm1$, $f=1$.\u003c/div\u003e\n    \u003cdiv class=\"step\"\u003eCompare: the maximum is 2 (at $(0,\\pm1)$), the minimum is 1 (at $(\\pm1,0)$).\u003c/div\u003e\n  \u003c/div\u003e",
+"b130": "$\\lambda$ approximately equals the marginal change of the extremal value of the objective function with respect to the constraint. In economics, $\\lambda$ can be interpreted as a \"shadow price\" — how much the optimal value increases when the constraint is relaxed by one unit.",
+"b131": "  \u003cul style=\"margin-left:20px\"\u003e\n    \u003cli\u003eIt only finds points satisfying $\\nabla f=\\lambda\\nabla g$; you still have to verify which are maxima or minima\u003c/li\u003e\n    \u003cli\u003eIf $\\nabla g=\\mathbf{0}$, the method fails (check that case separately)\u003c/li\u003e\n    \u003cli\u003eThe system of equations can be nonlinear and hard to solve\u003c/li\u003e\n    \u003cli\u003eThe candidate points must be compared by function value to decide max vs min\u003c/li\u003e\n  \u003c/ul\u003e",
+"b132": "\u003cp\u003e\u003cstrong\u003eVectors and the Geometry of Space\u003c/strong\u003e\u003c/p\u003e",
+"b133": "This chapter is the foundation of multivariable calculus. We extend from the 2D plane to 3D space and introduce vectors as the core tool. Vectors are not only the language for the later chapters (vector-valued functions, partial derivatives), but also the common language of physics, engineering, and computer graphics.",
+"b134": "In the plane we locate a point with two perpendicular axes (x and y). In 3D space we need a \u003cstrong\u003ethird axis\u003c/strong\u003e — the z-axis — perpendicular to both the x- and y-axes.",
+"b135": "Curl the four fingers of your right hand from the positive x-axis toward the positive y-axis; your thumb points in the positive z-direction. This is the \u003cstrong\u003eright-handed coordinate system\u003c/strong\u003e. If you use your left hand and get the opposite z-direction, that is a left-handed system. Mathematics and physics consistently use right-handed coordinates.",
+"b136": "The three coordinate planes (xy, yz, xz) divide space into eight \u003cstrong\u003eoctants\u003c/strong\u003e. In the first octant $x\u003e0, y\u003e0, z\u003e0$, analogous to the first quadrant in 2D.",
+"b137": "The equation $x=0$ represents the yz-plane (all points whose x-coordinate is 0). $x=3$ represents a plane parallel to the yz-plane with x-intercept 3.",
+"b138": "A vector is a quantity with both \u003cstrong\u003emagnitude\u003c/strong\u003e and \u003cstrong\u003edirection\u003c/strong\u003e. Geometrically it is drawn as an arrow (a directed line segment): the arrow length is the magnitude, and the arrow's direction is the direction. Denoted $\\mathbf{v}$ or $\\vec{v}$.",
+"b139": "\u003cp\u003e\u003cstrong\u003eKey concept — equivalent vectors:\u003c/strong\u003e two vectors are \u003cstrong\u003eequal\u003c/strong\u003e whenever they have the same magnitude and the same direction, no matter where their starting points are. This means vectors can be translated freely in space. $\\vec{AB} = \\vec{CD}$ if and only if they have the same length and are parallel pointing the same way.\u003c/p\u003e",
+"b140": "\u003cp\u003e\u003cstrong\u003eThe zero vector $\\mathbf{0}$:\u003c/strong\u003e the vector of length 0, with no particular direction.\u003c/p\u003e",
+"b141": "\u003cp\u003ePlace the initial point of $\\mathbf{v}$ at the terminal point of $\\mathbf{u}$; then $\\mathbf{u}+\\mathbf{v}$ is the vector from the initial point of $\\mathbf{u}$ to the terminal point of $\\mathbf{v}$.\u003c/p\u003e",
+"b142": "\u003cp\u003ePut the initial points of $\\mathbf{u}$ and $\\mathbf{v}$ together and form a parallelogram with them as adjacent sides; then $\\mathbf{u}+\\mathbf{v}$ is the diagonal vector starting from the common initial point.\u003c/p\u003e",
+"b143": "\u003cp\u003eMultiplying a vector $\\mathbf{v}$ by a scalar $c$ gives a new vector $c\\mathbf{v}$:\u003c/p\u003e",
+"b144": "\u003cp\u003e\u003cstrong\u003eVector subtraction:\u003c/strong\u003e $\\mathbf{u}-\\mathbf{v} = \\mathbf{u} + (-\\mathbf{v})$. Geometrically, if $\\mathbf{u}$ and $\\mathbf{v}$ share the same initial point, $\\mathbf{u}-\\mathbf{v}$ is the vector from the terminal point of $\\mathbf{v}$ to the terminal point of $\\mathbf{u}$.\u003c/p\u003e",
+"b145": "\u003cp\u003eMove the initial point of the vector to the origin; the coordinates $(a_1,a_2,a_3)$ of its terminal point are the vector's \u003cstrong\u003ecomponents\u003c/strong\u003e, written as:\u003c/p\u003e",
+"b146": "\u003cp\u003ewhere $\\mathbf{i}=\\langle1,0,0\\rangle$, $\\mathbf{j}=\\langle0,1,0\\rangle$, $\\mathbf{k}=\\langle0,0,1\\rangle$ are the \u003cstrong\u003estandard basis vectors\u003c/strong\u003e, pointing along the positive x-, y-, and z-axes respectively, each of length 1.\u003c/p\u003e",
+"b147": "\u003cp\u003eA vector of length 1. The unit vector in the direction of a nonzero vector $\\mathbf{a}$ is\n  $$\\mathbf{u} = \\frac{\\mathbf{a}}{|\\mathbf{a}|}$$\n  This operation is called \"normalizing\".\u003c/p\u003e",
+"b148": "\u003cp\u003eGiven points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$, the vector $\\vec{AB}$ (from A to B) is:\u003c/p\u003e",
+"b149": "\u003cp\u003eLet $\\mathbf{a}=\\langle a_1,a_2,a_3\\rangle$ and $\\mathbf{b}=\\langle b_1,b_2,b_3\\rangle$. Then\n  $$\\mathbf{a}\\cdot\\mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3$$\n  That is, \u003cstrong\u003emultiply corresponding components and add them up\u003c/strong\u003e. The result is a scalar.\u003c/p\u003e",
+"b150": "\u003cp\u003eLet $\\theta$ be the angle between $\\mathbf{a}$ and $\\mathbf{b}$ ($0\\leq\\theta\\leq\\pi$). Then\n  $$\\mathbf{a}\\cdot\\mathbf{b} = |\\mathbf{a}||\\mathbf{b}|\\cos\\theta$$\u003c/p\u003e",
+"b151": "\u003cp\u003eTwo nonzero vectors $\\mathbf{a}$ and $\\mathbf{b}$ are \u003cstrong\u003eorthogonal (perpendicular)\u003c/strong\u003e if and only if $\\mathbf{a}\\cdot\\mathbf{b}=0$.\u003c/p\u003e",
+"b152": "\u003cp\u003eProof: $\\mathbf{a}\\cdot\\mathbf{b}=|\\mathbf{a}||\\mathbf{b}|\\cos\\theta=0$; since $|\\mathbf{a}|,|\\mathbf{b}|\\neq0$, we get $\\cos\\theta=0$, i.e., $\\theta=\\pi/2$.\u003c/p\u003e",
+"b153": "\u003cp\u003eThe angles $\\alpha,\\beta,\\gamma$ between a vector $\\mathbf{a}$ and the positive x-, y-, z-axes are called \u003cstrong\u003edirection angles\u003c/strong\u003e, and their cosines $\\cos\\alpha,\\cos\\beta,\\cos\\gamma$ are called \u003cstrong\u003edirection cosines\u003c/strong\u003e.\u003c/p\u003e",
+"b154": "\u003cp\u003eThis is one of the most important applications of the dot product. Imagine sunlight shining straight down: the \"shadow\" of vector $\\mathbf{a}$ in the direction of $\\mathbf{b}$ is the projection.\u003c/p\u003e",
+"b155": "\u003cp\u003eThe scalar projection of $\\mathbf{a}$ onto $\\mathbf{b}$ (the signed length of the shadow):\n  $$\\text{comp}_{\\mathbf{b}}\\mathbf{a} = \\frac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{b}|} = |\\mathbf{a}|\\cos\\theta$$\u003c/p\u003e",
+"b156": "\u003cp\u003eThe vector projection of $\\mathbf{a}$ onto $\\mathbf{b}$ (the shadow itself, a vector):\n  $$\\text{proj}_{\\mathbf{b}}\\mathbf{a} = \\left(\\frac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{b}|^2}\\right)\\mathbf{b} = \\left(\\frac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{b}|}\\right)\\frac{\\mathbf{b}}{|\\mathbf{b}|}$$\u003c/p\u003e",
+"b157": "\u003cp\u003eLet $\\mathbf{a}=\\langle a_1,a_2,a_3\\rangle$ and $\\mathbf{b}=\\langle b_1,b_2,b_3\\rangle$. Then\n  $$\\mathbf{a}\\times\\mathbf{b} = \\langle a_2b_3-a_3b_2,\\; a_3b_1-a_1b_3,\\; a_1b_2-a_2b_1\\rangle$$\u003c/p\u003e",
+"b158": "\u003cp\u003eTo make it easier to remember, use the \u003cstrong\u003edeterminant\u003c/strong\u003e form:\u003c/p\u003e",
+"b159": "\u003cp\u003e$\\mathbf{a}\\times\\mathbf{b}$ is perpendicular to both $\\mathbf{a}$ and $\\mathbf{b}$.\u003c/p\u003e",
+"b160": "\u003cp\u003eLet $\\theta$ be the angle between $\\mathbf{a}$ and $\\mathbf{b}$. Then\n  $$|\\mathbf{a}\\times\\mathbf{b}| = |\\mathbf{a}||\\mathbf{b}|\\sin\\theta$$\u003c/p\u003e",
+"b161": "\u003cp\u003eThe direction of $\\mathbf{a}\\times\\mathbf{b}$ is determined by the \u003cstrong\u003eright-hand rule\u003c/strong\u003e: curl the fingers of your right hand from $\\mathbf{a}$ toward $\\mathbf{b}$ (through the angle smaller than $\\pi$); your thumb points in the direction of $\\mathbf{a}\\times\\mathbf{b}$.\u003c/p\u003e",
+"b162": "\u003cp\u003e\u003cstrong\u003eCross products of the standard basis vectors:\u003c/strong\u003e\u003c/p\u003e",
+"b163": "\u003cp\u003e$\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c})$ is called the scalar triple product; the result is a scalar. It can be computed with a determinant:\n  $$\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c}) = \\begin{vmatrix} a_1&a_2&a_3\\\\b_1&b_2&b_3\\\\c_1&c_2&c_3 \\end{vmatrix}$$\u003c/p\u003e",
+"b164": "\u003cp\u003eThree vectors $\\mathbf{a},\\mathbf{b},\\mathbf{c}$ are \u003cstrong\u003ecoplanar\u003c/strong\u003e (lie in the same plane) if and only if $\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c})=0$.\u003c/p\u003e",
+"b165": "\u003cp\u003eBecause when they are coplanar, the volume of the parallelepiped is 0.\u003c/p\u003e",
+"b166": "\u003cp\u003eIf a force $\\mathbf{F}$ acts at a point with position vector $\\mathbf{r}$, the torque about the origin is:\n$$\\boldsymbol{\\tau} = \\mathbf{r}\\times\\mathbf{F}$$\nThe magnitude $|\\boldsymbol{\\tau}|=|\\mathbf{r}||\\mathbf{F}|\\sin\\theta$ describes how strongly the force makes the object rotate about the origin, and its direction is given by the right-hand rule (the axis of rotation).\u003c/p\u003e",
+"b167": "\u003cp\u003eA line is uniquely determined by \u003cstrong\u003eone point\u003c/strong\u003e and \u003cstrong\u003eone direction vector\u003c/strong\u003e.\u003c/p\u003e",
+"b168": "\u003cp\u003eA plane is uniquely determined by \u003cstrong\u003eone point\u003c/strong\u003e and one \u003cstrong\u003enormal vector\u003c/strong\u003e. The normal vector is a vector perpendicular to the plane.\u003c/p\u003e",
+"b169": "\u003cp\u003eThe angle between two planes equals the angle between their normal vectors (or its supplement; take the acute one):\u003c/p\u003e",
+"b170": "\u003cp\u003eTwo planes are \u003cstrong\u003eparallel\u003c/strong\u003e if and only if their normal vectors are parallel ($\\mathbf{n}_1\\times\\mathbf{n}_2=\\mathbf{0}$).\u003c/p\u003e",
+"b171": "\u003cp\u003eTwo planes are \u003cstrong\u003eperpendicular\u003c/strong\u003e if and only if their normal vectors are perpendicular ($\\mathbf{n}_1\\cdot\\mathbf{n}_2=0$).\u003c/p\u003e",
+"b172": "\u003cp\u003eTwo lines that are neither parallel nor intersecting are called \u003cstrong\u003eskew lines\u003c/strong\u003e. The distance between them is the length of the common perpendicular segment.\u003c/p\u003e",
+"b173": "\u003cp\u003eUnderstanding: $\\mathbf{v}_1\\times\\mathbf{v}_2$ is perpendicular to the directions of both lines, and the projection of $\\vec{P_1P_2}$ onto this direction is the shortest distance between the two lines.\u003c/p\u003e",
+"b174": "\u003cp\u003eA surface formed by moving a line (the \u003cstrong\u003egeneratrix\u003c/strong\u003e) parallel to itself along a curve (the \u003cstrong\u003edirectrix\u003c/strong\u003e). In our course, the equation of a cylinder \u003cstrong\u003emisses one variable\u003c/strong\u003e.\u003c/p\u003e",
+"b175": "\u003cp\u003eA quadric surface is a surface given by a second-degree equation in three variables $Ax^2+By^2+Cz^2+Dxy+Exz+Fyz+Gx+Hy+Iz+J=0$. By translation and rotation it can be reduced to six standard forms.\u003c/p\u003e",
+"b176": "\u003cp\u003e\u003cstrong\u003eVector Functions\u003c/strong\u003e\u003c/p\u003e",
+"b177": "\u003cp style=\"color:var(--text2);margin-top:8px\"\u003eThis chapter combines the vectors of Chapter 12 with calculus (derivatives, integrals). Vector functions describe moving objects in space and are the mathematical language of kinematics in physics. We will learn how to differentiate and integrate vector functions, and the important concepts that follow: arc length, curvature, velocity and acceleration.\u003c/p\u003e",
+"b178": "\u003cp\u003eThe domain of a vector function $\\mathbf{r}(t)$ is a subset of the real numbers, and its range is a set of vectors. It is usually written:\n  $$\\mathbf{r}(t) = \\langle f(t),\\, g(t),\\, h(t)\\rangle = f(t)\\mathbf{i} + g(t)\\mathbf{j} + h(t)\\mathbf{k}$$\n  where $f(t),g(t),h(t)$ are called \u003cstrong\u003ecomponent functions\u003c/strong\u003e, ordinary real-valued functions.\u003c/p\u003e",
+"b179": "\u003cp\u003eThe \u003cstrong\u003edomain\u003c/strong\u003e of a vector function is the intersection of the domains of all its component functions.\u003c/p\u003e",
+"b180": "\u003cp\u003e\u003cstrong\u003eContinuity:\u003c/strong\u003e $\\mathbf{r}(t)$ is continuous at $a$ if and only if $\\lim_{t\\to a}\\mathbf{r}(t)=\\mathbf{r}(a)$, which is equivalent to all three component functions being continuous at $a$.\u003c/p\u003e",
+"b181": "\u003cp\u003eAs $t$ varies, the terminal point of the vector function $\\mathbf{r}(t)$ traces out a space curve $C$. The corresponding parametric equations are:\u003c/p\u003e",
+"b182": "\u003cp\u003eThe line segment connecting $P_0$ (position vector $\\mathbf{r}_0$) and $P_1$ (position vector $\\mathbf{r}_1$):\u003c/p\u003e",
+"b183": "\u003cp\u003eAt $t=0$ we are at $P_0$; at $t=1$ we are at $P_1$; for $t$ in between we are on the segment. This is the \"finite-interval version\" of the parametric equation of a line from Chapter 12.\u003c/p\u003e",
+"b184": "\u003cp\u003e$\\mathbf{r}'(t) = \\lim_{h\\to 0}\\frac{\\mathbf{r}(t+h)-\\mathbf{r}(t)}{h}$, if the limit exists.\u003c/p\u003e",
+"b185": "\u003cp\u003eIf $\\mathbf{r}(t)=\\langle f(t),g(t),h(t)\\rangle$ and $f,g,h$ are differentiable, then\n  $$\\mathbf{r}'(t) = \\langle f'(t),\\,g'(t),\\,h'(t)\\rangle$$\n  That is, \u003cstrong\u003edifferentiate each component separately\u003c/strong\u003e.\u003c/p\u003e",
+"b186": "\u003cp\u003e$\\mathbf{r}'(t)$ is called the \u003cstrong\u003etangent vector\u003c/strong\u003e; it points in the direction of the tangent line to the curve at $\\mathbf{r}(t)$.\u003c/p\u003e",
+"b187": "\u003cp\u003eSuppose $\\mathbf{u}(t),\\mathbf{v}(t)$ are differentiable, $c$ is a scalar, and $f(t)$ is a real-valued function:\u003c/p\u003e",
+"b188": "\u003cp\u003eIf $|\\mathbf{r}(t)|=c$ (a constant) for all $t$, then $\\mathbf{r}(t)\\cdot\\mathbf{r}'(t)=0$ — a \u003cstrong\u003evector of constant length is perpendicular to its derivative\u003c/strong\u003e.\u003c/p\u003e",
+"b189": "\u003cp\u003eThe arc length from the starting point $t=a$ to the current time $t$:\n  $$s(t) = \\int_a^t |\\mathbf{r}'(u)|\\,du$$\n  By the Fundamental Theorem of Calculus, $\\frac{ds}{dt}=|\\mathbf{r}'(t)|$.\u003c/p\u003e",
+"b190": "\u003cp\u003eThe curvature $\\kappa$ measures how sharply a curve bends, defined as \u003cstrong\u003ethe rate of change of the unit tangent vector with respect to arc length\u003c/strong\u003e:\n  $$\\kappa = \\left|\\frac{d\\mathbf{T}}{ds}\\right|$$\n  where $\\mathbf{T}$ is the unit tangent vector and $s$ is arc length.\u003c/p\u003e",
+"b191": "\u003cp\u003eThe torsion $\\tau$ measures how much the curve deviates from a plane (\"twisting\"):\n$$\\tau = -\\frac{d\\mathbf{B}}{ds}\\cdot\\mathbf{N} = \\frac{(\\mathbf{r}'\\times\\mathbf{r}'')\\cdot\\mathbf{r}'''}{|\\mathbf{r}'\\times\\mathbf{r}''|^2}$$\nA planar curve has torsion 0 (because $\\mathbf{B}$ is constant, not changing with $s$).\u003c/p\u003e",
+"b192": "\u003cp\u003eThe acceleration can be decomposed into two components: one along the direction of velocity (tangential) and one perpendicular to the velocity (normal):\u003c/p\u003e",
+"b193": "\u003cp\u003e\u003cstrong\u003ePartial Derivatives\u003c/strong\u003e\u003c/p\u003e",
+"b194": "\u003cp style=\"color:var(--text2);margin-top:8px\"\u003eThis chapter is the heart of multivariable calculus. We generalize derivatives, limits, the chain rule, and extrema from single-variable calculus to functions of several variables. Partial derivatives are the foundation of multiple integrals (Chapter 15) and vector calculus (Chapter 16), and the mathematical tool for optimization problems in economics, physics, and machine learning.\u003c/p\u003e",
+"b195": "\u003cp\u003eA function $f$ of two variables is a rule that assigns to each ordered pair $(x,y)$ in its domain $D$ a unique real number $f(x,y)$. The domain $D\\subseteq\\mathbb{R}^2$; the range is the set of all values $f(x,y)$ takes.\u003c/p\u003e",
+"b196": "\u003cp\u003eThe graph of a function of two variables $z=f(x,y)$ is a \u003cstrong\u003esurface\u003c/strong\u003e in space, made of all points $(x,y,f(x,y))$. This contrasts with the graph of a one-variable function $y=f(x)$, which is a plane curve.\u003c/p\u003e",
+"b197": "\u003cp\u003eThe level curves of $f(x,y)$ are the curves given by $f(x,y)=k$ (with $k$ a constant in the range). A level curve is the projection onto the xy-plane of the intersection of the surface $z=f(x,y)$ with the horizontal plane $z=k$.\u003c/p\u003e",
+"b198": "\u003cp\u003eThe graph of a three-variable function $w=f(x,y,z)$ cannot be drawn directly (it would need 4D space), but it can be understood through \u003cstrong\u003elevel surfaces\u003c/strong\u003e $f(x,y,z)=k$. For example, the level surfaces of $f(x,y,z)=x^2+y^2+z^2$ are concentric spheres.\u003c/p\u003e",
+"b199": "\u003cp\u003e$\\lim_{(x,y)\\to(a,b)}f(x,y)=L$ means: for every $\\epsilon\u003e0$ there exists a $\\delta\u003e0$ such that whenever $0\u003c\\sqrt{(x-a)^2+(y-b)^2}\u003c\\delta$, we have $|f(x,y)-L|\u003c\\epsilon$.\u003c/p\u003e",
+"b200": "\u003cp\u003eJust as for one-variable functions: the limit of a sum, difference, product, or quotient (with nonzero denominator) equals the corresponding combination of the limits. The Squeeze Theorem also applies.\u003c/p\u003e",
+"b201": "\u003cp\u003eA function $f$ of two variables is continuous at $(a,b)$ if $\\lim_{(x,y)\\to(a,b)}f(x,y)=f(a,b)$. If $f$ is continuous at every point of its domain, it is called a continuous function.\u003c/p\u003e",
+"b202": "\u003cp\u003ePolynomials, rational functions (where the denominator is nonzero), trig functions, exponential functions, and logarithms are continuous. Compositions of continuous functions are also continuous.\u003c/p\u003e",
+"b203": "\u003cp\u003eThe partial derivative of $f$ with respect to $x$:\n  $$f_x(x,y) = \\lim_{h\\to0}\\frac{f(x+h,y)-f(x,y)}{h}$$\n  The partial derivative of $f$ with respect to $y$:\n  $$f_y(x,y) = \\lim_{h\\to0}\\frac{f(x,y+h)-f(x,y)}{h}$$\u003c/p\u003e",
+"b204": "\u003cp\u003e$f_x(a,b)$ is the \u003cstrong\u003eslope of the tangent line\u003c/strong\u003e at $(a,b,f(a,b))$ to the curve cut from the surface $z=f(x,y)$ by the plane $y=b$ (the slope in the x-direction).\u003c/p\u003e",
+"b205": "\u003cp\u003e$f_y(a,b)$ is the slope of the tangent line to the curve cut by the plane $x=a$ at that point (the slope in the y-direction).\u003c/p\u003e",
+"b206": "\u003cp\u003eTaking partial derivatives of partial derivatives gives second partial derivatives:\u003c/p\u003e",
+"b207": "\u003cp\u003eIf $f_{xy}$ and $f_{yx}$ are continuous on a disk containing $(a,b)$, then $f_{xy}(a,b)=f_{yx}(a,b)$.\u003c/p\u003e",
+"b208": "\u003cp\u003eThat is, \u003cstrong\u003emixed partial derivatives are independent of the order of differentiation\u003c/strong\u003e (when they are continuous).\u003c/p\u003e",
+"b209": "\u003cp\u003ePartial derivatives are used in physics to describe partial differential equations. Two classic examples:\u003c/p\u003e",
+"b210": "\u003cp\u003e$z=f(x,y)$ is differentiable at $(a,b)$ if the increment $\\Delta z$ can be written as\n  $$\\Delta z = f_x(a,b)\\Delta x + f_y(a,b)\\Delta y + \\varepsilon_1\\Delta x + \\varepsilon_2\\Delta y$$\n  where $\\varepsilon_1,\\varepsilon_2\\to0$ as $(\\Delta x,\\Delta y)\\to(0,0)$.\u003c/p\u003e",
+"b211": "\u003cp\u003eIf $f_x$ and $f_y$ exist near $(a,b)$ and are continuous at $(a,b)$, then $f$ is differentiable at $(a,b)$.\u003c/p\u003e",
+"b212": "\u003cp\u003eSuppose $z=f(x,y)$ is differentiable and $x=g(t)$, $y=h(t)$ are differentiable. Then\n  $$\\frac{dz}{dt} = \\frac{\\partial z}{\\partial x}\\frac{dx}{dt} + \\frac{\\partial z}{\\partial y}\\frac{dy}{dt}$$\u003c/p\u003e",
+"b213": "\u003cp\u003eSuppose $z=f(x,y)$ is differentiable and $x=g(s,t)$, $y=h(s,t)$ have partial derivatives. Then\n  $$\\frac{\\partial z}{\\partial s} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s}$$\n  $$\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}$$\u003c/p\u003e",
+"b214": "\u003cp\u003eSuppose $u$ is a differentiable function of $n$ variables $x_1,\\ldots,x_n$, and each $x_j$ is a differentiable function of $m$ variables $t_1,\\ldots,t_m$. Then\n  $$\\frac{\\partial u}{\\partial t_i} = \\sum_{j=1}^n \\frac{\\partial u}{\\partial x_j}\\frac{\\partial x_j}{\\partial t_i} \\quad (i=1,\\ldots,m)$$\u003c/p\u003e",
+"b215": "\u003cp\u003eSuppose $F(x,y)=0$ defines $y$ as a function of $x$, and $F_y\\neq0$. Then\n  $$\\frac{dy}{dx} = -\\frac{F_x}{F_y}$$\u003c/p\u003e",
+"b216": "\u003cp\u003eSuppose $F(x,y,z)=0$ defines $z$ as a function of $x$ and $y$, and $F_z\\neq0$. Then\n  $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z},\\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$\u003c/p\u003e",
+"b217": "\u003cp\u003eThe directional derivative of $f$ at $(x_0,y_0)$ in the direction of the unit vector $\\mathbf{u}=\\langle a,b\\rangle$ is\n  $$D_{\\mathbf{u}}f(x_0,y_0) = \\lim_{h\\to0}\\frac{f(x_0+ha,\\,y_0+hb)-f(x_0,y_0)}{h}$$\u003c/p\u003e",
+"b218": "\u003cp\u003eIf $f$ is differentiable, then for any unit vector $\\mathbf{u}=\\langle a,b\\rangle$,\n  $$D_{\\mathbf{u}}f(x,y) = f_x(x,y)\\,a + f_y(x,y)\\,b$$\u003c/p\u003e",
+"b219": "\u003cp\u003eThe gradient vector of a function $f(x,y)$ of two variables is\n  $$\\nabla f(x,y) = \\langle f_x(x,y),\\, f_y(x,y)\\rangle = \\frac{\\partial f}{\\partial x}\\mathbf{i}+\\frac{\\partial f}{\\partial y}\\mathbf{j}$$\n  For three variables: $\\nabla f(x,y,z)=\\langle f_x,f_y,f_z\\rangle$.\u003c/p\u003e",
+"b220": "\u003cp\u003eSuppose $f$ is differentiable. Then:\u003c/p\u003e",
+"b221": "\u003cp\u003e$f$ has a \u003cstrong\u003elocal maximum\u003c/strong\u003e at $(a,b)$ if $f(x,y)\\leq f(a,b)$ when $(x,y)$ is close to $(a,b)$.\u003cbr\u003e\n  $f$ has a \u003cstrong\u003elocal minimum\u003c/strong\u003e at $(a,b)$ if $f(x,y)\\geq f(a,b)$ when $(x,y)$ is close to $(a,b)$.\u003c/p\u003e",
+"b222": "\u003cp\u003eIf $f$ has a local extremum at $(a,b)$ and the first partial derivatives exist there, then $f_x(a,b)=0$ and $f_y(a,b)=0$, i.e., $\\nabla f(a,b)=\\mathbf{0}$.\u003c/p\u003e",
+"b223": "\u003cp\u003ePoints satisfying $\\nabla f(a,b)=\\mathbf{0}$ (i.e., $f_x=f_y=0$), or points where at least one partial derivative does not exist.\u003c/p\u003e",
+"b224": "\u003cp\u003eLocal extrema must occur at critical points, but a critical point need not be an extremum (it may be a saddle point).\u003c/p\u003e",
+"b225": "\u003cp\u003eSuppose the second partial derivatives of $f$ are continuous on a disk centered at the critical point $(a,b)$, and $f_x(a,b)=f_y(a,b)=0$. Let\n  $$D = D(a,b) = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)]^2$$\n  Then:\u003c/p\u003e",
+"b226": "\u003cp\u003eIf $f$ is continuous on a closed bounded set $D$ in $\\mathbb{R}^2$, then $f$ attains an absolute maximum and an absolute minimum on $D$.\u003c/p\u003e",
+"b227": "\u003cp\u003eProblem: find the extrema of $f(x,y)$ subject to the constraint $g(x,y)=k$.\u003c/p\u003e",
+"b228": "\u003cp\u003eUnder the constraint $g(x,y)=k$, an extremum of $f$ satisfies\n  $$\\nabla f(x,y) = \\lambda\\,\\nabla g(x,y)$$\n  where $\\lambda$ is called the Lagrange multiplier.\u003c/p\u003e",
+"b229": "\u003cp\u003eThat is, solve the system: $f_x=\\lambda g_x$, $f_y=\\lambda g_y$, $g(x,y)=k$.\u003c/p\u003e",
+"b230": "\u003cp\u003eUnder the constraints $g(x,y,z)=k$ and $h(x,y,z)=c$, an extremum of $f$ satisfies\n  $$\\nabla f = \\lambda\\nabla g + \\mu\\nabla h$$\n  Solve five equations (three component equations plus two constraint equations) for the five unknowns $x,y,z,\\lambda,\\mu$.\u003c/p\u003e",
+"b231": "\u003cp\u003eThe Complete Guide to Multivariable Calculus · Stewart Calculus Chapters 12–14\u003c/p\u003e",
+"b232": "\u003cp\u003eCovers: Vectors and the Geometry of Space · Vector Functions · Partial Derivatives\u003c/p\u003e",
+"b233": "\u003cp style=\"margin-top:8px\"\u003eAll derivation steps filled in · Prerequisites marked · Suitable for students at an AP Calculus BC level-3 who want to learn from scratch\u003c/p\u003e",
+"b234": "\u003ch4\u003e1. Setting up the 3D coordinate system\u003c/h4\u003e",
+"b235": "\u003ch4\u003e2. Distance between two points in space\u003c/h4\u003e",
+"b236": "\u003ch4\u003e3. The equation of a sphere\u003c/h4\u003e",
+"b237": "\u003ch4\u003e4. Coordinate planes and parallel planes\u003c/h4\u003e",
+"b238": "\u003ch4\u003e1. What is a vector?\u003c/h4\u003e",
+"b239": "\u003ch4\u003e2. Vector addition\u003c/h4\u003e",
+"b240": "\u003ch4\u003e3. Scalar multiplication\u003c/h4\u003e",
+"b241": "\u003ch4\u003e4. Component form of a vector\u003c/h4\u003e",
+"b242": "\u003ch4\u003e5. Unit vectors\u003c/h4\u003e",
+"b243": "\u003ch4\u003e6. The vector determined by two points\u003c/h4\u003e",
+"b244": "\u003ch4\u003e7. Properties of vectors\u003c/h4\u003e",
+"b245": "\u003ch4\u003e1. Definition of the dot product\u003c/h4\u003e",
+"b246": "\u003ch4\u003e2. Geometric meaning of the dot product (most important!)\u003c/h4\u003e",
+"b247": "\u003ch4\u003e3. Test for perpendicularity\u003c/h4\u003e",
+"b248": "\u003ch4\u003e4. Properties of the dot product\u003c/h4\u003e",
+"b249": "\u003ch4\u003e5. Direction angles and direction cosines\u003c/h4\u003e",
+"b250": "\u003ch4\u003e6. Projections\u003c/h4\u003e",
+"b251": "\u003ch4\u003e7. Work\u003c/h4\u003e",
+"b252": "\u003ch4\u003e1. Definition of the cross product\u003c/h4\u003e",
+"b253": "\u003ch4\u003e2. Geometric meaning of the cross product\u003c/h4\u003e",
+"b254": "\u003ch4\u003e3. Direction by the right-hand rule\u003c/h4\u003e",
+"b255": "\u003ch4\u003e4. Properties of the cross product\u003c/h4\u003e",
+"b256": "\u003ch4\u003e5. Scalar triple product\u003c/h4\u003e",
+"b257": "\u003ch4\u003e6. Vector triple product\u003c/h4\u003e",
+"b258": "\u003ch4\u003e7. Torque\u003c/h4\u003e",
+"b259": "\u003ch4\u003e1. Vector equation of a line in space\u003c/h4\u003e",
+"b260": "\u003ch4\u003e2. Parametric and symmetric equations\u003c/h4\u003e",
+"b261": "\u003ch4\u003e3. Equations of planes\u003c/h4\u003e",
+"b262": "\u003ch4\u003e4. Angle between two planes\u003c/h4\u003e",
+"b263": "\u003ch4\u003e5. Distance from a point to a plane\u003c/h4\u003e",
+"b264": "\u003ch4\u003e6. Distance between skew lines\u003c/h4\u003e",
+"b265": "\u003ch4\u003e1. Cylinders\u003c/h4\u003e",
+"b266": "\u003ch4\u003e2. Quadric Surfaces\u003c/h4\u003e",
+"b267": "\u003ch4\u003e1. Definition of a vector function\u003c/h4\u003e",
+"b268": "\u003ch4\u003e2. Limits and continuity of vector functions\u003c/h4\u003e",
+"b269": "\u003ch4\u003e3. Space curves\u003c/h4\u003e",
+"b270": "\u003ch4\u003e4. Vector equation of a line segment\u003c/h4\u003e",
+"b271": "\u003ch4\u003e1. Derivatives of vector functions\u003c/h4\u003e",
+"b272": "\u003ch4\u003e2. Tangent vectors and tangent lines\u003c/h4\u003e",
+"b273": "\u003ch4\u003e3. Differentiation rules for vector functions\u003c/h4\u003e",
+"b274": "\u003ch4\u003e4. Integrals of vector functions\u003c/h4\u003e",
+"b275": "\u003ch4\u003e1. Arc length of a space curve\u003c/h4\u003e",
+"b276": "\u003ch4\u003e2. The arc length function\u003c/h4\u003e",
+"b277": "\u003ch4\u003e3. Curvature — the core of this section\u003c/h4\u003e",
+"b278": "\u003ch4\u003e4. Unit normal vector and binormal vector\u003c/h4\u003e",
+"b279": "\u003ch4\u003e5. Torsion\u003c/h4\u003e",
+"b280": "\u003ch4\u003e1. Velocity, acceleration, and speed\u003c/h4\u003e",
+"b281": "\u003ch4\u003e2. Projectile motion\u003c/h4\u003e",
+"b282": "\u003ch4\u003e3. Tangential and normal components of acceleration\u003c/h4\u003e",
+"b283": "\u003ch4\u003e4. Kepler's Laws\u003c/h4\u003e",
+"b284": "\u003ch4\u003e1. Definition of functions of two variables\u003c/h4\u003e",
+"b285": "\u003ch4\u003e2. Graphs of functions of two variables\u003c/h4\u003e",
+"b286": "\u003ch4\u003e3. Level curves\u003c/h4\u003e",
+"b287": "\u003ch4\u003e4. Functions of three or more variables\u003c/h4\u003e",
+"b288": "\u003ch4\u003e1. Limits of functions of two variables\u003c/h4\u003e",
+"b289": "\u003ch4\u003e2. Proving a limit does not exist\u003c/h4\u003e",
+"b290": "\u003ch4\u003e3. Properties of limits\u003c/h4\u003e",
+"b291": "\u003ch4\u003e4. Continuity\u003c/h4\u003e",
+"b292": "\u003ch4\u003e1. Definition of partial derivatives\u003c/h4\u003e",
+"b293": "\u003ch4\u003e2. Geometric meaning of partial derivatives\u003c/h4\u003e",
+"b294": "\u003ch4\u003e3. Higher-order partial derivatives\u003c/h4\u003e",
+"b295": "\u003ch4\u003e4. Partial differential equations (PDEs)\u003c/h4\u003e",
+"b296": "\u003ch4\u003e1. Tangent plane equation\u003c/h4\u003e",
+"b297": "\u003ch4\u003e2. Linear approximation\u003c/h4\u003e",
+"b298": "\u003ch4\u003e3. Differentiability\u003c/h4\u003e",
+"b299": "\u003ch4\u003e4. Differentials\u003c/h4\u003e",
+"b300": "\u003ch4\u003e1. Case 1: one independent variable\u003c/h4\u003e",
+"b301": "\u003ch4\u003e2. Case 2: two independent variables\u003c/h4\u003e",
+"b302": "\u003ch4\u003e3. The general case\u003c/h4\u003e",
+"b303": "\u003ch4\u003e4. Implicit differentiation\u003c/h4\u003e",
+"b304": "\u003ch4\u003e1. Directional derivatives\u003c/h4\u003e",
+"b305": "\u003ch4\u003e2. The gradient vector\u003c/h4\u003e",
+"b306": "\u003ch4\u003e3. Meaning of the gradient (most important!)\u003c/h4\u003e",
+"b307": "\u003ch4\u003e4. Tangent planes to level surfaces\u003c/h4\u003e",
+"b308": "\u003ch4\u003e1. Local extrema\u003c/h4\u003e",
+"b309": "\u003ch4\u003e2. The Second Derivatives Test\u003c/h4\u003e",
+"b310": "\u003ch4\u003e3. Absolute maxima and minima\u003c/h4\u003e",
+"b311": "\u003ch4\u003e1. The idea of the method\u003c/h4\u003e",
+"b312": "\u003ch4\u003e2. Two constraints\u003c/h4\u003e",
+"b313": "\u003cli\u003eMagnitude: $|c\\mathbf{v}| = |c| \\cdot |\\mathbf{v}|$\u003c/li\u003e",
+"b314": "\u003cli\u003eDirection: same direction as $\\mathbf{v}$ when $c\u003e0$; opposite direction when $c\u003c0$; the zero vector when $c=0$\u003c/li\u003e",
+"b315": "\u003cli\u003e\u003cstrong\u003eLaw of orbits:\u003c/strong\u003e planets move in elliptical orbits with the Sun at one focus.\u003c/li\u003e",
+"b316": "\u003cli\u003e\u003cstrong\u003eLaw of areas:\u003c/strong\u003e the line joining a planet to the Sun sweeps out equal areas in equal times.\u003c/li\u003e",
+"b317": "\u003cli\u003e\u003cstrong\u003eLaw of periods:\u003c/strong\u003e the square of the orbital period is proportional to the cube of the semi-major axis: $T^2\\propto a^3$.\u003c/li\u003e",
+"b318": "\u003cli\u003e\u003cstrong\u003eLaplace's equation:\u003c/strong\u003e$\\frac{\\partial^2 u}{\\partial x^2}+\\frac{\\partial^2 u}{\\partial y^2}=0$ (describes steady-state temperature, electrostatic potential, etc.)\u003c/li\u003e",
+"b319": "\u003cli\u003e\u003cstrong\u003eWave equation:\u003c/strong\u003e$\\frac{\\partial^2 u}{\\partial t^2}=a^2\\frac{\\partial^2 u}{\\partial x^2}$ (describes the propagation of waves)\u003c/li\u003e",
+"b320": "\u003cli\u003e\u003cstrong\u003eDirection:\u003c/strong\u003e$\\nabla f$ points in the direction of \u003cstrong\u003efastest increase\u003c/strong\u003e of $f$. $-\\nabla f$ points in the direction of fastest decrease.\u003c/li\u003e",
+"b321": "\u003cli\u003e\u003cstrong\u003eMagnitude:\u003c/strong\u003e$|\\nabla f|$ is the largest directional derivative value (the fastest rate of increase).\u003c/li\u003e",
+"b322": "\u003cli\u003e\u003cstrong\u003ePerpendicularity:\u003c/strong\u003e$\\nabla f$ is perpendicular to the level curve $f(x,y)=k$ (at that point).\u003c/li\u003e",
+};
+window.EN_LABELS = {
+"b003": "3D distance formula:",
+"b004": "Textbook gap filled: where does the distance formula come from?",
+"b005": "Equation of a sphere:",
+"b008": "Note the dimensional difference:",
+"b010": "Why can vectors be translated (moved freely)?",
+"b011": "Magnitude (length) of a vector:",
+"b012": "Component operations:",
+"b017": "Textbook gap filled: where does this formula come from?",
+"b018": "How to understand $\\cos\\theta$?",
+"b019": "Proof of distributivity (often skipped):",
+"b021": "Deriving the projection formulas:",
+"b026": "Determinant expansion (steps filled in):",
+"b030": "Geometric meaning of the magnitude of the cross product:",
+"b031": "The cross product is NOT commutative!",
+"b034": "Vector triple product formula (BAC-CAB rule):",
+"b037": "Why $\\mathbf{r}_0+t\\mathbf{v}$?",
+"b042": "Why is the dot product with the normal vector 0?",
+"b044": "Distance from a point to a plane:",
+"b045": "Textbook gap filled: deriving the distance formula",
+"b046": "Distance between skew lines:",
+"b048": "Key rule: whichever variable is missing from the equation, the generatrices are parallel to that axis.",
+"b050": "Method of traces:",
+"b056": "Example 1 (a line):",
+"b057": "Example 2 (helix):",
+"b062": "Watch the order when differentiating a cross product!",
+"b063": "Proof of the dot-product rule (often skipped):",
+"b069": "Generalizing from 2D to 3D:",
+"b071": "Why do we need the arc-length parameter?",
+"b073": "Practical formulas for curvature:",
+"b074": "Textbook gap filled: deriving the two formulas",
+"b076": "The TNB frame (Frenet frame):",
+"b080": "Textbook gap filled: complete derivation of projectile motion",
+"b084": "Deriving Kepler's Second Law (core):",
+"b088": "Intuition for level curves:",
+"b091": "The key difference from single-variable limits:",
+"b092": "Core method: find two different paths giving different limits.",
+"b104": "Derivation (textbook gap filled):",
+"b112": "Memory aid — the tree diagram method:",
+"b116": "Relation to partial derivatives:",
+"b119": "Why does the gradient point in the direction of fastest increase?",
+"b122": "Why is $\\nabla F$ a normal vector of the level surface?",
+"b124": "Remembering D:",
+"b126": "Steps for absolute extrema on a closed bounded set:",
+"b128": "Geometric intuition (why $\\nabla f=\\lambda\\nabla g$?)",
+"b130": "Meaning of $\\lambda$:",
+"b131": "Limitations of Lagrange multipliers:",
+};
+})();
+</script>
+<script>
+// ==== 知识点正文双语渲染（中文 / English 全文）====
+(function(){
+  // 若 EN_MAP 未定义则跳过（防错）
+  if (typeof window.EN_MAP === 'undefined') return;
+
+  function collectNodes(){
+    var main = document.getElementById('main');
+    return main ? main.querySelectorAll('[data-enk]') : [];
+  }
+
+  // box 的 label（第一个直接子元素 strong/b）
+  function boxLabel(box){
+    for (var i = 0; i < box.childNodes.length; i++){
+      var nd = box.childNodes[i];
+      if (nd.nodeType === 1 && (nd.tagName === 'STRONG' || nd.tagName === 'B')) return nd;
+    }
+    return null;
+  }
+
+  function boxBodyNodes(box){
+    var st = boxLabel(box);
+    var nodes = [];
+    var node = st ? st.nextSibling : box.firstChild;
+    while (node){ nodes.push(node); node = node.nextSibling; }
+    return nodes;
+  }
+
+  // 捕获中文原文（每个元素首次运行时保存，后续不再覆盖）
+  function captureZh(){
+    collectNodes().forEach(function(el){
+      if (el.getAttribute('data-zhhtml')) return;
+      if (el.getAttribute('data-box') === '1') {
+        var nodes = boxBodyNodes(el);
+        var tmp = document.createElement('div');
+        for (var i = 0; i < nodes.length; i++) tmp.appendChild(nodes[i].cloneNode(true));
+        el.setAttribute('data-zhhtml', tmp.innerHTML);
+        var st = boxLabel(el);
+        if (st) el.setAttribute('data-zhlabel', st.innerHTML);
+      } else {
+        el.setAttribute('data-zhhtml', el.innerHTML);
+      }
+    });
+  }
+
+  // 替换元素内容（box 只替换 label 之后的部分）
+  function setBody(el, html){
+    if (el.getAttribute('data-box') === '1') {
+      var st = boxLabel(el);
+      var node = st ? st.nextSibling : el.firstChild;
+      while (node){
+        var n = node.nextSibling;
+        node.parentNode.removeChild(node);
+        node = n;
+      }
+      var anchor = st || el;
+      anchor.insertAdjacentHTML('afterend', html);
+    } else {
+      el.innerHTML = html;
+    }
+  }
+
+  function applyBoxLabel(el, en){
+    if (el.getAttribute('data-box') !== '1') return;
+    var st = boxLabel(el);
+    if (!st) return;
+    var key = el.getAttribute('data-enk');
+    if (en) {
+      var lbl = window.EN_LABELS && window.EN_LABELS[key];
+      if (lbl) st.innerHTML = lbl;
+    } else {
+      var zh = el.getAttribute('data-zhlabel');
+      if (zh) st.innerHTML = zh;
+    }
+  }
+
+  window.__applyLangBodies = function(lang){
+    var en = lang === 'en';
+    collectNodes().forEach(function(el){
+      var key = el.getAttribute('data-enk');
+      var zh = el.getAttribute('data-zhhtml');
+      if (en) {
+        var enHtml = window.EN_MAP[key];
+        if (enHtml) setBody(el, enHtml);
+        applyBoxLabel(el, true);
+      } else {
+        if (zh) setBody(el, zh);
+        applyBoxLabel(el, false);
+      }
+    });
+    // 让 MathJax 渲染新出现的公式
+    if (window.MathJax && MathJax.typesetPromise){
+      try { MathJax.typesetPromise().catch(function(){}); } catch(e){}
+    }
+  };
+
+  function applySaved(){
+    var saved = null;
+    try { saved = localStorage.getItem('calc_guide_lang'); } catch(e){}
+    if (saved === 'en') window.__applyLangBodies('en');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ captureZh(); applySaved(); });
+  } else {
+    captureZh();
+    applySaved();
+  }
+})();
+
+</script>
+
+
+
 </body>
 </html>
